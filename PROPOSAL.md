@@ -31,3 +31,9 @@ How will you measure success? What's the input format, output format, scaffoldin
 ## Data Plan
 
 Where will your training data come from? Rough estimate of size. Do you plan to do SFT, RL, scaffolding improvements etc?
+
+Training data sources:
+1. Science Olympiad Fermi Questions — github.com/landy8697/open-scioly-fermi 
+2. RealFP / SynthFP (Kalyan et al., 2021) — allenai.org/data/fermi 
+~1k real + ~10k synthetic problems. Most are standard/single-domain, but we can filter for the harder ones that require chaining multiple sub-estimations. 
+
