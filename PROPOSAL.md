@@ -35,5 +35,11 @@ Where will your training data come from? Rough estimate of size. Do you plan to 
 Training data sources:
 1. Science Olympiad Fermi Questions — github.com/landy8697/open-scioly-fermi 
 2. RealFP / SynthFP (Kalyan et al., 2021) — allenai.org/data/fermi 
-~1k real + ~10k synthetic problems. Most are standard/single-domain, but we can filter for the harder ones that require chaining multiple sub-estimations. 
+~1k real + ~10k synthetic problems. Most are standard/single-domain, but we can filter for the harder ones that require chaining multiple sub-estimations.
+
+The second source contains more generic fermi question and not specifically those in the science-domain. We could conduct some filtering that'll check:
+1. whether two unrelated domains are being combined? maybe through some sort of keyword/topic tagging?
+2. checking whether the ground-truth solution chain contains at least one physical constant or scientific quantity.
+
+
 
