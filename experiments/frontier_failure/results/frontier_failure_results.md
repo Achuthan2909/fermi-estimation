@@ -21,13 +21,48 @@ A score of 1.0 = exact OoM match. Each order of magnitude off costs ~0.33 points
 
 ## Questions & Ground Truths
 
-| # | Question | Ground Truth | OoM |
-|---|---|---|---|
-| Q1 | Total gut bacteria division energy in lightning bolts | ~3.1 × 10^5 lightning bolts | 5 |
-| Q2 | Central Park photosynthesis → smartphone charges | ~2.4 × 10^6 charges | 6 |
-| Q3 | CO₂ mass above all tennis courts on Earth | ~1.3 × 10^9 kg | 9 |
-| Q4 | Wind turbine KE → Lake Zurich temperature rise | ~1.1 × 10^-3 °C | -3 |
-| Q5 | Piano key presses to heat a cup of coffee | ~4.7 × 10^6 key presses | 7 |
+### Q1
+> If every gut bacterium in every living human underwent one cell division simultaneously, estimate the total metabolic energy released, expressed as a number of average lightning bolts.
+
+**Ground truth:** ~3.1 × 10^5 lightning bolts (OoM 5)  
+**Reasoning chain:** [8×10^9 humans] × [3.8×10^13 bacteria/person] × [2×10^10 ATP/division] × [5.1×10^-20 J/ATP] ÷ [10^9 J/bolt]  
+**Domains:** Microbiology × Atmospheric physics
+
+---
+
+### Q2
+> If all the photosynthetic energy captured by the trees in Central Park, New York City, in one day were used to charge smartphones, how many full smartphone charges would that provide?
+
+**Ground truth:** ~2.4 × 10^6 charges (OoM 6)  
+**Reasoning chain:** [18,000 trees] × [50 m² canopy/tree] × [4 kWh/m²/day NYC insolation] × [1% photosynthetic efficiency] ÷ [54,000 J/charge]  
+**Domains:** Urban ecology × Consumer electronics
+
+---
+
+### Q3
+> Estimate the total mass in kilograms of atmospheric CO₂ sitting in the vertical column directly above the combined surface area of every tennis court on Earth.
+
+**Ground truth:** ~1.3 × 10^9 kg (OoM 9)  
+**Reasoning chain:** [~800,000 courts worldwide] × [261 m²/court] × [6.27 kg CO₂/m² column density]  
+**Domains:** Sports infrastructure × Atmospheric chemistry
+
+---
+
+### Q4
+> If you converted the total rotational kinetic energy of all currently spinning wind turbines on Earth into heat and used it to warm Lake Zurich, by how many degrees Celsius would the lake's temperature rise?
+
+**Ground truth:** ~1.1 × 10^-3 °C (OoM -3)  
+**Reasoning chain:** [400,000 turbines × 70% spinning] × [I = 5.4×10^7 kg·m²] × [ω = 1.57 rad/s]² × 0.5 ÷ [3.9×10^12 kg × 4186 J/kg/K]  
+**Domains:** Wind energy / rotational mechanics × Limnology / thermodynamics
+
+---
+
+### Q5
+> How many individual piano key presses would it take to generate enough acoustic energy to heat a standard cup of coffee (250 mL) from room temperature (20°C) to drinking temperature (65°C)?
+
+**Ground truth:** ~4.7 × 10^6 key presses (OoM 7)  
+**Reasoning chain:** [0.25 kg × 4186 J/kg/K × 45 K = 47,093 J needed] ÷ [~0.02 W acoustic power × 0.5 s = 0.01 J/press]  
+**Domains:** Acoustics × Thermodynamics
 
 ---
 
