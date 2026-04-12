@@ -10,6 +10,9 @@ Fermi Problems also known as Order-of-Magnitude (OoM) reasoning, involves estima
 
 We ran 5 novel cross-domain Fermi problems against three frontier models — GPT-5.4, Gemini 2.5 Flash, and Claude Opus 4.6 — using a single structured prompt (no tool use, no code execution). Problems were designed to combine two unrelated domains and force multi-step reasoning chains that are unlikely to appear verbatim in training data. Full prompts, raw model outputs, and scores are in [`experiments/frontier_failure/results/frontier_failure_results.md`](experiments/frontier_failure/results/frontier_failure_results.md).
 
+**Note:** For this specific case, the questions were initially drafted using Claude Opus to accelerate the data generation process. The calculations and technical aspects were subsequently verified independently to ensure accuracy.
+It is important to note that this approach was adopted solely for efficiency in this instance. As the project evolves, we may employ different methods for generating unique questions. Consequently, there may be some bias in the outcomes, particularly in relation to the model (Claude) performing better in this specific setup.
+
 **Scoring:** `fp_score = max(0, 1 − (1/3) × |log₁₀(predicted / actual)|)`. Score of 1.0 = exact order-of-magnitude match; 0.0 = off by ≥3 OoM.
 
 | Model | Q1 | Q2 | Q3 | Q4 | Q5 | Avg |
