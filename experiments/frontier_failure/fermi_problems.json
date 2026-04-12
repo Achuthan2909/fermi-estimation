@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "question": "If every gut bacterium in every living human underwent one cell division simultaneously, estimate the total metabolic energy released, expressed as a number of average lightning bolts.",
+    "chain": "[8e9 humans] x [3.8e13 bacteria/person] x [2e10 ATP per division] x [5.1e-20 J/ATP] = 3.1e14 J total, then divide by [1e9 J per lightning bolt]",
+    "ground_truth_value": 3.1e5,
+    "ground_truth_OoM": 5,
+    "ground_truth_unit": "lightning bolts"
+  },
+  {
+    "id": 2,
+    "question": "If all the photosynthetic energy captured by the trees in Central Park, New York City, in one day were used to charge smartphones, how many full smartphone charges would that provide?",
+    "chain": "[18,000 trees] x [50 m^2 canopy each] x [4 kWh/m^2/day NYC solar insolation = 1.44e7 J/m^2/day] x [1% photosynthetic efficiency] = 1.3e11 J, then divide by [5.4e4 J per phone battery (15 Wh)]",
+    "ground_truth_value": 2.4e6,
+    "ground_truth_OoM": 6,
+    "ground_truth_unit": "smartphone charges"
+  },
+  {
+    "id": 3,
+    "question": "Estimate the total mass in kilograms of atmospheric CO2 sitting in the vertical column directly above the combined surface area of every tennis court on Earth.",
+    "chain": "[~800,000 courts worldwide] x [261 m^2 per singles court] = 2.09e8 m^2 total, then [total atmospheric CO2 mass 3.2e15 kg] / [Earth surface 5.1e14 m^2] = 6.27 kg CO2/m^2 column density, multiply",
+    "ground_truth_value": 1.3e9,
+    "ground_truth_OoM": 9,
+    "ground_truth_unit": "kilograms"
+  },
+  {
+    "id": 4,
+    "question": "If you converted the total rotational kinetic energy of all currently spinning wind turbines on Earth into heat and used it to warm Lake Zurich, by how many degrees Celsius would the lake's temperature rise?",
+    "chain": "[400,000 turbines x 70% spinning = 280,000] x [I = 3 x (1/3) x 15000 kg x 60m^2 = 5.4e7 kg*m^2] x [omega = 15 RPM = 1.57 rad/s] -> KE = 0.5*I*w^2 = 6.7e7 J each -> total 1.87e13 J, then divide by [Lake Zurich 3.9e12 kg x 4186 J/kg/K]",
+    "ground_truth_value": 1.1e-3,
+    "ground_truth_OoM": -3,
+    "ground_truth_unit": "degrees Celsius"
+  },
+  {
+    "id": 5,
+    "question": "How many individual piano key presses would it take to generate enough acoustic energy to heat a standard cup of coffee (250 mL) from room temperature (20 C) to drinking temperature (65 C)?",
+    "chain": "[0.25 kg x 4186 J/kg/K x 45 K = 47,093 J needed] / [single forte key press ~ 0.02 W acoustic power x 0.5 s sustain = 0.01 J per press]",
+    "ground_truth_value": 4.7e6,
+    "ground_truth_OoM": 7,
+    "ground_truth_unit": "key presses"
+  }
+]
