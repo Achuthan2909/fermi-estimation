@@ -28,18 +28,24 @@ This forces the model to synthesize: [Number of Plants] → [Pond Volume] → [B
 
 How will you measure success? What's the input format, output format, scaffolding (e.g., tool use), and scoring method?
 
+For the input format, we will be following TELeR (TelAr) Taxonomy. This structured framework will allows us to scientifically standardize and categorize LLM prompts. A major problem in AI research, specifically in LLMs, is prompt inconsistency--the slight differences in the same question is asked can lead to drastically different outputs by the LLM. TelAr provides a standard language for us to benchmark the LLM and report how changes can help the model.
+
 ## Data Plan
 
 Where will your training data come from? Rough estimate of size. Do you plan to do SFT, RL, scaffolding improvements etc?
 
 Training data sources:
-1. Science Olympiad Fermi Questions — github.com/landy8697/open-scioly-fermi 
-2. RealFP / SynthFP (Kalyan et al., 2021) — allenai.org/data/fermi 
-~1k real + ~10k synthetic problems. Most are standard/single-domain, but we can filter for the harder ones that require chaining multiple sub-estimations.
+
+1. Science Olympiad Fermi Questions — github.com/landy8697/open-scioly-fermi
+2. RealFP / SynthFP (Kalyan et al., 2021) — allenai.org/data/fermi
+   ~1k real + ~10k synthetic problems. Most are standard/single-domain, but we can filter for the harder ones that require chaining multiple sub-estimations.
 
 The second source contains more generic fermi question and not specifically those in the science-domain. We could conduct some filtering that'll check:
+
 1. whether two unrelated domains are being combined? maybe through some sort of keyword/topic tagging?
 2. checking whether the ground-truth solution chain contains at least one physical constant or scientific quantity.
 
+#### References
 
-
+[Exploratory Study on Fermi Problems](https://arxiv.org/html/2504.02671v1)
+[TelAR: General Taxonomy of LLM prompts](https://arxiv.org/abs/2305.11430)
