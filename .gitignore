@@ -5,3 +5,15 @@ __pycache__/
 *.egg-info/
 dist/
 build/
+
+# Python virtual environments
+.venv/
+venv/
+
+# macOS
+.DS_Store
+
+# API keys / secrets
+.env*
+secrets.*
+

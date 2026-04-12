@@ -1,0 +1,330 @@
+{
+  "claude-opus-4_6": [
+    {
+      "id": 1,
+      "question": "If every gut bacterium in every living human underwent one cell division simulta...",
+      "ground_truth_OoM": 5,
+      "extraction": {
+        "value": 300000.0,
+        "method": "final_answer_tag",
+        "raw": "300,000 lightning bolts (approximately 3 \u00d7 10\u2075)"
+      },
+      "scoring": {
+        "score": 0.841,
+        "predicted_oom": 5.48,
+        "error_oom": 0.48,
+        "note": null
+      }
+    },
+    {
+      "id": 2,
+      "question": "If all the photosynthetic energy captured by the trees in Central Park, New York...",
+      "ground_truth_OoM": 6,
+      "extraction": {
+        "value": 5000000.0,
+        "method": "final_answer_tag",
+        "raw": "approximately 5,000,000 (5 million) smartphone charges"
+      },
+      "scoring": {
+        "score": 0.767,
+        "predicted_oom": 6.7,
+        "error_oom": 0.7,
+        "note": null
+      }
+    },
+    {
+      "id": 3,
+      "question": "Estimate the total mass in kilograms of atmospheric CO2 sitting in the vertical ...",
+      "ground_truth_OoM": 9,
+      "extraction": {
+        "value": 580000000.0,
+        "method": "final_answer_tag",
+        "raw": "580,000,000 kg (approximately 6 \u00d7 10\u2078 kg)"
+      },
+      "scoring": {
+        "score": 0.9211,
+        "predicted_oom": 8.76,
+        "error_oom": 0.24,
+        "note": null
+      }
+    },
+    {
+      "id": 4,
+      "question": "If you converted the total rotational kinetic energy of all currently spinning w...",
+      "ground_truth_OoM": -3,
+      "extraction": {
+        "value": 0.001,
+        "method": "final_answer_tag",
+        "raw": "0.001 \u00b0C"
+      },
+      "scoring": {
+        "score": 1.0,
+        "predicted_oom": -3.0,
+        "error_oom": 0.0,
+        "note": null
+      }
+    },
+    {
+      "id": 5,
+      "question": "How many individual piano key presses would it take to generate enough acoustic ...",
+      "ground_truth_OoM": 7,
+      "extraction": {
+        "value": 4700000.0,
+        "method": "final_answer_tag",
+        "raw": "4,700,000 piano key presses"
+      },
+      "scoring": {
+        "score": 0.8907,
+        "predicted_oom": 6.67,
+        "error_oom": 0.33,
+        "note": null
+      }
+    }
+  ],
+  "gemini-2_5-flash": [
+    {
+      "id": 1,
+      "question": "If every gut bacterium in every living human underwent one cell division simulta...",
+      "ground_truth_OoM": 5,
+      "extraction": {
+        "value": 6.0,
+        "method": "final_answer_tag",
+        "raw": "$6 \\times 10^6$ lightning bolts"
+      },
+      "scoring": {
+        "score": 0.0,
+        "predicted_oom": 0.78,
+        "error_oom": 4.22,
+        "note": null
+      }
+    },
+    {
+      "id": 2,
+      "question": "If all the photosynthetic energy captured by the trees in Central Park, New York...",
+      "ground_truth_OoM": 6,
+      "extraction": {
+        "value": 1600000.0,
+        "method": "final_answer_tag",
+        "raw": "1.6 x 10^6 charges"
+      },
+      "scoring": {
+        "score": 0.932,
+        "predicted_oom": 6.2,
+        "error_oom": 0.2,
+        "note": null
+      }
+    },
+    {
+      "id": 3,
+      "question": "Estimate the total mass in kilograms of atmospheric CO2 sitting in the vertical ...",
+      "ground_truth_OoM": 9,
+      "extraction": {
+        "value": 290000000.0,
+        "method": "final_answer_tag",
+        "raw": "2.9 x 10^8 kg"
+      },
+      "scoring": {
+        "score": 0.8208,
+        "predicted_oom": 8.46,
+        "error_oom": 0.54,
+        "note": null
+      }
+    },
+    {
+      "id": 4,
+      "question": "If you converted the total rotational kinetic energy of all currently spinning w...",
+      "ground_truth_OoM": -3,
+      "extraction": {
+        "value": 0.001,
+        "method": "final_answer_tag",
+        "raw": "0.001 \u00b0C"
+      },
+      "scoring": {
+        "score": 1.0,
+        "predicted_oom": -3.0,
+        "error_oom": 0.0,
+        "note": null
+      }
+    },
+    {
+      "id": 5,
+      "question": "How many individual piano key presses would it take to generate enough acoustic ...",
+      "ground_truth_OoM": 7,
+      "extraction": {
+        "value": 2000000.0,
+        "method": "final_answer_tag",
+        "raw": "2,000,000 presses"
+      },
+      "scoring": {
+        "score": 0.767,
+        "predicted_oom": 6.3,
+        "error_oom": 0.7,
+        "note": null
+      }
+    }
+  ],
+  "gpt-5_4": [
+    {
+      "id": 1,
+      "question": "If every gut bacterium in every living human underwent one cell division simulta...",
+      "ground_truth_OoM": 5,
+      "extraction": {
+        "value": 800.0,
+        "method": "final_answer_tag",
+        "raw": "800 lightning bolts"
+      },
+      "scoring": {
+        "score": 0.301,
+        "predicted_oom": 2.9,
+        "error_oom": 2.1,
+        "note": null
+      }
+    },
+    {
+      "id": 2,
+      "question": "If all the photosynthetic energy captured by the trees in Central Park, New York...",
+      "ground_truth_OoM": 6,
+      "extraction": {
+        "value": 3.0,
+        "method": "final_answer_tag",
+        "raw": "\\(3\\times 10^6\\) smartphone charges"
+      },
+      "scoring": {
+        "score": 0.0,
+        "predicted_oom": 0.48,
+        "error_oom": 5.52,
+        "note": null
+      }
+    },
+    {
+      "id": 3,
+      "question": "Estimate the total mass in kilograms of atmospheric CO2 sitting in the vertical ...",
+      "ground_truth_OoM": 9,
+      "extraction": {
+        "value": 8000000000.0,
+        "method": "final_answer_tag",
+        "raw": "8 \u00d7 10^9 kg"
+      },
+      "scoring": {
+        "score": 0.699,
+        "predicted_oom": 9.9,
+        "error_oom": 0.9,
+        "note": null
+      }
+    },
+    {
+      "id": 4,
+      "question": "If you converted the total rotational kinetic energy of all currently spinning w...",
+      "ground_truth_OoM": -3,
+      "extraction": {
+        "value": 0.002,
+        "method": "final_answer_tag",
+        "raw": "\\( \\mathbf{0.002\\ ^\\circ C} \\)"
+      },
+      "scoring": {
+        "score": 0.8997,
+        "predicted_oom": -2.7,
+        "error_oom": 0.3,
+        "note": null
+      }
+    },
+    {
+      "id": 5,
+      "question": "How many individual piano key presses would it take to generate enough acoustic ...",
+      "ground_truth_OoM": 7,
+      "extraction": {
+        "value": 5.0,
+        "method": "final_answer_tag",
+        "raw": "\\(5\\times 10^7\\) key presses"
+      },
+      "scoring": {
+        "score": 0.0,
+        "predicted_oom": 0.7,
+        "error_oom": 6.3,
+        "note": null
+      }
+    }
+  ],
+  "llama-4-maverick": [
+    {
+      "id": 1,
+      "question": "If every gut bacterium in every living human underwent one cell division simulta...",
+      "ground_truth_OoM": 5,
+      "extraction": {
+        "value": null,
+        "method": "error",
+        "raw": "ERROR: Error code: 404 - {'id': 'oetbepz-2kFHot-9eb549a598464ce8', 'error': {'message': 'Unable to a"
+      },
+      "scoring": {
+        "score": null,
+        "predicted_oom": null,
+        "error_oom": null,
+        "note": "extraction failed \u2014 no numerical answer found"
+      }
+    },
+    {
+      "id": 2,
+      "question": "If all the photosynthetic energy captured by the trees in Central Park, New York...",
+      "ground_truth_OoM": 6,
+      "extraction": {
+        "value": null,
+        "method": "error",
+        "raw": "ERROR: Error code: 404 - {'id': 'oetbfRM-2kFHot-9eb549b2a9559aaa', 'error': {'message': 'Unable to a"
+      },
+      "scoring": {
+        "score": null,
+        "predicted_oom": null,
+        "error_oom": null,
+        "note": "extraction failed \u2014 no numerical answer found"
+      }
+    },
+    {
+      "id": 3,
+      "question": "Estimate the total mass in kilograms of atmospheric CO2 sitting in the vertical ...",
+      "ground_truth_OoM": 9,
+      "extraction": {
+        "value": null,
+        "method": "error",
+        "raw": "ERROR: Error code: 404 - {'id': 'oetbfoP-2kFHot-9eb549babd47f9be', 'error': {'message': 'Unable to a"
+      },
+      "scoring": {
+        "score": null,
+        "predicted_oom": null,
+        "error_oom": null,
+        "note": "extraction failed \u2014 no numerical answer found"
+      }
+    },
+    {
+      "id": 4,
+      "question": "If you converted the total rotational kinetic energy of all currently spinning w...",
+      "ground_truth_OoM": -3,
+      "extraction": {
+        "value": null,
+        "method": "error",
+        "raw": "ERROR: Error code: 404 - {'id': 'oetbgAP-2kFHot-9eb549c25c229d96', 'error': {'message': 'Unable to a"
+      },
+      "scoring": {
+        "score": null,
+        "predicted_oom": null,
+        "error_oom": null,
+        "note": "extraction failed \u2014 no numerical answer found"
+      }
+    },
+    {
+      "id": 5,
+      "question": "How many individual piano key presses would it take to generate enough acoustic ...",
+      "ground_truth_OoM": 7,
+      "extraction": {
+        "value": null,
+        "method": "error",
+        "raw": "ERROR: Error code: 404 - {'id': 'oetbgXP-2kFHot-9eb549c9d83f9041', 'error': {'message': 'Unable to a"
+      },
+      "scoring": {
+        "score": null,
+        "predicted_oom": null,
+        "error_oom": null,
+        "note": "extraction failed \u2014 no numerical answer found"
+      }
+    }
+  ]
+}

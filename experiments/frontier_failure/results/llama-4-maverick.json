@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "question": "If every gut bacterium in every living human underwent one cell division simultaneously, estimate the total metabolic energy released, expressed as a number of average lightning bolts.",
+    "ground_truth_OoM": 5,
+    "ground_truth_unit": "lightning bolts",
+    "model_response": "ERROR: Error code: 404 - {'id': 'oetbepz-2kFHot-9eb549a598464ce8', 'error': {'message': 'Unable to access model meta-llama/Llama-4-Maverick-17B-128E-Instruct-Turbo. Please visit https://api.together.ai/models to view the list of supported models.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_available'}}"
+  },
+  {
+    "id": 2,
+    "question": "If all the photosynthetic energy captured by the trees in Central Park, New York City, in one day were used to charge smartphones, how many full smartphone charges would that provide?",
+    "ground_truth_OoM": 6,
+    "ground_truth_unit": "smartphone charges",
+    "model_response": "ERROR: Error code: 404 - {'id': 'oetbfRM-2kFHot-9eb549b2a9559aaa', 'error': {'message': 'Unable to access model meta-llama/Llama-4-Maverick-17B-128E-Instruct-Turbo. Please visit https://api.together.ai/models to view the list of supported models.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_available'}}"
+  },
+  {
+    "id": 3,
+    "question": "Estimate the total mass in kilograms of atmospheric CO2 sitting in the vertical column directly above the combined surface area of every tennis court on Earth.",
+    "ground_truth_OoM": 9,
+    "ground_truth_unit": "kilograms",
+    "model_response": "ERROR: Error code: 404 - {'id': 'oetbfoP-2kFHot-9eb549babd47f9be', 'error': {'message': 'Unable to access model meta-llama/Llama-4-Maverick-17B-128E-Instruct-Turbo. Please visit https://api.together.ai/models to view the list of supported models.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_available'}}"
+  },
+  {
+    "id": 4,
+    "question": "If you converted the total rotational kinetic energy of all currently spinning wind turbines on Earth into heat and used it to warm Lake Zurich, by how many degrees Celsius would the lake's temperature rise?",
+    "ground_truth_OoM": -3,
+    "ground_truth_unit": "degrees Celsius",
+    "model_response": "ERROR: Error code: 404 - {'id': 'oetbgAP-2kFHot-9eb549c25c229d96', 'error': {'message': 'Unable to access model meta-llama/Llama-4-Maverick-17B-128E-Instruct-Turbo. Please visit https://api.together.ai/models to view the list of supported models.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_available'}}"
+  },
+  {
+    "id": 5,
+    "question": "How many individual piano key presses would it take to generate enough acoustic energy to heat a standard cup of coffee (250 mL) from room temperature (20 C) to drinking temperature (65 C)?",
+    "ground_truth_OoM": 7,
+    "ground_truth_unit": "key presses",
+    "model_response": "ERROR: Error code: 404 - {'id': 'oetbgXP-2kFHot-9eb549c9d83f9041', 'error': {'message': 'Unable to access model meta-llama/Llama-4-Maverick-17B-128E-Instruct-Turbo. Please visit https://api.together.ai/models to view the list of supported models.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_available'}}"
+  }
+]
