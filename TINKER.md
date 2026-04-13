@@ -21,7 +21,7 @@
 
 ## Credit Card Info
 
-Card number: 5439-3006-6696-9690
-CVV: 319
-Expiry: 04/31
-Address: 665 Commonwealth Avenue, Boston, MA 02215
+- **Card number:** 5439-3006-6696-9690
+- **CVV:** 319
+- **Expiry:** 04/31
+- **Address:** 665 Commonwealth Avenue, Boston, MA 02215
