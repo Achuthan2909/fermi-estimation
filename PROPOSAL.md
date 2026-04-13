@@ -68,12 +68,15 @@ For the input format, we will be following TELeR (TelAr) Taxonomy. This structur
 
 ### Data Sources
 1. RealFP / SynthFP — Kalyan et al. (2021) · github.com/allenai/fermi
+
 928 real-world problems and 10,000 synthetic problems. The most structured source: solutions are encoded as executable programs with intermediate reasoning steps, not just a final answer. Also defines three task settings — facts provided, distractors included, or no support at all (see below).
    
 2. Science Olympiad Fermi Questions — landy8697 · github.com/landy8697/open-scioly-fermi
+
 ~2,500 questions (per README changelog; exact count unconfirmed). Answers stored as base-10 exponents. No solution chains. Science Olympiad problems tend to be more science-heavy than RealFP by design.
 
 3. EricAndrechek/FermiQuestions · github.com/EricAndrechek/FermiQuestions
+
 300+ community-sourced problems in a clean question-bank.json format with source attribution. No solution chains.
 
 ### Filtering
@@ -91,8 +94,12 @@ Before any fine-tuning, we will establish a scaffolded baseline: the base open-w
 
 ### Training Strategy
 We plan a two-stage approach:
-**Stage 1 — SFT** Train on (problem, step-by-step solution) pairs. For RealFP, solution programs are already provided. For other sources, we generate solution chains using a frontier model against already-verified answers. This teaches the model the decomposition format and reduces the two dominant failure modes identified in Liu et al.: factual errors on intermediate quantities (36% of solutions) and arithmetic/chaining errors (38% of solutions).
-**Stage 2 — RL.** Use the fp_score as an automated reward signal. The model generates a response, we extract the final number, and compute how many orders of magnitude it is from the verified answer. No human judges needed. RL lets the model move beyond copying SFT templates and discover more reliable reasoning strategies, particularly for the harder cross-domain problems where no single solution path exists.
+
+**Stage 1 — SFT** 
+Train on (problem, step-by-step solution) pairs. For RealFP, solution programs are already provided. For other sources, we generate solution chains using a frontier model against already-verified answers. This teaches the model the decomposition format and reduces the two dominant failure modes identified in Liu et al.: factual errors on intermediate quantities (36% of solutions) and arithmetic/chaining errors (38% of solutions).
+
+**Stage 2 — RL.** 
+Use the fp_score as an automated reward signal. The model generates a response, we extract the final number, and compute how many orders of magnitude it is from the verified answer. No human judges needed. RL lets the model move beyond copying SFT templates and discover more reliable reasoning strategies, particularly for the harder cross-domain problems where no single solution path exists.
 #### References
 
 [Exploratory Study on Fermi Problems](https://arxiv.org/html/2504.02671v1)
