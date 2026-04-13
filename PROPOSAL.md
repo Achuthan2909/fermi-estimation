@@ -66,19 +66,31 @@ For the input format, we will be following TELeR (TelAr) Taxonomy. This structur
 
 ## Data Plan
 
-Where will your training data come from? Rough estimate of size. Do you plan to do SFT, RL, scaffolding improvements etc?
+### Data Sources
+RealFP / SynthFP — Kalyan et al. (2021) · github.com/allenai/fermi
+928 real-world problems and 10,000 synthetic problems. The most structured source: solutions are encoded as executable programs with intermediate reasoning steps, not just a final answer. Also defines three task settings — facts provided, distractors included, or no support at all (see below).
+Science Olympiad Fermi Questions — landy8697 · github.com/landy8697/open-scioly-fermi
+~2,500 questions (per README changelog; exact count unconfirmed). Answers stored as base-10 exponents. No solution chains. Science Olympiad problems tend to be more science-heavy than RealFP by design.
+EricAndrechek/FermiQuestions · github.com/EricAndrechek/FermiQuestions
+300+ community-sourced problems in a clean question-bank.json format with source attribution. No solution chains.
 
-Training data sources:
+### Filtering
+All three sources contain generic, non-science problems (e.g., "how many hot dogs are eaten at MLB games per year?"). We plan to filter for science-domain relevance by checking whether a problem requires knowledge of physics, chemistry, biology, astronomy, or a related field. This can be done with a simple LLM classifier prompt applied to each question.
+After filtering, we additionally want to identify problems with multiple estimation layers — i.e., problems that require chaining several sub-estimates rather than a single lookup. We plan to use question length and syntactic complexity as a proxy for chain depth, and validate this by checking whether frontier model performance degrades as complexity increases. Problems in the higher complexity range are of primary interest to our study.
 
-1. Science Olympiad Fermi Questions — github.com/landy8697/open-scioly-fermi
-2. RealFP / SynthFP (Kalyan et al., 2021) — allenai.org/data/fermi
-   ~1k real + ~10k synthetic problems. Most are standard/single-domain, but we can filter for the harder ones that require chaining multiple sub-estimations.
+### Cross-Domain Problems
+If existing sources do not yield enough multi-hop, cross-domain problems after filtering, we will supplement with synthetically generated problems using a frontier model (e.g., "estimate the total length of DNA in all bacteria living in the cooling ponds of every nuclear power plant on Earth"). A key limitation here is that if an LLM generates both the question and the solution, the ground truth answer is not independently verified. To mitigate this, we will cross-check generated answers against Wolfram Alpha and Wikipedia orders-of-magnitude pages, and restrict LLM-generated problems to the training set only — keeping our evaluation benchmark entirely sourced from human-curated data.
 
-The second source contains more generic fermi question and not specifically those in the science-domain. We could conduct some filtering that'll check:
+### Distractor Setting
+The RealFP dataset defines three task settings: facts provided, facts + distractors, and no support. The distractor setting — where irrelevant facts are mixed in with relevant ones — is an interesting additional axis to explore. It tests whether a model can identify which intermediate quantities actually matter and ignore red herrings. This mirrors a real failure mode where models latch onto plausible-sounding but irrelevant information. We may include distractor variants in our eval to measure this separately.
 
-1. whether two unrelated domains are being combined? maybe through some sort of keyword/topic tagging?
-2. checking whether the ground-truth solution chain contains at least one physical constant or scientific quantity.
+### Scaffolding Baseline
+Before any fine-tuning, we will establish a scaffolded baseline: the base open-weights model prompted with a structured system prompt instructing step-by-step decomposition. This mirrors the TELeR prompt experiments in Liu et al. (2025), which showed that chain-of-thought style prompting improves performance but hits a ceiling — more elaborate prompting did not consistently outperform simpler approaches. Using this as our baseline isolates the contribution of fine-tuning from prompt engineering alone, and directly replicates the experimental condition where frontier models still fail.
 
+### Training Strategy
+We plan a two-stage approach:
+**Stage 1 — SFT** Train on (problem, step-by-step solution) pairs. For RealFP, solution programs are already provided. For other sources, we generate solution chains using a frontier model against already-verified answers. This teaches the model the decomposition format and reduces the two dominant failure modes identified in Liu et al.: factual errors on intermediate quantities (36% of solutions) and arithmetic/chaining errors (38% of solutions).
+**Stage 2 — RL.** Use the fp_score as an automated reward signal. The model generates a response, we extract the final number, and compute how many orders of magnitude it is from the verified answer. No human judges needed. RL lets the model move beyond copying SFT templates and discover more reliable reasoning strategies, particularly for the harder cross-domain problems where no single solution path exists.
 #### References
 
 [Exploratory Study on Fermi Problems](https://arxiv.org/html/2504.02671v1)
