@@ -67,11 +67,13 @@ For the input format, we will be following TELeR (TelAr) Taxonomy. This structur
 ## Data Plan
 
 ### Data Sources
-RealFP / SynthFP — Kalyan et al. (2021) · github.com/allenai/fermi
+1. RealFP / SynthFP — Kalyan et al. (2021) · github.com/allenai/fermi
 928 real-world problems and 10,000 synthetic problems. The most structured source: solutions are encoded as executable programs with intermediate reasoning steps, not just a final answer. Also defines three task settings — facts provided, distractors included, or no support at all (see below).
-Science Olympiad Fermi Questions — landy8697 · github.com/landy8697/open-scioly-fermi
+   
+2. Science Olympiad Fermi Questions — landy8697 · github.com/landy8697/open-scioly-fermi
 ~2,500 questions (per README changelog; exact count unconfirmed). Answers stored as base-10 exponents. No solution chains. Science Olympiad problems tend to be more science-heavy than RealFP by design.
-EricAndrechek/FermiQuestions · github.com/EricAndrechek/FermiQuestions
+
+3. EricAndrechek/FermiQuestions · github.com/EricAndrechek/FermiQuestions
 300+ community-sourced problems in a clean question-bank.json format with source attribution. No solution chains.
 
 ### Filtering
