@@ -4,7 +4,7 @@
 
 What is the scientific capability? What makes it interesting and challenging?
 
-Fermi Problems also known as Order-of-Magnitude (OoM) reasoning, involves estimating complex physical quantities through rapid "back-of-the-envelope" calculations. These calculations for typical LLM's pose an interesting problem as they are grounded on physical intuition. LLM's typically lack this physical intuition, making certain proposed solutions implausible. Although LLM's possess vast declarative knowledge they often lack this sense of physical intuition to do these consistent checks as it tries to solve through a problem, resulting in a hallucination.
+Fermi Problems also known as Order-of-Magnitude (OoM) reasoning, involves estimating complex physical quantities through rapid "back-of-the-envelope" calculations. These calculations for typical LLMs pose an interesting problem as they are grounded in multi-step quantitative reasoning over physical quantities. LLMs typically lack this ability to maintain consistent scaling, units, and composition across intermediate steps, making certain proposed solutions implausible. Although LLMs possess vast declarative knowledge, they often lack this ability to perform consistent quantitative checks throughout the reasoning process, resulting in hallucinations and large order-of-magnitude errors.
 
 ## Evidence of Frontier Failure
 
