@@ -33,7 +33,8 @@ import anthropic
 BASE_DIR    = Path(__file__).parent.parent
 DATA_DIR    = BASE_DIR / "data"
 EVAL_FILE   = BASE_DIR / "eval" / "eval_benchmark.jsonl"
-OUT_FILE    = DATA_DIR / "filtered" / "science_domain_results.jsonl"
+OUT_FILE       = DATA_DIR / "filtered" / "science_domain_results.jsonl"
+DEDUP_MANIFEST = DATA_DIR / "filtered" / "dedup_manifest.json"
 REALFP_BASE = "https://raw.githubusercontent.com/allenai/fermi/master/data/realFP"
 SYNTHFP_BASE = "https://raw.githubusercontent.com/allenai/fermi/master/data/synthFP"
 SCIOLY_URL  = "https://raw.githubusercontent.com/landy8697/open-scioly-fermi/master/data.js"
@@ -284,9 +285,21 @@ def main() -> None:
                     eval_ids.add(json.loads(line)["id"])
     print(f"Eval set size (excluded): {len(eval_ids)}")
 
+    # Load dedup manifest (if exists) — skip duplicates to save API calls
+    dedup: dict[str, str] = {}
+    if DEDUP_MANIFEST.exists():
+        dedup = json.loads(DEDUP_MANIFEST.read_text())
+        n_dupes = sum(1 for v in dedup.values() if v != "keep")
+        print(f"Dedup manifest loaded: {n_dupes} duplicates will be skipped")
+    else:
+        print("No dedup manifest found — run deduplicate.py first to skip duplicates")
+
     # Load training problems
     print("Loading training problems …")
     problems = load_all_training_problems(eval_ids)
+    # Apply dedup filter
+    if dedup:
+        problems = [p for p in problems if dedup.get(p["id"], "keep") == "keep"]
     print(f"Training problems to classify: {len(problems)}")
 
     # Resume from existing output

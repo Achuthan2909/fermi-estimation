@@ -2,3 +2,4 @@ anthropic>=0.40
 requests>=2.31
 matplotlib>=3.7
 numpy>=1.24
+scikit-learn>=1.3
