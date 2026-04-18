@@ -35,21 +35,58 @@ leaving 11,775 for the next step.
 
 ### What gets classified
 
-Every problem in the deduplicated training set is sent to
-`claude-sonnet-4-6` with this classifier prompt:
+Every problem in the deduplicated training set is sent to `claude-sonnet-4-6`.
+The model receives this exact prompt (from `scripts/filter_science_domain.py`,
+`CLASSIFIER_SYSTEM` constant):
 
-> List ALL science domain tags that apply:
-> `physics`, `chemistry`, `biology`, `astronomy`, `earth_science`,
-> `engineering`, `environmental_science`, `medicine`, `materials_science`,
-> `energy`, `other_science` — or `non_science` if none apply.
->
-> Rate the science relevance:
-> - `core` — cannot be solved without domain-specific scientific knowledge
->   (e.g. ATP hydrolysis, Stefan-Boltzmann law)
-> - `applied` — uses science in a practical/everyday context
->   (e.g. energy in food, car fuel efficiency)
-> - `tangential` — science appears peripherally; estimation is mostly
->   common-sense (e.g. "how many steps to walk across the US")
+```
+You are classifying Fermi estimation problems for a science research benchmark.
+For the problem below, do two things:
+1. List ALL science domain tags that apply from this set (return as many as
+   fit — do not be restrictive):
+   physics, chemistry, biology, astronomy, earth_science, engineering,
+   environmental_science, medicine, materials_science, energy, other_science
+   If no science domain applies at all, return: non_science
+2. Rate the science relevance on a 3-point scale:
+   core:       The problem cannot be solved without domain-specific scientific
+               knowledge (e.g., ATP hydrolysis, Stefan-Boltzmann law)
+   applied:    The problem uses science concepts in a practical or everyday
+               context (e.g., energy in food, car fuel efficiency)
+   tangential: Science appears peripherally but the estimation is mostly
+               common-sense (e.g., "how many steps to walk across the US")
+Respond in this exact JSON format with no extra text:
+{"tags": ["tag1", "tag2"], "relevance": "core|applied|tangential"}
+Problem: {question}
+```
+
+### How Claude decides core vs applied vs tangential
+
+The model is not given a rulebook — it uses its own reasoning about what the
+problem actually requires to solve. The key question it is implicitly answering:
+
+> "If you removed all scientific knowledge from the solver, could they still
+> produce a reasonable estimate?"
+
+- **`core`** — No. You must know a specific scientific constant, law, or
+  mechanism. Examples: ATP energy per cell division, the Stefan-Boltzmann law,
+  atmospheric CO₂ column density. A non-scientist could not even set up the
+  calculation correctly.
+
+- **`applied`** — Partially. The problem involves scientific quantities
+  (energy, mass, force) but in a familiar everyday context where the numbers
+  are roughly knowable from general experience. Examples: energy content of
+  food, fuel burned by a car, power output of a light bulb. A careful
+  non-scientist could get within an order of magnitude.
+
+- **`tangential`** — Yes. Science is mentioned or implied but the estimate
+  relies on counting, geography, or everyday intuition. Examples: "how many
+  steps to walk across the US", "how long to pluck every hair on your body".
+  A biology tag might fire (hair follicles) but no biology knowledge is needed
+  to estimate the answer.
+
+This distinction is intentionally left to Claude's judgement rather than
+keyword rules, because the same topic can appear at different relevance levels
+depending on what the question actually asks.
 
 ### Keep / skip rule
 
