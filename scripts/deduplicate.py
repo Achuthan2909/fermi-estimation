@@ -1,25 +1,16 @@
 #!/usr/bin/env python3
 """
-Deduplication pass — run this BEFORE filter_science_domain.py.
+Exact deduplication pass — run this BEFORE filter_science_domain.py.
 
-Loads all training problems from all three sources (excluding eval IDs),
-detects near-duplicates using TF-IDF cosine similarity, and writes a
-manifest marking each problem as kept or duplicate.
-
-filter_science_domain.py reads this manifest and skips duplicates,
-avoiding wasted API calls on redundant problems.
-
-Algorithm:
-  1. Exact dedup  — normalize whitespace/case, exact string match
-  2. Near dedup   — TF-IDF cosine similarity > THRESHOLD (default 0.85)
-     Greedy: first occurrence in the merged problem list wins.
+Flags problems whose question text is identical (after lowercasing and
+collapsing whitespace) to an earlier problem in the merged training set.
+Differently-worded problems that ask the same thing are kept.
 
 Outputs:
   data/filtered/dedup_manifest.json
-    {id: "keep"} or {id: "duplicate_of:<original_id>"}
+    {"<id>": "keep"} or {"<id>": "duplicate_of:<original_id>"}
 
-  Prints a report: total problems, exact dupes, near dupes, kept count,
-  per-source breakdown.
+filter_science_domain.py reads this manifest and skips duplicates.
 """
 
 import json
@@ -27,27 +18,16 @@ import re
 import unicodedata
 from pathlib import Path
 
-import numpy as np
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-
-BASE_DIR   = Path(__file__).parent.parent
-DATA_DIR   = BASE_DIR / "data"
-EVAL_FILE  = BASE_DIR / "eval" / "eval_benchmark.jsonl"
-OUT_FILE   = DATA_DIR / "filtered" / "dedup_manifest.json"
+BASE_DIR  = Path(__file__).parent.parent
+DATA_DIR  = BASE_DIR / "data"
+EVAL_FILE = BASE_DIR / "eval" / "eval_benchmark.jsonl"
+OUT_FILE  = DATA_DIR / "filtered" / "dedup_manifest.json"
 
 REALFP_BASE  = "https://raw.githubusercontent.com/allenai/fermi/master/data/realFP"
 SYNTHFP_BASE = "https://raw.githubusercontent.com/allenai/fermi/master/data/synthFP"
 SCIOLY_URL   = "https://raw.githubusercontent.com/landy8697/open-scioly-fermi/master/data.js"
 ERIC_URL     = "https://raw.githubusercontent.com/EricAndrechek/FermiQuestions/main/question-bank.json"
 
-THRESHOLD = 0.85   # cosine similarity above which two problems are near-duplicates
-BATCH     = 500    # problems per batch for similarity computation
-
-
-# ---------------------------------------------------------------------------
-# Helpers (mirrors build_eval_benchmark / filter_science_domain loaders)
-# ---------------------------------------------------------------------------
 
 def _load_json(path: Path) -> list | dict:
     return json.loads(path.read_text(encoding="utf-8"))
@@ -104,6 +84,13 @@ def _is_math_puzzle(q: str) -> bool:
         r'=\s*$',
     ]
     return any(re.search(p, q, re.IGNORECASE) for p in patterns)
+
+
+def normalize(text: str) -> str:
+    """Lowercase, strip punctuation, collapse whitespace."""
+    text = unicodedata.normalize("NFKD", text.lower())
+    text = re.sub(r'[^\w\s]', ' ', text)
+    return re.sub(r'\s+', ' ', text).strip()
 
 
 def load_training_problems(eval_ids: set[str]) -> list[dict]:
@@ -184,19 +171,7 @@ def load_training_problems(eval_ids: set[str]) -> list[dict]:
     return problems
 
 
-def normalize(text: str) -> str:
-    """Lowercase, strip punctuation, collapse whitespace."""
-    text = unicodedata.normalize("NFKD", text.lower())
-    text = re.sub(r'[^\w\s]', ' ', text)
-    return re.sub(r'\s+', ' ', text).strip()
-
-
-# ---------------------------------------------------------------------------
-# Main
-# ---------------------------------------------------------------------------
-
 def main() -> None:
-    # Load eval IDs
     eval_ids: set[str] = set()
     if EVAL_FILE.exists():
         with EVAL_FILE.open() as f:
@@ -208,88 +183,24 @@ def main() -> None:
 
     print("Loading training problems …")
     problems = load_training_problems(eval_ids)
-    print(f"Total problems: {len(problems)}")
+    print(f"Total problems loaded: {len(problems)}")
 
-    ids       = [p["id"]       for p in problems]
-    questions = [p["question"] for p in problems]
-    normed    = [normalize(q)  for q in questions]
+    # Exact dedup: first occurrence wins
+    manifest: dict[str, str] = {}
+    seen: dict[str, str] = {}   # normalized text → first id
 
-    manifest: dict[str, str] = {}   # id → "keep" or "duplicate_of:<id>"
-
-    # ---- Pass 1: exact dedup ----
-    seen_exact: dict[str, str] = {}   # normalized text → first id
-    exact_dup = 0
-    for pid, norm in zip(ids, normed):
-        if norm in seen_exact:
-            manifest[pid] = f"duplicate_of:{seen_exact[norm]}"
-            exact_dup += 1
+    for p in problems:
+        key = normalize(p["question"])
+        if key in seen:
+            manifest[p["id"]] = f"duplicate_of:{seen[key]}"
         else:
-            seen_exact[norm] = pid
+            seen[key] = p["id"]
+            manifest[p["id"]] = "keep"
 
-    print(f"Exact duplicates: {exact_dup}")
-
-    # ---- Pass 2: near-dedup on non-exact-dup problems ----
-    keep_idx  = [i for i, pid in enumerate(ids) if pid not in manifest]
-    keep_ids  = [ids[i]   for i in keep_idx]
-    keep_text = [normed[i] for i in keep_idx]
-
-    print(f"Running TF-IDF near-dedup on {len(keep_ids)} problems (threshold={THRESHOLD}) …")
-
-    vectorizer = TfidfVectorizer(ngram_range=(1, 2), min_df=1, sublinear_tf=True)
-    tfidf = vectorizer.fit_transform(keep_text)
-
-    # Greedy: mark later occurrences as duplicates if similarity > threshold
-    # Process in batches to avoid memory blowup
-    dup_set: set[int] = set()   # indices into keep_ids already marked as dup
-    near_dup = 0
-
-    for batch_start in range(0, len(keep_ids), BATCH):
-        batch_end = min(batch_start + BATCH, len(keep_ids))
-        batch_vec = tfidf[batch_start:batch_end]
-
-        # Compare batch against all following problems (upper triangle only)
-        sims = cosine_similarity(batch_vec, tfidf[batch_start:])  # shape: (batch, rest)
-
-        for bi in range(sims.shape[0]):
-            gi = batch_start + bi   # global index
-            if gi in dup_set:
-                continue
-            # Find near-duplicate candidates AFTER this problem
-            for gj in range(gi + 1, len(keep_ids)):
-                if gj in dup_set:
-                    continue
-                sim_idx = gj - batch_start
-                if 0 <= sim_idx < sims.shape[1] and sims[bi, sim_idx] > THRESHOLD:
-                    dup_set.add(gj)
-                    manifest[keep_ids[gj]] = f"duplicate_of:{keep_ids[gi]}"
-                    near_dup += 1
-
-        pct = round(100 * batch_end / len(keep_ids))
-        print(f"  {batch_end}/{len(keep_ids)} ({pct}%)  near-dups so far: {near_dup}", end="\r")
-
-    print()
-
-    # Mark all remaining as keep
-    for pid in ids:
-        if pid not in manifest:
-            manifest[pid] = "keep"
-
-    # ---- Write manifest ----
-    OUT_FILE.parent.mkdir(parents=True, exist_ok=True)
-    OUT_FILE.write_text(json.dumps(manifest, indent=2))
-
-    # ---- Summary ----
     kept  = sum(1 for v in manifest.values() if v == "keep")
     dupes = len(manifest) - kept
 
-    print(f"\n{'='*50}")
-    print(f"Total problems : {len(problems)}")
-    print(f"Exact dupes    : {exact_dup}")
-    print(f"Near dupes     : {near_dup}")
-    print(f"Total dupes    : {dupes}  ({round(100*dupes/len(problems))}%)")
-    print(f"Kept           : {kept}")
-
-    # Per-source
+    # Per-source breakdown
     src_total: dict[str, int] = {}
     src_kept:  dict[str, int] = {}
     for p in problems:
@@ -298,6 +209,13 @@ def main() -> None:
         if manifest[p["id"]] == "keep":
             src_kept[s] = src_kept.get(s, 0) + 1
 
+    OUT_FILE.parent.mkdir(parents=True, exist_ok=True)
+    OUT_FILE.write_text(json.dumps(manifest, indent=2))
+
+    print(f"\n{'='*50}")
+    print(f"Total   : {len(problems)}")
+    print(f"Dupes   : {dupes}")
+    print(f"Kept    : {kept}")
     print(f"\nPer source:")
     print(f"  {'Source':<25} {'Total':>7} {'Kept':>7} {'Dupes':>7}")
     print(f"  {'-'*25} {'-'*7} {'-'*7} {'-'*7}")
@@ -305,7 +223,6 @@ def main() -> None:
         t = src_total[src]
         k = src_kept.get(src, 0)
         print(f"  {src:<25} {t:>7} {k:>7} {t-k:>7}")
-
     print(f"\nManifest → {OUT_FILE}")
     print("Next: run  python scripts/filter_science_domain.py")
 
