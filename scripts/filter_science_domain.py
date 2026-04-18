@@ -260,6 +260,12 @@ def classify_problem(client: anthropic.Anthropic, question: str) -> dict:
 # ---------------------------------------------------------------------------
 
 def main() -> None:
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--limit", type=int, default=None,
+                        help="Only classify the first N unclassified problems (useful for test runs)")
+    args = parser.parse_args()
+
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
         print("ERROR: ANTHROPIC_API_KEY environment variable not set.", flush=True)
@@ -294,9 +300,13 @@ def main() -> None:
     print(f"Already done: {len(done_ids)}  Remaining: {len(problems) - len(done_ids)}")
 
     out_fh = OUT_FILE.open("a", encoding="utf-8")
+    classified_this_run = 0
 
     try:
         for idx, prob in enumerate(problems):
+            if args.limit is not None and classified_this_run >= args.limit:
+                print(f"  --limit {args.limit} reached, stopping early.")
+                break
             pid = prob["id"]
             if pid in done_ids:
                 continue
@@ -321,6 +331,7 @@ def main() -> None:
             out_fh.write(json.dumps(record, ensure_ascii=False) + "\n")
             out_fh.flush()
             done_ids.add(pid)
+            classified_this_run += 1
 
             status = "PASS" if passed else "skip"
             print(f"  [{idx+1}/{len(problems)}] {status}  {pid}  tags={tags}  relevance={relevance}")
