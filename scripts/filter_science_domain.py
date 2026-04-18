@@ -39,7 +39,7 @@ SYNTHFP_BASE = "https://raw.githubusercontent.com/allenai/fermi/master/data/synt
 SCIOLY_URL  = "https://raw.githubusercontent.com/landy8697/open-scioly-fermi/master/data.js"
 ERIC_URL    = "https://raw.githubusercontent.com/EricAndrechek/FermiQuestions/main/question-bank.json"
 
-MODEL = "claude-sonnet-4-5-20250514"
+MODEL = "claude-sonnet-4-6"
 
 CLASSIFIER_SYSTEM = """\
 You are classifying Fermi estimation problems for a science research benchmark.
@@ -252,6 +252,7 @@ def classify_problem(client: anthropic.Anthropic, question: str) -> dict:
             raise ValueError("Missing keys")
         return {"tags": result["tags"], "relevance": result["relevance"], "raw": raw}
     except Exception as exc:
+        print(f"    API ERROR: {type(exc).__name__}: {exc}", flush=True)
         return {"tags": [], "relevance": "error", "raw": str(exc)}
 
 
