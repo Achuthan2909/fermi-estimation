@@ -39,7 +39,7 @@ SYNTHFP_BASE = "https://raw.githubusercontent.com/allenai/fermi/master/data/synt
 SCIOLY_URL  = "https://raw.githubusercontent.com/landy8697/open-scioly-fermi/master/data.js"
 ERIC_URL    = "https://raw.githubusercontent.com/EricAndrechek/FermiQuestions/main/question-bank.json"
 
-MODEL = "claude-sonnet-4-20250514"
+MODEL = "claude-sonnet-4-5-20250514"
 
 CLASSIFIER_SYSTEM = """\
 You are classifying Fermi estimation problems for a science research benchmark.
