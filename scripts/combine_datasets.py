@@ -258,7 +258,7 @@ def main() -> None:
         if key in seen:
             orig_src = kept_records[seen[key]]["source"]
             dup_log.append({
-                "dup_question": rec["question"][:120],
+                "dup_question": rec["question"],
                 "dup_source":   src,
                 "orig_source":  orig_src,
                 "cross_source": orig_src != src,

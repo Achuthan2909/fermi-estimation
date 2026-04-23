@@ -36,7 +36,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "Archimedes famously placed an upper bound on the number of grains of sand needed to fill the entire universe: One vigint",
+    "dup_question": "Archimedes famously placed an upper bound on the number of grains of sand needed to fill the entire universe: One vigintillion. How many grains of sand did he suggest?",
     "dup_source": "eval_dir:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_1.json",
     "cross_source": true
@@ -126,7 +126,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "How many seconds would it take half a sample of uranium 238 to decay (assuming its isotope has a half-life of 5 billion ",
+    "dup_question": "How many seconds would it take half a sample of uranium 238 to decay (assuming its isotope has a half-life of 5 billion years)?",
     "dup_source": "eval_dir:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_2.json",
     "cross_source": true
@@ -180,7 +180,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "If you converted the entire mass of a single 1-gram paperclip into energy (E=mc^2), how many average American homes coul",
+    "dup_question": "If you converted the entire mass of a single 1-gram paperclip into energy (E=mc^2), how many average American homes could it power for a full year?",
     "dup_source": "eval_dir:train",
     "orig_source": "train_dir:synth:fermi_problems_synth_1.json",
     "cross_source": true
@@ -234,7 +234,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "If you spread one mole of standard sand grains uniformly across the entire land area of the United States, how many mete",
+    "dup_question": "If you spread one mole of standard sand grains uniformly across the entire land area of the United States, how many meters deep would the layer be?",
     "dup_source": "eval_dir:train",
     "orig_source": "train_dir:synth:fermi_problems_synth_1.json",
     "cross_source": true
@@ -288,13 +288,13 @@
     "cross_source": true
   },
   {
-    "dup_question": "If you uncoiled every DNA strand in every cell of a human body and joined them end-to-end, how many times would the stra",
+    "dup_question": "If you uncoiled every DNA strand in every cell of a human body and joined them end-to-end, how many times would the strand wrap around the Earth's equator?",
     "dup_source": "eval_dir:train",
     "orig_source": "train_dir:synth:fermi_problems_synth_1.json",
     "cross_source": true
   },
   {
-    "dup_question": "How many total action potentials (nerve impulses) occur across all neurons in a human brain during a single 24-hour peri",
+    "dup_question": "How many total action potentials (nerve impulses) occur across all neurons in a human brain during a single 24-hour period?",
     "dup_source": "eval_dir:train",
     "orig_source": "train_dir:synth:fermi_problems_synth_1.json",
     "cross_source": true
@@ -306,7 +306,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "What is the total surface area, in square meters, of all the alveoli (air sacs) in the entire current human population's",
+    "dup_question": "What is the total surface area, in square meters, of all the alveoli (air sacs) in the entire current human population's lungs?",
     "dup_source": "eval_dir:train",
     "orig_source": "train_dir:synth:fermi_problems_synth_1.json",
     "cross_source": true
@@ -360,7 +360,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "How many kilometers has our Solar System traveled around the center of the Milky Way since the extinction of the dinosau",
+    "dup_question": "How many kilometers has our Solar System traveled around the center of the Milky Way since the extinction of the dinosaurs?",
     "dup_source": "eval_dir:train",
     "orig_source": "train_dir:synth:fermi_problems_synth_1.json",
     "cross_source": true
@@ -396,7 +396,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "How many kilograms of 'dark matter' are estimated to be located within the volume of our Solar System (out to Neptune's ",
+    "dup_question": "How many kilograms of 'dark matter' are estimated to be located within the volume of our Solar System (out to Neptune's orbit)?",
     "dup_source": "eval_dir:train",
     "orig_source": "train_dir:synth:fermi_problems_synth_1.json",
     "cross_source": true
@@ -528,13 +528,13 @@
     "cross_source": true
   },
   {
-    "dup_question": "The popular trick-shot YouTube channel Dude Perfect attempts their craziest one yet: they are going to place a dartboard",
+    "dup_question": "The popular trick-shot YouTube channel Dude Perfect attempts their craziest one yet: they are going to place a dartboard at a uniformly random location on the moon and then shoot a dart at a uniformly random location on the moon from orbit. They will attempt this once every minute. What is the expected number of times the Moon will go around the Earth before they succeed in their trickshot?",
     "dup_source": "eval_dir:test",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_3.json",
     "cross_source": true
   },
   {
-    "dup_question": "What is the ratio of the energy of one photon of violet wavelength to the (magnitude of) energy of an electron at the fi",
+    "dup_question": "What is the ratio of the energy of one photon of violet wavelength to the (magnitude of) energy of an electron at the first energy level in a hydrogen atom?",
     "dup_source": "eval_dir:test",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_3.json",
     "cross_source": true
@@ -546,7 +546,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "In the time it takes for a ball to fall (from rest) from the height of the peak of Mount Everest straight down to sea le",
+    "dup_question": "In the time it takes for a ball to fall (from rest) from the height of the peak of Mount Everest straight down to sea level, how many blinks occur worldwide?",
     "dup_source": "eval_dir:test",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_3.json",
     "cross_source": true
@@ -558,13 +558,13 @@
     "cross_source": true
   },
   {
-    "dup_question": "If all the energy produced by the world’s wind turbines in the year 2022 was stored on a standard 10 microFarad capacito",
+    "dup_question": "If all the energy produced by the world’s wind turbines in the year 2022 was stored on a standard 10 microFarad capacitor, what would the voltage (in Volts) be between the two ends of the capacitor?",
     "dup_source": "eval_dir:test",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_3.json",
     "cross_source": true
   },
   {
-    "dup_question": "How many days would it take for McDonalds to sell a mole of hamburger assuming they continue to sell at the same rate as",
+    "dup_question": "How many days would it take for McDonalds to sell a mole of hamburger assuming they continue to sell at the same rate as today?",
     "dup_source": "eval_dir:test",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_3.json",
     "cross_source": true
@@ -600,43 +600,43 @@
     "cross_source": true
   },
   {
-    "dup_question": "How many adult bed bugs would you need to stack vertically (single file) to reach the height above sea level of the tall",
+    "dup_question": "How many adult bed bugs would you need to stack vertically (single file) to reach the height above sea level of the tallest active volcano in the world?",
     "dup_source": "eval_dir:test",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_3.json",
     "cross_source": true
   },
   {
-    "dup_question": "If you took all the energy released when a slug of sodium reacts with chlorine gas to launch all the salt produced from ",
+    "dup_question": "If you took all the energy released when a slug of sodium reacts with chlorine gas to launch all the salt produced from the reaction straight up (on earth), what height, in meters, above the ground would it reach?",
     "dup_source": "eval_dir:test",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_3.json",
     "cross_source": true
   },
   {
-    "dup_question": "The electrostatic force between a proton and an electron 1 Angstrom apart is what fraction of the force needed to fricti",
+    "dup_question": "The electrostatic force between a proton and an electron 1 Angstrom apart is what fraction of the force needed to frictionlessly accelerate a neutron at a rate of 1 septillion meters per second squared?",
     "dup_source": "eval_dir:test",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_3.json",
     "cross_source": true
   },
   {
-    "dup_question": "Over the course of a fortnight, a hundredth of a furlong of rain falls over a 3-hectare area. How many slugs of water fe",
+    "dup_question": "Over the course of a fortnight, a hundredth of a furlong of rain falls over a 3-hectare area. How many slugs of water fell per minute on average?",
     "dup_source": "eval_dir:test",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_3.json",
     "cross_source": true
   },
   {
-    "dup_question": "Suppose you warm up your shoulder and throw a bowling ball at 995 times the speed of light down a bowling lane. In the f",
+    "dup_question": "Suppose you warm up your shoulder and throw a bowling ball at 995 times the speed of light down a bowling lane. In the frame of reference of the bowling ball, how many nanoseconds will elapse before it contacts the pins?",
     "dup_source": "eval_dir:test",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_3.json",
     "cross_source": true
   },
   {
-    "dup_question": "Although friends often joke that they share one brain cell, what fraction of the cells in an average adult are actually ",
+    "dup_question": "Although friends often joke that they share one brain cell, what fraction of the cells in an average adult are actually brain cells (specifically neurons)?",
     "dup_source": "eval_dir:test",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_3.json",
     "cross_source": true
   },
   {
-    "dup_question": "How many hamsters running on wheels would you need to temporarily produce the same amount of power as an average full ca",
+    "dup_question": "How many hamsters running on wheels would you need to temporarily produce the same amount of power as an average full capacity nuclear power plant?",
     "dup_source": "eval_dir:test",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_3.json",
     "cross_source": true
@@ -648,7 +648,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "Did you know chinchillas have the densest fur (in terms of number of hairs per unit area) out of all mammals? How many m",
+    "dup_question": "Did you know chinchillas have the densest fur (in terms of number of hairs per unit area) out of all mammals? How many more times dense is a chinchilla’s fur compared to the average human head?",
     "dup_source": "eval_dir:test",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_4.json",
     "cross_source": true
@@ -660,37 +660,37 @@
     "cross_source": true
   },
   {
-    "dup_question": "Spider silk is remarkably strong – however, we haven’t quite figured out how to create web fluid, so no swinging around ",
+    "dup_question": "Spider silk is remarkably strong – however, we haven’t quite figured out how to create web fluid, so no swinging around like Spiderman yet. How many times greater is the tensile strength of spider silk compared to that of steel?",
     "dup_source": "eval_dir:test",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_4.json",
     "cross_source": true
   },
   {
-    "dup_question": "How many times more powerful is the Large Hadron Collider at CERN compared to the first cyclotron ever made by Ernest La",
+    "dup_question": "How many times more powerful is the Large Hadron Collider at CERN compared to the first cyclotron ever made by Ernest Lawrence back in 1931?",
     "dup_source": "eval_dir:test",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_4.json",
     "cross_source": true
   },
   {
-    "dup_question": "Assuming you only account for the projector and sound system, how many times could an IMAX movie theatre play Oppenheime",
+    "dup_question": "Assuming you only account for the projector and sound system, how many times could an IMAX movie theatre play Oppenheimer using solely the energy from the 1945 Trinity nuclear test’s explosion?",
     "dup_source": "eval_dir:test",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_4.json",
     "cross_source": true
   },
   {
-    "dup_question": "Did you know there will be a total solar eclipse that goes directly through the continental US on April 8, 2024? If you ",
+    "dup_question": "Did you know there will be a total solar eclipse that goes directly through the continental US on April 8, 2024? If you witnessed a solar eclipse, about how many blue moons (the 2nd full moon occurrence in a calendar month) would you see until you saw another solar eclipse, still standing at the exact same spot?",
     "dup_source": "eval_dir:test",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_4.json",
     "cross_source": true
   },
   {
-    "dup_question": "Have you seen the famous Mentos and Soda experiment? If you dump Mentos into a bottle of soda, the carbon dioxide bubble",
+    "dup_question": "Have you seen the famous Mentos and Soda experiment? If you dump Mentos into a bottle of soda, the carbon dioxide bubbles expand rapidly, creating a geyser. If you put a single Mento into a 2 liter bottle of Diet Coke, how many bubbles are produced in the resulting geyser?",
     "dup_source": "eval_dir:test",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_4.json",
     "cross_source": true
   },
   {
-    "dup_question": "Villains are always saying creepy things like, “this sword was forged from the blood my enemies.” Assuming perfect extra",
+    "dup_question": "Villains are always saying creepy things like, “this sword was forged from the blood my enemies.” Assuming perfect extraction, how many human men would you need to extract enough iron to create a full medieval broadsword?",
     "dup_source": "eval_dir:test",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_4.json",
     "cross_source": true
@@ -702,7 +702,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "If I were to take an English penny, melt it down, then somehow stretch it out into a perfect hollow sphere 1 atom thick,",
+    "dup_question": "If I were to take an English penny, melt it down, then somehow stretch it out into a perfect hollow sphere 1 atom thick, how large would this sphere be?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_5.json",
     "cross_source": true
@@ -714,13 +714,13 @@
     "cross_source": true
   },
   {
-    "dup_question": "What is the number of queen-size mattresses it would take to fill the star Betelgeuse which has 18 times the mass of the",
+    "dup_question": "What is the number of queen-size mattresses it would take to fill the star Betelgeuse which has 18 times the mass of the Sun?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_5.json",
     "cross_source": true
   },
   {
-    "dup_question": "The grass on the lawn grows 10 cm in height during the week between mowings. Estimate the mass, g, of the grass clipping",
+    "dup_question": "The grass on the lawn grows 10 cm in height during the week between mowings. Estimate the mass, g, of the grass clippings collected each week.",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_5.json",
     "cross_source": true
@@ -744,7 +744,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "Assuming that it has the same density as a gold nucleus, what is the diameter, cm, of a neutron star that has the same m",
+    "dup_question": "Assuming that it has the same density as a gold nucleus, what is the diameter, cm, of a neutron star that has the same mass as the Earth?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_5.json",
     "cross_source": true
@@ -810,7 +810,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "Under ideal conditions, the bacterium eNSO can reproduce in 10 minutes. How many eNSO can claim the same ancestor after ",
+    "dup_question": "Under ideal conditions, the bacterium eNSO can reproduce in 10 minutes. How many eNSO can claim the same ancestor after 24 hours?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_5.json",
     "cross_source": true
@@ -894,7 +894,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "The Gulf Stream is about 50 miles wide and 1500 feet deep and flows past Miami at 5 mph. How many tons of water in the G",
+    "dup_question": "The Gulf Stream is about 50 miles wide and 1500 feet deep and flows past Miami at 5 mph. How many tons of water in the Gulf Stream pass by Miami in a minute?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_5.json",
     "cross_source": true
@@ -942,7 +942,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "If, in theory, Kinetic energy dissipates part of it into both Thermal energy and Sound energy, what would be the least a",
+    "dup_question": "If, in theory, Kinetic energy dissipates part of it into both Thermal energy and Sound energy, what would be the least amount of kinetic energy needed to fry a chicken with a kick and how loud it would be?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_5.json",
     "cross_source": true
@@ -960,7 +960,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "One suggestion for putting satellites into orbit cheaply without using rockets is to build a tower 300 km high containin",
+    "dup_question": "One suggestion for putting satellites into orbit cheaply without using rockets is to build a tower 300 km high containing an elevator. One would put the payload in the elevator, lift it to the top, and just step out into orbit. Ignoring other problems (such as structural strain on the tower), estimate the weight of such a tower if its base were the size of Washington DC and it were made of steel.",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_5.json",
     "cross_source": true
@@ -978,7 +978,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "If we would limit meat production to those animals born naturally for production of dairy and eggs, how much meat would ",
+    "dup_question": "If we would limit meat production to those animals born naturally for production of dairy and eggs, how much meat would we be left with?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_5.json",
     "cross_source": true
@@ -996,7 +996,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "If all humans suddenly switched to eating insects instead of all other forms of meat, how large would the farmed insect ",
+    "dup_question": "If all humans suddenly switched to eating insects instead of all other forms of meat, how large would the farmed insect population per year be?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_5.json",
     "cross_source": true
@@ -1098,13 +1098,13 @@
     "cross_source": true
   },
   {
-    "dup_question": "How much detail could be resolved with a telescope array the size of, say, Neptune's orbit, compared to current telescop",
+    "dup_question": "How much detail could be resolved with a telescope array the size of, say, Neptune's orbit, compared to current telescope arrays?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_5.json",
     "cross_source": true
   },
   {
-    "dup_question": "The volume of ice in Antarctica is estimated to be 26 million cubic kilometers. If all of the ice in Antarctica melted, ",
+    "dup_question": "The volume of ice in Antarctica is estimated to be 26 million cubic kilometers. If all of the ice in Antarctica melted, how high (feet) would the oceans rise?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_5.json",
     "cross_source": true
@@ -1116,7 +1116,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "How much fuel could be saved annually if airline passengers emptied their pockets of trash and went to the bathroom in t",
+    "dup_question": "How much fuel could be saved annually if airline passengers emptied their pockets of trash and went to the bathroom in the airport before takeoff?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_5.json",
     "cross_source": true
@@ -1164,7 +1164,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "What is the smallest-sized swimming pool (or lake) that I can drop a human body into without it becoming a health risk t",
+    "dup_question": "What is the smallest-sized swimming pool (or lake) that I can drop a human body into without it becoming a health risk to anyone who drinks the water?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_5.json",
     "cross_source": true
@@ -1194,7 +1194,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "If a self driving car could follow the curvature of the road exactly, would the difference in the distance it traveled v",
+    "dup_question": "If a self driving car could follow the curvature of the road exactly, would the difference in the distance it traveled vs an average human, that makes minute swerves constantly, be?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_5.json",
     "cross_source": true
@@ -1230,13 +1230,13 @@
     "cross_source": true
   },
   {
-    "dup_question": "For the United States, how many cars would have their fuel needs met for one year by the fat contained by all obese peop",
+    "dup_question": "For the United States, how many cars would have their fuel needs met for one year by the fat contained by all obese people?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_5.json",
     "cross_source": true
   },
   {
-    "dup_question": "In Bendix Woods near the old test track, the word STUDEBAKER is spelled out in pine trees so that it is visible from the",
+    "dup_question": "In Bendix Woods near the old test track, the word STUDEBAKER is spelled out in pine trees so that it is visible from the air. How many pine trees were required?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_5.json",
     "cross_source": true
@@ -1254,7 +1254,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "If all man made things left unmanaged, how long would it take mother earth to remove all signs, on the surface of the pl",
+    "dup_question": "If all man made things left unmanaged, how long would it take mother earth to remove all signs, on the surface of the planet, of anything man made?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_5.json",
     "cross_source": true
@@ -1314,7 +1314,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "I was discussing with a friend about this: \"If scientists wanted to lengthen the day to 25 hours, the easiest way would ",
+    "dup_question": "I was discussing with a friend about this: \"If scientists wanted to lengthen the day to 25 hours, the easiest way would be using giant rockets to counter the rotational speed of the Earth\". How much Newtons or KgF would be needed to add another hour to the day?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_5.json",
     "cross_source": true
@@ -1326,7 +1326,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "Consider a liter of air containing mostly nitrogen and oxygen at room temperature and a pressure of 105 Pa. Estimate the",
+    "dup_question": "Consider a liter of air containing mostly nitrogen and oxygen at room temperature and a pressure of 105 Pa. Estimate the average speed of a molecule.",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_5.json",
     "cross_source": true
@@ -1386,7 +1386,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "If the Sun were to collapse into a neutron star, how far is the Earth from the Sun assuming no other changes except redu",
+    "dup_question": "If the Sun were to collapse into a neutron star, how far is the Earth from the Sun assuming no other changes except reduction in size?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_5.json",
     "cross_source": true
@@ -1398,7 +1398,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "The actual diameter of an atom is about 1 Angstrom. In order to develop some intuition for the molecular scale of a gas,",
+    "dup_question": "The actual diameter of an atom is about 1 Angstrom. In order to develop some intuition for the molecular scale of a gas, assume that you are considering a liter of air (mostly nitrogen and oxygen ) at room temperature and a pressure of 105 Pa. Calculate the number of molecules in the sample of gas.",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_5.json",
     "cross_source": true
@@ -1596,7 +1596,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "How many cells die naturally (apoptosis) in your body during the time that it takes you to solve the\naverage Fermi probl",
+    "dup_question": "How many cells die naturally (apoptosis) in your body during the time that it takes you to solve the\naverage Fermi problem?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_1.json",
     "cross_source": true
@@ -1668,7 +1668,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "If one were to move closer and closer while observing isolated blood cells, at what distance, in meters, would they firs",
+    "dup_question": "If one were to move closer and closer while observing isolated blood cells, at what distance, in meters, would they first come into clear view?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_1.json",
     "cross_source": true
@@ -1686,7 +1686,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "Up to how many MeV may the energy of gamma rays extend during the course of nuclear reactions initiated by low energy pa",
+    "dup_question": "Up to how many MeV may the energy of gamma rays extend during the course of nuclear reactions initiated by low energy particles?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_1.json",
     "cross_source": true
@@ -1734,7 +1734,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "What is the range, in meters, between the longest and shortest wavelengths of visible light within the electromagnetic s",
+    "dup_question": "What is the range, in meters, between the longest and shortest wavelengths of visible light within the electromagnetic spectrum?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_1.json",
     "cross_source": true
@@ -1788,7 +1788,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "How many exa-newtons of force does the Earth’s gravitational field apply on a single grain of rice located on the surfac",
+    "dup_question": "How many exa-newtons of force does the Earth’s gravitational field apply on a single grain of rice located on the surface of the Moon?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_1.json",
     "cross_source": true
@@ -1800,13 +1800,13 @@
     "cross_source": true
   },
   {
-    "dup_question": "Did you know chinchillas have the densest fur (in terms of number of hairs per unit area) out of all mammals? How many m",
+    "dup_question": "Did you know chinchillas have the densest fur (in terms of number of hairs per unit area) out of all mammals? How many more times dense is a chinchilla’s fur compared to the average human head?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_4.json",
     "cross_source": true
   },
   {
-    "dup_question": "How many seconds would it take half a sample of uranium 238 to decay (assuming its isotope has a half-life of 5 billion ",
+    "dup_question": "How many seconds would it take half a sample of uranium 238 to decay (assuming its isotope has a half-life of 5 billion years)?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_2.json",
     "cross_source": true
@@ -1866,7 +1866,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "If you create a single-file line composed of all the atoms making up an average human body, how far would the line stret",
+    "dup_question": "If you create a single-file line composed of all the atoms making up an average human body, how far would the line stretch in meters?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_2.json",
     "cross_source": true
@@ -1878,7 +1878,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "On average, how many kilometers per second would Santa need to travel to go around the circumference of the earth once i",
+    "dup_question": "On average, how many kilometers per second would Santa need to travel to go around the circumference of the earth once in a 24-hour period?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_2.json",
     "cross_source": true
@@ -1962,13 +1962,13 @@
     "cross_source": true
   },
   {
-    "dup_question": "The popular trick-shot YouTube channel Dude Perfect attempts their craziest one yet: they are going to place a dartboard",
+    "dup_question": "The popular trick-shot YouTube channel Dude Perfect attempts their craziest one yet: they are going to place a dartboard at a uniformly random location on the moon and then shoot a dart at a uniformly random location on the moon from orbit. They will attempt this once every minute. What is the expected number of times the Moon will go around the Earth before they succeed in their trickshot?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_3.json",
     "cross_source": true
   },
   {
-    "dup_question": "What is the ratio of the energy of one photon of violet wavelength to the (magnitude of) energy of an electron at the fi",
+    "dup_question": "What is the ratio of the energy of one photon of violet wavelength to the (magnitude of) energy of an electron at the first energy level in a hydrogen atom ?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_3.json",
     "cross_source": true
@@ -1980,7 +1980,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "In the time it takes for a ball to fall (from rest) from the height of the peak of Mount Everest straight down to sea le",
+    "dup_question": "In the time it takes for a ball to fall (from rest) from the height of the peak of Mount Everest straight down to sea level, how many blinks occur worldwide?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_3.json",
     "cross_source": true
@@ -1992,13 +1992,13 @@
     "cross_source": true
   },
   {
-    "dup_question": "If all the energy produced by the world’s wind turbines in the year 2022 was stored on a standard 10 microFarad capacito",
+    "dup_question": "If all the energy produced by the world’s wind turbines in the year 2022 was stored on a standard 10 microFarad capacitor, what would the voltage (in Volts) be between the two ends of the capacitor?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_3.json",
     "cross_source": true
   },
   {
-    "dup_question": "How many days would it take for McDonalds to sell a mole of hamburger assuming they continue to sell at the same rate as",
+    "dup_question": "How many days would it take for McDonalds to sell a mole of hamburger assuming they continue to sell at the same rate as today?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_3.json",
     "cross_source": true
@@ -2028,31 +2028,31 @@
     "cross_source": true
   },
   {
-    "dup_question": "How many adult bed bugs would you need to stack vertically (single file) to reach the height above sea level of the tall",
+    "dup_question": "How many adult bed bugs would you need to stack vertically (single file) to reach the height above sea level of the tallest active volcano in the world?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_3.json",
     "cross_source": true
   },
   {
-    "dup_question": "The electrostatic force between a proton and an electron 1 Angstrom apart is what fraction of the force needed to fricti",
+    "dup_question": "The electrostatic force between a proton and an electron 1 Angstrom apart is what fraction of the force needed to frictionlessly accelerate a neutron at a rate of 1 septillion meters per second squared?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_3.json",
     "cross_source": true
   },
   {
-    "dup_question": "Over the course of a fortnight, a hundredth of a furlong of rain falls over a 3-hectare area. How many slugs of water fe",
+    "dup_question": "Over the course of a fortnight, a hundredth of a furlong of rain falls over a 3-hectare area. How many slugs of water fell per minute on average?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_3.json",
     "cross_source": true
   },
   {
-    "dup_question": "Although friends often joke that they share one brain cell, what fraction of the cells in an average adult are actually ",
+    "dup_question": "Although friends often joke that they share one brain cell, what fraction of the cells in an average adult are actually brain cells (specifically neurons)?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_3.json",
     "cross_source": true
   },
   {
-    "dup_question": "How many hamsters running on wheels would you need to temporarily produce the same amount of power as an average full ca",
+    "dup_question": "How many hamsters running on wheels would you need to temporarily produce the same amount of power as an average full capacity nuclear power plant?",
     "dup_source": "achuthan:train",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_3.json",
     "cross_source": true
@@ -2064,7 +2064,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "If you took all the energy released when a slug of sodium reacts with chlorine gas to launch all the salt produced from ",
+    "dup_question": "If you took all the energy released when a slug of sodium reacts with chlorine gas to launch all the salt produced from the reaction straight up (on earth), what height, in meters, above the ground would it reach?",
     "dup_source": "achuthan:val",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_3.json",
     "cross_source": true
@@ -2082,43 +2082,43 @@
     "cross_source": true
   },
   {
-    "dup_question": "How many golf balls put into the worlds oceans would it take to submerge all of the land on earth from the displaced wat",
+    "dup_question": "How many golf balls put into the worlds oceans would it take to submerge all of the land on earth from the displaced water?",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
   },
   {
-    "dup_question": "If Earth were flat and my antenna was sufficiently high, how much power would I need to broadcast a radio station to the",
+    "dup_question": "If Earth were flat and my antenna was sufficiently high, how much power would I need to broadcast a radio station to the whole world?",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
   },
   {
-    "dup_question": "A breakfast cereal, similar to Cheerios, is composed of small oat cylinders, 1 cm dia., 4 mm high with a 4 mm diameter h",
+    "dup_question": "A breakfast cereal, similar to Cheerios, is composed of small oat cylinders, 1 cm dia., 4 mm high with a 4 mm diameter hole bored through. Estimate the mass, g, of one cylinder.",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
   },
   {
-    "dup_question": "The effect of air pressure was demonstrated in 1654 in Magdeburg, Germany with an impressive experiment. Two hollow meta",
+    "dup_question": "The effect of air pressure was demonstrated in 1654 in Magdeburg, Germany with an impressive experiment. Two hollow metal hemispheres with a flat metal rim (flange) were placed together and the air removed from the interior with a primitive vacuum pump. The external pressure of the air pushed them together. When they tried to pull the hemispheres apart using two rings welded to the hemispheres, they could not be pulled apart even by a number of people pulling together. The sphere produced by putting the two hemispheres together is about the size of a basketball. Estimate the force needed to pull them apart.",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
   },
   {
-    "dup_question": "The cereal is poured to fill an 8 oz. bowl. Milk is then added to completely fill the bowl. How many cc of milk were add",
+    "dup_question": "The cereal is poured to fill an 8 oz. bowl. Milk is then added to completely fill the bowl. How many cc of milk were added?",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
   },
   {
-    "dup_question": "For next year's Physics Open House the Department is planning to set up a bungee jump from the top of the physics buildi",
+    "dup_question": "For next year's Physics Open House the Department is planning to set up a bungee jump from the top of the physics building. Assume that one end of an elastic band will be firmly attached to the top of the building and the other to the waist of a courageous participant. The participant will step off the edge of the building to be slowed and brought back up by the elastic band before hitting the ground (we hope). Estimate the spring constant of the elastic you would recommend using.",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
   },
   {
-    "dup_question": "One suggestion for putting satellites into orbit cheaply without using rockets is to build a tower 300 km high containin",
+    "dup_question": "One suggestion for putting satellites into orbit cheaply without using rockets is to build a tower 300 km high containing an elevator. One would put the payload in the elevator, lift it to the top, and just step out into orbit. Ignoring other problems (such as structural strain on the tower), estimate the weight of such a tower if its base were the size of Washington DC and it were made of steel.",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "train_dir:filtered:fermi_problems_filtered_5.json",
     "cross_source": true
@@ -2136,37 +2136,37 @@
     "cross_source": false
   },
   {
-    "dup_question": "How many golf balls put into the worlds oceans would it take to submerge all of the land on earth from the displaced wat",
+    "dup_question": "How many golf balls put into the worlds oceans would it take to submerge all of the land on earth from the displaced water?",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
   },
   {
-    "dup_question": "A breakfast cereal, similar to Cheerios, is composed of small oat cylinders, 1 cm dia., 4 mm high with a 4 mm diameter h",
+    "dup_question": "A breakfast cereal, similar to Cheerios, is composed of small oat cylinders, 1 cm dia., 4 mm high with a 4 mm diameter hole bored through. Estimate the mass, g, of one cylinder.",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
   },
   {
-    "dup_question": "The effect of air pressure was demonstrated in 1654 in Magdeburg, Germany with an impressive experiment. Two hollow meta",
+    "dup_question": "The effect of air pressure was demonstrated in 1654 in Magdeburg, Germany with an impressive experiment. Two hollow metal hemispheres with a flat metal rim (flange) were placed together and the air removed from the interior with a primitive vacuum pump. The external pressure of the air pushed them together. When they tried to pull the hemispheres apart using two rings welded to the hemispheres, they could not be pulled apart even by a number of people pulling together. The sphere produced by putting the two hemispheres together is about the size of a basketball. Estimate the force needed to pull them apart.",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
   },
   {
-    "dup_question": "The density of water is just about 1000 kg/m3. The density of air is just about 1000 times less. Estimate the height of ",
+    "dup_question": "The density of water is just about 1000 kg/m3. The density of air is just about 1000 times less. Estimate the height of the atmosphere. As a simplifying assumption, take the atmosphere to be of uniform density up to some height after which the density rapidly falls to zero.",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "eval_dir:eval_benchmark",
     "cross_source": false
   },
   {
-    "dup_question": "The cereal is poured to fill an 8 oz. bowl. Milk is then added to completely fill the bowl. How many cc of milk were add",
+    "dup_question": "The cereal is poured to fill an 8 oz. bowl. Milk is then added to completely fill the bowl. How many cc of milk were added?",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
   },
   {
-    "dup_question": "For next year's Physics Open House the Department is planning to set up a bungee jump from the top of the physics buildi",
+    "dup_question": "For next year's Physics Open House the Department is planning to set up a bungee jump from the top of the physics building. Assume that one end of an elastic band will be firmly attached to the top of the building and the other to the waist of a courageous participant. The participant will step off the edge of the building to be slowed and brought back up by the elastic band before hitting the ground (we hope). Estimate the spring constant of the elastic you would recommend using.",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
@@ -2214,19 +2214,19 @@
     "cross_source": true
   },
   {
-    "dup_question": "Enrico Fermi, the scientist our event is named after, pioneered nuclear energy. How many grams of uranium would remain i",
+    "dup_question": "Enrico Fermi, the scientist our event is named after, pioneered nuclear energy. How many grams of uranium would remain in a 1kg block of pure U-235 created when Fermi was born?",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
   },
   {
-    "dup_question": "You drive the best car in the world-- a Toyota Prius. You decide to take a road trip from Omaha, Nebraska, to Irvine, Ca",
+    "dup_question": "You drive the best car in the world-- a Toyota Prius. You decide to take a road trip from Omaha, Nebraska, to Irvine, California. How many times would you have to refill your gas tank during your road trip?",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
   },
   {
-    "dup_question": "How many chemical substances, indexed in the CAS (Chemical Abstracts Service) registry, are known? [Use SI Units / 2017 ",
+    "dup_question": "How many chemical substances, indexed in the CAS (Chemical Abstracts Service) registry, are known? [Use SI Units / 2017 USD] [Use SI Units / 2017 USD]",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
@@ -2238,49 +2238,49 @@
     "cross_source": true
   },
   {
-    "dup_question": "If the average snowfall in Houston, Texas in December was distributed evenly across Russia's surface area, how many inch",
+    "dup_question": "If the average snowfall in Houston, Texas in December was distributed evenly across Russia's surface area, how many inches of snow would there be?",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
   },
   {
-    "dup_question": "If you were to level the entire Amazon rainforest (6 million mi^2) and turn all the trees into paper, how many 100-page ",
+    "dup_question": "If you were to level the entire Amazon rainforest (6 million mi^2) and turn all the trees into paper, how many 100-page notebooks (college-ruled, of course) could you give to each student at UChicago (only the undergrads)?",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
   },
   {
-    "dup_question": "How many pollen grains would it take to build a scale model of Mount Everest? (assume the pollen grains are packed toget",
+    "dup_question": "How many pollen grains would it take to build a scale model of Mount Everest? (assume the pollen grains are packed together as tightly as possible)",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:val",
     "cross_source": true
   },
   {
-    "dup_question": "Do you ever see those funny graphs Apple presents to show how much better their devices are than their competitors? It g",
+    "dup_question": "Do you ever see those funny graphs Apple presents to show how much better their devices are than their competitors? It got me thinking about Apple’s new computer chips. Intel 4004 was the first ever commercially produced microprocessor. How many times more transistors are on the new Apple M2 chip, compared to the Intel 4004 chip?",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
   },
   {
-    "dup_question": "Speaking of the oceans, did you know that there are actually a ton of viruses just chilling on the surface of seawater? ",
+    "dup_question": "Speaking of the oceans, did you know that there are actually a ton of viruses just chilling on the surface of seawater? (well I guess they aren’t chilling because of climate change and increasing ocean temperatures... but whatever!). How many viruses would you expect to find within a cubic meter of surface seawater?",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
   },
   {
-    "dup_question": "PUSO tournament co-director Inwoo Shin is attempting to remember her password, which she knows is exactly 10 numbers lon",
+    "dup_question": "PUSO tournament co-director Inwoo Shin is attempting to remember her password, which she knows is exactly 10 numbers long. She randomly types 10 numbers at a rate of 1 number per second and then checks if the password is correct. She repeats this until she gets the password right. What is the expected number of minutes she will take to get the password correct?",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
   },
   {
-    "dup_question": "Eric claims that he doesn’t need any meteorology to predict the weather. Darren challenges him with the following game. ",
+    "dup_question": "Eric claims that he doesn’t need any meteorology to predict the weather. Darren challenges him with the following game. Darren starts by paying Eric 10^10 dollars, and Eric is to make make daily predictions about whether or not it will rain the following day. Eric is to do this for an entire year, after which Darren will calculate the difference between how many times it rained and how many times Eric said it would rain. We call this difference x, and then Eric must pay Darren x^10 dollars. If Eric plays optimally, what is the maximum amount he can guarantee that he earns (or if he loses money - what is the minimum amount he can lose) at the conclusion of the game?",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
   },
   {
-    "dup_question": "Jonas has been enslaved by giants and is to carry harvested mushrooms up Jack’s Beanstalk to the Castle of the Giant Kin",
+    "dup_question": "Jonas has been enslaved by giants and is to carry harvested mushrooms up Jack’s Beanstalk to the Castle of the Giant King nestled up in the Cirrus clouds. Marilyn wishes to free Jonas, but the giants expect her to pay them in the amount of mushrooms Jonas would transport to them over the entirety of his life, assuming no rest. Given that Jonas can carry 589 mushrooms at a time and his climb rate is 10 m/min both directions vertically, how many mushrooms must Marilyn provide the giants to free Jonas?",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
@@ -2334,7 +2334,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "If you were to count from one to a quintillion, and took a second to visualize each number (audibly counting would take ",
+    "dup_question": "If you were to count from one to a quintillion, and took a second to visualize each number (audibly counting would take a lot longer), how long would it take, in years?",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
@@ -2352,25 +2352,25 @@
     "cross_source": true
   },
   {
-    "dup_question": "You're over the Mariana trench in a boat with a cannonball in your hand. You drop it overboard, how long does the cannon",
+    "dup_question": "You're over the Mariana trench in a boat with a cannonball in your hand. You drop it overboard, how long does the cannonball take to reach the bottom in seconds?",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
   },
   {
-    "dup_question": "If the SO bacteria don't die, how many hours will it take for two to reproduce and make a volume equal to that of the ea",
+    "dup_question": "If the SO bacteria don't die, how many hours will it take for two to reproduce and make a volume equal to that of the earth?",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
   },
   {
-    "dup_question": "What is the kinetic energy stored in all the wind in the Earth’s atmosphere? The specific gravity of air is 1/1000 th th",
+    "dup_question": "What is the kinetic energy stored in all the wind in the Earth’s atmosphere? The specific gravity of air is 1/1000 th that of water. You should only consider the atmosphere’s motion relative to the surface of the Earth, and not the overall rotation of the planet.",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
   },
   {
-    "dup_question": "One suggestion for putting satellites into orbit cheaply without using rockets is to build a tower 300 km high containin",
+    "dup_question": "One suggestion for putting satellites into orbit cheaply without using rockets is to build a tower 300 km high containing an elevator. One would put the payload in the elevator, lift it to the top, and just step out into orbit. Ignoring other problems (such as structural strain on the tower), estimate the weight of such a tower if its base were the size of Washington DC and it were made of steel. (Steel is about 5 times as dense as water, which has a density of 1 gm/cm3.)",
     "dup_source": "eval_dir:eval_benchmark",
     "orig_source": "achuthan:train",
     "cross_source": true
@@ -2400,7 +2400,7 @@
     "cross_source": true
   },
   {
-    "dup_question": "What is the total world biomass of each insect order such as ants, bees, beetles, flies, spiders, termites, worms, and s",
+    "dup_question": "What is the total world biomass of each insect order such as ants, bees, beetles, flies, spiders, termites, worms, and so on?",
     "dup_source": "achuthan:eval",
     "orig_source": "eval_dir:eval_benchmark",
     "cross_source": true
@@ -2418,13 +2418,13 @@
     "cross_source": true
   },
   {
-    "dup_question": "Speedy Jones is the only deaf, Olympic sprinter. He uses the flash of the Starter's pistol to start a race. Speedy and 7",
+    "dup_question": "Speedy Jones is the only deaf, Olympic sprinter. He uses the flash of the Starter's pistol to start a race. Speedy and 7 others won their 100-meter heats in 10.00 seconds. In the semi-final heat featuring these 8 racers, the Starter mistakenly fired his pistol at the finish line of the race. By how many millimeters did Speedy win his heat?",
     "dup_source": "achuthan:eval",
     "orig_source": "eval_dir:eval_benchmark",
     "cross_source": true
   },
   {
-    "dup_question": "The density of water is just about 1000 kg/m3. The density of air is just about 1000 times less. Estimate the height of ",
+    "dup_question": "The density of water is just about 1000 kg/m3. The density of air is just about 1000 times less. Estimate the height of the atmosphere. As a simplifying assumption, take the atmosphere to be of uniform density up to some height after which the density rapidly falls to zero.",
     "dup_source": "achuthan:eval",
     "orig_source": "eval_dir:eval_benchmark",
     "cross_source": true
