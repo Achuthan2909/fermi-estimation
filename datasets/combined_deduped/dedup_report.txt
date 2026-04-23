@@ -1,0 +1,317 @@
+══════════════════════════════════════════════════════════════
+DATASET COMBINATION & DEDUPLICATION REPORT
+══════════════════════════════════════════════════════════════
+
+──────────────────────────────────────────────────────────────
+FILE INVENTORY (load order = dedup priority)
+──────────────────────────────────────────────────────────────
+  File                                             Count
+  ──────────────────────────────────────────────── ─────
+  datasets/train/fermi_problems_filtered_1.json       74
+  datasets/train/fermi_problems_filtered_2.json       28
+  datasets/train/fermi_problems_filtered_3.json       20
+  datasets/train/fermi_problems_filtered_4.json       10
+  datasets/train/fermi_problems_filtered_5.json      179
+  datasets/train/fermi_problems_synth_1.json          50
+  datasets/train/fermi_problems_synth_2.json        1879
+  datasets/eval/train.json                           145
+  datasets/eval/val.json                              15
+  datasets/eval/test.json                             30
+  datasets/Achuthan-Dataset/train.jsonl             2685
+  datasets/Achuthan-Dataset/val.jsonl                100
+  datasets/eval/eval_set_v2.json                     100
+  datasets/Achuthan-Dataset/eval.jsonl               100
+  ──────────────────────────────────────────────── ─────
+  TOTAL                                             5415
+
+──────────────────────────────────────────────────────────────
+DEDUPLICATION SUMMARY
+──────────────────────────────────────────────────────────────
+  Total samples before dedup   :  5415
+  Duplicates removed           :   407
+    — within-source            :     3
+    — cross-source             :   404
+  Unique samples after dedup   :  5008
+
+──────────────────────────────────────────────────────────────
+PER-SOURCE BREAKDOWN
+──────────────────────────────────────────────────────────────
+  Source                                   Total  Kept  Lost
+  ──────────────────────────────────────── ───── ───── ─────
+  achuthan:eval                              100    92     8
+  achuthan:train                            2685  2458   227
+  achuthan:val                               100    99     1
+  eval_dir:eval_benchmark                    100    46    54
+  eval_dir:test                               30     0    30
+  eval_dir:train                             145    69    76
+  eval_dir:val                                15     5    10
+  train_dir:filtered:fermi_problems_filtered_1.json    74    74     0
+  train_dir:filtered:fermi_problems_filtered_2.json    28    28     0
+  train_dir:filtered:fermi_problems_filtered_3.json    20    20     0
+  train_dir:filtered:fermi_problems_filtered_4.json    10     9     1
+  train_dir:filtered:fermi_problems_filtered_5.json   179   179     0
+  train_dir:synth:fermi_problems_synth_1.json    50    50     0
+  train_dir:synth:fermi_problems_synth_2.json  1879  1879     0
+
+──────────────────────────────────────────────────────────────
+SCHEMA NORMALIZATION
+──────────────────────────────────────────────────────────────
+  Required fields (all records):
+    question, fermi_answer, domain, source
+
+  Key field mappings:
+    Achuthan-Dataset  gold_oom     → fermi_answer
+    Achuthan-Dataset  gold_numeric → answer_raw (str)
+    Achuthan-Dataset  gold_numeric → answer_log10 (computed)
+    eval/train dirs   fermi_answer → fermi_answer (unchanged)
+
+  Optional fields preserved when present:
+    answer_raw, answer_log10, id, unit, answer_type,
+    has_distractor, length_tier, relevance, program,
+    context, file_source_url
+
+──────────────────────────────────────────────────────────────
+PROVENANCE GUIDE (source column values)
+──────────────────────────────────────────────────────────────
+  achuthan:train         → Achuthan-Dataset/train.jsonl
+  achuthan:val           → Achuthan-Dataset/val.jsonl
+  achuthan:eval          → Achuthan-Dataset/eval.jsonl  [EVAL]
+  eval_dir:eval_benchmark→ eval/eval_set_v2.json        [EVAL]
+  eval_dir:train         → eval/train.json
+  eval_dir:val           → eval/val.json
+  eval_dir:test          → eval/test.json
+  train_dir:filtered:*   → train/fermi_problems_filtered_*.json
+  train_dir:synth:*      → train/fermi_problems_synth_*.json
+
+  [EVAL] = sealed/held-out — must not appear in train/val splits
+
+──────────────────────────────────────────────────────────────
+EVAL CONTAMINATION CHECK
+──────────────────────────────────────────────────────────────
+  WARNING: 53 eval question(s) are ALREADY
+  present in train-tagged records (first-occurrence wins,
+  so these appear in master.json tagged as train sources).
+
+  These questions are in master.json as train-source records
+  but were intended for eval. Action required before splitting.
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:val
+  q: How many watts would a heater need to keep a local pond from freezing in winter?
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: What fraction of the earth's water is equal to the water in an adult male human?
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: How many golf balls put into the worlds oceans would it take to submerge all of 
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: If Earth were flat and my antenna was sufficiently high, how much power would I 
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: A breakfast cereal, similar to Cheerios, is composed of small oat cylinders, 1 c
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: The effect of air pressure was demonstrated in 1654 in Magdeburg, Germany with a
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: The cereal is poured to fill an 8 oz. bowl. Milk is then added to completely fil
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: For next year's Physics Open House the Department is planning to set up a bungee
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: train_dir:filtered:fermi_problems_filtered_5.json
+  q: One suggestion for putting satellites into orbit cheaply without using rockets i
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: How many liters of water comes out of a water fountain in a mall per day?
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: How many golf balls put into the worlds oceans would it take to submerge all of 
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: A breakfast cereal, similar to Cheerios, is composed of small oat cylinders, 1 c
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: The effect of air pressure was demonstrated in 1654 in Magdeburg, Germany with a
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: The cereal is poured to fill an 8 oz. bowl. Milk is then added to completely fil
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: For next year's Physics Open House the Department is planning to set up a bungee
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: How many liters of water comes out of a water fountain in a mall per day?
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: How many steps do I need to climb to burn off the calories in a slice of pizza?
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: How many atoms are in a mole of atoms?
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: What is the capacity of the University of Michigan Big House in people?
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: Every minute, how many red blood cells are produced in the average human body?
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: How many liters of water are in earth's oceans?
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: Enrico Fermi, the scientist our event is named after, pioneered nuclear energy. 
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: You drive the best car in the world-- a Toyota Prius. You decide to take a road 
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: How many chemical substances, indexed in the CAS (Chemical Abstracts Service) re
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: How long, in seconds, would it take for the Sun to output the amount of energy f
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: If the average snowfall in Houston, Texas in December was distributed evenly acr
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: If you were to level the entire Amazon rainforest (6 million mi^2) and turn all 
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:val
+  q: How many pollen grains would it take to build a scale model of Mount Everest? (a
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: Do you ever see those funny graphs Apple presents to show how much better their 
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: Speaking of the oceans, did you know that there are actually a ton of viruses ju
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: PUSO tournament co-director Inwoo Shin is attempting to remember her password, w
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: Eric claims that he doesn’t need any meteorology to predict the weather. Darren 
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: Jonas has been enslaved by giants and is to carry harvested mushrooms up Jack’s 
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: train_dir:filtered:fermi_problems_filtered_1.json
+  q: What is the area of Madagascar, in square angstroms?
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: train_dir:filtered:fermi_problems_filtered_1.json
+  q: How many different types of proteins are in the human body?
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: train_dir:filtered:fermi_problems_filtered_1.json
+  q: The number of years ago that Pangaea existed as a supercontinent?
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: Average number of seconds a Koala spends sleeping each day
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: How many liters of water are there is an Olympic-sized swimming pool?
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: How many different species of spiders and scorpions are there in the world?
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: How many square kilometers of Lake Erie are solely under the jurisdiction of the
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:val
+  q: How many toothpicks could be made from a telephone pole?
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: If you were to count from one to a quintillion, and took a second to visualize e
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: I bought a 2 terabyte hard drive. How many bytes of information can it hold?
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: How many red blood cells does the U.S. Congress have?
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: You're over the Mariana trench in a boat with a cannonball in your hand. You dro
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: If the SO bacteria don't die, how many hours will it take for two to reproduce a
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: What is the kinetic energy stored in all the wind in the Earth’s atmosphere? The
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: One suggestion for putting satellites into orbit cheaply without using rockets i
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: train_dir:filtered:fermi_problems_filtered_1.json
+  q: What is the mass of Mars in iPhone 5s?
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: achuthan:train
+  q: How many different sets of 5 can you pick from a group of 50?
+
+  dup_src : eval_dir:eval_benchmark
+  orig_src: train_dir:filtered:fermi_problems_filtered_1.json
+  q: How many atoms are in your body?
+
+  dup_src : achuthan:eval
+  orig_src: train_dir:filtered:fermi_problems_filtered_3.json
+  q: What is the weight of the inner core of the earth in cars?
+
+  dup_src : achuthan:eval
+  orig_src: train_dir:filtered:fermi_problems_filtered_1.json
+  q: What is the age of the Earth in seconds?
+
+
+══════════════════════════════════════════════════════════════
+OUTPUT
+══════════════════════════════════════════════════════════════
+  datasets/combined_deduped/master.json      (5008 records)
+  datasets/combined_deduped/duplicate_log.json (407 entries)
+  datasets/combined_deduped/dedup_report.txt
+══════════════════════════════════════════════════════════════
