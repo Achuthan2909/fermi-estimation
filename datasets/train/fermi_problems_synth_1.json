@@ -1,0 +1,256 @@
+{
+    "source": "Gemini 3",
+    "comments": "these answers need to be validated",
+    "science_domain_questions": [
+        {
+            "question": "How many visible-light photons are emitted by a standard 1-milliwatt red laser pointer in one second?",
+            "fermi_answer": 15,
+            "domain": "Physics/Optics"
+        },
+        {
+            "question": "What is the total mass, in kilograms, of all the air inside a typical high school gymnasium?",
+            "fermi_answer": 3,
+            "domain": "Physics/Earth Science"
+        },
+        {
+            "question": "How many Joules of energy are required to melt a 1-metric ton block of ice starting from 0 degrees Celsius?",
+            "fermi_answer": 8,
+            "domain": "Thermodynamics/Physics"
+        },
+        {
+            "question": "If you converted the entire mass of a single 1-gram paperclip into energy (E=mc^2), how many average American homes could it power for a full year?",
+            "fermi_answer": 3,
+            "domain": "Physics/Engineering"
+        },
+        {
+            "question": "How many copper atoms are in a standard 50-foot, 12-gauge household extension cord?",
+            "fermi_answer": 25,
+            "domain": "Chemistry/Physics"
+        },
+        {
+            "question": "What is the total capacitance, in Farads, of all the smartphone batteries currently in active use globally?",
+            "fermi_answer": 4,
+            "domain": "Physics/Engineering"
+        },
+        {
+            "question": "How many times does a Ruby-throated hummingbird’s heart beat over the course of its entire 5-year lifetime?",
+            "fermi_answer": 9,
+            "domain": "Biology"
+        },
+        {
+            "question": "How many Newtons of gravitational force are required to keep the Moon in its circular orbit around the Earth?",
+            "fermi_answer": 20,
+            "domain": "Physics/Astronomy"
+        },
+        {
+            "question": "How many standard 60-watt incandescent light bulbs would be needed to match the total luminosity of the Sun?",
+            "fermi_answer": 25,
+            "domain": "Physics/Astronomy"
+        },
+        {
+            "question": "What is the pressure, in Pascals, at the boundary between the Earth's outer core and inner core?",
+            "fermi_answer": 11,
+            "domain": "Earth Science/Physics"
+        },
+        {
+            "question": "How many molecules of water are contained in all the clouds in Earth's atmosphere at any given moment?",
+            "fermi_answer": 38,
+            "domain": "Earth Science/Chemistry"
+        },
+        {
+            "question": "How many carbon atoms are in a high-quality 2-carat diamond?",
+            "fermi_answer": 22,
+            "domain": "Chemistry"
+        },
+        {
+            "question": "If you spread one mole of standard sand grains uniformly across the entire land area of the United States, how many meters deep would the layer be?",
+            "fermi_answer": 5,
+            "domain": "Mathematics/Earth Science"
+        },
+        {
+            "question": "How many individual gas molecules (N2, O2, etc.) do you inhale in a single average resting breath?",
+            "fermi_answer": 22,
+            "domain": "Biology/Chemistry"
+        },
+        {
+            "question": "What is the total number of gold atoms ever mined in human history?",
+            "fermi_answer": 27,
+            "domain": "Chemistry/Earth Science"
+        },
+        {
+            "question": "How many chemical bonds are broken by enzymes during the complete digestion of a single slice of white bread?",
+            "fermi_answer": 23,
+            "domain": "Biology/Chemistry"
+        },
+        {
+            "question": "How many individual hydrogen atoms are present in the Earth's entire atmosphere?",
+            "fermi_answer": 34,
+            "domain": "Chemistry/Earth Science"
+        },
+        {
+            "question": "What is the total mass, in grams, of all the DNA molecules in a single average human body?",
+            "fermi_answer": 2,
+            "domain": "Biology"
+        },
+        {
+            "question": "How many moles of oxygen (O2) are produced by the Amazon rainforest through photosynthesis in one day?",
+            "fermi_answer": 11,
+            "domain": "Biology/Environmental Science"
+        },
+        {
+            "question": "How many uranium-235 nuclei undergo fission to power a city of 1 million people for one hour?",
+            "fermi_answer": 18,
+            "domain": "Physics/Engineering"
+        },
+        {
+            "question": "How many individual bacteria live in the digestive tract of a single healthy human adult?",
+            "fermi_answer": 14,
+            "domain": "Biology"
+        },
+        {
+            "question": "If you uncoiled every DNA strand in every cell of a human body and joined them end-to-end, how many times would the strand wrap around the Earth's equator?",
+            "fermi_answer": 6,
+            "domain": "Biology/Physics"
+        },
+        {
+            "question": "How many total action potentials (nerve impulses) occur across all neurons in a human brain during a single 24-hour period?",
+            "fermi_answer": 16,
+            "domain": "Biology/Neuroscience"
+        },
+        {
+            "question": "How many molecules of ATP are synthesized and recycled in a human body every single second?",
+            "fermi_answer": 20,
+            "domain": "Biology/Chemistry"
+        },
+        {
+            "question": "What is the total surface area, in square meters, of all the alveoli (air sacs) in the entire current human population's lungs?",
+            "fermi_answer": 12,
+            "domain": "Biology"
+        },
+        {
+            "question": "How many individual leaves are currently growing on all the trees and plants in the entire world?",
+            "fermi_answer": 15,
+            "domain": "Biology/Environmental Science"
+        },
+        {
+            "question": "How many liters of blood have been pumped by the hearts of all humans who have ever lived combined?",
+            "fermi_answer": 17,
+            "domain": "Biology"
+        },
+        {
+            "question": "How many base-pair mutations occur across all the cells in a single human body every day?",
+            "fermi_answer": 11,
+            "domain": "Biology/Genetics"
+        },
+        {
+            "question": "How many individual phytoplankton organisms are in the top 10 meters of the global ocean?",
+            "fermi_answer": 24,
+            "domain": "Biology/Oceanography"
+        },
+        {
+            "question": "How many calories (kcal) of energy are stored in the blubber of an average adult blue whale?",
+            "fermi_answer": 8,
+            "domain": "Biology"
+        },
+        {
+            "question": "How many Earth-sized volumes could fit inside the total volume of the Milky Way galaxy?",
+            "fermi_answer": 48,
+            "domain": "Astronomy"
+        },
+        {
+            "question": "How many stars have gone supernova within the observable universe since the Earth first formed 4.5 billion years ago?",
+            "fermi_answer": 17,
+            "domain": "Astronomy"
+        },
+        {
+            "question": "What is the total mass, in kilograms, of all the objects in the main asteroid belt?",
+            "fermi_answer": 21,
+            "domain": "Astronomy/Physics"
+        },
+        {
+            "question": "How many kilometers has our Solar System traveled around the center of the Milky Way since the extinction of the dinosaurs?",
+            "fermi_answer": 14,
+            "domain": "Astronomy"
+        },
+        {
+            "question": "How many hydrogen nuclei are fused into helium in the Sun's core every single microsecond?",
+            "fermi_answer": 32,
+            "domain": "Physics/Astronomy"
+        },
+        {
+            "question": "How many photons from the star Polaris (the North Star) enter a human eye in one second on a clear night?",
+            "fermi_answer": 6,
+            "domain": "Physics/Astronomy"
+        },
+        {
+            "question": "How many distinct galaxies are estimated to exist within the boundaries of the Observable Universe?",
+            "fermi_answer": 11,
+            "domain": "Astronomy"
+        },
+        {
+            "question": "What is the total volume, in cubic meters, of all the material making up the rings of Saturn?",
+            "fermi_answer": 15,
+            "domain": "Astronomy"
+        },
+        {
+            "question": "How many years would it take a standard commercial jet (900 km/h) to fly the distance to Alpha Centauri?",
+            "fermi_answer": 6,
+            "domain": "Astronomy/Physics"
+        },
+        {
+            "question": "How many kilograms of 'dark matter' are estimated to be located within the volume of our Solar System (out to Neptune's orbit)?",
+            "fermi_answer": 13,
+            "domain": "Astronomy/Physics"
+        },
+        {
+            "question": "How many individual snowflakes fall onto the entire surface of the Earth in a single year?",
+            "fermi_answer": 24,
+            "domain": "Earth Science/Meteorology"
+        },
+        {
+            "question": "What is the total mass, in kilograms, of all the plastic debris currently in the Earth's oceans?",
+            "fermi_answer": 11,
+            "domain": "Environmental Science"
+        },
+        {
+            "question": "How many cubic meters of magma are erupted by all the world's volcanoes combined in an average year?",
+            "fermi_answer": 9,
+            "domain": "Earth Science/Geology"
+        },
+        {
+            "question": "How many liters of water pass over Niagara Falls during the course of a single century?",
+            "fermi_answer": 15,
+            "domain": "Earth Science/Hydrology"
+        },
+        {
+            "question": "How many lightning strikes occur globally during the 5 seconds it takes to read this sentence?",
+            "fermi_answer": 2,
+            "domain": "Earth Science/Physics"
+        },
+        {
+            "question": "What is the total mass, in metric tons, of the entire global population of ants?",
+            "fermi_answer": 7,
+            "domain": "Biology/Environmental Science"
+        },
+        {
+            "question": "How many grains of sand are there on all the beaches and deserts in the entire world?",
+            "fermi_answer": 21,
+            "domain": "Earth Science/Mathematics"
+        },
+        {
+            "question": "How many Joules of kinetic energy are released by a massive magnitude 9.0 earthquake?",
+            "fermi_answer": 17,
+            "domain": "Earth Science/Physics"
+        },
+        {
+            "question": "How many kilograms of topsoil are lost to erosion worldwide every minute?",
+            "fermi_answer": 7,
+            "domain": "Environmental Science/Earth Science"
+        },
+        {
+            "question": "What is the total number of cubic meters of ice currently contained within the Antarctic Ice Sheet?",
+            "fermi_answer": 16,
+            "domain": "Earth Science/Glaciology"
+        }
+    ]
+}

@@ -1,0 +1,105 @@
+{
+    "source": "https://github.com/landy8697/open-scioly-fermi/blob/master/formatted_test_data/princeton_2024.txt",
+    "science_domain_questions": [
+        {
+            "question": "How many pounds of water is released into the atmosphere annually by grapes drying into raisins worldwide?",
+            "fermi_answer": 10,
+            "domain": "Biology/Earth Science"
+        },
+        {
+            "question": "The popular trick-shot YouTube channel Dude Perfect attempts their craziest one yet: they are going to place a dartboard at a uniformly random location on the moon and then shoot a dart at a uniformly random location on the moon from orbit. They will attempt this once every minute. What is the expected number of times the Moon will go around the Earth before they succeed in their trickshot?",
+            "fermi_answer": 10,
+            "domain": "Astronomy/Physics"
+        },
+        {
+            "question": "What is the ratio of the energy of one photon of violet wavelength to the (magnitude of) energy of an electron at the first energy level in a hydrogen atom?",
+            "fermi_answer": -2,
+            "domain": "Physics/Chemistry"
+        },
+        {
+            "question": "How many liters of ocean water would you have to boil to end up with a ton of salt?",
+            "fermi_answer": 4,
+            "domain": "Chemistry/Earth Science"
+        },
+        {
+            "question": "In the time it takes for a ball to fall (from rest) from the height of the peak of Mount Everest straight down to sea level, how many blinks occur worldwide?",
+            "fermi_answer": 11,
+            "domain": "Physics/Biology"
+        },
+        {
+            "question": "How many seconds would it take for your heart to pump a volume of blood equivalent to that of an olympic sized pool?",
+            "fermi_answer": 7,
+            "domain": "Biology/Physics"
+        },
+        {
+            "question": "If all the energy produced by the world’s wind turbines in the year 2022 was stored on a standard 10 microFarad capacitor, what would the voltage (in Volts) be between the two ends of the capacitor?",
+            "fermi_answer": 12,
+            "domain": "Physics/Engineering"
+        },
+        {
+            "question": "How many days would it take for McDonalds to sell a mole of hamburger assuming they continue to sell at the same rate as today?",
+            "fermi_answer": 17,
+            "domain": "Chemistry/Mathematics"
+        },
+        {
+            "question": "How many cows would I need to produce enough milk in a year to fill a hollow container the size of the earth?",
+            "fermi_answer": 20,
+            "domain": "Biology/Astronomy"
+        },
+        {
+            "question": "How many Joules would you need to power a light-year long string of Christmas lights for an hour?",
+            "fermi_answer": 20,
+            "domain": "Physics/Engineering"
+        },
+        {
+            "question": "What velocity in meters per second do you need to launch an angry bird on the surface of the sun for it to leave orbit?",
+            "fermi_answer": 6,
+            "domain": "Physics/Astronomy"
+        },
+        {
+            "question": "What is the weight of the inner core of the earth in cars?",
+            "fermi_answer": 20,
+            "domain": "Earth Science/Physics"
+        },
+        {
+            "question": "How many liters of room-temperature Dr. Pepper could be carbonated with the world's CO2 emissions during 2022?",
+            "fermi_answer": 16,
+            "domain": "Chemistry/Environmental Science"
+        },
+        {
+            "question": "How many adult bed bugs would you need to stack vertically (single file) to reach the height above sea level of the tallest active volcano in the world?",
+            "fermi_answer": 7,
+            "domain": "Biology/Earth Science"
+        },
+        {
+            "question": "If you took all the energy released when a slug of sodium reacts with chlorine gas to launch all the salt produced from the reaction straight up (on earth), what height, in meters, above the ground would it reach?",
+            "fermi_answer": 7,
+            "domain": "Chemistry/Physics"
+        },
+        {
+            "question": "The electrostatic force between a proton and an electron 1 Angstrom apart is what fraction of the force needed to frictionlessly accelerate a neutron at a rate of 1 septillion meters per second squared?",
+            "fermi_answer": -5,
+            "domain": "Physics"
+        },
+        {
+            "question": "Over the course of a fortnight, a hundredth of a furlong of rain falls over a 3-hectare area. How many slugs of water fell per minute on average?",
+            "fermi_answer": 2,
+            "domain": "Earth Science/Physics"
+        },
+        {
+            "question": "Suppose you warm up your shoulder and throw a bowling ball at 995 times the speed of light down a bowling lane. In the frame of reference of the bowling ball, how many nanoseconds will elapse before it contacts the pins?",
+            "fermi_answer": 3,
+            "domain": "Physics/Relativity"
+        },
+        {
+            "question": "Although friends often joke that they share one brain cell, what fraction of the cells in an average adult are actually brain cells (specifically neurons)?",
+            "fermi_answer": -3,
+            "domain": "Biology"
+        },
+        {
+            "question": "How many hamsters running on wheels would you need to temporarily produce the same amount of power as an average full capacity nuclear power plant?",
+            "fermi_answer": 9,
+            "domain": "Biology/Physics"
+        }
+    ]
+}
