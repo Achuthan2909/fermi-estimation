@@ -44,7 +44,7 @@ from pathlib import Path
 BASE_DIR   = Path(__file__).parent.parent
 MASTER     = BASE_DIR / "datasets" / "combined_deduped" / "master.json"
 DUP_LOG    = BASE_DIR / "datasets" / "combined_deduped" / "duplicate_log.json"
-OUT_DIR    = BASE_DIR / "datasets" / "final_splits"
+OUT_DIR    = BASE_DIR / "datasets" / "final"
 
 EVAL_SOURCE_TAGS = {"eval_dir:eval_benchmark", "achuthan:eval"}
 SEED = 42
@@ -252,7 +252,7 @@ def main() -> None:
     remaining_pool = [r for r in master if id(r) not in mandatory_ids]
 
     # ── 7. Eval stratified fill ───────────────────────────────────────────
-    eval_target = round(total * 0.20)
+    eval_target = 500
     fill_needed = max(0, eval_target - len(mandatory_eval))
 
     # Sample fill_needed from remaining_pool, stratified by complexity×length_tier

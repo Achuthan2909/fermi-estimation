@@ -7,9 +7,9 @@ SPLIT COUNTS
 ─────────────────────────────────────────────────────────────────
   Split       Count       %
   ────────── ──────  ──────
-  train        2505   50.0%
-  val          1504   30.0%
-  eval         1002   20.0%
+  train        2818   56.3%
+  val          1693   33.8%
+  eval          500   10.0%
   ────────── ──────  ──────
   TOTAL        5011  100.1%
   (master total: 5008)
@@ -20,49 +20,49 @@ EVAL SET COMPOSITION
   Contaminated questions (mandatory)  :   47
   Distractor questions (has_distractor):    5  (overlap with contaminated: 0)
   Synthetic wrong-assumption questions :    3
-  Stratified fill from non-mandatory  :  947
+  Stratified fill from non-mandatory  :  445
   ─────────────────────────────────────────
-  Total eval                          : 1002
+  Total eval                          :  500
 
 ─────────────────────────────────────────────────────────────────
 COMPLEXITY DISTRIBUTION
 ─────────────────────────────────────────────────────────────────
   Complexity   train     val    eval
   ────────── ─────── ─────── ───────
-  easy        613 24%   367 24%   238 24%
-  medium     1314 52%   792 53%   524 52%
-  hard        578 23%   345 23%   240 24%
+  easy        688 24%   414 24%   116 23%
+  medium     1482 53%   888 52%   260 52%
+  hard        648 23%   391 23%   124 25%
 
 ─────────────────────────────────────────────────────────────────
 LENGTH TIER DISTRIBUTION
 ─────────────────────────────────────────────────────────────────
   Length       train     val    eval
   ────────── ─────── ─────── ───────
-  short       963 38%   577 38%   378 38%
-  medium     1373 55%   827 55%   547 55%
-  long        169  7%   100  7%    77  8%
+  short      1082 38%   650 38%   186 37%
+  medium     1548 55%   928 55%   271 54%
+  long        188  7%   115  7%    43  9%
 
 ─────────────────────────────────────────────────────────────────
 ANSWER TYPE DISTRIBUTION
 ─────────────────────────────────────────────────────────────────
   Type                 train     val    eval
   ────────────────── ─────── ─────── ───────
-  numeric             179  7%   133  9%    59  6%
-  oom_exponent       1140 46%   672 45%   466 47%
-  (none)             1186 47%   699 46%   477 48%
+  numeric             208  7%   129  8%    34  7%
+  oom_exponent       1272 45%   781 46%   225 45%
+  (none)             1338 47%   783 46%   241 48%
 
 ─────────────────────────────────────────────────────────────────
 DOMAIN GROUP DISTRIBUTION
 ─────────────────────────────────────────────────────────────────
   Domain             train     val    eval
   ──────────────── ─────── ─────── ───────
-  astronomy         121  5%    73  5%    40  4%
-  biology           542 22%   324 22%   222 22%
-  chemistry         112  4%    69  5%    40  4%
-  earth_science     231  9%   139  9%   102 10%
-  mathematics       148  6%    88  6%    72  7%
-  other_science     487 19%   293 19%   161 16%
-  physics           864 34%   518 34%   365 36%
+  astronomy         131  5%    78  5%    25  5%
+  biology           609 22%   367 22%   112 22%
+  chemistry         127  5%    76  4%    18  4%
+  earth_science     261  9%   159  9%    52 10%
+  mathematics       170  6%   101  6%    37  7%
+  other_science     534 19%   320 19%    87 17%
+  physics           986 35%   592 35%   169 34%
 
 ─────────────────────────────────────────────────────────────────
 DISTRACTOR QUESTIONS IN EVAL
@@ -114,20 +114,20 @@ CONTAMINATED QUESTIONS DISPOSITION
 SOURCE TAG DISTRIBUTION (top sources)
 ─────────────────────────────────────────────────────────────────
   train:
-    achuthan                        1319  (53%)
-    train_dir                       1125  (45%)
-    eval_dir                          61  (2%)
+    achuthan                        1480  (53%)
+    train_dir                       1270  (45%)
+    eval_dir                          68  (2%)
 
   val:
-    achuthan                         805  (54%)
-    train_dir                        662  (44%)
-    eval_dir                          37  (2%)
+    achuthan                         910  (54%)
+    train_dir                        747  (44%)
+    eval_dir                          36  (2%)
 
   eval:
-    achuthan                         525  (52%)
-    train_dir                        452  (45%)
-    eval_dir                          22  (2%)
-    synthetic                          3  (0%)
+    achuthan                         259  (52%)
+    train_dir                        222  (44%)
+    eval_dir                          16  (3%)
+    synthetic                          3  (1%)
 
 
 ─────────────────────────────────────────────────────────────────
@@ -141,7 +141,7 @@ ZERO-OVERLAP VERIFICATION
 ═════════════════════════════════════════════════════════════════
 OUTPUT FILES
 ═════════════════════════════════════════════════════════════════
-  /Users/riasonalker/final-project-wilfigureoutl8r-1/datasets/final_splits/train.json  (2505 records)
-  /Users/riasonalker/final-project-wilfigureoutl8r-1/datasets/final_splits/val.json  (1504 records)
-  /Users/riasonalker/final-project-wilfigureoutl8r-1/datasets/final_splits/eval.json  (1002 records)
+  /Users/riasonalker/final-project-wilfigureoutl8r-1/datasets/final/train.json  (2818 records)
+  /Users/riasonalker/final-project-wilfigureoutl8r-1/datasets/final/val.json  (1693 records)
+  /Users/riasonalker/final-project-wilfigureoutl8r-1/datasets/final/eval.json  (500 records)
 ═════════════════════════════════════════════════════════════════
