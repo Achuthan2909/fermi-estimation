@@ -1,0 +1,55 @@
+{
+    "source": "https://github.com/landy8697/open-scioly-fermi/blob/master/formatted_test_data/columbia_2024.txt",
+    "science_domain_questions": [
+        {
+            "question": "Thousands of tourists visit the Grand Canyon each year. How many pounds of water are required to fill the entire canyon?",
+            "fermi_answer": 16,
+            "domain": "Earth Science/Physics"
+        },
+        {
+            "question": "Did you know chinchillas have the densest fur (in terms of number of hairs per unit area) out of all mammals? How many more times dense is a chinchilla’s fur compared to the average human head?",
+            "fermi_answer": 2,
+            "domain": "Biology"
+        },
+        {
+            "question": "How many standard balloons, filled with helium, would you need to lift the Empire State Building?",
+            "fermi_answer": 10,
+            "domain": "Physics/Engineering"
+        },
+        {
+            "question": "Spider silk is remarkably strong – however, we haven’t quite figured out how to create web fluid, so no swinging around like Spiderman yet. How many times greater is the tensile strength of spider silk compared to that of steel?",
+            "fermi_answer": 0,
+            "domain": "Physics/Materials Science"
+        },
+        {
+            "question": "How many times more powerful is the Large Hadron Collider at CERN compared to the first cyclotron ever made by Ernest Lawrence back in 1931?",
+            "fermi_answer": 8,
+            "domain": "Physics"
+        },
+        {
+            "question": "Assuming you only account for the projector and sound system, how many times could an IMAX movie theatre play Oppenheimer using solely the energy from the 1945 Trinity nuclear test’s explosion?",
+            "fermi_answer": 5,
+            "domain": "Physics/Thermodynamics"
+        },
+        {
+            "question": "Did you know there will be a total solar eclipse that goes directly through the continental US on April 8, 2024? If you witnessed a solar eclipse, about how many blue moons (the 2nd full moon occurrence in a calendar month) would you see until you saw another solar eclipse, still standing at the exact same spot?",
+            "fermi_answer": 2,
+            "domain": "Astronomy"
+        },
+        {
+            "question": "Have you seen the famous Mentos and Soda experiment? If you dump Mentos into a bottle of soda, the carbon dioxide bubbles expand rapidly, creating a geyser. If you put a single Mento into a 2 liter bottle of Diet Coke, how many bubbles are produced in the resulting geyser?",
+            "fermi_answer": 7,
+            "domain": "Chemistry"
+        },
+        {
+            "question": "Villains are always saying creepy things like, “this sword was forged from the blood my enemies.” Assuming perfect extraction, how many human men would you need to extract enough iron to create a full medieval broadsword?",
+            "fermi_answer": 2,
+            "domain": "Biology/Chemistry"
+        },
+        {
+            "question": "What velocity in meters per second do you need to launch an angry bird on the surface of the sun for it to leave orbit?",
+            "fermi_answer": 6,
+            "domain": "Physics/Astronomy"
+        }
+    ]
+}
