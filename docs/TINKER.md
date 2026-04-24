@@ -19,9 +19,6 @@
 4. **Generate an API key** via the [API keys tab](https://tinker-console.thinkingmachines.ai/keys). Feel free to share these with your teammates.
 5. **Start experimenting:** See the [Tinker Cookbook](https://github.com/thinking-machines-lab/tinker-cookbook) for SFT and RL workflow examples. Feel free to try some simple examples as you get your data/evals going.
 
-## Credit Card Info
+## Billing
 
-- **Card number:** 5439-3006-6696-9690
-- **CVV:** 319
-- **Expiry:** 04/31
-- **Address:** 665 Commonwealth Avenue, Boston, MA 02215
+Use the payment method your course provides via the Tinker billing page. Do not store card numbers, CVV, or full billing addresses in this repository.
