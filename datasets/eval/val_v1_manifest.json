@@ -1,0 +1,1028 @@
+{
+  "version": "v1",
+  "seed": 19730717,
+  "pool_source": "datasets/processed/classified.jsonl",
+  "excluded_source": "datasets/eval/excluded_ids.json",
+  "pool_size_after_exclusion": 2785,
+  "targets": {
+    "realFP:test/physics": 15,
+    "realFP:test/biology": 12,
+    "realFP:test/chemistry": 7,
+    "realFP:test/earth_science": 12,
+    "realFP:test/astronomy": 8,
+    "realFP:test/other_science": 10,
+    "realFP:test/mathematics": 1,
+    "scioly/physics": 8,
+    "scioly/biology": 5,
+    "scioly/chemistry": 4,
+    "scioly/earth_science": 5,
+    "scioly/astronomy": 3,
+    "scioly/other_science": 3,
+    "scioly/mathematics": 7
+  },
+  "target_total": 100,
+  "actual_total": 100,
+  "sha256": "94fe1163b1eb45fe7a36f9a14aee9a84b580a95d01b7bbabb6abf46d72834e54",
+  "items": [
+    {
+      "id": "realFP:test:122",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "astronomy",
+      "answer_type": "numeric",
+      "gold_oom": 4,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:132",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "mathematics",
+      "answer_type": "numeric",
+      "gold_oom": 3,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:17",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "earth_science",
+      "answer_type": "numeric",
+      "gold_oom": 19,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:176",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "astronomy",
+      "answer_type": "numeric",
+      "gold_oom": 2,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:184",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "other_science",
+      "answer_type": "numeric",
+      "gold_oom": 6,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:213",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "other_science",
+      "answer_type": "numeric",
+      "gold_oom": 7,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:219",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "other_science",
+      "answer_type": "numeric",
+      "gold_oom": 2,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:223",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "physics",
+      "answer_type": "numeric",
+      "gold_oom": 1,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:23",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "astronomy",
+      "answer_type": "numeric",
+      "gold_oom": 27,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:231",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "other_science",
+      "answer_type": "numeric",
+      "gold_oom": 7,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:238",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "earth_science",
+      "answer_type": "numeric",
+      "gold_oom": 1,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:243",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "biology",
+      "answer_type": "numeric",
+      "gold_oom": 3,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:247",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "biology",
+      "answer_type": "numeric",
+      "gold_oom": -1,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:272",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "earth_science",
+      "answer_type": "numeric",
+      "gold_oom": 1,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:294",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "other_science",
+      "answer_type": "numeric",
+      "gold_oom": 0,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:301",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "biology",
+      "answer_type": "numeric",
+      "gold_oom": 7,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:304",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "astronomy",
+      "answer_type": "numeric",
+      "gold_oom": 8,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:306",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "astronomy",
+      "answer_type": "numeric",
+      "gold_oom": 9,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:307",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "biology",
+      "answer_type": "numeric",
+      "gold_oom": 6,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:316",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "physics",
+      "answer_type": "numeric",
+      "gold_oom": 4,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:317",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "earth_science",
+      "answer_type": "numeric",
+      "gold_oom": 2,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:33",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "astronomy",
+      "answer_type": "numeric",
+      "gold_oom": 4,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:344",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "chemistry",
+      "answer_type": "numeric",
+      "gold_oom": 1,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:351",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "physics",
+      "answer_type": "numeric",
+      "gold_oom": 6,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:357",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "physics",
+      "answer_type": "numeric",
+      "gold_oom": 3,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:364",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "physics",
+      "answer_type": "numeric",
+      "gold_oom": 3,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:366",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "physics",
+      "answer_type": "numeric",
+      "gold_oom": 7,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:370",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "earth_science",
+      "answer_type": "numeric",
+      "gold_oom": 1,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:39",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "physics",
+      "answer_type": "numeric",
+      "gold_oom": -1,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:396",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "biology",
+      "answer_type": "numeric",
+      "gold_oom": 2,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:398",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "chemistry",
+      "answer_type": "numeric",
+      "gold_oom": 1,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:409",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "astronomy",
+      "answer_type": "numeric",
+      "gold_oom": 6,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:41",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "chemistry",
+      "answer_type": "numeric",
+      "gold_oom": 3,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:410",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "chemistry",
+      "answer_type": "numeric",
+      "gold_oom": 20,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:42",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "biology",
+      "answer_type": "numeric",
+      "gold_oom": 3,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:421",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "earth_science",
+      "answer_type": "numeric",
+      "gold_oom": 4,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:437",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "physics",
+      "answer_type": "numeric",
+      "gold_oom": 32,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:44",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "earth_science",
+      "answer_type": "numeric",
+      "gold_oom": -2,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:452",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "other_science",
+      "answer_type": "numeric",
+      "gold_oom": 1,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:453",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "earth_science",
+      "answer_type": "numeric",
+      "gold_oom": 7,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:463",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "physics",
+      "answer_type": "numeric",
+      "gold_oom": -18,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:464",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "earth_science",
+      "answer_type": "numeric",
+      "gold_oom": 6,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:467",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "physics",
+      "answer_type": "numeric",
+      "gold_oom": 0,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:477",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "astronomy",
+      "answer_type": "numeric",
+      "gold_oom": 21,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:488",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "earth_science",
+      "answer_type": "numeric",
+      "gold_oom": 1,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:49",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "physics",
+      "answer_type": "numeric",
+      "gold_oom": 2,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:498",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "other_science",
+      "answer_type": "numeric",
+      "gold_oom": 10,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:499",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "physics",
+      "answer_type": "numeric",
+      "gold_oom": 1,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:505",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "other_science",
+      "answer_type": "numeric",
+      "gold_oom": 6,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:516",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "physics",
+      "answer_type": "numeric",
+      "gold_oom": 11,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:519",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "earth_science",
+      "answer_type": "numeric",
+      "gold_oom": 46,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:523",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "other_science",
+      "answer_type": "numeric",
+      "gold_oom": 1,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:527",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "earth_science",
+      "answer_type": "numeric",
+      "gold_oom": 3,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:53",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "chemistry",
+      "answer_type": "numeric",
+      "gold_oom": -2,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:540",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "biology",
+      "answer_type": "numeric",
+      "gold_oom": 5,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:542",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "chemistry",
+      "answer_type": "numeric",
+      "gold_oom": 16,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:544",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "biology",
+      "answer_type": "numeric",
+      "gold_oom": 22,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:548",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "biology",
+      "answer_type": "numeric",
+      "gold_oom": 1,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:551",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "other_science",
+      "answer_type": "numeric",
+      "gold_oom": 4,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:556",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "physics",
+      "answer_type": "numeric",
+      "gold_oom": 6,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:56",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "biology",
+      "answer_type": "numeric",
+      "gold_oom": 0,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:74",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "biology",
+      "answer_type": "numeric",
+      "gold_oom": -30,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:8",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "biology",
+      "answer_type": "numeric",
+      "gold_oom": 2,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:92",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "physics",
+      "answer_type": "numeric",
+      "gold_oom": 3,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "realFP:test:97",
+      "source": "realFP",
+      "orig_split": "test",
+      "orig_source": null,
+      "domain": "chemistry",
+      "answer_type": "numeric",
+      "gold_oom": 2,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "scioly:1042",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "Golden Gate Invitational 23-24",
+      "domain": "physics",
+      "answer_type": "oom_exponent",
+      "gold_oom": 23,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "scioly:1053",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "GullSO Invitational 23-24",
+      "domain": "biology",
+      "answer_type": "oom_exponent",
+      "gold_oom": 10,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "scioly:1214",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "Highlands Virtual Invitational 23-24",
+      "domain": "biology",
+      "answer_type": "oom_exponent",
+      "gold_oom": 7,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "scioly:1329",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "High Desert Satellite Invitational 23-24",
+      "domain": "astronomy",
+      "answer_type": "oom_exponent",
+      "gold_oom": 5,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "scioly:1372",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "Jordan Invitational 23-24",
+      "domain": "mathematics",
+      "answer_type": "oom_exponent",
+      "gold_oom": 5,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "scioly:1472",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "MIT Invitational 18-19",
+      "domain": "other_science",
+      "answer_type": "oom_exponent",
+      "gold_oom": 4,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "scioly:1610",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "MIT Invitational 23-24",
+      "domain": "physics",
+      "answer_type": "oom_exponent",
+      "gold_oom": -3,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "scioly:1704",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "North Pocono Invitational 22-23",
+      "domain": "earth_science",
+      "answer_type": "oom_exponent",
+      "gold_oom": 8,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "scioly:1802",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "Palo Alto Tryouts 22-23",
+      "domain": "physics",
+      "answer_type": "oom_exponent",
+      "gold_oom": 20,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "scioly:185",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "BirdSO Mini Invitational 21-22",
+      "domain": "biology",
+      "answer_type": "oom_exponent",
+      "gold_oom": 4,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "scioly:2013",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "Princeton Invitational 23-24",
+      "domain": "physics",
+      "answer_type": "oom_exponent",
+      "gold_oom": 7,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "scioly:2071",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "Rice Invitational 17-18",
+      "domain": "mathematics",
+      "answer_type": "oom_exponent",
+      "gold_oom": 8,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "scioly:2083",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "Rice Invitational 17-18",
+      "domain": "astronomy",
+      "answer_type": "oom_exponent",
+      "gold_oom": 6,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "scioly:2106",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "Rickards SO Invitational 22-23",
+      "domain": "astronomy",
+      "answer_type": "oom_exponent",
+      "gold_oom": 25,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "scioly:2329",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "SOAPS Invitational 22-23",
+      "domain": "mathematics",
+      "answer_type": "oom_exponent",
+      "gold_oom": 4,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "scioly:25",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "BirdSO Invitational 20-21",
+      "domain": "chemistry",
+      "answer_type": "oom_exponent",
+      "gold_oom": 0,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "scioly:2570",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "SSSS Fermi (Adi1008) 17-18",
+      "domain": "chemistry",
+      "answer_type": "oom_exponent",
+      "gold_oom": 25,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "scioly:3117",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "UT Austin Invitational 18-19",
+      "domain": "earth_science",
+      "answer_type": "oom_exponent",
+      "gold_oom": 20,
+      "classifier_model": "gpt-4.1-nano"
+    },
+    {
+      "id": "scioly:3270",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "Sahil Gandhi, WSO Regionals 22-23",
+      "domain": "earth_science",
+      "answer_type": "oom_exponent",
+      "gold_oom": 7,
+      "classifier_model": "gpt-4.1-nano"
+    },
+    {
+      "id": "scioly:3465",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "RobertYL, daily fermi questions day #27 [2018 O-Town Q4]",
+      "domain": "earth_science",
+      "answer_type": "oom_exponent",
+      "gold_oom": 11,
+      "classifier_model": "gpt-4.1-nano"
+    },
+    {
+      "id": "scioly:3594",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "RobertYL, daily fermi questions day #53 [2018 Monta Vista Tryouts Q5]",
+      "domain": "physics",
+      "answer_type": "oom_exponent",
+      "gold_oom": 6,
+      "classifier_model": "gpt-4.1-nano"
+    },
+    {
+      "id": "scioly:374",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "FermiSweat, Fermi Questions, but butter (chicken)",
+      "domain": "mathematics",
+      "answer_type": "oom_exponent",
+      "gold_oom": 7,
+      "classifier_model": "gpt-4.1-nano"
+    },
+    {
+      "id": "scioly:3859",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "RobertYL, daily fermi questions day #106 [2018 LISO Q16]",
+      "domain": "other_science",
+      "answer_type": "oom_exponent",
+      "gold_oom": 8,
+      "classifier_model": "gpt-4.1-nano"
+    },
+    {
+      "id": "scioly:3950",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "RobertYL, daily fermi questions day #124 [2019 GGSO Q16]",
+      "domain": "physics",
+      "answer_type": "oom_exponent",
+      "gold_oom": -5,
+      "classifier_model": "gpt-4.1-nano"
+    },
+    {
+      "id": "scioly:3973",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "RobertYL, daily fermi questions day #129 [2019 MIT Q3]",
+      "domain": "mathematics",
+      "answer_type": "oom_exponent",
+      "gold_oom": 24,
+      "classifier_model": "gpt-4.1-nano"
+    },
+    {
+      "id": "scioly:3998",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "RobertYL, daily fermi questions day #134 [2019 Greak Oak Q37]",
+      "domain": "chemistry",
+      "answer_type": "oom_exponent",
+      "gold_oom": 23,
+      "classifier_model": "gpt-4.1-nano"
+    },
+    {
+      "id": "scioly:43",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "BirdSO Invitational 20-21",
+      "domain": "mathematics",
+      "answer_type": "oom_exponent",
+      "gold_oom": 10,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "scioly:607",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "Carnegie Mellon Invitational 22-23",
+      "domain": "earth_science",
+      "answer_type": "oom_exponent",
+      "gold_oom": 19,
+      "classifier_model": "gpt-4.1-nano"
+    },
+    {
+      "id": "scioly:635",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "Carnegie Mellon Invitational 22-23",
+      "domain": "physics",
+      "answer_type": "oom_exponent",
+      "gold_oom": -5,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "scioly:642",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "Carnegie Mellon Invitational 22-23",
+      "domain": "biology",
+      "answer_type": "oom_exponent",
+      "gold_oom": 6,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "scioly:675",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "Columbia Invitational 17-18",
+      "domain": "physics",
+      "answer_type": "oom_exponent",
+      "gold_oom": 8,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "scioly:857",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "Case Western Reserve University 23-24",
+      "domain": "chemistry",
+      "answer_type": "oom_exponent",
+      "gold_oom": -11,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "scioly:866",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "Case Western Reserve University 23-24",
+      "domain": "other_science",
+      "answer_type": "oom_exponent",
+      "gold_oom": -19,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "scioly:87",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "BirdSO In-Person Invitational 22-23",
+      "domain": "biology",
+      "answer_type": "oom_exponent",
+      "gold_oom": -12,
+      "classifier_model": "gpt-4o-mini"
+    },
+    {
+      "id": "scioly:894",
+      "source": "scioly",
+      "orig_split": null,
+      "orig_source": "Duke Invitational 22-23",
+      "domain": "mathematics",
+      "answer_type": "oom_exponent",
+      "gold_oom": 30,
+      "classifier_model": "gpt-4o-mini"
+    }
+  ]
+}

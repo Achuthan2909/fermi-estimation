@@ -17,3 +17,9 @@ venv/
 .env*
 secrets.*
 
+# Claude Code local settings
+.claude/
+
+# Source data clones (fetch externally, not tracked here)
+datasets/raw/
+

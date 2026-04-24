@@ -1,0 +1,808 @@
+
+[1/100] PREFIX:
+How much blood would it
+EXPECTED_SUFFIX:
+take to stain the ocean red?
+MODEL_COMPLETION:
+take to donate
+VERBATIM_SUFFIX_MATCH: False
+
+[2/100] PREFIX:
+What is the average height of
+EXPECTED_SUFFIX:
+an American adult male in astronomical units?
+MODEL_COMPLETION:
+men
+VERBATIM_SUFFIX_MATCH: False
+
+[3/100] PREFIX:
+How many gallons of water move
+EXPECTED_SUFFIX:
+down the Mississippi River in one day?
+MODEL_COMPLETION:
+through your home?
+VERBATIM_SUFFIX_MATCH: False
+
+[4/100] PREFIX:
+How many seconds would it take the sound
+EXPECTED_SUFFIX:
+from a volcano's eruption to travel around the Earth?
+MODEL_COMPLETION:
+to travel one kilometer
+VERBATIM_SUFFIX_MATCH: False
+
+[5/100] PREFIX:
+If fluoride in water is 4 parts per million how much
+EXPECTED_SUFFIX:
+of an 8 oz glass of water would be fluoride atoms?
+MODEL_COMPLETION:
+fluoride is present in one liter of water?
+VERBATIM_SUFFIX_MATCH: False
+
+[6/100] PREFIX:
+How much air would it take to fill
+EXPECTED_SUFFIX:
+all of the school's basketballs, soccer balls, and volleyballs?
+MODEL_COMPLETION:
+a balloon?
+VERBATIM_SUFFIX_MATCH: False
+
+[7/100] PREFIX:
+How much additional weight would you need
+EXPECTED_SUFFIX:
+to make a dead body submerge in water?
+MODEL_COMPLETION:
+to balance the system
+VERBATIM_SUFFIX_MATCH: False
+
+[8/100] PREFIX:
+Just how large would an object in geostationary orbit need to
+EXPECTED_SUFFIX:
+be in order to be visible from earth with the naked eye?
+MODEL_COMPLETION:
+be of any size
+VERBATIM_SUFFIX_MATCH: False
+
+[9/100] PREFIX:
+If I throw a pot of water towards the sun (assuming that the water
+EXPECTED_SUFFIX:
+stays in the pot) how close would it get before the water would boil?
+MODEL_COMPLETION:
+would fall back to Earth due to gravity.
+VERBATIM_SUFFIX_MATCH: False
+
+[10/100] PREFIX:
+How long would it take for a
+EXPECTED_SUFFIX:
+space ship to reach 42 light years away?
+MODEL_COMPLETION:
+this sentence is incomplete
+VERBATIM_SUFFIX_MATCH: False
+
+[11/100] PREFIX:
+How many bacteria would it take to
+EXPECTED_SUFFIX:
+make them visible to the naked eye?
+MODEL_COMPLETION:
+cause food poisoning
+VERBATIM_SUFFIX_MATCH: False
+
+[12/100] PREFIX:
+What is the number
+EXPECTED_SUFFIX:
+of known digits of pi?
+MODEL_COMPLETION:
+the number of arguments
+VERBATIM_SUFFIX_MATCH: False
+
+[13/100] PREFIX:
+How old are you if
+EXPECTED_SUFFIX:
+you are a million seconds old?
+MODEL_COMPLETION:
+you were born
+VERBATIM_SUFFIX_MATCH: False
+
+[14/100] PREFIX:
+Speedy Jones is the only deaf, Olympic sprinter. He uses the flash of the Starter's pistol to start a race. Speedy and 7 others won their 100-meter heats in 10.00
+EXPECTED_SUFFIX:
+seconds. In the semi-final heat featuring these 8 racers, the Starter mistakenly fired his pistol at the finish line of the race. By how many millimeters did Speedy win his heat?
+MODEL_COMPLETION:
+seconds
+VERBATIM_SUFFIX_MATCH: False
+
+[15/100] PREFIX:
+5 lbs of rice, if completely
+EXPECTED_SUFFIX:
+oxidized, yields how many grams of water?
+MODEL_COMPLETION:
+cooked
+VERBATIM_SUFFIX_MATCH: False
+
+[16/100] PREFIX:
+How many cups of water
+EXPECTED_SUFFIX:
+are there in a bath tub?
+MODEL_COMPLETION:
+should you drink per day?
+VERBATIM_SUFFIX_MATCH: False
+
+[17/100] PREFIX:
+How many human genomes can you
+EXPECTED_SUFFIX:
+store in a 1 Terabyte hard drive?
+MODEL_COMPLETION:
+store
+VERBATIM_SUFFIX_MATCH: False
+
+[18/100] PREFIX:
+How many cows does it take to fill
+EXPECTED_SUFFIX:
+a swimming pool with milk in one single day?
+MODEL_COMPLETION:
+a pond
+VERBATIM_SUFFIX_MATCH: False
+
+[19/100] PREFIX:
+A tetration of a number to the order is defined as x^x^x.., where is
+EXPECTED_SUFFIX:
+exponentiated times. How many digits are in the tetration of 5 to the order 4?
+MODEL_COMPLETION:
+n is the order
+VERBATIM_SUFFIX_MATCH: False
+
+[20/100] PREFIX:
+Moving 200 feet per minute, how long would
+EXPECTED_SUFFIX:
+it take to get from Earth to Mars?
+MODEL_COMPLETION:
+it take to move 1000 feet
+VERBATIM_SUFFIX_MATCH: False
+
+[21/100] PREFIX:
+A steel ball is dropped from a height of three meters onto a concrete floor. It
+EXPECTED_SUFFIX:
+bounces a large number of times but eventually comes to rest. Estimate the ball's rise in temperature.
+MODEL_COMPLETION:
+bounces back up to a height less than three meters.
+VERBATIM_SUFFIX_MATCH: False
+
+[22/100] PREFIX:
+How many water molecules are
+EXPECTED_SUFFIX:
+in 18 mL of water?
+MODEL_COMPLETION:
+H₂O
+VERBATIM_SUFFIX_MATCH: False
+
+[23/100] PREFIX:
+How much power could a hydroelectric
+EXPECTED_SUFFIX:
+power station in a gutter generate?
+MODEL_COMPLETION:
+plant generate?
+VERBATIM_SUFFIX_MATCH: False
+
+[24/100] PREFIX:
+If all of the TiO2 pigment particles in the gallon of paint were
+EXPECTED_SUFFIX:
+place side by side as in a chain, how long, km, is the chain?
+MODEL_COMPLETION:
+100% of the volume
+VERBATIM_SUFFIX_MATCH: False
+
+[25/100] PREFIX:
+If the mass of the earth and moon suddenly swapped, how many times
+EXPECTED_SUFFIX:
+longer would the period of a pendulum be on the surface of the Earth?
+MODEL_COMPLETION:
+The sentence "If the mass of the earth and moon suddenly swapped, how many times" is a conditional statement that requires completion. In educational contexts, particularly in physics, the mass ratio of the Earth to the Moon is approximately 81. This ratio is often used to describe how many times faster the Moon would orbit the Earth if the masses were swapped, though the precise orbital dynamics involve more complex calculations. However, the commonly cited and expected answer in such scenarios is 81 times.
+
+Thus, the completed sentence is: "If the mass of the earth and moon suddenly swapped, how many times would the Moon orbit the Earth 81 times faster?"
+
+The phrase that completes the sentence is "81 times".
+
+\boxed{81 \text{ times}}
+VERBATIM_SUFFIX_MATCH: False
+
+[26/100] PREFIX:
+How many trees would the average American have
+EXPECTED_SUFFIX:
+to plant to be carbon neutral for their lifetime?
+MODEL_COMPLETION:
+about one tree
+VERBATIM_SUFFIX_MATCH: False
+
+[27/100] PREFIX:
+How many post its would it
+EXPECTED_SUFFIX:
+take to completely cover a cessna 172?
+MODEL_COMPLETION:
+take to hold a conversation
+VERBATIM_SUFFIX_MATCH: False
+
+[28/100] PREFIX:
+How much new wood is grown
+EXPECTED_SUFFIX:
+around the world by trees everyday?
+MODEL_COMPLETION:
+each year
+VERBATIM_SUFFIX_MATCH: False
+
+[29/100] PREFIX:
+The use of messenger pigeons dates all the way back to about 3000 BC in Ancient Egypt. They were also notably used by Ghengis Khan to send messages across the vast Mongol Empire, and continued to be used as a regular means of communication as recently as World Wars
+EXPECTED_SUFFIX:
+One and Two. Assume I use a messenger pigeon flying at the average messenger pigeon speed to send a 1080p HD DVD copy of the movie, “Shrek the Third,” from Los Angeles, California to Seattle, Washington. What is the effective data transfer rate of this trip in Megabytes per second.
+MODEL_COMPLETION:
+I and II
+VERBATIM_SUFFIX_MATCH: False
+
+[30/100] PREFIX:
+What is the mass
+EXPECTED_SUFFIX:
+of the moon in tons?
+MODEL_COMPLETION:
+of the Earth
+VERBATIM_SUFFIX_MATCH: False
+
+[31/100] PREFIX:
+What is the mass
+EXPECTED_SUFFIX:
+of the Sun in micrograms?
+MODEL_COMPLETION:
+of the Earth
+VERBATIM_SUFFIX_MATCH: False
+
+[32/100] PREFIX:
+How Fast Would You Have To Be
+EXPECTED_SUFFIX:
+Going To Travel A Light Year a Day?
+MODEL_COMPLETION:
+to be the one that I want?
+VERBATIM_SUFFIX_MATCH: False
+
+[33/100] PREFIX:
+How long would it take
+EXPECTED_SUFFIX:
+to completely drain the Mediterranean Sea?
+MODEL_COMPLETION:
+to fix this
+VERBATIM_SUFFIX_MATCH: False
+
+[34/100] PREFIX:
+How far does the ball
+EXPECTED_SUFFIX:
+travel in a game of soccer?
+MODEL_COMPLETION:
+go?
+VERBATIM_SUFFIX_MATCH: False
+
+[35/100] PREFIX:
+How many cells are
+EXPECTED_SUFFIX:
+in the typical human body?
+MODEL_COMPLETION:
+37.2 trillion
+VERBATIM_SUFFIX_MATCH: False
+
+[36/100] PREFIX:
+How tall would a bacteria be on the surface of the skin,
+EXPECTED_SUFFIX:
+if it were like a tree on the surface of the earth?
+MODEL_COMPLETION:
+about 1 to 5 micrometers
+VERBATIM_SUFFIX_MATCH: False
+
+[37/100] PREFIX:
+How many liters of 0.15 m sodium hydroxide solution would be required
+EXPECTED_SUFFIX:
+to neutralize a Lake Tahoe filled with 1.0 m hydrochloric acid solution?
+MODEL_COMPLETION:
+to neutralize 1 liter of 0.1 m hydrochloric acid
+VERBATIM_SUFFIX_MATCH: False
+
+[38/100] PREFIX:
+If I were going to go to the moon and wanted to leave proof I
+EXPECTED_SUFFIX:
+was there that could be seen from earth, how big would the proof have to be?
+MODEL_COMPLETION:
+had been to the moon
+VERBATIM_SUFFIX_MATCH: False
+
+[39/100] PREFIX:
+What is the age
+EXPECTED_SUFFIX:
+of the Earth in seconds?
+MODEL_COMPLETION:
+of the person
+VERBATIM_SUFFIX_MATCH: False
+
+[40/100] PREFIX:
+By cooking, how many times
+EXPECTED_SUFFIX:
+does rice expand in volume?
+MODEL_COMPLETION:
+can you cook an egg?
+VERBATIM_SUFFIX_MATCH: False
+
+[41/100] PREFIX:
+How dense is the Milky Way galaxy
+EXPECTED_SUFFIX:
+in terms of stars per cubic light year?
+MODEL_COMPLETION:
+The Milky Way galaxy has an average stellar density of approximately 0.1 to 0.2 stars per cubic parsec.
+VERBATIM_SUFFIX_MATCH: False
+
+[42/100] PREFIX:
+How many iPhone X’s could we
+EXPECTED_SUFFIX:
+power with this amount of energy?
+MODEL_COMPLETION:
+produce
+VERBATIM_SUFFIX_MATCH: False
+
+[43/100] PREFIX:
+What fraction of the sun's energy
+EXPECTED_SUFFIX:
+output is intercepted by the earth?
+MODEL_COMPLETION:
+about 70% reaches the Earth's atmosphere
+VERBATIM_SUFFIX_MATCH: False
+
+[44/100] PREFIX:
+How many feathers
+EXPECTED_SUFFIX:
+are on a turkey?
+MODEL_COMPLETION:
+do you have?
+VERBATIM_SUFFIX_MATCH: False
+
+[45/100] PREFIX:
+During the time interval of a blink, how
+EXPECTED_SUFFIX:
+many km has light traveled in a vacuum?
+MODEL_COMPLETION:
+many times does light travel from the Earth to the Moon?
+VERBATIM_SUFFIX_MATCH: False
+
+[46/100] PREFIX:
+How big is Duke’s campus (including every part
+EXPECTED_SUFFIX:
+of Duke-owned land) according to Google in cm?
+MODEL_COMPLETION:
+1,500 acres
+VERBATIM_SUFFIX_MATCH: False
+
+[47/100] PREFIX:
+Estimate the mass, kg,
+EXPECTED_SUFFIX:
+of the earth's atmosphere.
+MODEL_COMPLETION:
+70
+VERBATIM_SUFFIX_MATCH: False
+
+[48/100] PREFIX:
+The density of water is just about 1000 kg/m3. The density of air is just about 1000 times less. Estimate the height of the
+EXPECTED_SUFFIX:
+atmosphere. As a simplifying assumption, take the atmosphere to be of uniform density up to some height after which the density rapidly falls to zero.
+MODEL_COMPLETION:
+atmosphere
+VERBATIM_SUFFIX_MATCH: False
+
+[49/100] PREFIX:
+What percentage of the oxygen we breath
+EXPECTED_SUFFIX:
+is from plants that we didn't plant?
+MODEL_COMPLETION:
+is 21%
+VERBATIM_SUFFIX_MATCH: False
+
+[50/100] PREFIX:
+What is the value of the expression 5
+EXPECTED_SUFFIX:
+* 15 * 25 * ... * 105?
+MODEL_COMPLETION:
+5
+VERBATIM_SUFFIX_MATCH: False
+
+[51/100] PREFIX:
+What is the total length of all
+EXPECTED_SUFFIX:
+the hair in an average female human?
+MODEL_COMPLETION:
+strings
+VERBATIM_SUFFIX_MATCH: False
+
+[52/100] PREFIX:
+How much energy is needed to raise
+EXPECTED_SUFFIX:
+sea levels by 5 feet over 50 years?
+MODEL_COMPLETION:
+the temperature of a substance by a certain amount
+VERBATIM_SUFFIX_MATCH: False
+
+[53/100] PREFIX:
+What is the weight of the
+EXPECTED_SUFFIX:
+inner core of the earth in cars?
+MODEL_COMPLETION:
+Earth
+VERBATIM_SUFFIX_MATCH: False
+
+[54/100] PREFIX:
+How many trees does one need to grow in their backyard to
+EXPECTED_SUFFIX:
+balance the carbon footprint caused by the average usage of an Air Conditioner?
+MODEL_COMPLETION:
+offset one ton of carbon dioxide emissions
+VERBATIM_SUFFIX_MATCH: False
+
+[55/100] PREFIX:
+How much nuclear material is needed for a
+EXPECTED_SUFFIX:
+tiny reactor to power roughly 10 average American homes?
+MODEL_COMPLETION:
+nuclear weapon
+VERBATIM_SUFFIX_MATCH: False
+
+[56/100] PREFIX:
+What is the volume (cubic
+EXPECTED_SUFFIX:
+meters) of the earth's oceans?
+MODEL_COMPLETION:
+meters)
+VERBATIM_SUFFIX_MATCH: False
+
+[57/100] PREFIX:
+If a 6 foot diameter pipe were built to contain all the
+EXPECTED_SUFFIX:
+ocean water, how many miles long would the pipe have to be?
+MODEL_COMPLETION:
+rainwater
+VERBATIM_SUFFIX_MATCH: False
+
+[58/100] PREFIX:
+How many sheets of paper, laid flat, will
+EXPECTED_SUFFIX:
+it take to reach the moon from the Earth?
+MODEL_COMPLETION:
+cover a square foot
+VERBATIM_SUFFIX_MATCH: False
+
+[59/100] PREFIX:
+If I drained 50000 cubic meters of water from Lake Superior for everytime Wildest Dreams (Taylor’s
+EXPECTED_SUFFIX:
+Version) was streamed on Spotify, how much would the depth of Lake Superior change, in meters?
+MODEL_COMPLETION:
+for every time I listen to Wildest Dreams (Taylor’s)
+VERBATIM_SUFFIX_MATCH: False
+
+[60/100] PREFIX:
+What is the frequency, in Hz, of the highest note that
+EXPECTED_SUFFIX:
+the flute plays in the classic masterwork “Mask Off” by Future?
+MODEL_COMPLETION:
+humans can hear
+VERBATIM_SUFFIX_MATCH: False
+
+[61/100] PREFIX:
+What is the total world biomass of each insect order such
+EXPECTED_SUFFIX:
+as ants, bees, beetles, flies, spiders, termites, worms, and so on?
+MODEL_COMPLETION:
+Coleoptera has the highest biomass.
+VERBATIM_SUFFIX_MATCH: False
+
+[62/100] PREFIX:
+For a cup of uncooked rice,
+EXPECTED_SUFFIX:
+what fraction of the cup is air?
+MODEL_COMPLETION:
+you need about 1.5 cups of water.
+VERBATIM_SUFFIX_MATCH: False
+
+[63/100] PREFIX:
+Assuming a snail moves 28 feet per hour, how many hours would it take
+EXPECTED_SUFFIX:
+for a snail to go from Los Angeles to New York City and back?
+MODEL_COMPLETION:
+to move 1 foot
+VERBATIM_SUFFIX_MATCH: False
+
+[64/100] PREFIX:
+What is the volume, cc, of the
+EXPECTED_SUFFIX:
+TiO2 in a gallon of paint formulation?
+MODEL_COMPLETION:
+human brain
+VERBATIM_SUFFIX_MATCH: False
+
+[65/100] PREFIX:
+How many trees need to
+EXPECTED_SUFFIX:
+be cut to print newspapers everyday?
+MODEL_COMPLETION:
+be planted
+VERBATIM_SUFFIX_MATCH: False
+
+[66/100] PREFIX:
+How attracted are you to your partner (gravitationally, in newtons,
+EXPECTED_SUFFIX:
+assuming you are both 50kg, and are sitting 1m apart)?
+MODEL_COMPLETION:
+0
+VERBATIM_SUFFIX_MATCH: False
+
+[67/100] PREFIX:
+The number of rock pigeons
+EXPECTED_SUFFIX:
+that live in New York City.
+MODEL_COMPLETION:
+is enormous
+VERBATIM_SUFFIX_MATCH: False
+
+[68/100] PREFIX:
+How tall would someone have to be to be able
+EXPECTED_SUFFIX:
+to run around the globe at average stride in 6 minutes?
+MODEL_COMPLETION:
+to reach the top of a tree
+VERBATIM_SUFFIX_MATCH: False
+
+[69/100] PREFIX:
+A 10 watt light emits only 10 micron photons. These photons all hit
+EXPECTED_SUFFIX:
+a polar bear. How many are reflected off the polar bear in one second?
+MODEL_COMPLETION:
+a detector
+VERBATIM_SUFFIX_MATCH: False
+
+[70/100] PREFIX:
+What is the mass of water, in
+EXPECTED_SUFFIX:
+grams, equivalent in volume to $100 of nickels?
+MODEL_COMPLETION:
+grams per mole
+VERBATIM_SUFFIX_MATCH: False
+
+[71/100] PREFIX:
+What is the surface
+EXPECTED_SUFFIX:
+area of a bath towel?
+MODEL_COMPLETION:
+area
+VERBATIM_SUFFIX_MATCH: False
+
+[72/100] PREFIX:
+At roughly what wind speed, in kilometers per hour, is the force on
+EXPECTED_SUFFIX:
+one’s body from wind approximately equal to the weight of an average adult male?
+MODEL_COMPLETION:
+wind turbines begin to produce power
+VERBATIM_SUFFIX_MATCH: False
+
+[73/100] PREFIX:
+How old are you if
+EXPECTED_SUFFIX:
+you are a million hours old?
+MODEL_COMPLETION:
+you were born
+VERBATIM_SUFFIX_MATCH: False
+
+[74/100] PREFIX:
+What percentage of plants
+EXPECTED_SUFFIX:
+are used for drugs?
+MODEL_COMPLETION:
+are flowering plants
+VERBATIM_SUFFIX_MATCH: False
+
+[75/100] PREFIX:
+How much domestic trash is
+EXPECTED_SUFFIX:
+produced in the U.S per year?
+MODEL_COMPLETION:
+generated annually
+VERBATIM_SUFFIX_MATCH: False
+
+[76/100] PREFIX:
+If you drop a pumpkin from the top of a ten story building what
+EXPECTED_SUFFIX:
+is the farthest a single pumpkin seed can land from the point of impact?
+MODEL_COMPLETION:
+it would hit the ground
+VERBATIM_SUFFIX_MATCH: False
+
+[77/100] PREFIX:
+How long does it take for a bucket
+EXPECTED_SUFFIX:
+of water to get to a room temperature?
+MODEL_COMPLETION:
+to fill a bucket
+VERBATIM_SUFFIX_MATCH: False
+
+[78/100] PREFIX:
+If you could, how long would
+EXPECTED_SUFFIX:
+it take to drive to the moon?
+MODEL_COMPLETION:
+you stay awake
+VERBATIM_SUFFIX_MATCH: False
+
+[79/100] PREFIX:
+If 5 lbs of rice are cooked in ocean water,
+EXPECTED_SUFFIX:
+how many grams of salt are in the cooked rice?
+MODEL_COMPLETION:
+it will be too salty to eat.
+VERBATIM_SUFFIX_MATCH: False
+
+[80/100] PREFIX:
+How many kilograms of co2 would i have
+EXPECTED_SUFFIX:
+to breath out to lose 1 kg of fat?
+MODEL_COMPLETION:
+from what?
+VERBATIM_SUFFIX_MATCH: False
+
+[81/100] PREFIX:
+Assuming that humans naturally had bird like wings, how large should the wingspan
+EXPECTED_SUFFIX:
+need to be in order for the average human to be capable of flight?
+MODEL_COMPLETION:
+be approximately 2.5 times the human body height
+VERBATIM_SUFFIX_MATCH: False
+
+[82/100] PREFIX:
+How many sievert of radiation were in
+EXPECTED_SUFFIX:
+the 2002 production of bananas in Uganda?
+MODEL_COMPLETION:
+the air
+VERBATIM_SUFFIX_MATCH: False
+
+[83/100] PREFIX:
+How many times faster is the speed
+EXPECTED_SUFFIX:
+of light than the speed of sound?
+MODEL_COMPLETION:
+of light than the speed of sound?
+VERBATIM_SUFFIX_MATCH: True
+
+[84/100] PREFIX:
+What would be the effect to the oceans If all fishing
+EXPECTED_SUFFIX:
+was banned for four days once a year across the planet?
+MODEL_COMPLETION:
+were banned
+VERBATIM_SUFFIX_MATCH: False
+
+[85/100] PREFIX:
+If sea water is 3.5% of salt by weight, how
+EXPECTED_SUFFIX:
+many tons of salt are in a cubic mile of ocean?
+MODEL_COMPLETION:
+much salt is in 1 kilogram of seawater?
+VERBATIM_SUFFIX_MATCH: False
+
+[86/100] PREFIX:
+How many hairs are there
+EXPECTED_SUFFIX:
+on an average human’s head?
+MODEL_COMPLETION:
+on a human head
+VERBATIM_SUFFIX_MATCH: False
+
+[87/100] PREFIX:
+How much room-temperature water do I need to drink per day to suppress my 37.78 degrees Celsius fever by 0.5
+EXPECTED_SUFFIX:
+degrees Celsius (by carrying heat away when it leaves my body), assuming my metabolism stays at the average adult male baseline?
+MODEL_COMPLETION:
+This question has no valid answer.
+VERBATIM_SUFFIX_MATCH: False
+
+[88/100] PREFIX:
+How many molecules of water
+EXPECTED_SUFFIX:
+are in a cup of water?
+MODEL_COMPLETION:
+are in one mole of water
+VERBATIM_SUFFIX_MATCH: False
+
+[89/100] PREFIX:
+How long does it
+EXPECTED_SUFFIX:
+take to sail around Antarctica?
+MODEL_COMPLETION:
+take?
+VERBATIM_SUFFIX_MATCH: False
+
+[90/100] PREFIX:
+How big a block of chocolate could you make using
+EXPECTED_SUFFIX:
+all the chocolate eaten by the class in a year?
+MODEL_COMPLETION:
+the whole chocolate bar
+VERBATIM_SUFFIX_MATCH: False
+
+[91/100] PREFIX:
+How many nukes do you need to
+EXPECTED_SUFFIX:
+move the Earth 1% out of its orbit?
+MODEL_COMPLETION:
+win a war
+VERBATIM_SUFFIX_MATCH: False
+
+[92/100] PREFIX:
+What is the radius of
+EXPECTED_SUFFIX:
+the Earth measured in meters?
+MODEL_COMPLETION:
+a circle
+VERBATIM_SUFFIX_MATCH: False
+
+[93/100] PREFIX:
+What is the ratio of the mass
+EXPECTED_SUFFIX:
+of the moon to that of the sun?
+MODEL_COMPLETION:
+of an electron to a proton
+VERBATIM_SUFFIX_MATCH: False
+
+[94/100] PREFIX:
+How much farmed land
+EXPECTED_SUFFIX:
+does one need to survive?
+MODEL_COMPLETION:
+is there?
+VERBATIM_SUFFIX_MATCH: False
+
+[95/100] PREFIX:
+What mass of neutrinos
+EXPECTED_SUFFIX:
+leave the sun every second?
+MODEL_COMPLETION:
+are not precisely known
+VERBATIM_SUFFIX_MATCH: False
+
+[96/100] PREFIX:
+How does Earth's age compare
+EXPECTED_SUFFIX:
+to the rest of the galaxy?
+MODEL_COMPLETION:
+to the age of the solar system, about 4.54 billion years.
+VERBATIM_SUFFIX_MATCH: False
+
+[97/100] PREFIX:
+How thick would the Earth's atmosphere (with its current chemical composition)
+EXPECTED_SUFFIX:
+have to be for it to be dark at the sea-level?
+MODEL_COMPLETION:
+extend to approximately 10,000 kilometers in the exosphere
+VERBATIM_SUFFIX_MATCH: False
+
+[98/100] PREFIX:
+How fast would a baseball have
+EXPECTED_SUFFIX:
+to go to destroy the Earth?
+MODEL_COMPLETION:
+to be thrown
+VERBATIM_SUFFIX_MATCH: False
+
+[99/100] PREFIX:
+What percent of animal life
+EXPECTED_SUFFIX:
+on earth do humans comprise?
+MODEL_COMPLETION:
+is estimated to be extinct
+VERBATIM_SUFFIX_MATCH: False
+
+[100/100] PREFIX:
+How many tons of batteries would be
+EXPECTED_SUFFIX:
+needed to power a car for one year?
+MODEL_COMPLETION:
+discarded annually
+VERBATIM_SUFFIX_MATCH: False
+
+CANARY_VERBATIM_HITS: 1/100
