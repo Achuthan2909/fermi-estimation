@@ -1,0 +1,147 @@
+═════════════════════════════════════════════════════════════════
+DATASET SPLIT REPORT
+═════════════════════════════════════════════════════════════════
+
+─────────────────────────────────────────────────────────────────
+SPLIT COUNTS
+─────────────────────────────────────────────────────────────────
+  Split       Count       %
+  ────────── ──────  ──────
+  train        2818   56.3%
+  val          1693   33.8%
+  eval          500   10.0%
+  ────────── ──────  ──────
+  TOTAL        5011  100.1%
+  (master total: 5008)
+
+─────────────────────────────────────────────────────────────────
+EVAL SET COMPOSITION
+─────────────────────────────────────────────────────────────────
+  Contaminated questions (mandatory)  :   47
+  Distractor questions (has_distractor):    5  (overlap with contaminated: 0)
+  Synthetic wrong-assumption questions :    3
+  Stratified fill from non-mandatory  :  445
+  ─────────────────────────────────────────
+  Total eval                          :  500
+
+─────────────────────────────────────────────────────────────────
+COMPLEXITY DISTRIBUTION
+─────────────────────────────────────────────────────────────────
+  Complexity   train     val    eval
+  ────────── ─────── ─────── ───────
+  easy        688 24%   414 24%   116 23%
+  medium     1482 53%   888 52%   260 52%
+  hard        648 23%   391 23%   124 25%
+
+─────────────────────────────────────────────────────────────────
+LENGTH TIER DISTRIBUTION
+─────────────────────────────────────────────────────────────────
+  Length       train     val    eval
+  ────────── ─────── ─────── ───────
+  short      1082 38%   650 38%   186 37%
+  medium     1548 55%   928 55%   271 54%
+  long        188  7%   115  7%    43  9%
+
+─────────────────────────────────────────────────────────────────
+ANSWER TYPE DISTRIBUTION
+─────────────────────────────────────────────────────────────────
+  Type                 train     val    eval
+  ────────────────── ─────── ─────── ───────
+  numeric             208  7%   129  8%    34  7%
+  oom_exponent       1272 45%   781 46%   225 45%
+  (none)             1338 47%   783 46%   241 48%
+
+─────────────────────────────────────────────────────────────────
+DOMAIN GROUP DISTRIBUTION
+─────────────────────────────────────────────────────────────────
+  Domain             train     val    eval
+  ──────────────── ─────── ─────── ───────
+  astronomy         131  5%    78  5%    25  5%
+  biology           609 22%   367 22%   112 22%
+  chemistry         127  5%    76  4%    18  4%
+  earth_science     261  9%   159  9%    52 10%
+  mathematics       170  6%   101  6%    37  7%
+  other_science     534 19%   320 19%    87 17%
+  physics           986 35%   592 35%   169 34%
+
+─────────────────────────────────────────────────────────────────
+DISTRACTOR QUESTIONS IN EVAL
+─────────────────────────────────────────────────────────────────
+  [easy  ] What percentage of airplane passengers are first-time fliers?
+  [easy  ] How many Mitochondrion have the same length as Wingspan of a 747?
+  [medium] How many Hairs can 71 of Bill Gates buy?
+  [medium] Assume California's area is half its value. How many Island of Ireland have the same area 
+  [medium] Assume Biltmore Estate's area is half its value. How many Post-it&reg; Note (3M) fit on Bi
+
+─────────────────────────────────────────────────────────────────
+WRONG-ASSUMPTION QUESTIONS IN EVAL
+─────────────────────────────────────────────────────────────────
+  Q  : How many acres of land would need to be devoted to cultivating wheat to sustain a population of one 
+  Note: Wrong assumption: 100 acres/person. Reality ≈ 0.3 acres/person (off by ~333×, ~2.5 OOM). A model fol
+  Wrong: 100 acres of wheat per person per year
+  Correct: ≈ 0.3 acres of wheat per person per year
+  fermi_answer (correct): 6
+
+  Q  : How fast is the speed of light in centimeters per hour? Assume the speed of light is approximately 3
+  Note: Wrong assumption: c = 3,000 km/s. Reality c ≈ 300,000 km/s (off by 100×, 2 OOM). A model following t
+  Wrong: speed of light = 3,000 km/s
+  Correct: speed of light ≈ 300,000 km/s (3×10^8 m/s)
+  fermi_answer (correct): 14
+
+  Q  : What is the volume of the Earth in cubic meters? Assume that Earth's radius is approximately 640 km.
+  Note: Wrong assumption: Earth radius = 640 km. Reality ≈ 6,371 km (off by 10×; volume off by 10³ = 3 OOM).
+  Wrong: Earth radius = 640 km
+  Correct: Earth radius ≈ 6,371 km
+  fermi_answer (correct): 21
+
+
+─────────────────────────────────────────────────────────────────
+CONTAMINATED QUESTIONS DISPOSITION
+─────────────────────────────────────────────────────────────────
+  47 questions were originally in a sealed eval source
+  but absorbed by train-tagged records in master.json.
+  All 47 are routed to eval (not train or val).
+
+  Original master source                           → Split
+  ──────────────────────────────────────────────── ───────
+  achuthan:train                                   eval  (36)
+  achuthan:val                                     eval  (3)
+  train_dir:filtered:fermi_problems_filtered_1.json eval  (6)
+  train_dir:filtered:fermi_problems_filtered_3.json eval  (1)
+  train_dir:filtered:fermi_problems_filtered_5.json eval  (1)
+
+─────────────────────────────────────────────────────────────────
+SOURCE TAG DISTRIBUTION (top sources)
+─────────────────────────────────────────────────────────────────
+  train:
+    achuthan                        1480  (53%)
+    train_dir                       1270  (45%)
+    eval_dir                          68  (2%)
+
+  val:
+    achuthan                         910  (54%)
+    train_dir                        747  (44%)
+    eval_dir                          36  (2%)
+
+  eval:
+    achuthan                         259  (52%)
+    train_dir                        222  (44%)
+    eval_dir                          16  (3%)
+    synthetic                          3  (1%)
+
+
+─────────────────────────────────────────────────────────────────
+ZERO-OVERLAP VERIFICATION
+─────────────────────────────────────────────────────────────────
+  train ∩ val  : 0 overlapping questions
+  train ∩ eval : 0 overlapping questions
+  val   ∩ eval : 0 overlapping questions
+  ✓ CLEAN — zero overlap across all three splits
+
+═════════════════════════════════════════════════════════════════
+OUTPUT FILES
+═════════════════════════════════════════════════════════════════
+  /Users/riasonalker/final-project-wilfigureoutl8r-1/datasets/final/train.json  (2818 records)
+  /Users/riasonalker/final-project-wilfigureoutl8r-1/datasets/final/val.json  (1693 records)
+  /Users/riasonalker/final-project-wilfigureoutl8r-1/datasets/final/eval.json  (500 records)
+═════════════════════════════════════════════════════════════════

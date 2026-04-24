@@ -1,0 +1,82 @@
+{
+  "name": "Achuthan-Dataset",
+  "description": "Fermi estimation split: sealed eval, val, and train pool. Derived from RealFP, FermiQuestions, and open-scioly-fermi after OpenAI-based science filter; synthFP dropped for answer-unreliability.",
+  "splits": {
+    "eval": {
+      "n": 100,
+      "by_source": {
+        "realFP": 70,
+        "scioly": 30
+      },
+      "by_answer_type": {
+        "numeric": 70,
+        "oom_exponent": 30
+      },
+      "by_domain": {
+        "astronomy": 11,
+        "biology": 17,
+        "chemistry": 11,
+        "other_science": 13,
+        "earth_science": 17,
+        "physics": 23,
+        "mathematics": 8
+      }
+    },
+    "val": {
+      "n": 100,
+      "by_source": {
+        "realFP": 65,
+        "scioly": 35
+      },
+      "by_answer_type": {
+        "numeric": 65,
+        "oom_exponent": 35
+      },
+      "by_domain": {
+        "astronomy": 11,
+        "mathematics": 8,
+        "earth_science": 17,
+        "other_science": 13,
+        "physics": 23,
+        "biology": 17,
+        "chemistry": 11
+      }
+    },
+    "train": {
+      "n": 2685,
+      "by_source": {
+        "realFP": 361,
+        "fermiq": 159,
+        "scioly": 2165
+      },
+      "by_answer_type": {
+        "numeric": 361,
+        "oom_exponent": 2324
+      },
+      "by_domain": {
+        "other_science": 510,
+        "chemistry": 204,
+        "astronomy": 183,
+        "biology": 500,
+        "physics": 580,
+        "earth_science": 413,
+        "mathematics": 295
+      }
+    }
+  },
+  "sha256": {
+    "eval.jsonl": "b21522d37d3a81796047f3fe8b041102205bed28bbb8914c6967e6c791deba76",
+    "val.jsonl": "42a1883a8ad55219fa6d99d49273062cb7678d12c41c0803372bf800e9aece9d",
+    "train.jsonl": "7a92861c27232cbc3f420fb959cf5cbf41da3b8c2338bfdb2da26b53ceca20b2"
+  },
+  "schema": {
+    "id": "str",
+    "question": "str",
+    "gold_numeric": "float | None",
+    "gold_oom": "int | None",
+    "answer_type": "'numeric' | 'oom_exponent'",
+    "unit": "str | None",
+    "source": "'realFP' | 'fermiq' | 'scioly'",
+    "domain": "physics|chemistry|biology|astronomy|earth_science|mathematics|other_science"
+  }
+}

@@ -1,0 +1,96 @@
+{
+    "dataset": "Validation",
+    "count": 15,
+    "questions": [
+        {
+            "question": "How many nanometers span the entire range of visible light?",
+            "fermi_answer": 2,
+            "domain": "Physics",
+            "source": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+        },
+        {
+            "question": "How many nanometers are in a megaparsec?",
+            "fermi_answer": 31,
+            "domain": "Astronomy/Physics",
+            "source": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+        },
+        {
+            "question": "How many atoms of lead would make a ton of lead?",
+            "fermi_answer": 27,
+            "domain": "Chemistry/Physics",
+            "source": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+        },
+        {
+            "question": "How many bones are in the human body?",
+            "fermi_answer": 2,
+            "domain": "Biology",
+            "source": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+        },
+        {
+            "question": "How many electrons pass through a 100 watt light bulb in a minute?",
+            "fermi_answer": 22,
+            "domain": "Physics",
+            "source": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+        },
+        {
+            "question": "What is the area (in cm^2) of the leaves on a mature, healthy oak tree?",
+            "fermi_answer": 7,
+            "domain": "Biology",
+            "source": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+        },
+        {
+            "question": "Assuming each leaf gets full sunlight, how much energy (watts) does it get from the sun in one year?",
+            "fermi_answer": 8,
+            "domain": "Biology/Physics",
+            "source": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+        },
+        {
+            "question": "Two people stand on opposite sides of the Earth. What is the gravitational force between them?",
+            "fermi_answer": -21,
+            "domain": "Physics",
+            "source": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+        },
+        {
+            "question": "What is the lethal dose of botulism toxin, in grams, for a 150 pound human?",
+            "fermi_answer": -7,
+            "domain": "Biology/Chemistry",
+            "source": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+        },
+        {
+            "question": "According to the Census of Marine Life, what is the estimated number of life forms in the world's oceans?",
+            "fermi_answer": 5,
+            "domain": "Biology/Earth Science",
+            "source": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+        },
+        {
+            "question": "The speed of the fastest recorded bird (Peregrine Falcon) in dive mode, in millimeters per millennium?",
+            "fermi_answer": 15,
+            "domain": "Biology/Physics",
+            "source": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+        },
+        {
+            "question": "How many Earths could fit in the volume of the Sun?",
+            "fermi_answer": 6,
+            "domain": "Astronomy",
+            "source": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+        },
+        {
+            "question": "What is the average number of atoms in a human cell?",
+            "fermi_answer": 14,
+            "domain": "Biology/Chemistry",
+            "source": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+        },
+        {
+            "question": "How many grains of sand are needed to fill a standard 12 oz soda can?",
+            "fermi_answer": 7,
+            "domain": "Physics/Mathematics",
+            "source": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+        },
+        {
+            "question": "How many miles does a person walk in an average lifetime (assuming 10,000 steps per day)?",
+            "fermi_answer": 5,
+            "domain": "Biology/Mathematics",
+            "source": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+        }
+    ]
+}
