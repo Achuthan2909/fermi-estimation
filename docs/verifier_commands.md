@@ -12,6 +12,7 @@ responses, and Python verdicts.
 ```bash
 set -a
 source .env
+export SEARCH_PROVIDER=tavily
 set +a
 ```
 
