@@ -23,10 +23,9 @@ from typing import Any
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC_ROOT = os.path.dirname(HERE)
 PROJECT_ROOT = os.path.dirname(SRC_ROOT)
-sys.path.insert(0, HERE)
 sys.path.insert(0, SRC_ROOT)
 
-from prompt_contract import (  # noqa: E402
+from verifier.prompt_contract import (  # noqa: E402
     CONTRACT_VERSION,
     ParseError,
     build_compute_messages,
