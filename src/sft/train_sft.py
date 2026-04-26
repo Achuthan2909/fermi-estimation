@@ -93,7 +93,7 @@ def main() -> None:
                     help="Path to train.jsonl produced by prepare_traces.py")
     ap.add_argument("--log-path", default=str(_DEFAULT_LOG_PATH))
     ap.add_argument("--num-epochs", type=int, default=2)
-    ap.add_argument("--batch-size", type=int, default=128,
+    ap.add_argument("--batch-size", type=int, default=2048,
                     help="Batch size in tokens (not examples)")
     ap.add_argument("--max-length", type=int, default=2048,
                     help="Max tokens per training example (prompt + response)")
