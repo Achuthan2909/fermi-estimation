@@ -20,9 +20,56 @@ import json
 import math
 import os
 import random
+import re
 import sys
 from pathlib import Path
 from typing import Any
+
+_VALID_CONFIDENCE = {"low", "medium", "high"}
+
+
+def _slugify_symbol(name: str) -> str:
+    s = re.sub(r"[^A-Za-z0-9]+", "_", (name or "").strip()).strip("_")
+    return s or "x"
+
+
+def _synthesize_formula(factors: list[dict[str, Any]], calculation: str) -> str:
+    syms = [f.get("symbol") for f in factors if f.get("symbol")]
+    if syms:
+        return " * ".join(syms)
+    return (calculation or "").strip()
+
+
+# Strip verifier-flavored leakage: first-person recall and explicit citations
+# of the verifier's RAG context. The student model is supposed to reason
+# "from first principles, no lookups" so these phrases must not appear in
+# the SFT target.
+_RECALL_RE = re.compile(
+    r"\b(?:I\s+(?:recall|remember|know)|from\s+memory)(?:\s+that)?[:,]?\s*",
+    re.I,
+)
+_CITATION_SENTENCE_RE = re.compile(
+    r"[^.!?]*\b("
+    r"reference\s+\d+(?:\.\d+)?"          # "Reference 1.1"
+    r"|reference\s+(?:group|context)"     # "Reference group 1"
+    r"|the\s+(?:reference|context|provided)\s+(?:states|says|gives|shows|indicates|provides)"
+    r"|according\s+to\s+(?:the\s+)?reference"
+    r"|the\s+excerpt"
+    r"|excerpt\s+from"
+    r")[^.!?]*[.!?]?",
+    re.I,
+)
+
+
+def _clean_text(text: str) -> str:
+    if not text:
+        return text
+    cleaned = _CITATION_SENTENCE_RE.sub("", text)
+    cleaned = _RECALL_RE.sub("", cleaned)
+    cleaned = re.sub(r"\s+", " ", cleaned).strip(" ,;.")
+    if cleaned:
+        cleaned = cleaned[0].upper() + cleaned[1:]
+    return cleaned
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
@@ -49,7 +96,7 @@ def _load_traces(traces_dir: Path) -> list[dict[str, Any]]:
     return _load_traces_from_files(sorted(traces_dir.glob("*.jsonl")))
 
 
-def _target_to_response(target: dict[str, Any]) -> dict[str, Any]:
+def _target_to_response(target: dict[str, Any], record_confidence: str | None = None) -> dict[str, Any]:
     """Normalise verifier target → baseline prompt_contract response schema.
 
     Verifier target keys: question, assumptions (list of dicts), calculation,
@@ -66,14 +113,28 @@ def _target_to_response(target: dict[str, Any]) -> dict[str, Any]:
         if not isinstance(a, dict):
             continue
         point = a.get("value") or a.get("point")
+        candidates = [
+            a.get("reasoning"),
+            a.get("plausibility_check"),
+            a.get("why"),
+        ]
+        why = ""
+        for c in candidates:
+            cleaned = _clean_text(c or "")
+            if cleaned:
+                why = cleaned
+                break
+        if not why:
+            why = f"Estimated typical value for {a.get('name','this quantity')} from general knowledge."
+
         factors.append({
             "name": a.get("name", ""),
-            "symbol": a.get("name", "").replace(" ", "_")[:12],
+            "symbol": _slugify_symbol(a.get("name", "")),
             "low": a.get("low", point),
             "high": a.get("high", point),
             "point": point,
             "unit": a.get("unit") or "",
-            "why": a.get("reasoning") or a.get("why") or "",
+            "why": why,
         })
 
     fa = target.get("final_answer") or {}
@@ -86,18 +147,26 @@ def _target_to_response(target: dict[str, Any]) -> dict[str, Any]:
         except (ValueError, TypeError):
             final_oom = 0
 
+    calculation = _clean_text(target.get("calculation") or "")
+    formula = target.get("formula") or _synthesize_formula(factors, calculation)
+    confidence = (
+        (target.get("confidence") or record_confidence or "").lower()
+    )
+    if confidence not in _VALID_CONFIDENCE:
+        confidence = "medium"
+
     return {
         "restatement": target.get("question") or "",
         "assumptions": [f["why"] for f in factors if f["why"]],
         "factors": factors,
-        "formula": target.get("formula") or "",
-        "calculation": target.get("calculation") or "",
+        "formula": formula,
+        "calculation": calculation,
         "final": {
             "value": final_value,
             "unit": final_unit,
             "oom": final_oom,
         },
-        "confidence": "high",
+        "confidence": confidence,
     }
 
 
@@ -105,7 +174,7 @@ def _build_messages(record: dict[str, Any]) -> list[dict[str, str]]:
     question = record["question"]
     unit = record.get("unit") or "any sensible SI unit — state it in final.unit"
     target = record.get("target") or {}
-    response = _target_to_response(target)
+    response = _target_to_response(target, record.get("confidence"))
     return [
         {"role": "system", "content": SYSTEM_PROMPT},
         {"role": "user", "content": USER_TEMPLATE.format(

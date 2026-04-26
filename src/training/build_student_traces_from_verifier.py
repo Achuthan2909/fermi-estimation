@@ -97,6 +97,7 @@ def assumption_from_value(value_record: dict[str, Any], *, exact: bool) -> dict[
         "low": low,
         "high": high,
         "reasoning": clean_reasoning(value_record.get("reasoning") or value_record.get("plausibility_check")),
+        "plausibility_check": clean_reasoning(value_record.get("plausibility_check")),
     }
 
 

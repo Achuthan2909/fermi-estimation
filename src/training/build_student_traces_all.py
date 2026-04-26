@@ -77,6 +77,7 @@ def make_row(
         "verdict": verdict,
         "oom_error": oom_error,
         "provided_ground_truth": record.get("provided_ground_truth"),
+        "confidence": parsed.get("confidence"),
         "target": target,
     }
 
