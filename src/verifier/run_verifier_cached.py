@@ -204,19 +204,39 @@ def consensus_verdict(verifications: list[dict[str, Any]]) -> str:
     return "uncertain"
 
 
-async def call_tinker_model(*, model: str, messages: list[dict[str, str]],
-                            max_tokens: int) -> tuple[str, str | None, float]:
-    from tinker import SamplingParams, ServiceClient
+# Module-level singletons — one session per model reused across all concurrent calls.
+_svc: Any = None
+_sampling_clients: dict[str, Any] = {}
+_renderers: dict[str, Any] = {}
+_tokenizers: dict[str, Any] = {}
+
+
+def _get_tinker_components(model: str) -> tuple[Any, Any, Any, str]:
+    """Return (sampling_client, tokenizer, renderer, renderer_name), creating once."""
+    global _svc
+    from tinker import ServiceClient
     from tinker_cookbook import model_info
     from tinker_cookbook.renderers import get_renderer
     from tinker_cookbook.tokenizer_utils import get_tokenizer
 
-    t0 = time.time()
-    svc = ServiceClient()
+    if _svc is None:
+        _svc = ServiceClient()
+    if model not in _sampling_clients:
+        _sampling_clients[model] = _svc.create_sampling_client(base_model=model)
+    if model not in _tokenizers:
+        _tokenizers[model] = get_tokenizer(model)
     renderer_name = model_info.get_recommended_renderer_name(model)
-    tokenizer = get_tokenizer(model)
-    renderer = get_renderer(renderer_name, tokenizer)
-    sc = svc.create_sampling_client(base_model=model)
+    if model not in _renderers:
+        _renderers[model] = get_renderer(renderer_name, _tokenizers[model])
+    return _sampling_clients[model], _tokenizers[model], _renderers[model], renderer_name
+
+
+async def call_tinker_model(*, model: str, messages: list[dict[str, str]],
+                            max_tokens: int) -> tuple[str, str | None, float]:
+    from tinker import SamplingParams
+
+    t0 = time.time()
+    sc, tokenizer, renderer, renderer_name = _get_tinker_components(model)
     sampling_params = SamplingParams(
         max_tokens=max_tokens,
         temperature=SAMPLING_PARAMS["temperature"],
