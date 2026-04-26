@@ -7,11 +7,14 @@ Per-record decisions (driven by the merged verification file):
   - uncertain                                                  → drop
   - incorrect, |oom_error| > threshold                         → drop
   - incorrect, |oom_error| <= threshold, conf in {high,medium} → relabel
-      (fermi_answer := verifier's pred_oom) and keep
+      (provided_ground_truth := verifier's pred_oom) and keep
   - incorrect, |oom_error| <= threshold, conf low/missing      → review file
 
-Outputs are written in the original dataset row format (so they can replace
-the input dataset directly). A summary of counts is printed.
+Outputs are full verification records (the same shape as the merged
+verification JSON's `results` entries) so the search plan, computation,
+and comparison stay attached to each kept row. Relabeled rows get
+`provided_ground_truth` overwritten with the verifier's `pred_oom` and a
+`_relabel` audit field describing the change.
 
 Example:
     python scripts/filter_relabel_dataset.py \
@@ -98,13 +101,14 @@ def main() -> int:
         if vrec is None:
             stats["unverified"] += 1
             if args.keep_unverified:
-                kept.append(row)
+                # Carry the dataset row through as a minimal record.
+                kept.append({"_unverified_row": row})
             continue
 
         verdict = vrec.get("consensus_verdict")
         if verdict == "correct":
             stats["correct_kept"] += 1
-            kept.append(row)
+            kept.append(vrec)
             continue
         if verdict == "uncertain":
             stats["dropped_uncertain"] += 1
@@ -128,23 +132,25 @@ def main() -> int:
         parsed = (v.get("computation") or {}).get("parsed_response") or {}
         confidence = (parsed.get("confidence") or "").lower()
 
-        new_row = dict(row)
-        new_row["fermi_answer"] = pred_oom
-        new_row["_relabel"] = {
-            "original_fermi_answer": row.get("fermi_answer"),
+        new_rec = dict(vrec)
+        new_rec["_relabel"] = {
+            "original_provided_ground_truth": vrec.get("provided_ground_truth"),
+            "original_dataset_fermi_answer": row.get("fermi_answer"),
             "pred_value": comp.get("pred_value"),
             "pred_unit": comp.get("pred_unit"),
+            "pred_oom": pred_oom,
             "oom_error": oe,
             "confidence": confidence or None,
             "verifier_model": v.get("model"),
         }
+        new_rec["provided_ground_truth"] = pred_oom
 
         if confidence in ("high", "medium"):
             stats[f"relabeled_{confidence}"] += 1
-            kept.append(new_row)
+            kept.append(new_rec)
         else:
             stats[f"review_{confidence or 'missing'}"] += 1
-            review.append(new_row)
+            review.append(new_rec)
 
     with open(args.output, "w") as f:
         json.dump(kept, f, indent=2)
