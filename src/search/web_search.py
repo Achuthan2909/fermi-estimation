@@ -136,7 +136,7 @@ def _tavily_search(query: str, max_results: int, timeout_s: float) -> list[Searc
     return results
 
 
-def search_web(query: str, max_results: int = 5, timeout_s: float = 10.0) -> list[SearchResult]:
+def search_web(query: str, max_results: int = 2, timeout_s: float = 10.0) -> list[SearchResult]:
     """Return web snippets for a query.
 
     Set ``SEARCH_PROVIDER=none`` during tests or offline runs to disable network

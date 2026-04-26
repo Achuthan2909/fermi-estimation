@@ -479,7 +479,7 @@ def main() -> None:
     parser.add_argument("--model-b", default=None)
     parser.add_argument("--max-tokens", type=int, default=512)
     parser.add_argument("--max-search-queries", type=int, default=5)
-    parser.add_argument("--search-results", type=int, default=5)
+    parser.add_argument("--search-results", type=int, default=2)
     parser.add_argument("--search-timeout", type=float, default=10.0)
     args = parser.parse_args()
 
