@@ -1,0 +1,1727 @@
+[
+  {
+    "index": 57,
+    "id": "scioly:1963",
+    "question": "Right now (the time you are reading this!), in football fields, what is the area of the triangle formed by Eris, Pluto, and Ceres?",
+    "answer_type": "oom_exponent",
+    "provided_ground_truth": 23,
+    "domain": "astronomy",
+    "source": "achuthan:train",
+    "verifications": [
+      {
+        "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+        "renderer": "qwen3_instruct",
+        "latency_s": 23.125,
+        "fermi_facts_matches": 0,
+        "search_plan": {
+          "status": "ok",
+          "error": "",
+          "latency_s": 4.503,
+          "input_messages": [
+            {
+              "role": "system",
+              "content": "You plan web searches for a Fermi-problem verifier. Do not solve the problem. Identify the constants, definitions, conversion factors, or background quantities needed to compute the answer. Return concise search queries that can retrieve those facts."
+            },
+            {
+              "role": "user",
+              "content": "Question:\nRight now (the time you are reading this!), in football fields, what is the area of the triangle formed by Eris, Pluto, and Ceres?\n\nAnswer type:\noom_exponent\n\nReturn JSON matching this schema exactly:\n{\n  \"constants_needed\": [\n    {\n      \"name\": \"<constant or fact needed>\",\n      \"unit\": \"<desired unit or ''>\",\n      \"why\": \"<why this fact is needed>\"\n    }\n  ],\n  \"search_queries\": [\n    \"<specific search query for one needed fact>\",\n    \"...\"\n  ]\n}\n\nRules:\n- Do not compute the final answer.\n- Do not search for a final answer; search reusable facts, definitions, or constants.\n- Prefer searches for reusable facts, definitions, constants, and unit conversions.\n- Keep search_queries to at most 3 queries.\n"
+            }
+          ],
+          "response_text": "{\n  \"constants_needed\": [\n    {\n      \"name\": \"distance between Eris and Pluto\",\n      \"unit\": \"kilometers\",\n      \"why\": \"Required to compute one side of the triangle formed by Eris, Pluto, and Ceres.\"\n    },\n    {\n      \"name\": \"distance between Pluto and Ceres\",\n      \"unit\": \"kilometers\",\n      \"why\": \"Required to compute another side of the triangle.\"\n    },\n    {\n      \"name\": \"distance between Eris and Ceres\",\n      \"unit\": \"kilometers\",\n      \"why\": \"Required to compute the third side of the triangle.\"\n    }\n  ],\n  \"search_queries\": [\n    \"current distance between Eris and Pluto in kilometers\",\n    \"current distance between Pluto and Ceres in kilometers\",\n    \"current distance between Eris and Ceres in kilometers\"\n  ]\n}",
+          "parsed_response": {
+            "constants_needed": [
+              {
+                "name": "distance between Eris and Pluto",
+                "unit": "kilometers",
+                "why": "Required to compute one side of the triangle formed by Eris, Pluto, and Ceres."
+              },
+              {
+                "name": "distance between Pluto and Ceres",
+                "unit": "kilometers",
+                "why": "Required to compute another side of the triangle."
+              },
+              {
+                "name": "distance between Eris and Ceres",
+                "unit": "kilometers",
+                "why": "Required to compute the third side of the triangle."
+              }
+            ],
+            "search_queries": [
+              "current distance between Eris and Pluto in kilometers",
+              "current distance between Pluto and Ceres in kilometers",
+              "current distance between Eris and Ceres in kilometers"
+            ]
+          }
+        },
+        "search_records": [
+          {
+            "query": "current distance between Eris and Pluto in kilometers",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          },
+          {
+            "query": "current distance between Pluto and Ceres in kilometers",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          },
+          {
+            "query": "current distance between Eris and Ceres in kilometers",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          }
+        ],
+        "search_context": "Reference facts to consider:\n- distance between Eris and Pluto (kilometers): Required to compute one side of the triangle formed by Eris, Pluto, and Ceres.\n- distance between Pluto and Ceres (kilometers): Required to compute another side of the triangle.\n- distance between Eris and Ceres (kilometers): Required to compute the third side of the triangle.\n\nReference evidence:\n\nReference group 1:\nNo reference evidence was available for this item.\n\nReference group 2:\nNo reference evidence was available for this item.\n\nReference group 3:\nNo reference evidence was available for this item.",
+        "computation": {
+          "status": "ok",
+          "error": "",
+          "latency_s": 18.618,
+          "input_messages": [
+            {
+              "role": "system",
+              "content": "You are a careful Fermi-problem verifier. You receive reference evidence as context. First separate values supported by the reference context from values you are estimating from memory. For every memory value, explain why it is plausible before using it. Then compute the answer with dimensional and order-of-magnitude checks. Return only one JSON object."
+            },
+            {
+              "role": "user",
+              "content": "Question:\nRight now (the time you are reading this!), in football fields, what is the area of the triangle formed by Eris, Pluto, and Ceres?\n\nAnswer type:\noom_exponent\n\nReference context:\nReference facts to consider:\n- distance between Eris and Pluto (kilometers): Required to compute one side of the triangle formed by Eris, Pluto, and Ceres.\n- distance between Pluto and Ceres (kilometers): Required to compute another side of the triangle.\n- distance between Eris and Ceres (kilometers): Required to compute the third side of the triangle.\n\nReference evidence:\n\nReference group 1:\nNo reference evidence was available for this item.\n\nReference group 2:\nNo reference evidence was available for this item.\n\nReference group 3:\nNo reference evidence was available for this item.\n\nReturn JSON matching this schema exactly:\n{\n  \"reference_values\": [\n    {\n      \"name\": \"<fact or value used>\",\n      \"value\": <number or string>,\n      \"unit\": \"<unit or ''>\",\n      \"source\": \"<short reference label>\",\n      \"reasoning\": \"<why this value is relevant>\"\n    }\n  ],\n  \"memory_values\": [\n    {\n      \"name\": \"<fact or value estimated from memory>\",\n      \"value\": <number or string>,\n      \"unit\": \"<unit or ''>\",\n      \"reasoning\": \"<why you remember or assume this value>\",\n      \"plausibility_check\": \"<why the value is reasonable for this problem>\"\n    }\n  ],\n  \"calculation\": \"<formula and arithmetic substitution>\",\n  \"final_answer\": {\n    \"value\": <number>,\n    \"unit\": \"<unit>\",\n    \"oom\": <integer base-10 order of magnitude>\n  },\n  \"confidence\": \"low\" | \"medium\" | \"high\",\n  \"reasoning\": \"<concise explanation of how the answer was computed>\"\n}\n\nRules:\n- Use reference_values for facts directly supported by the reference context.\n- Use memory_values for values not directly stated in the reference context.\n- It is OK for memory_values to be empty if the reference context provides all\n  needed quantities.\n- When using a memory value, explicitly reason why it makes physical or common\n  sense before using it in the calculation.\n- For answer_type=\"oom_exponent\", final_answer.value should be the estimated\n  quantity and final_answer.oom should be the exponent to compare.\n- If evidence is insufficient, still make the best estimate and use low confidence.\n- Do not mention how the context was retrieved.\n- Do not include prose outside the JSON.\n"
+            }
+          ],
+          "response_text": "{\n  \"reference_values\": [],\n  \"memory_values\": [\n    {\n      \"name\": \"average distance between Eris and Pluto\",\n      \"value\": 1.5e9,\n      \"unit\": \"km\",\n      \"reasoning\": \"Eris and Pluto are both trans-Neptunian objects in the outer solar system; their average separation is on the order of billions of kilometers due to their distant orbits around the Sun.\",\n      \"plausibility_check\": \"Eris is about 96 AU from the Sun, Pluto about 39 AU; the maximum separation could be ~135 AU, but average is likely around 100 AU, which is ~1.5e10 km. However, since they are in different orbital planes and positions vary, a more conservative estimate of 1.5e9 km (10 AU) is plausible for a typical configuration. This is a rough estimate based on orbital dynamics and relative positions.\"\n    },\n    {\n      \"name\": \"average distance between Pluto and Ceres\",\n      \"value\": 4.5e9,\n      \"unit\": \"km\",\n      \"reasoning\": \"Ceres is in the asteroid belt (~2.7 AU from the Sun), Pluto is at ~39 AU, so their average separation is roughly 36 AU, which is about 5.4e9 km. A value of 4.5e9 km is a reasonable approximation considering orbital eccentricities and average positions.\",\n      \"plausibility_check\": \"36 AU \u00d7 1.5e8 km/AU \u2248 5.4e9 km. Using 4.5e9 km accounts for average orbital positions and non-linear geometry, which is plausible.\"\n    },\n    {\n      \"name\": \"average distance between Eris and Ceres\",\n      \"value\": 9.0e9,\n      \"unit\": \"km\",\n      \"reasoning\": \"Eris is at ~96 AU, Ceres at ~2.7 AU, so their separation is roughly 93 AU. At ~1.5e8 km/AU, this gives ~1.395e10 km. However, due to orbital inclination and phase differences, a typical separation might be less. A value of 9.0e9 km (~60 AU) is a reasonable estimate for a representative configuration.\",\n      \"plausibility_check\": \"93 AU \u00d7 1.5e8 km/AU = 1.395e10 km. Using 9.0e9 km (60 AU) is a conservative estimate, plausible given orbital dynamics and average angular separation.\"\n    }\n  ],\n  \"calculation\": \"Using Heron's formula: s = (a + b + c) / 2 = (1.5e9 + 4.5e9 + 9.0e9) / 2 = 7.5e9 km. Area = sqrt(s(s-a)(s-b)(s-c)) = sqrt(7.5e9 * 6.0e9 * 3.0e9 * 1.5e9) = sqrt(2.025e37) \u2248 4.5e18 km\u00b2. Convert to football fields: 1 football field \u2248 5350 m\u00b2 = 5.35e-6 km\u00b2. So area in football fields = 4.5e18 / 5.35e-6 \u2248 8.4e23. Order of magnitude: 10^23.\",\n  \"final_answer\": {\n    \"value\": 8.4e23,\n    \"unit\": \"football fields\",\n    \"oom\": 23\n  },\n  \"confidence\": \"low\",\n  \"reasoning\": \"The distances between Eris, Pluto, and Ceres are not fixed and vary over time. The values used are estimates based on average orbital distances and plausible configurations. Heron's formula is applied to compute the triangle area, then converted to football fields using a standard field size. The order of magnitude is dominated by the large scale of interplanetary distances and the small size of a football field.\"\n}",
+          "parsed_response": {
+            "reference_values": [],
+            "memory_values": [
+              {
+                "name": "average distance between Eris and Pluto",
+                "value": 1500000000.0,
+                "unit": "km",
+                "reasoning": "Eris and Pluto are both trans-Neptunian objects in the outer solar system; their average separation is on the order of billions of kilometers due to their distant orbits around the Sun.",
+                "plausibility_check": "Eris is about 96 AU from the Sun, Pluto about 39 AU; the maximum separation could be ~135 AU, but average is likely around 100 AU, which is ~1.5e10 km. However, since they are in different orbital planes and positions vary, a more conservative estimate of 1.5e9 km (10 AU) is plausible for a typical configuration. This is a rough estimate based on orbital dynamics and relative positions."
+              },
+              {
+                "name": "average distance between Pluto and Ceres",
+                "value": 4500000000.0,
+                "unit": "km",
+                "reasoning": "Ceres is in the asteroid belt (~2.7 AU from the Sun), Pluto is at ~39 AU, so their average separation is roughly 36 AU, which is about 5.4e9 km. A value of 4.5e9 km is a reasonable approximation considering orbital eccentricities and average positions.",
+                "plausibility_check": "36 AU \u00d7 1.5e8 km/AU \u2248 5.4e9 km. Using 4.5e9 km accounts for average orbital positions and non-linear geometry, which is plausible."
+              },
+              {
+                "name": "average distance between Eris and Ceres",
+                "value": 9000000000.0,
+                "unit": "km",
+                "reasoning": "Eris is at ~96 AU, Ceres at ~2.7 AU, so their separation is roughly 93 AU. At ~1.5e8 km/AU, this gives ~1.395e10 km. However, due to orbital inclination and phase differences, a typical separation might be less. A value of 9.0e9 km (~60 AU) is a reasonable estimate for a representative configuration.",
+                "plausibility_check": "93 AU \u00d7 1.5e8 km/AU = 1.395e10 km. Using 9.0e9 km (60 AU) is a conservative estimate, plausible given orbital dynamics and average angular separation."
+              }
+            ],
+            "calculation": "Using Heron's formula: s = (a + b + c) / 2 = (1.5e9 + 4.5e9 + 9.0e9) / 2 = 7.5e9 km. Area = sqrt(s(s-a)(s-b)(s-c)) = sqrt(7.5e9 * 6.0e9 * 3.0e9 * 1.5e9) = sqrt(2.025e37) \u2248 4.5e18 km\u00b2. Convert to football fields: 1 football field \u2248 5350 m\u00b2 = 5.35e-6 km\u00b2. So area in football fields = 4.5e18 / 5.35e-6 \u2248 8.4e23. Order of magnitude: 10^23.",
+            "final_answer": {
+              "value": 8.4e+23,
+              "unit": "football fields",
+              "oom": 23
+            },
+            "confidence": "low",
+            "reasoning": "The distances between Eris, Pluto, and Ceres are not fixed and vary over time. The values used are estimates based on average orbital distances and plausible configurations. Heron's formula is applied to compute the triangle area, then converted to football fields using a standard field size. The order of magnitude is dominated by the large scale of interplanetary distances and the small size of a football field."
+          }
+        },
+        "comparison": {
+          "verdict": "incorrect",
+          "reason": "oom_error=1",
+          "pred_value": 8.4e+23,
+          "pred_unit": "football fields",
+          "pred_oom": 23
+        }
+      }
+    ],
+    "consensus_verdict": "incorrect",
+    "dataset": "datasets/final/train.json",
+    "split": "train",
+    "_relabel": {
+      "original_provided_ground_truth": 22,
+      "original_dataset_fermi_answer": 22,
+      "pred_value": 8.4e+23,
+      "pred_unit": "football fields",
+      "pred_oom": 23,
+      "oom_error": 1.0,
+      "confidence": "low",
+      "verifier_model": "Qwen/Qwen3-30B-A3B-Instruct-2507"
+    }
+  },
+  {
+    "index": 359,
+    "id": "scioly:823",
+    "question": "How much current in Amperes goes through one neuron?",
+    "answer_type": "oom_exponent",
+    "provided_ground_truth": -10,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "verifications": [
+      {
+        "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+        "renderer": "qwen3_instruct",
+        "latency_s": 12.372,
+        "fermi_facts_matches": 0,
+        "search_plan": {
+          "status": "ok",
+          "error": "",
+          "latency_s": 4.429,
+          "input_messages": [
+            {
+              "role": "system",
+              "content": "You plan web searches for a Fermi-problem verifier. Do not solve the problem. Identify the constants, definitions, conversion factors, or background quantities needed to compute the answer. Return concise search queries that can retrieve those facts."
+            },
+            {
+              "role": "user",
+              "content": "Question:\nHow much current in Amperes goes through one neuron?\n\nAnswer type:\noom_exponent\n\nReturn JSON matching this schema exactly:\n{\n  \"constants_needed\": [\n    {\n      \"name\": \"<constant or fact needed>\",\n      \"unit\": \"<desired unit or ''>\",\n      \"why\": \"<why this fact is needed>\"\n    }\n  ],\n  \"search_queries\": [\n    \"<specific search query for one needed fact>\",\n    \"...\"\n  ]\n}\n\nRules:\n- Do not compute the final answer.\n- Do not search for a final answer; search reusable facts, definitions, or constants.\n- Prefer searches for reusable facts, definitions, constants, and unit conversions.\n- Keep search_queries to at most 3 queries.\n"
+            }
+          ],
+          "response_text": "{\n  \"constants_needed\": [\n    {\n      \"name\": \"typical membrane potential of a neuron\",\n      \"unit\": \"volts\",\n      \"why\": \"to determine the voltage driving current across the neuronal membrane\"\n    },\n    {\n      \"name\": \"resistance of a neuronal membrane\",\n      \"unit\": \"ohms\",\n      \"why\": \"to calculate current using Ohm's law (I = V/R) across the membrane\"\n    },\n    {\n      \"name\": \"ion channel conductance in neurons\",\n      \"unit\": \"siemens\",\n      \"why\": \"to estimate the current flow through ion channels, a primary pathway for current in neurons\"\n    }\n  ],\n  \"search_queries\": [\n    \"typical resting membrane potential of a neuron in volts\",\n    \"resistance of neuronal cell membrane in ohms\",\n    \"ion channel conductance in neurons siemens\"\n  ]\n}",
+          "parsed_response": {
+            "constants_needed": [
+              {
+                "name": "typical membrane potential of a neuron",
+                "unit": "volts",
+                "why": "to determine the voltage driving current across the neuronal membrane"
+              },
+              {
+                "name": "resistance of a neuronal membrane",
+                "unit": "ohms",
+                "why": "to calculate current using Ohm's law (I = V/R) across the membrane"
+              },
+              {
+                "name": "ion channel conductance in neurons",
+                "unit": "siemens",
+                "why": "to estimate the current flow through ion channels, a primary pathway for current in neurons"
+              }
+            ],
+            "search_queries": [
+              "typical resting membrane potential of a neuron in volts",
+              "resistance of neuronal cell membrane in ohms",
+              "ion channel conductance in neurons siemens"
+            ]
+          }
+        },
+        "search_records": [
+          {
+            "query": "typical resting membrane potential of a neuron in volts",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          },
+          {
+            "query": "resistance of neuronal cell membrane in ohms",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          },
+          {
+            "query": "ion channel conductance in neurons siemens",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          }
+        ],
+        "search_context": "Reference facts to consider:\n- typical membrane potential of a neuron (volts): to determine the voltage driving current across the neuronal membrane\n- resistance of a neuronal membrane (ohms): to calculate current using Ohm's law (I = V/R) across the membrane\n- ion channel conductance in neurons (siemens): to estimate the current flow through ion channels, a primary pathway for current in neurons\n\nReference evidence:\n\nReference group 1:\nNo reference evidence was available for this item.\n\nReference group 2:\nNo reference evidence was available for this item.\n\nReference group 3:\nNo reference evidence was available for this item.",
+        "computation": {
+          "status": "ok",
+          "error": "",
+          "latency_s": 7.939,
+          "input_messages": [
+            {
+              "role": "system",
+              "content": "You are a careful Fermi-problem verifier. You receive reference evidence as context. First separate values supported by the reference context from values you are estimating from memory. For every memory value, explain why it is plausible before using it. Then compute the answer with dimensional and order-of-magnitude checks. Return only one JSON object."
+            },
+            {
+              "role": "user",
+              "content": "Question:\nHow much current in Amperes goes through one neuron?\n\nAnswer type:\noom_exponent\n\nReference context:\nReference facts to consider:\n- typical membrane potential of a neuron (volts): to determine the voltage driving current across the neuronal membrane\n- resistance of a neuronal membrane (ohms): to calculate current using Ohm's law (I = V/R) across the membrane\n- ion channel conductance in neurons (siemens): to estimate the current flow through ion channels, a primary pathway for current in neurons\n\nReference evidence:\n\nReference group 1:\nNo reference evidence was available for this item.\n\nReference group 2:\nNo reference evidence was available for this item.\n\nReference group 3:\nNo reference evidence was available for this item.\n\nReturn JSON matching this schema exactly:\n{\n  \"reference_values\": [\n    {\n      \"name\": \"<fact or value used>\",\n      \"value\": <number or string>,\n      \"unit\": \"<unit or ''>\",\n      \"source\": \"<short reference label>\",\n      \"reasoning\": \"<why this value is relevant>\"\n    }\n  ],\n  \"memory_values\": [\n    {\n      \"name\": \"<fact or value estimated from memory>\",\n      \"value\": <number or string>,\n      \"unit\": \"<unit or ''>\",\n      \"reasoning\": \"<why you remember or assume this value>\",\n      \"plausibility_check\": \"<why the value is reasonable for this problem>\"\n    }\n  ],\n  \"calculation\": \"<formula and arithmetic substitution>\",\n  \"final_answer\": {\n    \"value\": <number>,\n    \"unit\": \"<unit>\",\n    \"oom\": <integer base-10 order of magnitude>\n  },\n  \"confidence\": \"low\" | \"medium\" | \"high\",\n  \"reasoning\": \"<concise explanation of how the answer was computed>\"\n}\n\nRules:\n- Use reference_values for facts directly supported by the reference context.\n- Use memory_values for values not directly stated in the reference context.\n- It is OK for memory_values to be empty if the reference context provides all\n  needed quantities.\n- When using a memory value, explicitly reason why it makes physical or common\n  sense before using it in the calculation.\n- For answer_type=\"oom_exponent\", final_answer.value should be the estimated\n  quantity and final_answer.oom should be the exponent to compare.\n- If evidence is insufficient, still make the best estimate and use low confidence.\n- Do not mention how the context was retrieved.\n- Do not include prose outside the JSON.\n"
+            }
+          ],
+          "response_text": "{\n  \"reference_values\": [],\n  \"memory_values\": [\n    {\n      \"name\": \"typical membrane potential of a neuron\",\n      \"value\": 70,\n      \"unit\": \"mV\",\n      \"reasoning\": \"I recall that the resting membrane potential of a neuron is typically around -70 mV, which is a standard value taught in neuroscience and physiology.\",\n      \"plausibility_check\": \"This value is consistent with textbook knowledge and widely reported in neurobiology literature; it represents the electrical potential difference across the neuronal membrane at rest.\"\n    },\n    {\n      \"name\": \"resistance of a neuronal membrane\",\n      \"value\": 1e8,\n      \"unit\": \"ohms\",\n      \"reasoning\": \"I remember that the membrane resistance of a typical neuron is on the order of 10^8 ohms per square centimeter, which is a standard estimate used in biophysics models.\",\n      \"plausibility_check\": \"This value is reasonable because neuronal membranes are lipid bilayers with low ion permeability, leading to high resistance, and this order of magnitude is commonly used in Hodgkin-Huxley type models.\"\n    }\n  ],\n  \"calculation\": \"I = V / R = (70e-3 V) / (1e8 ohms) = 7e-10 A\",\n  \"final_answer\": {\n    \"value\": 7e-10,\n    \"unit\": \"A\",\n    \"oom\": -10\n  },\n  \"confidence\": \"low\",\n  \"reasoning\": \"Using Ohm's law with a typical resting membrane potential of 70 mV and a membrane resistance of 1e8 ohms, the current through the membrane is estimated to be 7e-10 A. This is a simplified model assuming uniform resistance and no active ion channels, but it provides a reasonable order-of-magnitude estimate for current through a neuron.\"\n}",
+          "parsed_response": {
+            "reference_values": [],
+            "memory_values": [
+              {
+                "name": "typical membrane potential of a neuron",
+                "value": 70,
+                "unit": "mV",
+                "reasoning": "I recall that the resting membrane potential of a neuron is typically around -70 mV, which is a standard value taught in neuroscience and physiology.",
+                "plausibility_check": "This value is consistent with textbook knowledge and widely reported in neurobiology literature; it represents the electrical potential difference across the neuronal membrane at rest."
+              },
+              {
+                "name": "resistance of a neuronal membrane",
+                "value": 100000000.0,
+                "unit": "ohms",
+                "reasoning": "I remember that the membrane resistance of a typical neuron is on the order of 10^8 ohms per square centimeter, which is a standard estimate used in biophysics models.",
+                "plausibility_check": "This value is reasonable because neuronal membranes are lipid bilayers with low ion permeability, leading to high resistance, and this order of magnitude is commonly used in Hodgkin-Huxley type models."
+              }
+            ],
+            "calculation": "I = V / R = (70e-3 V) / (1e8 ohms) = 7e-10 A",
+            "final_answer": {
+              "value": 7e-10,
+              "unit": "A",
+              "oom": -10
+            },
+            "confidence": "low",
+            "reasoning": "Using Ohm's law with a typical resting membrane potential of 70 mV and a membrane resistance of 1e8 ohms, the current through the membrane is estimated to be 7e-10 A. This is a simplified model assuming uniform resistance and no active ion channels, but it provides a reasonable order-of-magnitude estimate for current through a neuron."
+          }
+        },
+        "comparison": {
+          "verdict": "incorrect",
+          "reason": "oom_error=-1",
+          "pred_value": 7e-10,
+          "pred_unit": "A",
+          "pred_oom": -10
+        }
+      }
+    ],
+    "consensus_verdict": "incorrect",
+    "dataset": "datasets/final/train.json",
+    "split": "train",
+    "_relabel": {
+      "original_provided_ground_truth": -9,
+      "original_dataset_fermi_answer": -9,
+      "pred_value": 7e-10,
+      "pred_unit": "A",
+      "pred_oom": -10,
+      "oom_error": -1.0,
+      "confidence": "low",
+      "verifier_model": "Qwen/Qwen3-30B-A3B-Instruct-2507"
+    }
+  },
+  {
+    "index": 650,
+    "id": "realfp_train_158",
+    "question": "How many people have been to exactly two countries?",
+    "answer_type": "oom_exponent",
+    "provided_ground_truth": 6,
+    "domain": "Other Science",
+    "source": "train_dir:filtered:fermi_problems_filtered_5.json",
+    "verifications": [
+      {
+        "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+        "renderer": "qwen3_instruct",
+        "latency_s": 19.76,
+        "fermi_facts_matches": 0,
+        "search_plan": {
+          "status": "ok",
+          "error": "",
+          "latency_s": 6.199,
+          "input_messages": [
+            {
+              "role": "system",
+              "content": "You plan web searches for a Fermi-problem verifier. Do not solve the problem. Identify the constants, definitions, conversion factors, or background quantities needed to compute the answer. Return concise search queries that can retrieve those facts."
+            },
+            {
+              "role": "user",
+              "content": "Question:\nHow many people have been to exactly two countries?\n\nAnswer type:\noom_exponent\n\nReturn JSON matching this schema exactly:\n{\n  \"constants_needed\": [\n    {\n      \"name\": \"<constant or fact needed>\",\n      \"unit\": \"<desired unit or ''>\",\n      \"why\": \"<why this fact is needed>\"\n    }\n  ],\n  \"search_queries\": [\n    \"<specific search query for one needed fact>\",\n    \"...\"\n  ]\n}\n\nRules:\n- Do not compute the final answer.\n- Do not search for a final answer; search reusable facts, definitions, or constants.\n- Prefer searches for reusable facts, definitions, constants, and unit conversions.\n- Keep search_queries to at most 3 queries.\n"
+            }
+          ],
+          "response_text": "{\n  \"constants_needed\": [\n    {\n      \"name\": \"total global population\",\n      \"unit\": \"\",\n      \"why\": \"to establish the base population for calculating proportions of people who have visited exactly two countries\"\n    },\n    {\n      \"name\": \"percentage of people who have visited exactly two countries\",\n      \"unit\": \"%\",\n      \"why\": \"to determine the fraction of the global population that has been to exactly two countries\"\n    },\n    {\n      \"name\": \"definition of 'visited a country' in demographic surveys\",\n      \"unit\": \"\",\n      \"why\": \"to ensure consistent interpretation of what constitutes visiting a country, which affects the accuracy of the count\"\n    }\n  ],\n  \"search_queries\": [\n    \"global population 2024 estimate\",\n    \"percentage of people who have visited exactly two countries worldwide survey data\",\n    \"definition of 'visited a country' in international travel statistics\"\n  ]\n}",
+          "parsed_response": {
+            "constants_needed": [
+              {
+                "name": "total global population",
+                "unit": "",
+                "why": "to establish the base population for calculating proportions of people who have visited exactly two countries"
+              },
+              {
+                "name": "percentage of people who have visited exactly two countries",
+                "unit": "%",
+                "why": "to determine the fraction of the global population that has been to exactly two countries"
+              },
+              {
+                "name": "definition of 'visited a country' in demographic surveys",
+                "unit": "",
+                "why": "to ensure consistent interpretation of what constitutes visiting a country, which affects the accuracy of the count"
+              }
+            ],
+            "search_queries": [
+              "global population 2024 estimate",
+              "percentage of people who have visited exactly two countries worldwide survey data",
+              "definition of 'visited a country' in international travel statistics"
+            ]
+          }
+        },
+        "search_records": [
+          {
+            "query": "global population 2024 estimate",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          },
+          {
+            "query": "percentage of people who have visited exactly two countries worldwide survey data",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          },
+          {
+            "query": "definition of 'visited a country' in international travel statistics",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          }
+        ],
+        "search_context": "Reference facts to consider:\n- total global population (): to establish the base population for calculating proportions of people who have visited exactly two countries\n- percentage of people who have visited exactly two countries (%): to determine the fraction of the global population that has been to exactly two countries\n- definition of 'visited a country' in demographic surveys (): to ensure consistent interpretation of what constitutes visiting a country, which affects the accuracy of the count\n\nReference evidence:\n\nReference group 1:\nNo reference evidence was available for this item.\n\nReference group 2:\nNo reference evidence was available for this item.\n\nReference group 3:\nNo reference evidence was available for this item.",
+        "computation": {
+          "status": "ok",
+          "error": "",
+          "latency_s": 13.558,
+          "input_messages": [
+            {
+              "role": "system",
+              "content": "You are a careful Fermi-problem verifier. You receive reference evidence as context. First separate values supported by the reference context from values you are estimating from memory. For every memory value, explain why it is plausible before using it. Then compute the answer with dimensional and order-of-magnitude checks. Return only one JSON object."
+            },
+            {
+              "role": "user",
+              "content": "Question:\nHow many people have been to exactly two countries?\n\nAnswer type:\noom_exponent\n\nReference context:\nReference facts to consider:\n- total global population (): to establish the base population for calculating proportions of people who have visited exactly two countries\n- percentage of people who have visited exactly two countries (%): to determine the fraction of the global population that has been to exactly two countries\n- definition of 'visited a country' in demographic surveys (): to ensure consistent interpretation of what constitutes visiting a country, which affects the accuracy of the count\n\nReference evidence:\n\nReference group 1:\nNo reference evidence was available for this item.\n\nReference group 2:\nNo reference evidence was available for this item.\n\nReference group 3:\nNo reference evidence was available for this item.\n\nReturn JSON matching this schema exactly:\n{\n  \"reference_values\": [\n    {\n      \"name\": \"<fact or value used>\",\n      \"value\": <number or string>,\n      \"unit\": \"<unit or ''>\",\n      \"source\": \"<short reference label>\",\n      \"reasoning\": \"<why this value is relevant>\"\n    }\n  ],\n  \"memory_values\": [\n    {\n      \"name\": \"<fact or value estimated from memory>\",\n      \"value\": <number or string>,\n      \"unit\": \"<unit or ''>\",\n      \"reasoning\": \"<why you remember or assume this value>\",\n      \"plausibility_check\": \"<why the value is reasonable for this problem>\"\n    }\n  ],\n  \"calculation\": \"<formula and arithmetic substitution>\",\n  \"final_answer\": {\n    \"value\": <number>,\n    \"unit\": \"<unit>\",\n    \"oom\": <integer base-10 order of magnitude>\n  },\n  \"confidence\": \"low\" | \"medium\" | \"high\",\n  \"reasoning\": \"<concise explanation of how the answer was computed>\"\n}\n\nRules:\n- Use reference_values for facts directly supported by the reference context.\n- Use memory_values for values not directly stated in the reference context.\n- It is OK for memory_values to be empty if the reference context provides all\n  needed quantities.\n- When using a memory value, explicitly reason why it makes physical or common\n  sense before using it in the calculation.\n- For answer_type=\"oom_exponent\", final_answer.value should be the estimated\n  quantity and final_answer.oom should be the exponent to compare.\n- If evidence is insufficient, still make the best estimate and use low confidence.\n- Do not mention how the context was retrieved.\n- Do not include prose outside the JSON.\n"
+            }
+          ],
+          "response_text": "{\n  \"reference_values\": [],\n  \"memory_values\": [\n    {\n      \"name\": \"global population\",\n      \"value\": 8000000000,\n      \"unit\": \"\",\n      \"reasoning\": \"I recall that the global population is approximately 8 billion, which is a commonly cited figure in demographic discussions.\",\n      \"plausibility_check\": \"The United Nations estimates global population around 8 billion as of 2023, so this value is consistent with authoritative sources.\"\n    },\n    {\n      \"name\": \"percentage of people who have visited exactly two countries\",\n      \"value\": 0.05,\n      \"unit\": \"%\",\n      \"reasoning\": \"From general knowledge of travel patterns, a rough estimate is that about 5% of the global population has visited exactly two countries, based on survey data from organizations like the World Travel & Tourism Council and Pew Research Center.\",\n      \"plausibility_check\": \"Given that most people never leave their home country, and only a minority travel internationally, 5% for exactly two countries is plausible\u2014higher than one country (which is likely 10\u201315%) but lower than those who have visited three or more.\"\n    }\n  ],\n  \"calculation\": \"8000000000 * (0.05 / 100) = 8000000000 * 0.0005 = 4000000\",\n  \"final_answer\": {\n    \"value\": 4000000,\n    \"unit\": \"\",\n    \"oom\": 6\n  },\n  \"confidence\": \"low\",\n  \"reasoning\": \"Since no reference evidence was available, the estimate relies on memory-based values for global population and travel behavior. The calculation multiplies the global population by the estimated percentage of people who have visited exactly two countries. The result is 4 million, which is 10^6, so the order of magnitude is 6.\"\n}",
+          "parsed_response": {
+            "reference_values": [],
+            "memory_values": [
+              {
+                "name": "global population",
+                "value": 8000000000,
+                "unit": "",
+                "reasoning": "I recall that the global population is approximately 8 billion, which is a commonly cited figure in demographic discussions.",
+                "plausibility_check": "The United Nations estimates global population around 8 billion as of 2023, so this value is consistent with authoritative sources."
+              },
+              {
+                "name": "percentage of people who have visited exactly two countries",
+                "value": 0.05,
+                "unit": "%",
+                "reasoning": "From general knowledge of travel patterns, a rough estimate is that about 5% of the global population has visited exactly two countries, based on survey data from organizations like the World Travel & Tourism Council and Pew Research Center.",
+                "plausibility_check": "Given that most people never leave their home country, and only a minority travel internationally, 5% for exactly two countries is plausible\u2014higher than one country (which is likely 10\u201315%) but lower than those who have visited three or more."
+              }
+            ],
+            "calculation": "8000000000 * (0.05 / 100) = 8000000000 * 0.0005 = 4000000",
+            "final_answer": {
+              "value": 4000000,
+              "unit": "",
+              "oom": 6
+            },
+            "confidence": "low",
+            "reasoning": "Since no reference evidence was available, the estimate relies on memory-based values for global population and travel behavior. The calculation multiplies the global population by the estimated percentage of people who have visited exactly two countries. The result is 4 million, which is 10^6, so the order of magnitude is 6."
+          }
+        },
+        "comparison": {
+          "verdict": "incorrect",
+          "reason": "oom_error=-2",
+          "pred_value": 4000000,
+          "pred_unit": "",
+          "pred_oom": 6
+        }
+      }
+    ],
+    "consensus_verdict": "incorrect",
+    "dataset": "datasets/final/train.json",
+    "split": "train",
+    "_relabel": {
+      "original_provided_ground_truth": 8,
+      "original_dataset_fermi_answer": 8,
+      "pred_value": 4000000,
+      "pred_unit": "",
+      "pred_oom": 6,
+      "oom_error": -2.0,
+      "confidence": "low",
+      "verifier_model": "Qwen/Qwen3-30B-A3B-Instruct-2507"
+    }
+  },
+  {
+    "index": 1470,
+    "id": "synthfp_dist_train_3604",
+    "question": "How long does it take for Bullet (Handgun) to travel across Maxwell Montes?",
+    "answer_type": "oom_exponent",
+    "provided_ground_truth": 2,
+    "domain": "Physics",
+    "source": "train_dir:synth:fermi_problems_synth_2.json",
+    "verifications": [
+      {
+        "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+        "renderer": "qwen3_instruct",
+        "latency_s": 11.244,
+        "fermi_facts_matches": 0,
+        "search_plan": {
+          "status": "ok",
+          "error": "",
+          "latency_s": 3.791,
+          "input_messages": [
+            {
+              "role": "system",
+              "content": "You plan web searches for a Fermi-problem verifier. Do not solve the problem. Identify the constants, definitions, conversion factors, or background quantities needed to compute the answer. Return concise search queries that can retrieve those facts."
+            },
+            {
+              "role": "user",
+              "content": "Question:\nHow long does it take for Bullet (Handgun) to travel across Maxwell Montes?\n\nAnswer type:\noom_exponent\n\nReturn JSON matching this schema exactly:\n{\n  \"constants_needed\": [\n    {\n      \"name\": \"<constant or fact needed>\",\n      \"unit\": \"<desired unit or ''>\",\n      \"why\": \"<why this fact is needed>\"\n    }\n  ],\n  \"search_queries\": [\n    \"<specific search query for one needed fact>\",\n    \"...\"\n  ]\n}\n\nRules:\n- Do not compute the final answer.\n- Do not search for a final answer; search reusable facts, definitions, or constants.\n- Prefer searches for reusable facts, definitions, constants, and unit conversions.\n- Keep search_queries to at most 3 queries.\n"
+            }
+          ],
+          "response_text": "{\n  \"constants_needed\": [\n    {\n      \"name\": \"length of Maxwell Montes\",\n      \"unit\": \"meters\",\n      \"why\": \"To determine the distance the bullet must travel across the mountain range.\"\n    },\n    {\n      \"name\": \"typical muzzle velocity of a handgun bullet\",\n      \"unit\": \"meters per second\",\n      \"why\": \"To calculate the time it takes for the bullet to travel the distance across Maxwell Montes.\"\n    },\n    {\n      \"name\": \"conversion factor from kilometers to meters\",\n      \"unit\": \"\",\n      \"why\": \"To ensure consistent units when converting the length of Maxwell Montes if given in kilometers.\"\n    }\n  ],\n  \"search_queries\": [\n    \"length of Maxwell Montes Venus meters\",\n    \"typical muzzle velocity handgun bullet meters per second\",\n    \"kilometers to meters conversion factor\"\n  ]\n}",
+          "parsed_response": {
+            "constants_needed": [
+              {
+                "name": "length of Maxwell Montes",
+                "unit": "meters",
+                "why": "To determine the distance the bullet must travel across the mountain range."
+              },
+              {
+                "name": "typical muzzle velocity of a handgun bullet",
+                "unit": "meters per second",
+                "why": "To calculate the time it takes for the bullet to travel the distance across Maxwell Montes."
+              },
+              {
+                "name": "conversion factor from kilometers to meters",
+                "unit": "",
+                "why": "To ensure consistent units when converting the length of Maxwell Montes if given in kilometers."
+              }
+            ],
+            "search_queries": [
+              "length of Maxwell Montes Venus meters",
+              "typical muzzle velocity handgun bullet meters per second",
+              "kilometers to meters conversion factor"
+            ]
+          }
+        },
+        "search_records": [
+          {
+            "query": "length of Maxwell Montes Venus meters",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          },
+          {
+            "query": "typical muzzle velocity handgun bullet meters per second",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          },
+          {
+            "query": "kilometers to meters conversion factor",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          }
+        ],
+        "search_context": "Reference facts to consider:\n- length of Maxwell Montes (meters): To determine the distance the bullet must travel across the mountain range.\n- typical muzzle velocity of a handgun bullet (meters per second): To calculate the time it takes for the bullet to travel the distance across Maxwell Montes.\n- conversion factor from kilometers to meters (): To ensure consistent units when converting the length of Maxwell Montes if given in kilometers.\n\nReference evidence:\n\nReference group 1:\nNo reference evidence was available for this item.\n\nReference group 2:\nNo reference evidence was available for this item.\n\nReference group 3:\nNo reference evidence was available for this item.",
+        "computation": {
+          "status": "ok",
+          "error": "",
+          "latency_s": 7.449,
+          "input_messages": [
+            {
+              "role": "system",
+              "content": "You are a careful Fermi-problem verifier. You receive reference evidence as context. First separate values supported by the reference context from values you are estimating from memory. For every memory value, explain why it is plausible before using it. Then compute the answer with dimensional and order-of-magnitude checks. Return only one JSON object."
+            },
+            {
+              "role": "user",
+              "content": "Question:\nHow long does it take for Bullet (Handgun) to travel across Maxwell Montes?\n\nAnswer type:\noom_exponent\n\nReference context:\nReference facts to consider:\n- length of Maxwell Montes (meters): To determine the distance the bullet must travel across the mountain range.\n- typical muzzle velocity of a handgun bullet (meters per second): To calculate the time it takes for the bullet to travel the distance across Maxwell Montes.\n- conversion factor from kilometers to meters (): To ensure consistent units when converting the length of Maxwell Montes if given in kilometers.\n\nReference evidence:\n\nReference group 1:\nNo reference evidence was available for this item.\n\nReference group 2:\nNo reference evidence was available for this item.\n\nReference group 3:\nNo reference evidence was available for this item.\n\nReturn JSON matching this schema exactly:\n{\n  \"reference_values\": [\n    {\n      \"name\": \"<fact or value used>\",\n      \"value\": <number or string>,\n      \"unit\": \"<unit or ''>\",\n      \"source\": \"<short reference label>\",\n      \"reasoning\": \"<why this value is relevant>\"\n    }\n  ],\n  \"memory_values\": [\n    {\n      \"name\": \"<fact or value estimated from memory>\",\n      \"value\": <number or string>,\n      \"unit\": \"<unit or ''>\",\n      \"reasoning\": \"<why you remember or assume this value>\",\n      \"plausibility_check\": \"<why the value is reasonable for this problem>\"\n    }\n  ],\n  \"calculation\": \"<formula and arithmetic substitution>\",\n  \"final_answer\": {\n    \"value\": <number>,\n    \"unit\": \"<unit>\",\n    \"oom\": <integer base-10 order of magnitude>\n  },\n  \"confidence\": \"low\" | \"medium\" | \"high\",\n  \"reasoning\": \"<concise explanation of how the answer was computed>\"\n}\n\nRules:\n- Use reference_values for facts directly supported by the reference context.\n- Use memory_values for values not directly stated in the reference context.\n- It is OK for memory_values to be empty if the reference context provides all\n  needed quantities.\n- When using a memory value, explicitly reason why it makes physical or common\n  sense before using it in the calculation.\n- For answer_type=\"oom_exponent\", final_answer.value should be the estimated\n  quantity and final_answer.oom should be the exponent to compare.\n- If evidence is insufficient, still make the best estimate and use low confidence.\n- Do not mention how the context was retrieved.\n- Do not include prose outside the JSON.\n"
+            }
+          ],
+          "response_text": "{\n  \"reference_values\": [],\n  \"memory_values\": [\n    {\n      \"name\": \"length of Maxwell Montes\",\n      \"value\": 110000,\n      \"unit\": \"meters\",\n      \"reasoning\": \"Maxwell Montes is the tallest mountain range on Venus, and from memory, it spans approximately 110 kilometers in length, which is consistent with planetary geology data.\",\n      \"plausibility_check\": \"Venusian mountain ranges like Maxwell Montes are known to be tens of kilometers long; 110 km (110,000 m) is within the expected range based on radar mapping from Magellan mission data.\"\n    },\n    {\n      \"name\": \"typical muzzle velocity of a handgun bullet\",\n      \"value\": 350,\n      \"unit\": \"meters per second\",\n      \"reasoning\": \"Common handgun rounds like 9mm or .45 ACP have muzzle velocities around 300\u2013400 m/s; 350 m/s is a reasonable average for estimation purposes.\",\n      \"plausibility_check\": \"This value is consistent with standard ballistics data for service handguns and is widely cited in physics and engineering references.\"\n    }\n  ],\n  \"calculation\": \"time = distance / velocity = 110000 m / 350 m/s = 314.2857 seconds\",\n  \"final_answer\": {\n    \"value\": 314.2857,\n    \"unit\": \"seconds\",\n    \"oom\": 2\n  },\n  \"confidence\": \"low\",\n  \"reasoning\": \"The length of Maxwell Montes and typical handgun velocity were estimated from memory due to lack of reference evidence. The calculation uses basic kinematics, and the order of magnitude is confirmed by the scale: 10^5 meters divided by 10^2 m/s yields 10^3 seconds, but the actual result is ~3\u00d710^2 seconds, so the order of magnitude is 2.\"\n}",
+          "parsed_response": {
+            "reference_values": [],
+            "memory_values": [
+              {
+                "name": "length of Maxwell Montes",
+                "value": 110000,
+                "unit": "meters",
+                "reasoning": "Maxwell Montes is the tallest mountain range on Venus, and from memory, it spans approximately 110 kilometers in length, which is consistent with planetary geology data.",
+                "plausibility_check": "Venusian mountain ranges like Maxwell Montes are known to be tens of kilometers long; 110 km (110,000 m) is within the expected range based on radar mapping from Magellan mission data."
+              },
+              {
+                "name": "typical muzzle velocity of a handgun bullet",
+                "value": 350,
+                "unit": "meters per second",
+                "reasoning": "Common handgun rounds like 9mm or .45 ACP have muzzle velocities around 300\u2013400 m/s; 350 m/s is a reasonable average for estimation purposes.",
+                "plausibility_check": "This value is consistent with standard ballistics data for service handguns and is widely cited in physics and engineering references."
+              }
+            ],
+            "calculation": "time = distance / velocity = 110000 m / 350 m/s = 314.2857 seconds",
+            "final_answer": {
+              "value": 314.2857,
+              "unit": "seconds",
+              "oom": 2
+            },
+            "confidence": "low",
+            "reasoning": "The length of Maxwell Montes and typical handgun velocity were estimated from memory due to lack of reference evidence. The calculation uses basic kinematics, and the order of magnitude is confirmed by the scale: 10^5 meters divided by 10^2 m/s yields 10^3 seconds, but the actual result is ~3\u00d710^2 seconds, so the order of magnitude is 2."
+          }
+        },
+        "comparison": {
+          "verdict": "incorrect",
+          "reason": "oom_error=1",
+          "pred_value": 314.2857,
+          "pred_unit": "seconds",
+          "pred_oom": 2
+        }
+      }
+    ],
+    "consensus_verdict": "incorrect",
+    "dataset": "datasets/final/train.json",
+    "split": "train",
+    "_relabel": {
+      "original_provided_ground_truth": 1,
+      "original_dataset_fermi_answer": 1,
+      "pred_value": 314.2857,
+      "pred_unit": "seconds",
+      "pred_oom": 2,
+      "oom_error": 1.0,
+      "confidence": "low",
+      "verifier_model": "Qwen/Qwen3-30B-A3B-Instruct-2507"
+    }
+  },
+  {
+    "index": 2364,
+    "id": "scioly_1083",
+    "question": "As of 2021, how many answers have been provided on Stack Overflow, the largest coding Q&A site?",
+    "answer_type": "oom_exponent",
+    "provided_ground_truth": 7,
+    "domain": "Science",
+    "source": "eval_dir:eval_benchmark",
+    "verifications": [
+      {
+        "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+        "renderer": "qwen3_instruct",
+        "latency_s": 13.009,
+        "fermi_facts_matches": 1,
+        "search_plan": {
+          "status": "ok",
+          "error": "",
+          "latency_s": 5.813,
+          "input_messages": [
+            {
+              "role": "system",
+              "content": "You plan web searches for a Fermi-problem verifier. Do not solve the problem. Identify the constants, definitions, conversion factors, or background quantities needed to compute the answer. Return concise search queries that can retrieve those facts."
+            },
+            {
+              "role": "user",
+              "content": "Question:\nAs of 2021, how many answers have been provided on Stack Overflow, the largest coding Q&A site?\n\nAnswer type:\noom_exponent\n\nReturn JSON matching this schema exactly:\n{\n  \"constants_needed\": [\n    {\n      \"name\": \"<constant or fact needed>\",\n      \"unit\": \"<desired unit or ''>\",\n      \"why\": \"<why this fact is needed>\"\n    }\n  ],\n  \"search_queries\": [\n    \"<specific search query for one needed fact>\",\n    \"...\"\n  ]\n}\n\nRules:\n- Do not compute the final answer.\n- Do not search for a final answer; search reusable facts, definitions, or constants.\n- Prefer searches for reusable facts, definitions, constants, and unit conversions.\n- Keep search_queries to at most 3 queries.\n"
+            }
+          ],
+          "response_text": "{\n  \"constants_needed\": [\n    {\n      \"name\": \"total number of answers on Stack Overflow as of 2021\",\n      \"unit\": \"\",\n      \"why\": \"This is the primary quantity needed to determine the order of magnitude of answers provided on Stack Overflow in 2021.\"\n    },\n    {\n      \"name\": \"Stack Overflow's official statistics or public data archive for 2021\",\n      \"unit\": \"\",\n      \"why\": \"To verify the total number of answers from a reliable source, such as Stack Overflow's public data dump or official blog posts from 2021.\"\n    },\n    {\n      \"name\": \"definition of a 'answer' on Stack Overflow\",\n      \"unit\": \"\",\n      \"why\": \"To ensure consistency in counting\u2014confirming that only valid, non-deleted answers are included in the total.\"\n    }\n  ],\n  \"search_queries\": [\n    \"Stack Overflow total answers 2021 official statistics\",\n    \"Stack Overflow public data dump 2021 total answers count\",\n    \"definition of an answer on Stack Overflow for data counting purposes\"\n  ]\n}",
+          "parsed_response": {
+            "constants_needed": [
+              {
+                "name": "total number of answers on Stack Overflow as of 2021",
+                "unit": "",
+                "why": "This is the primary quantity needed to determine the order of magnitude of answers provided on Stack Overflow in 2021."
+              },
+              {
+                "name": "Stack Overflow's official statistics or public data archive for 2021",
+                "unit": "",
+                "why": "To verify the total number of answers from a reliable source, such as Stack Overflow's public data dump or official blog posts from 2021."
+              },
+              {
+                "name": "definition of a 'answer' on Stack Overflow",
+                "unit": "",
+                "why": "To ensure consistency in counting\u2014confirming that only valid, non-deleted answers are included in the total."
+              }
+            ],
+            "search_queries": [
+              "Stack Overflow total answers 2021 official statistics",
+              "Stack Overflow public data dump 2021 total answers count",
+              "definition of an answer on Stack Overflow for data counting purposes"
+            ]
+          }
+        },
+        "search_records": [
+          {
+            "query": "Stack Overflow total answers 2021 official statistics",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          },
+          {
+            "query": "Stack Overflow public data dump 2021 total answers count",
+            "status": "ok",
+            "error": "",
+            "results": [
+              {
+                "title": "What is the total data stored on the internet in exabytes?",
+                "snippet": "There isn\u2019t an upper limit to the amount of data the internet holds. In 2020, the amount of data on the internet hit 64 zetabytes. According to Cisco\u2019s annual Global Web Traffic Report, annual global web traffic exceeded a zettabyte (ZB) for the first time in 2015. Cisco estimates that nearly two-thirds of the global population will have internet access by 2023, with 5.3 billion users. In 2017,\u00a0NodeGraph\u00a0reported that there was there was\u00a02.7 Zettabytes\u00a0(ZB) of data in our digital universe. PwC\u00a0b"
+              }
+            ],
+            "source": "fermi_facts",
+            "matched_question": "What is the total data stored on the internet in exabytes?",
+            "overlap": 2
+          },
+          {
+            "query": "definition of an answer on Stack Overflow for data counting purposes",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          }
+        ],
+        "search_context": "Reference facts to consider:\n- total number of answers on Stack Overflow as of 2021 (): This is the primary quantity needed to determine the order of magnitude of answers provided on Stack Overflow in 2021.\n- Stack Overflow's official statistics or public data archive for 2021 (): To verify the total number of answers from a reliable source, such as Stack Overflow's public data dump or official blog posts from 2021.\n- definition of a 'answer' on Stack Overflow (): To ensure consistency in counting\u2014confirming that only valid, non-deleted answers are included in the total.\n\nReference evidence:\n\nReference group 1:\nNo reference evidence was available for this item.\n\nReference group 2:\n- Reference 2.1: What is the total data stored on the internet in exabytes?\n  Excerpt: There isn\u2019t an upper limit to the amount of data the internet holds. In 2020, the amount of data on the internet hit 64 zetabytes. According to Cisco\u2019s annual Global Web Traffic Report, annual global web traffic exceeded a zettabyte (ZB) for the first time in 2015. Cisco estimates that nearly two-thirds of the global population will have internet access by 2023, with 5.3 billion users. In 2017,\u00a0NodeGraph\u00a0reported that there was there was\u00a02.7 Zettabytes\u00a0(ZB) of data in our digital universe. PwC\u00a0b\n\nReference group 3:\nNo reference evidence was available for this item.",
+        "computation": {
+          "status": "ok",
+          "error": "",
+          "latency_s": 7.193,
+          "input_messages": [
+            {
+              "role": "system",
+              "content": "You are a careful Fermi-problem verifier. You receive reference evidence as context. First separate values supported by the reference context from values you are estimating from memory. For every memory value, explain why it is plausible before using it. Then compute the answer with dimensional and order-of-magnitude checks. Return only one JSON object."
+            },
+            {
+              "role": "user",
+              "content": "Question:\nAs of 2021, how many answers have been provided on Stack Overflow, the largest coding Q&A site?\n\nAnswer type:\noom_exponent\n\nReference context:\nReference facts to consider:\n- total number of answers on Stack Overflow as of 2021 (): This is the primary quantity needed to determine the order of magnitude of answers provided on Stack Overflow in 2021.\n- Stack Overflow's official statistics or public data archive for 2021 (): To verify the total number of answers from a reliable source, such as Stack Overflow's public data dump or official blog posts from 2021.\n- definition of a 'answer' on Stack Overflow (): To ensure consistency in counting\u2014confirming that only valid, non-deleted answers are included in the total.\n\nReference evidence:\n\nReference group 1:\nNo reference evidence was available for this item.\n\nReference group 2:\n- Reference 2.1: What is the total data stored on the internet in exabytes?\n  Excerpt: There isn\u2019t an upper limit to the amount of data the internet holds. In 2020, the amount of data on the internet hit 64 zetabytes. According to Cisco\u2019s annual Global Web Traffic Report, annual global web traffic exceeded a zettabyte (ZB) for the first time in 2015. Cisco estimates that nearly two-thirds of the global population will have internet access by 2023, with 5.3 billion users. In 2017,\u00a0NodeGraph\u00a0reported that there was there was\u00a02.7 Zettabytes\u00a0(ZB) of data in our digital universe. PwC\u00a0b\n\nReference group 3:\nNo reference evidence was available for this item.\n\nReturn JSON matching this schema exactly:\n{\n  \"reference_values\": [\n    {\n      \"name\": \"<fact or value used>\",\n      \"value\": <number or string>,\n      \"unit\": \"<unit or ''>\",\n      \"source\": \"<short reference label>\",\n      \"reasoning\": \"<why this value is relevant>\"\n    }\n  ],\n  \"memory_values\": [\n    {\n      \"name\": \"<fact or value estimated from memory>\",\n      \"value\": <number or string>,\n      \"unit\": \"<unit or ''>\",\n      \"reasoning\": \"<why you remember or assume this value>\",\n      \"plausibility_check\": \"<why the value is reasonable for this problem>\"\n    }\n  ],\n  \"calculation\": \"<formula and arithmetic substitution>\",\n  \"final_answer\": {\n    \"value\": <number>,\n    \"unit\": \"<unit>\",\n    \"oom\": <integer base-10 order of magnitude>\n  },\n  \"confidence\": \"low\" | \"medium\" | \"high\",\n  \"reasoning\": \"<concise explanation of how the answer was computed>\"\n}\n\nRules:\n- Use reference_values for facts directly supported by the reference context.\n- Use memory_values for values not directly stated in the reference context.\n- It is OK for memory_values to be empty if the reference context provides all\n  needed quantities.\n- When using a memory value, explicitly reason why it makes physical or common\n  sense before using it in the calculation.\n- For answer_type=\"oom_exponent\", final_answer.value should be the estimated\n  quantity and final_answer.oom should be the exponent to compare.\n- If evidence is insufficient, still make the best estimate and use low confidence.\n- Do not mention how the context was retrieved.\n- Do not include prose outside the JSON.\n"
+            }
+          ],
+          "response_text": "{\n  \"reference_values\": [],\n  \"memory_values\": [\n    {\n      \"name\": \"total number of answers on Stack Overflow as of 2021\",\n      \"value\": 18000000,\n      \"unit\": \"\",\n      \"reasoning\": \"I recall that Stack Overflow had over 18 million answers by 2021, based on public data dumps and community discussions. This number aligns with the site's growth rate\u2014over 100 million questions and a high answer-to-question ratio\u2014suggesting millions of answers.\",\n      \"plausibility_check\": \"Stack Overflow had over 100 million questions by 2021. With an average of 1.5 to 2 answers per question, the total number of answers would be in the range of 150 to 200 million. However, many questions have no answers or only one, and some are deleted. A figure of 18 million is conservative but plausible given that only a fraction of questions receive answers, and many answers are deleted or low-quality. The actual number is likely higher, but 18 million is a reasonable lower bound estimate from memory.\"\n    }\n  ],\n  \"calculation\": \"18000000 = 1.8e7\",\n  \"final_answer\": {\n    \"value\": 18000000,\n    \"unit\": \"\",\n    \"oom\": 7\n  },\n  \"confidence\": \"low\",\n  \"reasoning\": \"No direct reference evidence was available for the total number of answers on Stack Overflow in 2021. The value was estimated from memory based on known growth trends and site statistics, with a plausibility check considering the ratio of questions to answers and deletion rates. The order of magnitude is estimated as 10^7.\"\n}",
+          "parsed_response": {
+            "reference_values": [],
+            "memory_values": [
+              {
+                "name": "total number of answers on Stack Overflow as of 2021",
+                "value": 18000000,
+                "unit": "",
+                "reasoning": "I recall that Stack Overflow had over 18 million answers by 2021, based on public data dumps and community discussions. This number aligns with the site's growth rate\u2014over 100 million questions and a high answer-to-question ratio\u2014suggesting millions of answers.",
+                "plausibility_check": "Stack Overflow had over 100 million questions by 2021. With an average of 1.5 to 2 answers per question, the total number of answers would be in the range of 150 to 200 million. However, many questions have no answers or only one, and some are deleted. A figure of 18 million is conservative but plausible given that only a fraction of questions receive answers, and many answers are deleted or low-quality. The actual number is likely higher, but 18 million is a reasonable lower bound estimate from memory."
+              }
+            ],
+            "calculation": "18000000 = 1.8e7",
+            "final_answer": {
+              "value": 18000000,
+              "unit": "",
+              "oom": 7
+            },
+            "confidence": "low",
+            "reasoning": "No direct reference evidence was available for the total number of answers on Stack Overflow in 2021. The value was estimated from memory based on known growth trends and site statistics, with a plausibility check considering the ratio of questions to answers and deletion rates. The order of magnitude is estimated as 10^7."
+          }
+        },
+        "comparison": {
+          "verdict": "incorrect",
+          "reason": "oom_error=-1",
+          "pred_value": 18000000,
+          "pred_unit": "",
+          "pred_oom": 7
+        }
+      }
+    ],
+    "consensus_verdict": "incorrect",
+    "dataset": "datasets/final/train.json",
+    "split": "train",
+    "_relabel": {
+      "original_provided_ground_truth": 8,
+      "original_dataset_fermi_answer": 8,
+      "pred_value": 18000000,
+      "pred_unit": "",
+      "pred_oom": 7,
+      "oom_error": -1.0,
+      "confidence": "low",
+      "verifier_model": "Qwen/Qwen3-30B-A3B-Instruct-2507"
+    }
+  },
+  {
+    "index": 2389,
+    "id": "realFP:test:308",
+    "question": "How many Tesla model X p100ds would it take to pull a megalodon out of the water?",
+    "answer_type": "numeric",
+    "provided_ground_truth": 0,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "verifications": [
+      {
+        "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+        "renderer": "qwen3_instruct",
+        "latency_s": 19.662,
+        "fermi_facts_matches": 0,
+        "search_plan": {
+          "status": "ok",
+          "error": "",
+          "latency_s": 5.33,
+          "input_messages": [
+            {
+              "role": "system",
+              "content": "You plan web searches for a Fermi-problem verifier. Do not solve the problem. Identify the constants, definitions, conversion factors, or background quantities needed to compute the answer. Return concise search queries that can retrieve those facts."
+            },
+            {
+              "role": "user",
+              "content": "Question:\nHow many Tesla model X p100ds would it take to pull a megalodon out of the water?\n\nAnswer type:\nnumeric\n\nReturn JSON matching this schema exactly:\n{\n  \"constants_needed\": [\n    {\n      \"name\": \"<constant or fact needed>\",\n      \"unit\": \"<desired unit or ''>\",\n      \"why\": \"<why this fact is needed>\"\n    }\n  ],\n  \"search_queries\": [\n    \"<specific search query for one needed fact>\",\n    \"...\"\n  ]\n}\n\nRules:\n- Do not compute the final answer.\n- Do not search for a final answer; search reusable facts, definitions, or constants.\n- Prefer searches for reusable facts, definitions, constants, and unit conversions.\n- Keep search_queries to at most 3 queries.\n"
+            }
+          ],
+          "response_text": "{\n  \"constants_needed\": [\n    {\n      \"name\": \"mass of a megalodon\",\n      \"unit\": \"kg\",\n      \"why\": \"To determine the weight of the megalodon, which is needed to calculate the force required to pull it out of the water.\"\n    },\n    {\n      \"name\": \"maximum towing force of a Tesla Model X Plaid\",\n      \"unit\": \"newtons\",\n      \"why\": \"To determine the pulling capacity of one Tesla Model X Plaid, which is needed to calculate how many vehicles are required.\"\n    },\n    {\n      \"name\": \"buoyancy force of a megalodon in water\",\n      \"unit\": \"newtons\",\n      \"why\": \"To account for the buoyant force reducing the effective weight of the megalodon in water, which affects the force needed to pull it out.\"\n    }\n  ],\n  \"search_queries\": [\n    \"mass of a megalodon in kilograms scientific estimate\",\n    \"maximum towing force Tesla Model X Plaid newtons\",\n    \"buoyancy force of a megalodon in water physics calculation\"\n  ]\n}",
+          "parsed_response": {
+            "constants_needed": [
+              {
+                "name": "mass of a megalodon",
+                "unit": "kg",
+                "why": "To determine the weight of the megalodon, which is needed to calculate the force required to pull it out of the water."
+              },
+              {
+                "name": "maximum towing force of a Tesla Model X Plaid",
+                "unit": "newtons",
+                "why": "To determine the pulling capacity of one Tesla Model X Plaid, which is needed to calculate how many vehicles are required."
+              },
+              {
+                "name": "buoyancy force of a megalodon in water",
+                "unit": "newtons",
+                "why": "To account for the buoyant force reducing the effective weight of the megalodon in water, which affects the force needed to pull it out."
+              }
+            ],
+            "search_queries": [
+              "mass of a megalodon in kilograms scientific estimate",
+              "maximum towing force Tesla Model X Plaid newtons",
+              "buoyancy force of a megalodon in water physics calculation"
+            ]
+          }
+        },
+        "search_records": [
+          {
+            "query": "mass of a megalodon in kilograms scientific estimate",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          },
+          {
+            "query": "maximum towing force Tesla Model X Plaid newtons",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          },
+          {
+            "query": "buoyancy force of a megalodon in water physics calculation",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          }
+        ],
+        "search_context": "Reference facts to consider:\n- mass of a megalodon (kg): To determine the weight of the megalodon, which is needed to calculate the force required to pull it out of the water.\n- maximum towing force of a Tesla Model X Plaid (newtons): To determine the pulling capacity of one Tesla Model X Plaid, which is needed to calculate how many vehicles are required.\n- buoyancy force of a megalodon in water (newtons): To account for the buoyant force reducing the effective weight of the megalodon in water, which affects the force needed to pull it out.\n\nReference evidence:\n\nReference group 1:\nNo reference evidence was available for this item.\n\nReference group 2:\nNo reference evidence was available for this item.\n\nReference group 3:\nNo reference evidence was available for this item.",
+        "computation": {
+          "status": "ok",
+          "error": "",
+          "latency_s": 14.329,
+          "input_messages": [
+            {
+              "role": "system",
+              "content": "You are a careful Fermi-problem verifier. You receive reference evidence as context. First separate values supported by the reference context from values you are estimating from memory. For every memory value, explain why it is plausible before using it. Then compute the answer with dimensional and order-of-magnitude checks. Return only one JSON object."
+            },
+            {
+              "role": "user",
+              "content": "Question:\nHow many Tesla model X p100ds would it take to pull a megalodon out of the water?\n\nAnswer type:\nnumeric\n\nReference context:\nReference facts to consider:\n- mass of a megalodon (kg): To determine the weight of the megalodon, which is needed to calculate the force required to pull it out of the water.\n- maximum towing force of a Tesla Model X Plaid (newtons): To determine the pulling capacity of one Tesla Model X Plaid, which is needed to calculate how many vehicles are required.\n- buoyancy force of a megalodon in water (newtons): To account for the buoyant force reducing the effective weight of the megalodon in water, which affects the force needed to pull it out.\n\nReference evidence:\n\nReference group 1:\nNo reference evidence was available for this item.\n\nReference group 2:\nNo reference evidence was available for this item.\n\nReference group 3:\nNo reference evidence was available for this item.\n\nReturn JSON matching this schema exactly:\n{\n  \"reference_values\": [\n    {\n      \"name\": \"<fact or value used>\",\n      \"value\": <number or string>,\n      \"unit\": \"<unit or ''>\",\n      \"source\": \"<short reference label>\",\n      \"reasoning\": \"<why this value is relevant>\"\n    }\n  ],\n  \"memory_values\": [\n    {\n      \"name\": \"<fact or value estimated from memory>\",\n      \"value\": <number or string>,\n      \"unit\": \"<unit or ''>\",\n      \"reasoning\": \"<why you remember or assume this value>\",\n      \"plausibility_check\": \"<why the value is reasonable for this problem>\"\n    }\n  ],\n  \"calculation\": \"<formula and arithmetic substitution>\",\n  \"final_answer\": {\n    \"value\": <number>,\n    \"unit\": \"<unit>\",\n    \"oom\": <integer base-10 order of magnitude>\n  },\n  \"confidence\": \"low\" | \"medium\" | \"high\",\n  \"reasoning\": \"<concise explanation of how the answer was computed>\"\n}\n\nRules:\n- Use reference_values for facts directly supported by the reference context.\n- Use memory_values for values not directly stated in the reference context.\n- It is OK for memory_values to be empty if the reference context provides all\n  needed quantities.\n- When using a memory value, explicitly reason why it makes physical or common\n  sense before using it in the calculation.\n- For answer_type=\"oom_exponent\", final_answer.value should be the estimated\n  quantity and final_answer.oom should be the exponent to compare.\n- If evidence is insufficient, still make the best estimate and use low confidence.\n- Do not mention how the context was retrieved.\n- Do not include prose outside the JSON.\n"
+            }
+          ],
+          "response_text": "{\n  \"reference_values\": [],\n  \"memory_values\": [\n    {\n      \"name\": \"mass of a megalodon\",\n      \"value\": 50000,\n      \"unit\": \"kg\",\n      \"reasoning\": \"I recall that megalodons were massive prehistoric sharks, estimated to weigh up to 50 metric tons based on fossil evidence and comparisons with modern great white sharks.\",\n      \"plausibility_check\": \"This is consistent with scientific estimates placing megalodon mass between 30,000 and 60,000 kg, so 50,000 kg is a reasonable midpoint.\"\n    },\n    {\n      \"name\": \"maximum towing force of a Tesla Model X Plaid\",\n      \"value\": 100000,\n      \"unit\": \"N\",\n      \"reasoning\": \"I remember that the Tesla Model X Plaid has a peak torque and acceleration capability that translates to a high pulling force, and in towing scenarios, it's often cited as having a maximum towing capacity around 10,000 kg (which at 1g is ~98,000 N). I round to 100,000 N for simplicity and safety in estimation.\",\n      \"plausibility_check\": \"This is plausible because the Model X Plaid can accelerate from 0 to 60 mph in under 2 seconds, implying high tractive force. A towing capacity of ~10,000 kg (98,000 N) is within the range of high-performance electric SUVs.\"\n    },\n    {\n      \"name\": \"buoyancy force of a megalodon in water\",\n      \"value\": 450000,\n      \"unit\": \"N\",\n      \"reasoning\": \"I estimate that a megalodon, being a large marine animal, would have a volume close to that of a 50,000 kg object with a density slightly greater than water. Since buoyancy equals the weight of displaced water, and water has a density of 1000 kg/m\u00b3, a 50,000 kg megalodon would displace ~50 m\u00b3 of water, yielding a buoyant force of ~50,000 kg \u00d7 9.8 m/s\u00b2 = 490,000 N. I use 450,000 N to account for slightly lower average density or incomplete submersion.\",\n      \"plausibility_check\": \"This is reasonable because marine animals are often neutrally buoyant or slightly buoyant. A value of ~450,000 N is within 10% of the full displacement force, which is acceptable for estimation.\"\n    }\n  ],\n  \"calculation\": \"Effective weight in water = (mass \u00d7 gravity) - buoyancy force = (50000 kg \u00d7 9.8 m/s\u00b2) - 450000 N = 490000 N - 450000 N = 40000 N. Number of Tesla Model X Plaids needed = effective weight / towing force per vehicle = 40000 N / 100000 N = 0.4. Since you can't have a fraction of a car, round up to 1.\",\n  \"final_answer\": {\n    \"value\": 1,\n    \"unit\": \"\",\n    \"oom\": 0\n  },\n  \"confidence\": \"low\",\n  \"reasoning\": \"The megalodon's effective weight in water is reduced by buoyancy, leaving only 40,000 N to overcome. One Tesla Model X Plaid can exert 100,000 N of towing force, which is more than sufficient. Thus, only one vehicle is needed, though in reality, multiple vehicles would be used for safety and control.\"\n}",
+          "parsed_response": {
+            "reference_values": [],
+            "memory_values": [
+              {
+                "name": "mass of a megalodon",
+                "value": 50000,
+                "unit": "kg",
+                "reasoning": "I recall that megalodons were massive prehistoric sharks, estimated to weigh up to 50 metric tons based on fossil evidence and comparisons with modern great white sharks.",
+                "plausibility_check": "This is consistent with scientific estimates placing megalodon mass between 30,000 and 60,000 kg, so 50,000 kg is a reasonable midpoint."
+              },
+              {
+                "name": "maximum towing force of a Tesla Model X Plaid",
+                "value": 100000,
+                "unit": "N",
+                "reasoning": "I remember that the Tesla Model X Plaid has a peak torque and acceleration capability that translates to a high pulling force, and in towing scenarios, it's often cited as having a maximum towing capacity around 10,000 kg (which at 1g is ~98,000 N). I round to 100,000 N for simplicity and safety in estimation.",
+                "plausibility_check": "This is plausible because the Model X Plaid can accelerate from 0 to 60 mph in under 2 seconds, implying high tractive force. A towing capacity of ~10,000 kg (98,000 N) is within the range of high-performance electric SUVs."
+              },
+              {
+                "name": "buoyancy force of a megalodon in water",
+                "value": 450000,
+                "unit": "N",
+                "reasoning": "I estimate that a megalodon, being a large marine animal, would have a volume close to that of a 50,000 kg object with a density slightly greater than water. Since buoyancy equals the weight of displaced water, and water has a density of 1000 kg/m\u00b3, a 50,000 kg megalodon would displace ~50 m\u00b3 of water, yielding a buoyant force of ~50,000 kg \u00d7 9.8 m/s\u00b2 = 490,000 N. I use 450,000 N to account for slightly lower average density or incomplete submersion.",
+                "plausibility_check": "This is reasonable because marine animals are often neutrally buoyant or slightly buoyant. A value of ~450,000 N is within 10% of the full displacement force, which is acceptable for estimation."
+              }
+            ],
+            "calculation": "Effective weight in water = (mass \u00d7 gravity) - buoyancy force = (50000 kg \u00d7 9.8 m/s\u00b2) - 450000 N = 490000 N - 450000 N = 40000 N. Number of Tesla Model X Plaids needed = effective weight / towing force per vehicle = 40000 N / 100000 N = 0.4. Since you can't have a fraction of a car, round up to 1.",
+            "final_answer": {
+              "value": 1,
+              "unit": "",
+              "oom": 0
+            },
+            "confidence": "low",
+            "reasoning": "The megalodon's effective weight in water is reduced by buoyancy, leaving only 40,000 N to overcome. One Tesla Model X Plaid can exert 100,000 N of towing force, which is more than sufficient. Thus, only one vehicle is needed, though in reality, multiple vehicles would be used for safety and control."
+          }
+        },
+        "comparison": {
+          "verdict": "incorrect",
+          "reason": "oom_error=-1",
+          "pred_value": 1,
+          "pred_unit": "",
+          "pred_oom": 0
+        }
+      }
+    ],
+    "consensus_verdict": "incorrect",
+    "dataset": "datasets/final/train.json",
+    "split": "train",
+    "_relabel": {
+      "original_provided_ground_truth": 1,
+      "original_dataset_fermi_answer": 1,
+      "pred_value": 1,
+      "pred_unit": "",
+      "pred_oom": 0,
+      "oom_error": -1.0,
+      "confidence": "low",
+      "verifier_model": "Qwen/Qwen3-30B-A3B-Instruct-2507"
+    }
+  },
+  {
+    "index": 2417,
+    "id": "realfp_test_171",
+    "question": "What is the total world biomass of each insect order such as ants, bees, beetles, flies, spiders, termites, worms, and so on?",
+    "answer_type": "oom_exponent",
+    "provided_ground_truth": 11,
+    "domain": "Science",
+    "source": "eval_dir:eval_benchmark",
+    "verifications": [
+      {
+        "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+        "renderer": "qwen3_instruct",
+        "latency_s": 26.112,
+        "fermi_facts_matches": 0,
+        "search_plan": {
+          "status": "ok",
+          "error": "",
+          "latency_s": 5.115,
+          "input_messages": [
+            {
+              "role": "system",
+              "content": "You plan web searches for a Fermi-problem verifier. Do not solve the problem. Identify the constants, definitions, conversion factors, or background quantities needed to compute the answer. Return concise search queries that can retrieve those facts."
+            },
+            {
+              "role": "user",
+              "content": "Question:\nWhat is the total world biomass of each insect order such as ants, bees, beetles, flies, spiders, termites, worms, and so on?\n\nAnswer type:\noom_exponent\n\nReturn JSON matching this schema exactly:\n{\n  \"constants_needed\": [\n    {\n      \"name\": \"<constant or fact needed>\",\n      \"unit\": \"<desired unit or ''>\",\n      \"why\": \"<why this fact is needed>\"\n    }\n  ],\n  \"search_queries\": [\n    \"<specific search query for one needed fact>\",\n    \"...\"\n  ]\n}\n\nRules:\n- Do not compute the final answer.\n- Do not search for a final answer; search reusable facts, definitions, or constants.\n- Prefer searches for reusable facts, definitions, constants, and unit conversions.\n- Keep search_queries to at most 3 queries.\n"
+            }
+          ],
+          "response_text": "{\n  \"constants_needed\": [\n    {\n      \"name\": \"total global biomass of insects\",\n      \"unit\": \"kg\",\n      \"why\": \"To establish the overall biomass of insects, which is needed to distribute among orders.\"\n    },\n    {\n      \"name\": \"proportion of biomass by insect order (e.g., ants, beetles, flies)\",\n      \"unit\": \"%\",\n      \"why\": \"To apportion the total insect biomass into individual orders.\"\n    },\n    {\n      \"name\": \"definition of insect orders (e.g., Hymenoptera, Coleoptera, Diptera)\",\n      \"unit\": \"\",\n      \"why\": \"To ensure correct identification and classification of insect orders for accurate data retrieval.\"\n    }\n  ],\n  \"search_queries\": [\n    \"global biomass of insects total kg estimate scientific sources\",\n    \"percentage of total insect biomass by order: ants beetles flies termites spiders\",\n    \"scientific definition and list of insect orders Hymenoptera Coleoptera Diptera Arachnida\"\n  ]\n}",
+          "parsed_response": {
+            "constants_needed": [
+              {
+                "name": "total global biomass of insects",
+                "unit": "kg",
+                "why": "To establish the overall biomass of insects, which is needed to distribute among orders."
+              },
+              {
+                "name": "proportion of biomass by insect order (e.g., ants, beetles, flies)",
+                "unit": "%",
+                "why": "To apportion the total insect biomass into individual orders."
+              },
+              {
+                "name": "definition of insect orders (e.g., Hymenoptera, Coleoptera, Diptera)",
+                "unit": "",
+                "why": "To ensure correct identification and classification of insect orders for accurate data retrieval."
+              }
+            ],
+            "search_queries": [
+              "global biomass of insects total kg estimate scientific sources",
+              "percentage of total insect biomass by order: ants beetles flies termites spiders",
+              "scientific definition and list of insect orders Hymenoptera Coleoptera Diptera Arachnida"
+            ]
+          }
+        },
+        "search_records": [
+          {
+            "query": "global biomass of insects total kg estimate scientific sources",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          },
+          {
+            "query": "percentage of total insect biomass by order: ants beetles flies termites spiders",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          },
+          {
+            "query": "scientific definition and list of insect orders Hymenoptera Coleoptera Diptera Arachnida",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          }
+        ],
+        "search_context": "Reference facts to consider:\n- total global biomass of insects (kg): To establish the overall biomass of insects, which is needed to distribute among orders.\n- proportion of biomass by insect order (e.g., ants, beetles, flies) (%): To apportion the total insect biomass into individual orders.\n- definition of insect orders (e.g., Hymenoptera, Coleoptera, Diptera) (): To ensure correct identification and classification of insect orders for accurate data retrieval.\n\nReference evidence:\n\nReference group 1:\nNo reference evidence was available for this item.\n\nReference group 2:\nNo reference evidence was available for this item.\n\nReference group 3:\nNo reference evidence was available for this item.",
+        "computation": {
+          "status": "ok",
+          "error": "",
+          "latency_s": 20.993,
+          "input_messages": [
+            {
+              "role": "system",
+              "content": "You are a careful Fermi-problem verifier. You receive reference evidence as context. First separate values supported by the reference context from values you are estimating from memory. For every memory value, explain why it is plausible before using it. Then compute the answer with dimensional and order-of-magnitude checks. Return only one JSON object."
+            },
+            {
+              "role": "user",
+              "content": "Question:\nWhat is the total world biomass of each insect order such as ants, bees, beetles, flies, spiders, termites, worms, and so on?\n\nAnswer type:\noom_exponent\n\nReference context:\nReference facts to consider:\n- total global biomass of insects (kg): To establish the overall biomass of insects, which is needed to distribute among orders.\n- proportion of biomass by insect order (e.g., ants, beetles, flies) (%): To apportion the total insect biomass into individual orders.\n- definition of insect orders (e.g., Hymenoptera, Coleoptera, Diptera) (): To ensure correct identification and classification of insect orders for accurate data retrieval.\n\nReference evidence:\n\nReference group 1:\nNo reference evidence was available for this item.\n\nReference group 2:\nNo reference evidence was available for this item.\n\nReference group 3:\nNo reference evidence was available for this item.\n\nReturn JSON matching this schema exactly:\n{\n  \"reference_values\": [\n    {\n      \"name\": \"<fact or value used>\",\n      \"value\": <number or string>,\n      \"unit\": \"<unit or ''>\",\n      \"source\": \"<short reference label>\",\n      \"reasoning\": \"<why this value is relevant>\"\n    }\n  ],\n  \"memory_values\": [\n    {\n      \"name\": \"<fact or value estimated from memory>\",\n      \"value\": <number or string>,\n      \"unit\": \"<unit or ''>\",\n      \"reasoning\": \"<why you remember or assume this value>\",\n      \"plausibility_check\": \"<why the value is reasonable for this problem>\"\n    }\n  ],\n  \"calculation\": \"<formula and arithmetic substitution>\",\n  \"final_answer\": {\n    \"value\": <number>,\n    \"unit\": \"<unit>\",\n    \"oom\": <integer base-10 order of magnitude>\n  },\n  \"confidence\": \"low\" | \"medium\" | \"high\",\n  \"reasoning\": \"<concise explanation of how the answer was computed>\"\n}\n\nRules:\n- Use reference_values for facts directly supported by the reference context.\n- Use memory_values for values not directly stated in the reference context.\n- It is OK for memory_values to be empty if the reference context provides all\n  needed quantities.\n- When using a memory value, explicitly reason why it makes physical or common\n  sense before using it in the calculation.\n- For answer_type=\"oom_exponent\", final_answer.value should be the estimated\n  quantity and final_answer.oom should be the exponent to compare.\n- If evidence is insufficient, still make the best estimate and use low confidence.\n- Do not mention how the context was retrieved.\n- Do not include prose outside the JSON.\n"
+            }
+          ],
+          "response_text": "{\n  \"reference_values\": [],\n  \"memory_values\": [\n    {\n      \"name\": \"total global biomass of insects\",\n      \"value\": 1000000000000,\n      \"unit\": \"kg\",\n      \"reasoning\": \"I recall that the total biomass of insects is estimated to be on the order of 10^12 kg, based on ecological studies that aggregate insect abundance across terrestrial and freshwater ecosystems.\",\n      \"plausibility_check\": \"This value is consistent with estimates from scientific literature, such as those by Bar-On et al. (2018), which suggest that insects make up a significant portion of Earth's biomass, with total biomass in the range of 10^12 kg.\"\n    },\n    {\n      \"name\": \"proportion of biomass for ants\",\n      \"value\": 0.15,\n      \"unit\": \"%\",\n      \"reasoning\": \"From memory, ants are one of the most abundant and dominant insect groups in terms of biomass, especially in terrestrial ecosystems. I recall that ants alone may constitute around 15% of total insect biomass.\",\n      \"plausibility_check\": \"This is plausible because ants are highly social, widespread, and numerous, and multiple ecological surveys support their dominance in biomass among insects.\"\n    },\n    {\n      \"name\": \"proportion of biomass for beetles\",\n      \"value\": 0.25,\n      \"unit\": \"%\",\n      \"reasoning\": \"Beetles are the most diverse insect order and are extremely abundant in many ecosystems. I remember that they are estimated to make up about 25% of total insect biomass.\",\n      \"plausibility_check\": \"This is reasonable given their diversity and abundance in soil, leaf litter, and decaying matter, and supported by general ecological knowledge.\"\n    },\n    {\n      \"name\": \"proportion of biomass for flies\",\n      \"value\": 0.1,\n      \"unit\": \"%\",\n      \"reasoning\": \"Flies are numerous but generally smaller in size than ants or beetles. I estimate they contribute about 10% of insect biomass based on their abundance and body size distribution.\",\n      \"plausibility_check\": \"This is plausible because while flies are diverse and numerous, their small size limits their total biomass contribution relative to larger insects.\"\n    },\n    {\n      \"name\": \"proportion of biomass for spiders\",\n      \"value\": 0.05,\n      \"unit\": \"%\",\n      \"reasoning\": \"Spiders are not insects but are often grouped with them in biomass discussions. I recall they contribute about 5% of total arthropod biomass, and since insects dominate arthropods, this is a reasonable estimate for their share of insect biomass.\",\n      \"plausibility_check\": \"Spiders are large relative to many insects and are abundant in many ecosystems, so 5% is a plausible upper bound for their biomass contribution.\"\n    },\n    {\n      \"name\": \"proportion of biomass for termites\",\n      \"value\": 0.05,\n      \"unit\": \"%\",\n      \"reasoning\": \"Termites are significant in tropical ecosystems and contribute substantially to biomass in those regions. I estimate they make up about 5% of insect biomass.\",\n      \"plausibility_check\": \"This is consistent with their role in decomposition and their high abundance in tropical forests, though they are less widespread than ants or beetles.\"\n    },\n    {\n      \"name\": \"proportion of biomass for worms\",\n      \"value\": 0.02,\n      \"unit\": \"%\",\n      \"reasoning\": \"Worms (e.g., earthworms) are not insects but are often included in discussions of soil biomass. I estimate they contribute about 2% of total insect biomass, though this is a rough extrapolation.\",\n      \"plausibility_check\": \"Worms are large and abundant in soil, but they are not insects. However, in some biomass estimates, they are grouped with invertebrates, so this value is a conservative estimate for their share.\"\n    }\n  ],\n  \"calculation\": \"total_insect_biomass = 1e12 kg; ant_biomass = 1e12 * 0.15 = 1.5e11 kg; beetle_biomass = 1e12 * 0.25 = 2.5e11 kg; fly_biomass = 1e12 * 0.1 = 1e11 kg; spider_biomass = 1e12 * 0.05 = 5e10 kg; termite_biomass = 1e12 * 0.05 = 5e10 kg; worm_biomass = 1e12 * 0.02 = 2e10 kg\",\n  \"final_answer\": {\n    \"value\": 1.5e11,\n    \"unit\": \"kg\",\n    \"oom\": 11\n  },\n  \"confidence\": \"low\",\n  \"reasoning\": \"The total world biomass of insects is estimated at 10^12 kg. Based on memory and ecological plausibility, ants are estimated to constitute 15% of this biomass, leading to 1.5 \u00d7 10^11 kg. This value is used as the representative biomass for the most dominant insect order. The confidence is low due to lack of direct reference evidence and reliance on memory-based proportions.\"\n}",
+          "parsed_response": {
+            "reference_values": [],
+            "memory_values": [
+              {
+                "name": "total global biomass of insects",
+                "value": 1000000000000,
+                "unit": "kg",
+                "reasoning": "I recall that the total biomass of insects is estimated to be on the order of 10^12 kg, based on ecological studies that aggregate insect abundance across terrestrial and freshwater ecosystems.",
+                "plausibility_check": "This value is consistent with estimates from scientific literature, such as those by Bar-On et al. (2018), which suggest that insects make up a significant portion of Earth's biomass, with total biomass in the range of 10^12 kg."
+              },
+              {
+                "name": "proportion of biomass for ants",
+                "value": 0.15,
+                "unit": "%",
+                "reasoning": "From memory, ants are one of the most abundant and dominant insect groups in terms of biomass, especially in terrestrial ecosystems. I recall that ants alone may constitute around 15% of total insect biomass.",
+                "plausibility_check": "This is plausible because ants are highly social, widespread, and numerous, and multiple ecological surveys support their dominance in biomass among insects."
+              },
+              {
+                "name": "proportion of biomass for beetles",
+                "value": 0.25,
+                "unit": "%",
+                "reasoning": "Beetles are the most diverse insect order and are extremely abundant in many ecosystems. I remember that they are estimated to make up about 25% of total insect biomass.",
+                "plausibility_check": "This is reasonable given their diversity and abundance in soil, leaf litter, and decaying matter, and supported by general ecological knowledge."
+              },
+              {
+                "name": "proportion of biomass for flies",
+                "value": 0.1,
+                "unit": "%",
+                "reasoning": "Flies are numerous but generally smaller in size than ants or beetles. I estimate they contribute about 10% of insect biomass based on their abundance and body size distribution.",
+                "plausibility_check": "This is plausible because while flies are diverse and numerous, their small size limits their total biomass contribution relative to larger insects."
+              },
+              {
+                "name": "proportion of biomass for spiders",
+                "value": 0.05,
+                "unit": "%",
+                "reasoning": "Spiders are not insects but are often grouped with them in biomass discussions. I recall they contribute about 5% of total arthropod biomass, and since insects dominate arthropods, this is a reasonable estimate for their share of insect biomass.",
+                "plausibility_check": "Spiders are large relative to many insects and are abundant in many ecosystems, so 5% is a plausible upper bound for their biomass contribution."
+              },
+              {
+                "name": "proportion of biomass for termites",
+                "value": 0.05,
+                "unit": "%",
+                "reasoning": "Termites are significant in tropical ecosystems and contribute substantially to biomass in those regions. I estimate they make up about 5% of insect biomass.",
+                "plausibility_check": "This is consistent with their role in decomposition and their high abundance in tropical forests, though they are less widespread than ants or beetles."
+              },
+              {
+                "name": "proportion of biomass for worms",
+                "value": 0.02,
+                "unit": "%",
+                "reasoning": "Worms (e.g., earthworms) are not insects but are often included in discussions of soil biomass. I estimate they contribute about 2% of total insect biomass, though this is a rough extrapolation.",
+                "plausibility_check": "Worms are large and abundant in soil, but they are not insects. However, in some biomass estimates, they are grouped with invertebrates, so this value is a conservative estimate for their share."
+              }
+            ],
+            "calculation": "total_insect_biomass = 1e12 kg; ant_biomass = 1e12 * 0.15 = 1.5e11 kg; beetle_biomass = 1e12 * 0.25 = 2.5e11 kg; fly_biomass = 1e12 * 0.1 = 1e11 kg; spider_biomass = 1e12 * 0.05 = 5e10 kg; termite_biomass = 1e12 * 0.05 = 5e10 kg; worm_biomass = 1e12 * 0.02 = 2e10 kg",
+            "final_answer": {
+              "value": 150000000000.0,
+              "unit": "kg",
+              "oom": 11
+            },
+            "confidence": "low",
+            "reasoning": "The total world biomass of insects is estimated at 10^12 kg. Based on memory and ecological plausibility, ants are estimated to constitute 15% of this biomass, leading to 1.5 \u00d7 10^11 kg. This value is used as the representative biomass for the most dominant insect order. The confidence is low due to lack of direct reference evidence and reliance on memory-based proportions."
+          }
+        },
+        "comparison": {
+          "verdict": "incorrect",
+          "reason": "oom_error=2",
+          "pred_value": 150000000000.0,
+          "pred_unit": "kg",
+          "pred_oom": 11
+        }
+      }
+    ],
+    "consensus_verdict": "incorrect",
+    "dataset": "datasets/final/train.json",
+    "split": "train",
+    "_relabel": {
+      "original_provided_ground_truth": 9,
+      "original_dataset_fermi_answer": 9,
+      "pred_value": 150000000000.0,
+      "pred_unit": "kg",
+      "pred_oom": 11,
+      "oom_error": 2.0,
+      "confidence": "low",
+      "verifier_model": "Qwen/Qwen3-30B-A3B-Instruct-2507"
+    }
+  },
+  {
+    "index": 2481,
+    "id": "fermiq:og:150",
+    "question": "What is the ratio of meters of the highest and lowest point in Colorado compared to the highest and lowest point in Minnesota?",
+    "answer_type": "oom_exponent",
+    "provided_ground_truth": 0,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "verifications": [
+      {
+        "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+        "renderer": "qwen3_instruct",
+        "latency_s": 18.485,
+        "fermi_facts_matches": 0,
+        "search_plan": {
+          "status": "ok",
+          "error": "",
+          "latency_s": 4.437,
+          "input_messages": [
+            {
+              "role": "system",
+              "content": "You plan web searches for a Fermi-problem verifier. Do not solve the problem. Identify the constants, definitions, conversion factors, or background quantities needed to compute the answer. Return concise search queries that can retrieve those facts."
+            },
+            {
+              "role": "user",
+              "content": "Question:\nWhat is the ratio of meters of the highest and lowest point in Colorado compared to the highest and lowest point in Minnesota?\n\nAnswer type:\noom_exponent\n\nReturn JSON matching this schema exactly:\n{\n  \"constants_needed\": [\n    {\n      \"name\": \"<constant or fact needed>\",\n      \"unit\": \"<desired unit or ''>\",\n      \"why\": \"<why this fact is needed>\"\n    }\n  ],\n  \"search_queries\": [\n    \"<specific search query for one needed fact>\",\n    \"...\"\n  ]\n}\n\nRules:\n- Do not compute the final answer.\n- Do not search for a final answer; search reusable facts, definitions, or constants.\n- Prefer searches for reusable facts, definitions, constants, and unit conversions.\n- Keep search_queries to at most 3 queries.\n"
+            }
+          ],
+          "response_text": "{\n  \"constants_needed\": [\n    {\n      \"name\": \"highest elevation in Colorado\",\n      \"unit\": \"meters\",\n      \"why\": \"To determine the vertical range in Colorado for the ratio calculation.\"\n    },\n    {\n      \"name\": \"lowest elevation in Colorado\",\n      \"unit\": \"meters\",\n      \"why\": \"To determine the vertical range in Colorado for the ratio calculation.\"\n    },\n    {\n      \"name\": \"highest elevation in Minnesota\",\n      \"unit\": \"meters\",\n      \"why\": \"To determine the vertical range in Minnesota for the ratio calculation.\"\n    },\n    {\n      \"name\": \"lowest elevation in Minnesota\",\n      \"unit\": \"meters\",\n      \"why\": \"To determine the vertical range in Minnesota for the ratio calculation.\"\n    }\n  ],\n  \"search_queries\": [\n    \"highest elevation in Colorado in meters\",\n    \"lowest elevation in Colorado in meters\",\n    \"highest and lowest elevation in Minnesota in meters\"\n  ]\n}",
+          "parsed_response": {
+            "constants_needed": [
+              {
+                "name": "highest elevation in Colorado",
+                "unit": "meters",
+                "why": "To determine the vertical range in Colorado for the ratio calculation."
+              },
+              {
+                "name": "lowest elevation in Colorado",
+                "unit": "meters",
+                "why": "To determine the vertical range in Colorado for the ratio calculation."
+              },
+              {
+                "name": "highest elevation in Minnesota",
+                "unit": "meters",
+                "why": "To determine the vertical range in Minnesota for the ratio calculation."
+              },
+              {
+                "name": "lowest elevation in Minnesota",
+                "unit": "meters",
+                "why": "To determine the vertical range in Minnesota for the ratio calculation."
+              }
+            ],
+            "search_queries": [
+              "highest elevation in Colorado in meters",
+              "lowest elevation in Colorado in meters",
+              "highest and lowest elevation in Minnesota in meters"
+            ]
+          }
+        },
+        "search_records": [
+          {
+            "query": "highest elevation in Colorado in meters",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          },
+          {
+            "query": "lowest elevation in Colorado in meters",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          },
+          {
+            "query": "highest and lowest elevation in Minnesota in meters",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          }
+        ],
+        "search_context": "Reference facts to consider:\n- highest elevation in Colorado (meters): To determine the vertical range in Colorado for the ratio calculation.\n- lowest elevation in Colorado (meters): To determine the vertical range in Colorado for the ratio calculation.\n- highest elevation in Minnesota (meters): To determine the vertical range in Minnesota for the ratio calculation.\n- lowest elevation in Minnesota (meters): To determine the vertical range in Minnesota for the ratio calculation.\n\nReference evidence:\n\nReference group 1:\nNo reference evidence was available for this item.\n\nReference group 2:\nNo reference evidence was available for this item.\n\nReference group 3:\nNo reference evidence was available for this item.",
+        "computation": {
+          "status": "ok",
+          "error": "",
+          "latency_s": 14.046,
+          "input_messages": [
+            {
+              "role": "system",
+              "content": "You are a careful Fermi-problem verifier. You receive reference evidence as context. First separate values supported by the reference context from values you are estimating from memory. For every memory value, explain why it is plausible before using it. Then compute the answer with dimensional and order-of-magnitude checks. Return only one JSON object."
+            },
+            {
+              "role": "user",
+              "content": "Question:\nWhat is the ratio of meters of the highest and lowest point in Colorado compared to the highest and lowest point in Minnesota?\n\nAnswer type:\noom_exponent\n\nReference context:\nReference facts to consider:\n- highest elevation in Colorado (meters): To determine the vertical range in Colorado for the ratio calculation.\n- lowest elevation in Colorado (meters): To determine the vertical range in Colorado for the ratio calculation.\n- highest elevation in Minnesota (meters): To determine the vertical range in Minnesota for the ratio calculation.\n- lowest elevation in Minnesota (meters): To determine the vertical range in Minnesota for the ratio calculation.\n\nReference evidence:\n\nReference group 1:\nNo reference evidence was available for this item.\n\nReference group 2:\nNo reference evidence was available for this item.\n\nReference group 3:\nNo reference evidence was available for this item.\n\nReturn JSON matching this schema exactly:\n{\n  \"reference_values\": [\n    {\n      \"name\": \"<fact or value used>\",\n      \"value\": <number or string>,\n      \"unit\": \"<unit or ''>\",\n      \"source\": \"<short reference label>\",\n      \"reasoning\": \"<why this value is relevant>\"\n    }\n  ],\n  \"memory_values\": [\n    {\n      \"name\": \"<fact or value estimated from memory>\",\n      \"value\": <number or string>,\n      \"unit\": \"<unit or ''>\",\n      \"reasoning\": \"<why you remember or assume this value>\",\n      \"plausibility_check\": \"<why the value is reasonable for this problem>\"\n    }\n  ],\n  \"calculation\": \"<formula and arithmetic substitution>\",\n  \"final_answer\": {\n    \"value\": <number>,\n    \"unit\": \"<unit>\",\n    \"oom\": <integer base-10 order of magnitude>\n  },\n  \"confidence\": \"low\" | \"medium\" | \"high\",\n  \"reasoning\": \"<concise explanation of how the answer was computed>\"\n}\n\nRules:\n- Use reference_values for facts directly supported by the reference context.\n- Use memory_values for values not directly stated in the reference context.\n- It is OK for memory_values to be empty if the reference context provides all\n  needed quantities.\n- When using a memory value, explicitly reason why it makes physical or common\n  sense before using it in the calculation.\n- For answer_type=\"oom_exponent\", final_answer.value should be the estimated\n  quantity and final_answer.oom should be the exponent to compare.\n- If evidence is insufficient, still make the best estimate and use low confidence.\n- Do not mention how the context was retrieved.\n- Do not include prose outside the JSON.\n"
+            }
+          ],
+          "response_text": "{\n  \"reference_values\": [],\n  \"memory_values\": [\n    {\n      \"name\": \"highest elevation in Colorado\",\n      \"value\": 4300,\n      \"unit\": \"meters\",\n      \"reasoning\": \"I recall that the highest point in Colorado is Mount Elbert, which is commonly cited as around 4,400 meters, but I'll use 4,300 as a conservative estimate to account for rounding and measurement variations.\",\n      \"plausibility_check\": \"Mount Elbert is widely recognized as the highest peak in the Rocky Mountains and is known to be over 4,000 meters; 4,300 meters is a well-established approximation in geographical references.\"\n    },\n    {\n      \"name\": \"lowest elevation in Colorado\",\n      \"value\": 150,\n      \"unit\": \"meters\",\n      \"reasoning\": \"I remember that the lowest point in Colorado is along the Arikaree River in the eastern plains, near the state's border with Kansas, and it's around 1,500 feet above sea level. Converting that to meters gives approximately 457 meters, but I'll use 150 meters as a rounded, conservative estimate to reflect the lower end of the range.\",\n      \"plausibility_check\": \"1,500 feet is about 457 meters, so 150 meters is too low. However, I realize this is a mistake. The actual lowest point is around 3,350 feet (1,021 meters). I will correct this: the lowest elevation in Colorado is approximately 1,020 meters. I will revise my memory value to 1,020 meters for accuracy.\"\n    },\n    {\n      \"name\": \"highest elevation in Minnesota\",\n      \"value\": 2300,\n      \"unit\": \"meters\",\n      \"reasoning\": \"I recall that the highest point in Minnesota is Eagle Mountain, which is about 2,300 feet above sea level. Converting 2,300 feet to meters gives approximately 701 meters. I previously used 2,300 meters, which is incorrect. I will correct this to 701 meters.\",\n      \"plausibility_check\": \"2,300 feet is about 701 meters, which matches known geographic data. Using 2,300 meters would be over 7,500 feet, which is far too high for Minnesota.\"\n    },\n    {\n      \"name\": \"lowest elevation in Minnesota\",\n      \"value\": 180,\n      \"unit\": \"meters\",\n      \"reasoning\": \"I remember that the lowest point in Minnesota is at the surface of Lake Superior, which is about 180 meters above sea level. This is consistent with the elevation of the lake's surface at the state's northeastern border.\",\n      \"plausibility_check\": \"Lake Superior's surface elevation is indeed around 180 meters above sea level, and it forms the northern boundary of Minnesota, making this the lowest point in the state.\"\n    }\n  ],\n  \"calculation\": \"Ratio = (highest Colorado - lowest Colorado) / (highest Minnesota - lowest Minnesota) = (4300 - 1020) / (701 - 180) = (3280) / (521) \u2248 6.29\",\n  \"final_answer\": {\n    \"value\": 6.29,\n    \"unit\": \"\",\n    \"oom\": 0\n  },\n  \"confidence\": \"low\",\n  \"reasoning\": \"I corrected my initial memory values based on accurate conversions and known geographic facts. The vertical range in Colorado is about 3,280 meters, and in Minnesota about 521 meters. The ratio is approximately 6.29, which is about 10^0 in order of magnitude.\"\n}",
+          "parsed_response": {
+            "reference_values": [],
+            "memory_values": [
+              {
+                "name": "highest elevation in Colorado",
+                "value": 4300,
+                "unit": "meters",
+                "reasoning": "I recall that the highest point in Colorado is Mount Elbert, which is commonly cited as around 4,400 meters, but I'll use 4,300 as a conservative estimate to account for rounding and measurement variations.",
+                "plausibility_check": "Mount Elbert is widely recognized as the highest peak in the Rocky Mountains and is known to be over 4,000 meters; 4,300 meters is a well-established approximation in geographical references."
+              },
+              {
+                "name": "lowest elevation in Colorado",
+                "value": 150,
+                "unit": "meters",
+                "reasoning": "I remember that the lowest point in Colorado is along the Arikaree River in the eastern plains, near the state's border with Kansas, and it's around 1,500 feet above sea level. Converting that to meters gives approximately 457 meters, but I'll use 150 meters as a rounded, conservative estimate to reflect the lower end of the range.",
+                "plausibility_check": "1,500 feet is about 457 meters, so 150 meters is too low. However, I realize this is a mistake. The actual lowest point is around 3,350 feet (1,021 meters). I will correct this: the lowest elevation in Colorado is approximately 1,020 meters. I will revise my memory value to 1,020 meters for accuracy."
+              },
+              {
+                "name": "highest elevation in Minnesota",
+                "value": 2300,
+                "unit": "meters",
+                "reasoning": "I recall that the highest point in Minnesota is Eagle Mountain, which is about 2,300 feet above sea level. Converting 2,300 feet to meters gives approximately 701 meters. I previously used 2,300 meters, which is incorrect. I will correct this to 701 meters.",
+                "plausibility_check": "2,300 feet is about 701 meters, which matches known geographic data. Using 2,300 meters would be over 7,500 feet, which is far too high for Minnesota."
+              },
+              {
+                "name": "lowest elevation in Minnesota",
+                "value": 180,
+                "unit": "meters",
+                "reasoning": "I remember that the lowest point in Minnesota is at the surface of Lake Superior, which is about 180 meters above sea level. This is consistent with the elevation of the lake's surface at the state's northeastern border.",
+                "plausibility_check": "Lake Superior's surface elevation is indeed around 180 meters above sea level, and it forms the northern boundary of Minnesota, making this the lowest point in the state."
+              }
+            ],
+            "calculation": "Ratio = (highest Colorado - lowest Colorado) / (highest Minnesota - lowest Minnesota) = (4300 - 1020) / (701 - 180) = (3280) / (521) \u2248 6.29",
+            "final_answer": {
+              "value": 6.29,
+              "unit": "",
+              "oom": 0
+            },
+            "confidence": "low",
+            "reasoning": "I corrected my initial memory values based on accurate conversions and known geographic facts. The vertical range in Colorado is about 3,280 meters, and in Minnesota about 521 meters. The ratio is approximately 6.29, which is about 10^0 in order of magnitude."
+          }
+        },
+        "comparison": {
+          "verdict": "incorrect",
+          "reason": "oom_error=-1",
+          "pred_value": 6.29,
+          "pred_unit": "",
+          "pred_oom": 0
+        }
+      }
+    ],
+    "consensus_verdict": "incorrect",
+    "dataset": "datasets/final/train.json",
+    "split": "train",
+    "_relabel": {
+      "original_provided_ground_truth": 1,
+      "original_dataset_fermi_answer": 1,
+      "pred_value": 6.29,
+      "pred_unit": "",
+      "pred_oom": 0,
+      "oom_error": -1.0,
+      "confidence": "low",
+      "verifier_model": "Qwen/Qwen3-30B-A3B-Instruct-2507"
+    }
+  },
+  {
+    "index": 2631,
+    "id": "scioly:279",
+    "question": "The James Webb Space Telescope was recently deployed to L2, a point of equilibrium (one of five) in space relative to the Sun and the Earth. The equation to calculate L2 is [M1/(R+r)^2] + [M2/r^2] = [(M1*R/(M1+M2)) + r]*[M1+M2/ r^3] where M1 is the mass of the larger object, M2 is the mass of the smaller object, R is the distance between the two objects, and r is the distance to L2 from the smaller object. Calculate the distance, in meters, to L2 for a system with a 0 \u00d7 1030 firkin and a 5 \u00d7 1022 firkin object that are 2 \u00d7 10^10 furlongs apart.",
+    "answer_type": "oom_exponent",
+    "provided_ground_truth": 11,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "verifications": [
+      {
+        "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+        "renderer": "qwen3_instruct",
+        "latency_s": 23.847,
+        "fermi_facts_matches": 1,
+        "search_plan": {
+          "status": "ok",
+          "error": "",
+          "latency_s": 4.739,
+          "input_messages": [
+            {
+              "role": "system",
+              "content": "You plan web searches for a Fermi-problem verifier. Do not solve the problem. Identify the constants, definitions, conversion factors, or background quantities needed to compute the answer. Return concise search queries that can retrieve those facts."
+            },
+            {
+              "role": "user",
+              "content": "Question:\nThe James Webb Space Telescope was recently deployed to L2, a point of equilibrium (one of five) in space relative to the Sun and the Earth. The equation to calculate L2 is [M1/(R+r)^2] + [M2/r^2] = [(M1*R/(M1+M2)) + r]*[M1+M2/ r^3] where M1 is the mass of the larger object, M2 is the mass of the smaller object, R is the distance between the two objects, and r is the distance to L2 from the smaller object. Calculate the distance, in meters, to L2 for a system with a 0 \u00d7 1030 firkin and a 5 \u00d7 1022 firkin object that are 2 \u00d7 10^10 furlongs apart.\n\nAnswer type:\noom_exponent\n\nReturn JSON matching this schema exactly:\n{\n  \"constants_needed\": [\n    {\n      \"name\": \"<constant or fact needed>\",\n      \"unit\": \"<desired unit or ''>\",\n      \"why\": \"<why this fact is needed>\"\n    }\n  ],\n  \"search_queries\": [\n    \"<specific search query for one needed fact>\",\n    \"...\"\n  ]\n}\n\nRules:\n- Do not compute the final answer.\n- Do not search for a final answer; search reusable facts, definitions, or constants.\n- Prefer searches for reusable facts, definitions, constants, and unit conversions.\n- Keep search_queries to at most 3 queries.\n"
+            }
+          ],
+          "response_text": "{\n  \"constants_needed\": [\n    {\n      \"name\": \"conversion factor from furlongs to meters\",\n      \"unit\": \"meters\",\n      \"why\": \"The distance between the objects is given in furlongs, but the answer must be in meters, so a unit conversion is required.\"\n    },\n    {\n      \"name\": \"conversion factor from firkin to kilograms\",\n      \"unit\": \"kilograms\",\n      \"why\": \"The masses are given in firkin, but the gravitational equation requires mass in kilograms for consistency with SI units.\"\n    },\n    {\n      \"name\": \"gravitational constant G\",\n      \"unit\": \"m^3 kg^-1 s^-2\",\n      \"why\": \"The equation for L2 involves gravitational forces, which depend on the gravitational constant G, even though it may be implicitly included in the derivation of the L2 formula.\"\n    }\n  ],\n  \"search_queries\": [\n    \"furlong to meter conversion factor\",\n    \"firkin to kilogram conversion\",\n    \"gravitational constant G value\"\n  ]\n}",
+          "parsed_response": {
+            "constants_needed": [
+              {
+                "name": "conversion factor from furlongs to meters",
+                "unit": "meters",
+                "why": "The distance between the objects is given in furlongs, but the answer must be in meters, so a unit conversion is required."
+              },
+              {
+                "name": "conversion factor from firkin to kilograms",
+                "unit": "kilograms",
+                "why": "The masses are given in firkin, but the gravitational equation requires mass in kilograms for consistency with SI units."
+              },
+              {
+                "name": "gravitational constant G",
+                "unit": "m^3 kg^-1 s^-2",
+                "why": "The equation for L2 involves gravitational forces, which depend on the gravitational constant G, even though it may be implicitly included in the derivation of the L2 formula."
+              }
+            ],
+            "search_queries": [
+              "furlong to meter conversion factor",
+              "firkin to kilogram conversion",
+              "gravitational constant G value"
+            ]
+          }
+        },
+        "search_records": [
+          {
+            "query": "furlong to meter conversion factor",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          },
+          {
+            "query": "firkin to kilogram conversion",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          },
+          {
+            "query": "gravitational constant G value",
+            "status": "ok",
+            "error": "",
+            "results": [
+              {
+                "title": "What is the gravitational constant G in SI units?",
+                "snippet": "G is defined as universal gravitational constant. It's value is 6.67*10^-11 Nm^2/kg^2. SI unit is Nm^2/kg^2."
+              }
+            ],
+            "source": "fermi_facts",
+            "matched_question": "What is the gravitational constant G in SI units?",
+            "overlap": 2
+          }
+        ],
+        "search_context": "Reference facts to consider:\n- conversion factor from furlongs to meters (meters): The distance between the objects is given in furlongs, but the answer must be in meters, so a unit conversion is required.\n- conversion factor from firkin to kilograms (kilograms): The masses are given in firkin, but the gravitational equation requires mass in kilograms for consistency with SI units.\n- gravitational constant G (m^3 kg^-1 s^-2): The equation for L2 involves gravitational forces, which depend on the gravitational constant G, even though it may be implicitly included in the derivation of the L2 formula.\n\nReference evidence:\n\nReference group 1:\nNo reference evidence was available for this item.\n\nReference group 2:\nNo reference evidence was available for this item.\n\nReference group 3:\n- Reference 3.1: What is the gravitational constant G in SI units?\n  Excerpt: G is defined as universal gravitational constant. It's value is 6.67*10^-11 Nm^2/kg^2. SI unit is Nm^2/kg^2.",
+        "computation": {
+          "status": "ok",
+          "error": "",
+          "latency_s": 19.106,
+          "input_messages": [
+            {
+              "role": "system",
+              "content": "You are a careful Fermi-problem verifier. You receive reference evidence as context. First separate values supported by the reference context from values you are estimating from memory. For every memory value, explain why it is plausible before using it. Then compute the answer with dimensional and order-of-magnitude checks. Return only one JSON object."
+            },
+            {
+              "role": "user",
+              "content": "Question:\nThe James Webb Space Telescope was recently deployed to L2, a point of equilibrium (one of five) in space relative to the Sun and the Earth. The equation to calculate L2 is [M1/(R+r)^2] + [M2/r^2] = [(M1*R/(M1+M2)) + r]*[M1+M2/ r^3] where M1 is the mass of the larger object, M2 is the mass of the smaller object, R is the distance between the two objects, and r is the distance to L2 from the smaller object. Calculate the distance, in meters, to L2 for a system with a 0 \u00d7 1030 firkin and a 5 \u00d7 1022 firkin object that are 2 \u00d7 10^10 furlongs apart.\n\nAnswer type:\noom_exponent\n\nReference context:\nReference facts to consider:\n- conversion factor from furlongs to meters (meters): The distance between the objects is given in furlongs, but the answer must be in meters, so a unit conversion is required.\n- conversion factor from firkin to kilograms (kilograms): The masses are given in firkin, but the gravitational equation requires mass in kilograms for consistency with SI units.\n- gravitational constant G (m^3 kg^-1 s^-2): The equation for L2 involves gravitational forces, which depend on the gravitational constant G, even though it may be implicitly included in the derivation of the L2 formula.\n\nReference evidence:\n\nReference group 1:\nNo reference evidence was available for this item.\n\nReference group 2:\nNo reference evidence was available for this item.\n\nReference group 3:\n- Reference 3.1: What is the gravitational constant G in SI units?\n  Excerpt: G is defined as universal gravitational constant. It's value is 6.67*10^-11 Nm^2/kg^2. SI unit is Nm^2/kg^2.\n\nReturn JSON matching this schema exactly:\n{\n  \"reference_values\": [\n    {\n      \"name\": \"<fact or value used>\",\n      \"value\": <number or string>,\n      \"unit\": \"<unit or ''>\",\n      \"source\": \"<short reference label>\",\n      \"reasoning\": \"<why this value is relevant>\"\n    }\n  ],\n  \"memory_values\": [\n    {\n      \"name\": \"<fact or value estimated from memory>\",\n      \"value\": <number or string>,\n      \"unit\": \"<unit or ''>\",\n      \"reasoning\": \"<why you remember or assume this value>\",\n      \"plausibility_check\": \"<why the value is reasonable for this problem>\"\n    }\n  ],\n  \"calculation\": \"<formula and arithmetic substitution>\",\n  \"final_answer\": {\n    \"value\": <number>,\n    \"unit\": \"<unit>\",\n    \"oom\": <integer base-10 order of magnitude>\n  },\n  \"confidence\": \"low\" | \"medium\" | \"high\",\n  \"reasoning\": \"<concise explanation of how the answer was computed>\"\n}\n\nRules:\n- Use reference_values for facts directly supported by the reference context.\n- Use memory_values for values not directly stated in the reference context.\n- It is OK for memory_values to be empty if the reference context provides all\n  needed quantities.\n- When using a memory value, explicitly reason why it makes physical or common\n  sense before using it in the calculation.\n- For answer_type=\"oom_exponent\", final_answer.value should be the estimated\n  quantity and final_answer.oom should be the exponent to compare.\n- If evidence is insufficient, still make the best estimate and use low confidence.\n- Do not mention how the context was retrieved.\n- Do not include prose outside the JSON.\n"
+            }
+          ],
+          "response_text": "{\n  \"reference_values\": [\n    {\n      \"name\": \"gravitational constant G\",\n      \"value\": 6.67e-11,\n      \"unit\": \"m^3 kg^-1 s^-2\",\n      \"source\": \"3.1\",\n      \"reasoning\": \"The gravitational constant is required to compute gravitational forces in the L2 equation, even if the formula is derived from equilibrium conditions. It is a fundamental constant in Newtonian gravity.\"\n    }\n  ],\n  \"memory_values\": [\n    {\n      \"name\": \"conversion factor from furlongs to meters\",\n      \"value\": 201.168,\n      \"unit\": \"m/furlong\",\n      \"reasoning\": \"I recall that 1 furlong is exactly 201.168 meters, based on historical imperial unit definitions and standard conversions used in scientific contexts.\",\n      \"plausibility_check\": \"This value is standard and widely accepted; it is consistent with the definition of a furlong as 220 yards and a yard as 0.9144 meters.\"\n    },\n    {\n      \"name\": \"conversion factor from firkin to kilograms\",\n      \"value\": 40.8233,\n      \"unit\": \"kg/firkin\",\n      \"reasoning\": \"I remember that a firkin is a unit of mass used historically, particularly for beer or butter, and is approximately 40.8233 kilograms based on standard conversion tables.\",\n      \"plausibility_check\": \"This value is consistent with historical records and is commonly cited in unit conversion references; it is plausible for use in scientific calculations.\"\n    }\n  ],\n  \"calculation\": \"First, convert the distance R from furlongs to meters: R = 2e10 furlongs * 201.168 m/furlong = 4.02336e12 m. Convert masses: M1 = 0e30 firkin * 40.8233 kg/firkin = 0 kg; M2 = 5e22 firkin * 40.8233 kg/firkin = 2.041165e24 kg. Since M1 = 0, the system reduces to a single mass M2. The L2 equation becomes undefined in the standard form when M1 = 0, but physically, L2 is defined only in a two-body system. However, if M1 is zero, there is no gravitational influence from the larger body, so the concept of L2 does not apply. But assuming the problem intends a very small M1 (e.g., 0 \u00d7 10^30 firkin is likely a typo or placeholder), and M2 is Earth-like (5e22 firkin \u2248 2e24 kg), and R = 4.02336e12 m, then the standard approximation for L2 distance is r \u2248 R * (M2 / (3*M1))^(1/3). But since M1 = 0, this blows up. However, if M1 is actually meant to be 1e30 firkin (a typo), then M1 = 1e30 * 40.8233 = 4.08233e31 kg. Then r \u2248 R * (M2 / (3*M1))^(1/3) = 4.02336e12 * (2.041165e24 / (3 * 4.08233e31))^(1/3) = 4.02336e12 * (1.658e-8)^(1/3) \u2248 4.02336e12 * 0.0255 \u2248 1.026e11 m. But since M1 is given as 0, and no valid L2 exists, the only consistent interpretation is that the system is invalid. However, if we assume M1 is meant to be 1e30 firkin (a common solar mass scale), then r \u2248 1.03e11 m. The order of magnitude is 1e11 m. Given the input values and the likely typo, the intended answer is approximately 1e11 meters.\",\n    \"final_answer\": {\n      \"value\": 1e11,\n      \"unit\": \"m\",\n      \"oom\": 11\n    },\n    \"confidence\": \"low\",\n    \"reasoning\": \"The given M1 = 0 \u00d7 10^30 firkin implies no primary mass, making L2 undefined. However, assuming a likely typo where M1 is meant to be 1e30 firkin (\u2248 4e31 kg, solar mass scale), and M2 \u2248 2e24 kg (Earth-like), with R \u2248 4e12 m, the standard L2 approximation gives r \u2248 1e11 m. This is consistent with known L2 distances (e.g., Earth-Sun L2 is ~1.5e9 m, but scaled here due to different masses and distances). The order of magnitude is 11.\"\n  }\n}",
+          "parsed_response": {
+            "reference_values": [
+              {
+                "name": "gravitational constant G",
+                "value": 6.67e-11,
+                "unit": "m^3 kg^-1 s^-2",
+                "source": "3.1",
+                "reasoning": "The gravitational constant is required to compute gravitational forces in the L2 equation, even if the formula is derived from equilibrium conditions. It is a fundamental constant in Newtonian gravity."
+              }
+            ],
+            "memory_values": [
+              {
+                "name": "conversion factor from furlongs to meters",
+                "value": 201.168,
+                "unit": "m/furlong",
+                "reasoning": "I recall that 1 furlong is exactly 201.168 meters, based on historical imperial unit definitions and standard conversions used in scientific contexts.",
+                "plausibility_check": "This value is standard and widely accepted; it is consistent with the definition of a furlong as 220 yards and a yard as 0.9144 meters."
+              },
+              {
+                "name": "conversion factor from firkin to kilograms",
+                "value": 40.8233,
+                "unit": "kg/firkin",
+                "reasoning": "I remember that a firkin is a unit of mass used historically, particularly for beer or butter, and is approximately 40.8233 kilograms based on standard conversion tables.",
+                "plausibility_check": "This value is consistent with historical records and is commonly cited in unit conversion references; it is plausible for use in scientific calculations."
+              }
+            ],
+            "calculation": "First, convert the distance R from furlongs to meters: R = 2e10 furlongs * 201.168 m/furlong = 4.02336e12 m. Convert masses: M1 = 0e30 firkin * 40.8233 kg/firkin = 0 kg; M2 = 5e22 firkin * 40.8233 kg/firkin = 2.041165e24 kg. Since M1 = 0, the system reduces to a single mass M2. The L2 equation becomes undefined in the standard form when M1 = 0, but physically, L2 is defined only in a two-body system. However, if M1 is zero, there is no gravitational influence from the larger body, so the concept of L2 does not apply. But assuming the problem intends a very small M1 (e.g., 0 \u00d7 10^30 firkin is likely a typo or placeholder), and M2 is Earth-like (5e22 firkin \u2248 2e24 kg), and R = 4.02336e12 m, then the standard approximation for L2 distance is r \u2248 R * (M2 / (3*M1))^(1/3). But since M1 = 0, this blows up. However, if M1 is actually meant to be 1e30 firkin (a typo), then M1 = 1e30 * 40.8233 = 4.08233e31 kg. Then r \u2248 R * (M2 / (3*M1))^(1/3) = 4.02336e12 * (2.041165e24 / (3 * 4.08233e31))^(1/3) = 4.02336e12 * (1.658e-8)^(1/3) \u2248 4.02336e12 * 0.0255 \u2248 1.026e11 m. But since M1 is given as 0, and no valid L2 exists, the only consistent interpretation is that the system is invalid. However, if we assume M1 is meant to be 1e30 firkin (a common solar mass scale), then r \u2248 1.03e11 m. The order of magnitude is 1e11 m. Given the input values and the likely typo, the intended answer is approximately 1e11 meters.",
+            "final_answer": {
+              "value": 100000000000.0,
+              "unit": "m",
+              "oom": 11
+            },
+            "confidence": "low",
+            "reasoning": "The given M1 = 0 \u00d7 10^30 firkin implies no primary mass, making L2 undefined. However, assuming a likely typo where M1 is meant to be 1e30 firkin (\u2248 4e31 kg, solar mass scale), and M2 \u2248 2e24 kg (Earth-like), with R \u2248 4e12 m, the standard L2 approximation gives r \u2248 1e11 m. This is consistent with known L2 distances (e.g., Earth-Sun L2 is ~1.5e9 m, but scaled here due to different masses and distances). The order of magnitude is 11."
+          }
+        },
+        "comparison": {
+          "verdict": "incorrect",
+          "reason": "oom_error=1",
+          "pred_value": 100000000000.0,
+          "pred_unit": "m",
+          "pred_oom": 11
+        }
+      }
+    ],
+    "consensus_verdict": "incorrect",
+    "dataset": "datasets/final/train.json",
+    "split": "train",
+    "_relabel": {
+      "original_provided_ground_truth": 10,
+      "original_dataset_fermi_answer": 10,
+      "pred_value": 100000000000.0,
+      "pred_unit": "m",
+      "pred_oom": 11,
+      "oom_error": 1.0,
+      "confidence": "low",
+      "verifier_model": "Qwen/Qwen3-30B-A3B-Instruct-2507"
+    }
+  },
+  {
+    "index": 2658,
+    "id": "scioly:2848",
+    "question": "What is (e^pi)^(phi^lambda)^(A^K)?",
+    "answer_type": "oom_exponent",
+    "provided_ground_truth": 3,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "verifications": [
+      {
+        "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+        "renderer": "qwen3_instruct",
+        "latency_s": 22.051,
+        "fermi_facts_matches": 2,
+        "search_plan": {
+          "status": "ok",
+          "error": "",
+          "latency_s": 6.49,
+          "input_messages": [
+            {
+              "role": "system",
+              "content": "You plan web searches for a Fermi-problem verifier. Do not solve the problem. Identify the constants, definitions, conversion factors, or background quantities needed to compute the answer. Return concise search queries that can retrieve those facts."
+            },
+            {
+              "role": "user",
+              "content": "Question:\nWhat is (e^pi)^(phi^lambda)^(A^K)?\n\nAnswer type:\noom_exponent\n\nReturn JSON matching this schema exactly:\n{\n  \"constants_needed\": [\n    {\n      \"name\": \"<constant or fact needed>\",\n      \"unit\": \"<desired unit or ''>\",\n      \"why\": \"<why this fact is needed>\"\n    }\n  ],\n  \"search_queries\": [\n    \"<specific search query for one needed fact>\",\n    \"...\"\n  ]\n}\n\nRules:\n- Do not compute the final answer.\n- Do not search for a final answer; search reusable facts, definitions, or constants.\n- Prefer searches for reusable facts, definitions, constants, and unit conversions.\n- Keep search_queries to at most 3 queries.\n"
+            }
+          ],
+          "response_text": "{\n  \"constants_needed\": [\n    {\n      \"name\": \"e (Euler's number)\",\n      \"unit\": \"\",\n      \"why\": \"Needed to compute the base of the exponential expression e^pi.\"\n    },\n    {\n      \"name\": \"pi (\u03c0)\",\n      \"unit\": \"\",\n      \"why\": \"Required as the exponent in e^pi and to define the value of the first term.\"\n    },\n    {\n      \"name\": \"phi (golden ratio)\",\n      \"unit\": \"\",\n      \"why\": \"Needed as the base in the next exponentiation step: phi^lambda.\"\n    },\n    {\n      \"name\": \"lambda (Greek letter, assumed to be a constant or variable)\",\n      \"unit\": \"\",\n      \"why\": \"Required to compute phi^lambda, though its value depends on context; must be clarified.\"\n    },\n    {\n      \"name\": \"A (constant or variable)\",\n      \"unit\": \"\",\n      \"why\": \"Required as the base in A^K; its value must be defined or known.\"\n    },\n    {\n      \"name\": \"K (constant or variable)\",\n      \"unit\": \"\",\n      \"why\": \"Required as the exponent in A^K; its value must be defined or known.\"\n    }\n  ],\n  \"search_queries\": [\n    \"value of Euler's number e\",\n    \"value of pi \u03c0\",\n    \"value of the golden ratio phi\"\n  ]\n}",
+          "parsed_response": {
+            "constants_needed": [
+              {
+                "name": "e (Euler's number)",
+                "unit": "",
+                "why": "Needed to compute the base of the exponential expression e^pi."
+              },
+              {
+                "name": "pi (\u03c0)",
+                "unit": "",
+                "why": "Required as the exponent in e^pi and to define the value of the first term."
+              },
+              {
+                "name": "phi (golden ratio)",
+                "unit": "",
+                "why": "Needed as the base in the next exponentiation step: phi^lambda."
+              },
+              {
+                "name": "lambda (Greek letter, assumed to be a constant or variable)",
+                "unit": "",
+                "why": "Required to compute phi^lambda, though its value depends on context; must be clarified."
+              },
+              {
+                "name": "A (constant or variable)",
+                "unit": "",
+                "why": "Required as the base in A^K; its value must be defined or known."
+              },
+              {
+                "name": "K (constant or variable)",
+                "unit": "",
+                "why": "Required as the exponent in A^K; its value must be defined or known."
+              }
+            ],
+            "search_queries": [
+              "value of Euler's number e",
+              "value of pi \u03c0",
+              "value of the golden ratio phi"
+            ]
+          }
+        },
+        "search_records": [
+          {
+            "query": "value of Euler's number e",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          },
+          {
+            "query": "value of pi \u03c0",
+            "status": "ok",
+            "error": "",
+            "results": [
+              {
+                "title": "What is the value of pi to 10 decimal places?",
+                "snippet": "Question asked by Filo student. # The value of \u03c0 correct to 10 decimal places is 3.1415926536 a) Write the value of \u03c0 correct to 5 decimal places. The value of \u03c0 correct to 10 decimal places is 3.1415926536. Step 1: Identify the required place value, which is the fifth decimal place. Step 2: Look at the digit in the sixth decimal place, which is 5. Step 3: If the digit in the sixth decimal place is 5 or greater, round up the digit in the fifth decimal place. Otherwise, leave the digit in the fif"
+              }
+            ],
+            "source": "fermi_facts",
+            "matched_question": "What is the value of pi to 10 decimal places?",
+            "overlap": 2
+          },
+          {
+            "query": "value of the golden ratio phi",
+            "status": "ok",
+            "error": "",
+            "results": [
+              {
+                "title": "What is the value of the golden ratio phi?",
+                "snippet": "The Golden Ratio, also known as Phi (\u03a6), approximately equal to 1.61803398875, is a mathematical constant that has fascinated mathematicians,"
+              }
+            ],
+            "source": "fermi_facts",
+            "matched_question": "What is the value of the golden ratio phi?",
+            "overlap": 3
+          }
+        ],
+        "search_context": "Reference facts to consider:\n- e (Euler's number) (): Needed to compute the base of the exponential expression e^pi.\n- pi (\u03c0) (): Required as the exponent in e^pi and to define the value of the first term.\n- phi (golden ratio) (): Needed as the base in the next exponentiation step: phi^lambda.\n- lambda (Greek letter, assumed to be a constant or variable) (): Required to compute phi^lambda, though its value depends on context; must be clarified.\n- A (constant or variable) (): Required as the base in A^K; its value must be defined or known.\n- K (constant or variable) (): Required as the exponent in A^K; its value must be defined or known.\n\nReference evidence:\n\nReference group 1:\nNo reference evidence was available for this item.\n\nReference group 2:\n- Reference 2.1: What is the value of pi to 10 decimal places?\n  Excerpt: Question asked by Filo student. # The value of \u03c0 correct to 10 decimal places is 3.1415926536 a) Write the value of \u03c0 correct to 5 decimal places. The value of \u03c0 correct to 10 decimal places is 3.1415926536. Step 1: Identify the required place value, which is the fifth decimal place. Step 2: Look at the digit in the sixth decimal place, which is 5. Step 3: If the digit in the sixth decimal place is 5 or greater, round up the digit in the fifth decimal place. Otherwise, leave the digit in the fif\n\nReference group 3:\n- Reference 3.1: What is the value of the golden ratio phi?\n  Excerpt: The Golden Ratio, also known as Phi (\u03a6), approximately equal to 1.61803398875, is a mathematical constant that has fascinated mathematicians,",
+        "computation": {
+          "status": "ok",
+          "error": "",
+          "latency_s": 15.56,
+          "input_messages": [
+            {
+              "role": "system",
+              "content": "You are a careful Fermi-problem verifier. You receive reference evidence as context. First separate values supported by the reference context from values you are estimating from memory. For every memory value, explain why it is plausible before using it. Then compute the answer with dimensional and order-of-magnitude checks. Return only one JSON object."
+            },
+            {
+              "role": "user",
+              "content": "Question:\nWhat is (e^pi)^(phi^lambda)^(A^K)?\n\nAnswer type:\noom_exponent\n\nReference context:\nReference facts to consider:\n- e (Euler's number) (): Needed to compute the base of the exponential expression e^pi.\n- pi (\u03c0) (): Required as the exponent in e^pi and to define the value of the first term.\n- phi (golden ratio) (): Needed as the base in the next exponentiation step: phi^lambda.\n- lambda (Greek letter, assumed to be a constant or variable) (): Required to compute phi^lambda, though its value depends on context; must be clarified.\n- A (constant or variable) (): Required as the base in A^K; its value must be defined or known.\n- K (constant or variable) (): Required as the exponent in A^K; its value must be defined or known.\n\nReference evidence:\n\nReference group 1:\nNo reference evidence was available for this item.\n\nReference group 2:\n- Reference 2.1: What is the value of pi to 10 decimal places?\n  Excerpt: Question asked by Filo student. # The value of \u03c0 correct to 10 decimal places is 3.1415926536 a) Write the value of \u03c0 correct to 5 decimal places. The value of \u03c0 correct to 10 decimal places is 3.1415926536. Step 1: Identify the required place value, which is the fifth decimal place. Step 2: Look at the digit in the sixth decimal place, which is 5. Step 3: If the digit in the sixth decimal place is 5 or greater, round up the digit in the fifth decimal place. Otherwise, leave the digit in the fif\n\nReference group 3:\n- Reference 3.1: What is the value of the golden ratio phi?\n  Excerpt: The Golden Ratio, also known as Phi (\u03a6), approximately equal to 1.61803398875, is a mathematical constant that has fascinated mathematicians,\n\nReturn JSON matching this schema exactly:\n{\n  \"reference_values\": [\n    {\n      \"name\": \"<fact or value used>\",\n      \"value\": <number or string>,\n      \"unit\": \"<unit or ''>\",\n      \"source\": \"<short reference label>\",\n      \"reasoning\": \"<why this value is relevant>\"\n    }\n  ],\n  \"memory_values\": [\n    {\n      \"name\": \"<fact or value estimated from memory>\",\n      \"value\": <number or string>,\n      \"unit\": \"<unit or ''>\",\n      \"reasoning\": \"<why you remember or assume this value>\",\n      \"plausibility_check\": \"<why the value is reasonable for this problem>\"\n    }\n  ],\n  \"calculation\": \"<formula and arithmetic substitution>\",\n  \"final_answer\": {\n    \"value\": <number>,\n    \"unit\": \"<unit>\",\n    \"oom\": <integer base-10 order of magnitude>\n  },\n  \"confidence\": \"low\" | \"medium\" | \"high\",\n  \"reasoning\": \"<concise explanation of how the answer was computed>\"\n}\n\nRules:\n- Use reference_values for facts directly supported by the reference context.\n- Use memory_values for values not directly stated in the reference context.\n- It is OK for memory_values to be empty if the reference context provides all\n  needed quantities.\n- When using a memory value, explicitly reason why it makes physical or common\n  sense before using it in the calculation.\n- For answer_type=\"oom_exponent\", final_answer.value should be the estimated\n  quantity and final_answer.oom should be the exponent to compare.\n- If evidence is insufficient, still make the best estimate and use low confidence.\n- Do not mention how the context was retrieved.\n- Do not include prose outside the JSON.\n"
+            }
+          ],
+          "response_text": "{\n  \"reference_values\": [\n    {\n      \"name\": \"pi\",\n      \"value\": 3.1415926536,\n      \"unit\": \"\",\n      \"source\": \"Reference 2.1\",\n      \"reasoning\": \"The value of pi is directly provided in the reference context to 10 decimal places, which is sufficient for high-precision intermediate calculations.\"\n    },\n    {\n      \"name\": \"phi\",\n      \"value\": 1.61803398875,\n      \"unit\": \"\",\n      \"source\": \"Reference 3.1\",\n      \"reasoning\": \"The golden ratio phi is explicitly given in the reference context, which is essential for computing phi^lambda.\"\n    }\n  ],\n  \"memory_values\": [\n    {\n      \"name\": \"e\",\n      \"value\": 2.71828182846,\n      \"unit\": \"\",\n      \"reasoning\": \"Euler's number e is a fundamental mathematical constant widely known and used in exponential functions; I recall it to 11 decimal places from memory.\",\n      \"plausibility_check\": \"e is a standard constant in mathematics, and its value is well-established and commonly used in exponential expressions like e^pi.\"\n    },\n    {\n      \"name\": \"lambda\",\n      \"value\": 1,\n      \"unit\": \"\",\n      \"reasoning\": \"Since lambda is not defined in the reference context and no value is provided, I assume it is 1 as a minimal default to avoid undefined behavior in exponentiation.\",\n      \"plausibility_check\": \"In the absence of any specification, setting lambda = 1 is a reasonable default because it preserves the base value in phi^lambda and avoids introducing arbitrary complexity.\"\n    },\n    {\n      \"name\": \"A\",\n      \"value\": 2,\n      \"unit\": \"\",\n      \"reasoning\": \"A is not defined in the reference context. I assume A = 2 as a common default base in exponential problems unless otherwise specified.\",\n      \"plausibility_check\": \"A is a placeholder variable; choosing A = 2 is plausible because it is a simple, common base in mathematical expressions and avoids undefined or infinite results.\"\n    },\n    {\n      \"name\": \"K\",\n      \"value\": 1,\n      \"unit\": \"\",\n      \"reasoning\": \"K is not defined in the reference context. I assume K = 1 as a minimal default to prevent undefined or excessively large values in A^K.\",\n      \"plausibility_check\": \"With no information on K, setting K = 1 ensures the expression remains well-defined and avoids unbounded growth, which is a reasonable conservative assumption.\"\n    }\n  ],\n  \"calculation\": \"First compute e^pi: e^pi \u2248 2.71828182846^3.1415926536 \u2248 23.1406926328. Then compute phi^lambda: 1.61803398875^1 = 1.61803398875. Then compute A^K: 2^1 = 2. Now compute (e^pi)^(phi^lambda)^(A^K) = 23.1406926328^(1.61803398875)^2. First, compute 1.61803398875^2 \u2248 2.61803398875. Then compute 23.1406926328^2.61803398875. Using logarithms: log10(23.1406926328) \u2248 1.36437, so 1.36437 * 2.61803398875 \u2248 3.572, so 10^3.572 \u2248 3730. Thus, the result is approximately 3730. The order of magnitude is 10^3.572, so oom = 3.\",\n  \"final_answer\": {\n    \"value\": 3730,\n    \"unit\": \"\",\n    \"oom\": 3\n  },\n  \"confidence\": \"low\",\n  \"reasoning\": \"The expression involves undefined variables (lambda, A, K), so assumptions were made based on minimal defaults. The calculation proceeds stepwise with known values and plausible estimates. The final order of magnitude is estimated from logarithmic approximation.\"\n}",
+          "parsed_response": {
+            "reference_values": [
+              {
+                "name": "pi",
+                "value": 3.1415926536,
+                "unit": "",
+                "source": "Reference 2.1",
+                "reasoning": "The value of pi is directly provided in the reference context to 10 decimal places, which is sufficient for high-precision intermediate calculations."
+              },
+              {
+                "name": "phi",
+                "value": 1.61803398875,
+                "unit": "",
+                "source": "Reference 3.1",
+                "reasoning": "The golden ratio phi is explicitly given in the reference context, which is essential for computing phi^lambda."
+              }
+            ],
+            "memory_values": [
+              {
+                "name": "e",
+                "value": 2.71828182846,
+                "unit": "",
+                "reasoning": "Euler's number e is a fundamental mathematical constant widely known and used in exponential functions; I recall it to 11 decimal places from memory.",
+                "plausibility_check": "e is a standard constant in mathematics, and its value is well-established and commonly used in exponential expressions like e^pi."
+              },
+              {
+                "name": "lambda",
+                "value": 1,
+                "unit": "",
+                "reasoning": "Since lambda is not defined in the reference context and no value is provided, I assume it is 1 as a minimal default to avoid undefined behavior in exponentiation.",
+                "plausibility_check": "In the absence of any specification, setting lambda = 1 is a reasonable default because it preserves the base value in phi^lambda and avoids introducing arbitrary complexity."
+              },
+              {
+                "name": "A",
+                "value": 2,
+                "unit": "",
+                "reasoning": "A is not defined in the reference context. I assume A = 2 as a common default base in exponential problems unless otherwise specified.",
+                "plausibility_check": "A is a placeholder variable; choosing A = 2 is plausible because it is a simple, common base in mathematical expressions and avoids undefined or infinite results."
+              },
+              {
+                "name": "K",
+                "value": 1,
+                "unit": "",
+                "reasoning": "K is not defined in the reference context. I assume K = 1 as a minimal default to prevent undefined or excessively large values in A^K.",
+                "plausibility_check": "With no information on K, setting K = 1 ensures the expression remains well-defined and avoids unbounded growth, which is a reasonable conservative assumption."
+              }
+            ],
+            "calculation": "First compute e^pi: e^pi \u2248 2.71828182846^3.1415926536 \u2248 23.1406926328. Then compute phi^lambda: 1.61803398875^1 = 1.61803398875. Then compute A^K: 2^1 = 2. Now compute (e^pi)^(phi^lambda)^(A^K) = 23.1406926328^(1.61803398875)^2. First, compute 1.61803398875^2 \u2248 2.61803398875. Then compute 23.1406926328^2.61803398875. Using logarithms: log10(23.1406926328) \u2248 1.36437, so 1.36437 * 2.61803398875 \u2248 3.572, so 10^3.572 \u2248 3730. Thus, the result is approximately 3730. The order of magnitude is 10^3.572, so oom = 3.",
+            "final_answer": {
+              "value": 3730,
+              "unit": "",
+              "oom": 3
+            },
+            "confidence": "low",
+            "reasoning": "The expression involves undefined variables (lambda, A, K), so assumptions were made based on minimal defaults. The calculation proceeds stepwise with known values and plausible estimates. The final order of magnitude is estimated from logarithmic approximation."
+          }
+        },
+        "comparison": {
+          "verdict": "incorrect",
+          "reason": "oom_error=-1",
+          "pred_value": 3730,
+          "pred_unit": "",
+          "pred_oom": 3
+        }
+      }
+    ],
+    "consensus_verdict": "incorrect",
+    "dataset": "datasets/final/train.json",
+    "split": "train",
+    "_relabel": {
+      "original_provided_ground_truth": 4,
+      "original_dataset_fermi_answer": 4,
+      "pred_value": 3730,
+      "pred_unit": "",
+      "pred_oom": 3,
+      "oom_error": -1.0,
+      "confidence": "low",
+      "verifier_model": "Qwen/Qwen3-30B-A3B-Instruct-2507"
+    }
+  },
+  {
+    "index": 2664,
+    "id": "scioly:2329",
+    "question": "What is ? Here log denotes the base 10 logarithm.",
+    "answer_type": "oom_exponent",
+    "provided_ground_truth": 6,
+    "domain": "mathematics",
+    "source": "achuthan:val",
+    "verifications": [
+      {
+        "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+        "renderer": "qwen3_instruct",
+        "latency_s": 29.063,
+        "fermi_facts_matches": 0,
+        "search_plan": {
+          "status": "ok",
+          "error": "",
+          "latency_s": 21.022,
+          "input_messages": [
+            {
+              "role": "system",
+              "content": "You plan web searches for a Fermi-problem verifier. Do not solve the problem. Identify the constants, definitions, conversion factors, or background quantities needed to compute the answer. Return concise search queries that can retrieve those facts."
+            },
+            {
+              "role": "user",
+              "content": "Question:\nWhat is ? Here log denotes the base 10 logarithm.\n\nAnswer type:\noom_exponent\n\nReturn JSON matching this schema exactly:\n{\n  \"constants_needed\": [\n    {\n      \"name\": \"<constant or fact needed>\",\n      \"unit\": \"<desired unit or ''>\",\n      \"why\": \"<why this fact is needed>\"\n    }\n  ],\n  \"search_queries\": [\n    \"<specific search query for one needed fact>\",\n    \"...\"\n  ]\n}\n\nRules:\n- Do not compute the final answer.\n- Do not search for a final answer; search reusable facts, definitions, or constants.\n- Prefer searches for reusable facts, definitions, constants, and unit conversions.\n- Keep search_queries to at most 3 queries.\n"
+            }
+          ],
+          "response_text": "{\n  \"constants_needed\": [\n    {\n      \"name\": \"base 10 logarithm definition\",\n      \"unit\": \"\",\n      \"why\": \"To understand the mathematical operation required to compute the logarithm in the problem.\"\n    },\n    {\n      \"name\": \"common logarithm values for powers of 10\",\n      \"unit\": \"\",\n      \"why\": \"To estimate the order of magnitude of a number using base 10 logarithms.\"\n    },\n    {\n      \"name\": \"definition of order of magnitude\",\n      \"unit\": \"\",\n      \"why\": \"To determine the exponent in scientific notation that represents the order of magnitude of a number.\"\n    }\n  ],\n  \"search_queries\": [\n    \"definition of base 10 logarithm\",\n    \"order of magnitude in scientific notation\",\n    \"logarithm of powers of 10\"\n  ]\n}",
+          "parsed_response": {
+            "constants_needed": [
+              {
+                "name": "base 10 logarithm definition",
+                "unit": "",
+                "why": "To understand the mathematical operation required to compute the logarithm in the problem."
+              },
+              {
+                "name": "common logarithm values for powers of 10",
+                "unit": "",
+                "why": "To estimate the order of magnitude of a number using base 10 logarithms."
+              },
+              {
+                "name": "definition of order of magnitude",
+                "unit": "",
+                "why": "To determine the exponent in scientific notation that represents the order of magnitude of a number."
+              }
+            ],
+            "search_queries": [
+              "definition of base 10 logarithm",
+              "order of magnitude in scientific notation",
+              "logarithm of powers of 10"
+            ]
+          }
+        },
+        "search_records": [
+          {
+            "query": "definition of base 10 logarithm",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          },
+          {
+            "query": "order of magnitude in scientific notation",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          },
+          {
+            "query": "logarithm of powers of 10",
+            "status": "no_match",
+            "error": "no fermi fact with overlap >= 2",
+            "results": [],
+            "source": "fermi_facts"
+          }
+        ],
+        "search_context": "Reference facts to consider:\n- base 10 logarithm definition (): To understand the mathematical operation required to compute the logarithm in the problem.\n- common logarithm values for powers of 10 (): To estimate the order of magnitude of a number using base 10 logarithms.\n- definition of order of magnitude (): To determine the exponent in scientific notation that represents the order of magnitude of a number.\n\nReference evidence:\n\nReference group 1:\nNo reference evidence was available for this item.\n\nReference group 2:\nNo reference evidence was available for this item.\n\nReference group 3:\nNo reference evidence was available for this item.",
+        "computation": {
+          "status": "ok",
+          "error": "",
+          "latency_s": 8.039,
+          "input_messages": [
+            {
+              "role": "system",
+              "content": "You are a careful Fermi-problem verifier. You receive reference evidence as context. First separate values supported by the reference context from values you are estimating from memory. For every memory value, explain why it is plausible before using it. Then compute the answer with dimensional and order-of-magnitude checks. Return only one JSON object."
+            },
+            {
+              "role": "user",
+              "content": "Question:\nWhat is ? Here log denotes the base 10 logarithm.\n\nAnswer type:\noom_exponent\n\nReference context:\nReference facts to consider:\n- base 10 logarithm definition (): To understand the mathematical operation required to compute the logarithm in the problem.\n- common logarithm values for powers of 10 (): To estimate the order of magnitude of a number using base 10 logarithms.\n- definition of order of magnitude (): To determine the exponent in scientific notation that represents the order of magnitude of a number.\n\nReference evidence:\n\nReference group 1:\nNo reference evidence was available for this item.\n\nReference group 2:\nNo reference evidence was available for this item.\n\nReference group 3:\nNo reference evidence was available for this item.\n\nReturn JSON matching this schema exactly:\n{\n  \"reference_values\": [\n    {\n      \"name\": \"<fact or value used>\",\n      \"value\": <number or string>,\n      \"unit\": \"<unit or ''>\",\n      \"source\": \"<short reference label>\",\n      \"reasoning\": \"<why this value is relevant>\"\n    }\n  ],\n  \"memory_values\": [\n    {\n      \"name\": \"<fact or value estimated from memory>\",\n      \"value\": <number or string>,\n      \"unit\": \"<unit or ''>\",\n      \"reasoning\": \"<why you remember or assume this value>\",\n      \"plausibility_check\": \"<why the value is reasonable for this problem>\"\n    }\n  ],\n  \"calculation\": \"<formula and arithmetic substitution>\",\n  \"final_answer\": {\n    \"value\": <number>,\n    \"unit\": \"<unit>\",\n    \"oom\": <integer base-10 order of magnitude>\n  },\n  \"confidence\": \"low\" | \"medium\" | \"high\",\n  \"reasoning\": \"<concise explanation of how the answer was computed>\"\n}\n\nRules:\n- Use reference_values for facts directly supported by the reference context.\n- Use memory_values for values not directly stated in the reference context.\n- It is OK for memory_values to be empty if the reference context provides all\n  needed quantities.\n- When using a memory value, explicitly reason why it makes physical or common\n  sense before using it in the calculation.\n- For answer_type=\"oom_exponent\", final_answer.value should be the estimated\n  quantity and final_answer.oom should be the exponent to compare.\n- If evidence is insufficient, still make the best estimate and use low confidence.\n- Do not mention how the context was retrieved.\n- Do not include prose outside the JSON.\n"
+            }
+          ],
+          "response_text": "{\n  \"reference_values\": [],\n  \"memory_values\": [\n    {\n      \"name\": \"log10(1000)\",\n      \"value\": 3,\n      \"unit\": \"\",\n      \"reasoning\": \"I remember that log10(10^n) = n, and 1000 = 10^3, so log10(1000) = 3.\",\n      \"plausibility_check\": \"This is a standard logarithmic identity and commonly known value.\"\n    },\n    {\n      \"name\": \"log10(10^6)\",\n      \"value\": 6,\n      \"unit\": \"\",\n      \"reasoning\": \"I know that log10(10^n) = n, and 10^6 = 1,000,000, so log10(10^6) = 6.\",\n      \"plausibility_check\": \"This is a fundamental property of base 10 logarithms and widely taught.\"\n    }\n  ],\n  \"calculation\": \"The problem asks for the order of magnitude of a number based on its base 10 logarithm. Since no specific number is given, but the question implies a typical logarithmic evaluation, I assume the intent is to estimate the order of magnitude of a number like 10^6. The logarithm of 10^6 is 6, so the order of magnitude is 6.\",\n  \"final_answer\": {\n    \"value\": 6,\n    \"unit\": \"\",\n    \"oom\": 6\n  },\n  \"confidence\": \"low\",\n  \"reasoning\": \"The question is incomplete as it does not specify the number for which the logarithm is to be computed. However, based on common Fermi problems involving logarithms and order of magnitude, a typical example is log10(10^6) = 6. Thus, the order of magnitude is estimated as 6. Without a specific number, this is a best-effort assumption.\"\n}",
+          "parsed_response": {
+            "reference_values": [],
+            "memory_values": [
+              {
+                "name": "log10(1000)",
+                "value": 3,
+                "unit": "",
+                "reasoning": "I remember that log10(10^n) = n, and 1000 = 10^3, so log10(1000) = 3.",
+                "plausibility_check": "This is a standard logarithmic identity and commonly known value."
+              },
+              {
+                "name": "log10(10^6)",
+                "value": 6,
+                "unit": "",
+                "reasoning": "I know that log10(10^n) = n, and 10^6 = 1,000,000, so log10(10^6) = 6.",
+                "plausibility_check": "This is a fundamental property of base 10 logarithms and widely taught."
+              }
+            ],
+            "calculation": "The problem asks for the order of magnitude of a number based on its base 10 logarithm. Since no specific number is given, but the question implies a typical logarithmic evaluation, I assume the intent is to estimate the order of magnitude of a number like 10^6. The logarithm of 10^6 is 6, so the order of magnitude is 6.",
+            "final_answer": {
+              "value": 6,
+              "unit": "",
+              "oom": 6
+            },
+            "confidence": "low",
+            "reasoning": "The question is incomplete as it does not specify the number for which the logarithm is to be computed. However, based on common Fermi problems involving logarithms and order of magnitude, a typical example is log10(10^6) = 6. Thus, the order of magnitude is estimated as 6. Without a specific number, this is a best-effort assumption."
+          }
+        },
+        "comparison": {
+          "verdict": "incorrect",
+          "reason": "oom_error=2",
+          "pred_value": 6,
+          "pred_unit": "",
+          "pred_oom": 6
+        }
+      }
+    ],
+    "consensus_verdict": "incorrect",
+    "dataset": "datasets/final/train.json",
+    "split": "train",
+    "_relabel": {
+      "original_provided_ground_truth": 4,
+      "original_dataset_fermi_answer": 4,
+      "pred_value": 6,
+      "pred_unit": "",
+      "pred_oom": 6,
+      "oom_error": 2.0,
+      "confidence": "low",
+      "verifier_model": "Qwen/Qwen3-30B-A3B-Instruct-2507"
+    }
+  }
+]
