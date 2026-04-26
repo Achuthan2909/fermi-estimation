@@ -1,0 +1,48 @@
+{
+  "os":  "macOS-26.3.1-arm64-arm-64bit",
+  "python":  "CPython 3.11.7",
+  "startedAt":  "2026-04-26T00:23:51.762122Z",
+  "args":  [
+    "--train-file",
+    "datasets/sft_messages_train_25_1024/train.jsonl",
+    "--log-path",
+    "run/sft_train_25_1024_v2",
+    "--num-epochs",
+    "2",
+    "--batch-size",
+    "4"
+  ],
+  "program":  "/Users/achu/Projects/AI for Physical Sciencs/final-project-wilfigureoutl8r-1/src/sft/train_sft.py",
+  "codePath":  "src/sft/train_sft.py",
+  "codePathLocal":  "src/sft/train_sft.py",
+  "git":  {
+    "remote":  "git@github.com:bu-ds595/final-project-wilfigureoutl8r-1.git",
+    "commit":  "8b33848136b743a0a4481881db4dca7a59ddae75"
+  },
+  "email":  "achuthan@bu.edu",
+  "root":  "run/sft_train_25_1024_v2",
+  "host":  "crc-dot1x-nat-10-239-133-104.bu.edu",
+  "executable":  "/Users/achu/Projects/AI for Physical Sciencs/final-project-wilfigureoutl8r-1/.venv/bin/python3",
+  "cpu_count":  8,
+  "cpu_count_logical":  8,
+  "disk":  {
+    "/":  {
+      "total":  "494384795648",
+      "used":  "216310972416"
+    }
+  },
+  "memory":  {
+    "total":  "17179869184"
+  },
+  "apple":  {
+    "name":  "Apple M3",
+    "ecpuCores":  4,
+    "pcpuCores":  4,
+    "gpuCores":  10,
+    "memoryGb":  16,
+    "swapTotalBytes":  "5368709120",
+    "ramTotalBytes":  "17179869184",
+    "macModel":  "Mac15,13"
+  },
+  "writerId":  "45hg7tb3470i63mpflhxo8df8zts6n2q"
+}

@@ -421,10 +421,19 @@ async def run(args: argparse.Namespace) -> dict[str, Any]:
     limit = None if args.all else args.limit
     records: list[dict[str, Any]] = []
     t0 = time.time()
+
+    # Flatten all (dataset_path, global_index, row) tuples across datasets.
+    all_items: list[tuple[str, int, dict[str, Any]]] = []
     for dataset_path in dataset_paths:
         rows = load_rows(dataset_path, offset=args.offset, limit=limit)
-        split = dataset_split_name(dataset_path)
         for i, row in enumerate(rows, start=args.offset):
+            all_items.append((dataset_path, i, row))
+
+    total = len(all_items)
+    sem = asyncio.Semaphore(args.concurrency)
+
+    async def bounded(dataset_path: str, i: int, row: dict[str, Any]) -> dict[str, Any]:
+        async with sem:
             record = await verify_row(
                 row,
                 index=i,
@@ -436,13 +445,24 @@ async def run(args: argparse.Namespace) -> dict[str, Any]:
                 search_timeout_s=args.search_timeout,
             )
             record["dataset"] = os.path.relpath(dataset_path, PROJECT_ROOT)
-            record["split"] = split
-            records.append(record)
+            record["split"] = dataset_split_name(dataset_path)
+            return record
+
+    done = 0
+    for coro in asyncio.as_completed(
+        [bounded(dp, i, r) for dp, i, r in all_items]
+    ):
+        record = await coro
+        records.append(record)
+        done += 1
+        if done % 10 == 0 or done == total:
             print(
-                f"{len(records)} total split={split} "
-                f"{i - args.offset + 1}/{len(rows)} id={record['id']} "
-                f"consensus={record['consensus_verdict']}"
+                f"{done}/{total} split={record['split']} "
+                f"id={record['id']} consensus={record['consensus_verdict']}"
             )
+
+    # Restore dataset order (as_completed returns in completion order).
+    records.sort(key=lambda r: r["index"])
 
     payload = {
         "metadata": {
@@ -454,6 +474,7 @@ async def run(args: argparse.Namespace) -> dict[str, Any]:
             "model_a": args.model_a,
             "model_b": args.model_b,
             "sampling_params": {**SAMPLING_PARAMS, "max_tokens": args.max_tokens},
+            "concurrency": args.concurrency,
             "search_provider": os.environ.get("SEARCH_PROVIDER", "duckduckgo"),
             "max_search_queries": args.max_search_queries,
             "search_results": args.search_results,
@@ -481,6 +502,8 @@ def main() -> None:
     parser.add_argument("--max-search-queries", type=int, default=5)
     parser.add_argument("--search-results", type=int, default=2)
     parser.add_argument("--search-timeout", type=float, default=10.0)
+    parser.add_argument("--concurrency", type=int, default=8,
+                        help="Max rows verified in parallel (default 8).")
     args = parser.parse_args()
 
     payload = asyncio.run(run(args))

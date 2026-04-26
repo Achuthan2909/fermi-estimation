@@ -1,0 +1,131 @@
+_wandb:
+    value:
+        cli_version: 0.26.1
+        e:
+            45hg7tb3470i63mpflhxo8df8zts6n2q:
+                apple:
+                    ecpuCores: 4
+                    gpuCores: 10
+                    macModel: Mac15,13
+                    memoryGb: 16
+                    name: Apple M3
+                    pcpuCores: 4
+                    ramTotalBytes: "17179869184"
+                    swapTotalBytes: "5368709120"
+                args:
+                    - --train-file
+                    - datasets/sft_messages_train_25_1024/train.jsonl
+                    - --log-path
+                    - run/sft_train_25_1024_v2
+                    - --num-epochs
+                    - "2"
+                    - --batch-size
+                    - "4"
+                codePath: src/sft/train_sft.py
+                codePathLocal: src/sft/train_sft.py
+                cpu_count: 8
+                cpu_count_logical: 8
+                disk:
+                    /:
+                        total: "494384795648"
+                        used: "216310972416"
+                email: achuthan@bu.edu
+                executable: /Users/achu/Projects/AI for Physical Sciencs/final-project-wilfigureoutl8r-1/.venv/bin/python3
+                git:
+                    commit: 8b33848136b743a0a4481881db4dca7a59ddae75
+                    remote: git@github.com:bu-ds595/final-project-wilfigureoutl8r-1.git
+                host: crc-dot1x-nat-10-239-133-104.bu.edu
+                memory:
+                    total: "17179869184"
+                os: macOS-26.3.1-arm64-arm-64bit
+                program: /Users/achu/Projects/AI for Physical Sciencs/final-project-wilfigureoutl8r-1/src/sft/train_sft.py
+                python: CPython 3.11.7
+                root: run/sft_train_25_1024_v2
+                startedAt: "2026-04-26T00:23:51.762122Z"
+                writerId: 45hg7tb3470i63mpflhxo8df8zts6n2q
+        m: []
+        python_version: 3.11.7
+        t:
+            "1":
+                - 1
+                - 11
+                - 49
+                - 51
+                - 105
+            "2":
+                - 1
+                - 11
+                - 49
+                - 51
+                - 105
+            "3":
+                - 2
+                - 13
+                - 16
+                - 61
+            "4": 3.11.7
+            "5": 0.26.1
+            "6": 5.3.0
+            "12": 0.26.1
+            "13": darwin-arm64
+adam_beta1:
+    value: 0.9
+adam_beta2:
+    value: 0.95
+adam_eps:
+    value: 1e-08
+base_url:
+    value: null
+dataset_builder:
+    value:
+        common_config:
+            batch_size: 4
+            max_length: 2048
+            model_name_for_tokenizer: Qwen/Qwen3-4B-Instruct-2507
+            renderer_name: qwen3_instruct
+            train_on_what: all_assistant_messages
+        file_path: datasets/sft_messages_train_25_1024/train.jsonl
+        shuffle_seed: 42
+        test_size: 0
+enable_trace:
+    value: false
+eval_every:
+    value: 10
+evaluator_builders:
+    value: []
+infrequent_eval_every:
+    value: 100
+infrequent_evaluator_builders:
+    value: []
+learning_rate:
+    value: 0.0004905250962784578
+load_checkpoint_path:
+    value: null
+log_path:
+    value: run/sft_train_25_1024_v2
+lora_rank:
+    value: 32
+lr_schedule:
+    value: linear
+max_steps:
+    value: null
+model_name:
+    value: Qwen/Qwen3-4B-Instruct-2507
+num_epochs:
+    value: 2
+renderer_name:
+    value: qwen3_instruct
+rolling_save_every:
+    value: 0
+rolling_ttl_seconds:
+    value: 7200
+save_every:
+    value: 20
+span_chart_every:
+    value: 0
+ttl_seconds:
+    value: 604800
+wandb_name:
+    value: sft_train_25_1024_v2
+wandb_project:
+    value: fermi-sft

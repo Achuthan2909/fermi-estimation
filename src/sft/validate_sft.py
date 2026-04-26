@@ -22,6 +22,7 @@ from __future__ import annotations
 import argparse
 import asyncio
 import json
+import math
 import os
 import sys
 import time
@@ -139,7 +140,9 @@ async def _run(args: argparse.Namespace) -> None:
     n_parsed = 0
     n_exact = 0
     n_within_1 = 0
+    n_within_2 = 0
     score_sum = 0.0
+    tol = float(args.tol_decades)
     t0 = time.time()
 
     try:
@@ -170,18 +173,41 @@ async def _run(args: argparse.Namespace) -> None:
             if result["status"] != "parse_fail":
                 n_parsed += 1
             pred_oom = result.get("pred_oom")
+            pred_value = result.get("pred_value")
             if isinstance(pred_oom, int) and isinstance(gold_oom, int):
                 err = abs(pred_oom - gold_oom)
                 if err == 0:
                     n_exact += 1
                 if err <= 1:
                     n_within_1 += 1
-            score_sum += float(result.get("score") or 0.0)
+                if err <= 2:
+                    n_within_2 += 1
+
+            # Lenient continuous Fermi score:
+            #   max(0, 1 - |log10(pred) - log10(gold)| / tol)
+            # For oom_exponent rows we use pred_value vs 10**gold_oom when
+            # available; falls back to integer pred_oom / gold_oom.
+            lenient = None
+            if isinstance(gold_oom, int):
+                try:
+                    if isinstance(pred_value, (int, float)) and pred_value > 0 and math.isfinite(pred_value):
+                        delta = abs(math.log10(pred_value) - gold_oom)
+                    elif isinstance(pred_oom, int):
+                        delta = abs(pred_oom - gold_oom)
+                    else:
+                        delta = None
+                    if delta is not None:
+                        lenient = max(0.0, 1.0 - delta / tol)
+                except (ValueError, TypeError):
+                    lenient = None
+            if lenient is None:
+                lenient = float(result.get("score") or 0.0)
+            score_sum += lenient
 
             print(
                 f"[{i:3d}] {row.get('id','?'):20s}  "
                 f"gold={gold_oom!s:>4}  pred={pred_oom!s:>4}  "
-                f"score={result['score']:.2f}  status={result['status']}"
+                f"score={lenient:.2f}  status={result['status']}"
             )
 
             if out_f:
@@ -190,7 +216,9 @@ async def _run(args: argparse.Namespace) -> None:
                     "question": question,
                     "gold_oom": gold_oom,
                     "pred_oom": pred_oom,
-                    "score": result.get("score"),
+                    "pred_value": pred_value,
+                    "score": lenient,
+                    "strict_score": result.get("score"),
                     "status": result.get("status"),
                     "reason": result.get("reason"),
                     "response_text": text,
@@ -206,7 +234,9 @@ async def _run(args: argparse.Namespace) -> None:
         print(f"parse_ok:    {n_parsed}/{n} ({100*n_parsed/n:.0f}%)")
         print(f"exact OOM:   {n_exact}/{n} ({100*n_exact/n:.0f}%)")
         print(f"|err|<=1:    {n_within_1}/{n} ({100*n_within_1/n:.0f}%)")
-        print(f"mean score:  {score_sum/n:.3f}  (1.0 = exact, 0.0 = >=1 decade off)")
+        print(f"|err|<=2:    {n_within_2}/{n} ({100*n_within_2/n:.0f}%)")
+        print(f"mean score:  {score_sum/n:.3f}  "
+              f"(1 - |log10(pred/gold)|/{tol:g}, clamped; 1.0 exact, 0.0 at +/-{tol:g} decades)")
     if out_path:
         print(f"per-row predictions → {out_path}")
 
@@ -224,6 +254,10 @@ def main() -> None:
     ap.add_argument("--out", help="Optional JSONL path to dump per-row predictions.")
     ap.add_argument("--max-tokens", type=int, default=int(SAMPLING_PARAMS.get("max_tokens", 1024)))
     ap.add_argument("--temperature", type=float, default=float(SAMPLING_PARAMS.get("temperature", 0.0)))
+    ap.add_argument("--tol-decades", type=float, default=3.0,
+                    help="Tolerance for the lenient log10 score: "
+                         "score = max(0, 1 - |log10(pred/gold)| / tol). "
+                         "Default 3.0 (1.0 exact, 0.67 at 1 decade, 0.33 at 2, 0 at 3+).")
     args = ap.parse_args()
     asyncio.run(_run(args))
 
