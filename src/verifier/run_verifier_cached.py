@@ -5,10 +5,10 @@ query string. On a cache hit the Tavily call is skipped entirely and the
 stored result is reused. The cache is saved to disk after every new entry
 so progress is preserved across runs and can be shared between teammates.
 
-Cache file: run/search_cache.json  (override with --cache-file)
+Cache file: run/cache_method/search_cache.json  (override with --cache-file)
 
 Sharing the cache between teammates:
-    Commit run/search_cache.json to git (or copy it manually) before your
+    Commit run/cache_method/search_cache.json to git (or copy it manually) before your
     teammate starts their half. Their run will then hit the cache for any
     queries already resolved by your run.
 
@@ -51,7 +51,7 @@ from search.web_search import search_web  # noqa: E402
 _DEFAULT_MODEL = "Qwen/Qwen3-4B-Instruct-2507"
 _DEFAULT_DATASET = os.path.join(PROJECT_ROOT, "datasets", "final", "train.json")
 _DEFAULT_OUTPUT = os.path.join(PROJECT_ROOT, "run", "verification.json")
-_DEFAULT_CACHE = os.path.join(PROJECT_ROOT, "run", "search_cache.json")
+_DEFAULT_CACHE = os.path.join(PROJECT_ROOT, "run", "cache_method", "search_cache.json")
 
 SAMPLING_PARAMS = {
     "temperature": 0.0,
