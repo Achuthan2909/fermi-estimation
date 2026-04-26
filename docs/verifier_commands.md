@@ -10,10 +10,15 @@ responses, and Python verdicts.
 ## Setup
 
 ```bash
+set -a
 source .env
 export SEARCH_PROVIDER=tavily
-export TAVILY_API_KEY=your_tavily_key
+set +a
 ```
+
+`set -a` exports every variable loaded from `.env` so child Python processes can
+see `TINKER_API_KEY`, `TAVILY_API_KEY`, and any other settings. Do not commit
+`.env`; share it out of band if a teammate needs the same keys.
 
 `SEARCH_PROVIDER=tavily` uses Tavily Search. The fallback provider is
 DuckDuckGo instant answers, but it often returns empty results for conversion

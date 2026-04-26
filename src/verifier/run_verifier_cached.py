@@ -1,22 +1,17 @@
-"""Verifier with a persistent query cache to reduce Tavily credit usage.
+"""Verifier that uses a static fermi_facts.json file instead of live Tavily calls.
 
-Identical to run_verifier.py except that web search results are cached by
-query string. On a cache hit the Tavily call is skipped entirely and the
-stored result is reused. The cache is saved to disk after every new entry
-so progress is preserved across runs and can be shared between teammates.
+Stage 1 is preserved: the model still generates search queries.
+Those queries are then matched against datasets/fermi_facts.json by keyword
+overlap — the best-matching pre-fetched answer is used as search evidence.
+No Tavily or web API calls are made at inference time.
 
-Cache file: run/search_cache.json  (override with --cache-file)
-
-Sharing the cache between teammates:
-    Commit run/search_cache.json to git (or copy it manually) before your
-    teammate starts their half. Their run will then hit the cache for any
-    queries already resolved by your run.
+fermi_facts.json: datasets/fermi_facts.json  (override with --fermi-facts-file)
 
 Usage:
     python src/verifier/run_verifier_cached.py \
         --dataset datasets/final/train.json \
         --offset 0 --limit 1409 \
-        --model-a Qwen/Qwen3.6-35B-A3B \
+        --model-a Qwen/Qwen3-30B-A3B \
         --concurrency 8 \
         --output run/verification_train_p1.json
 """
@@ -29,7 +24,6 @@ import math
 import os
 import sys
 import time
-from pathlib import Path
 from typing import Any
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -46,12 +40,10 @@ from prompt_contract import (  # noqa: E402
     parse_compute_response,
     parse_search_plan_response,
 )
-from search.web_search import search_web  # noqa: E402
-
 _DEFAULT_MODEL = "Qwen/Qwen3-4B-Instruct-2507"
 _DEFAULT_DATASET = os.path.join(PROJECT_ROOT, "datasets", "final", "train.json")
 _DEFAULT_OUTPUT = os.path.join(PROJECT_ROOT, "run", "verification.json")
-_DEFAULT_CACHE = os.path.join(PROJECT_ROOT, "run", "search_cache.json")
+_DEFAULT_FERMI_FACTS = os.path.join(PROJECT_ROOT, "datasets", "fermi_facts.json")
 
 SAMPLING_PARAMS = {
     "temperature": 0.0,
@@ -62,59 +54,73 @@ SAMPLING_PARAMS = {
 
 
 # ---------------------------------------------------------------------------
-# Search cache
+# Fermi facts lookup
 # ---------------------------------------------------------------------------
 
-class SearchCache:
-    """In-memory query cache backed by a JSON file on disk.
+def load_fermi_facts(path: str) -> dict[str, dict[str, Any]]:
+    """Load fermi_facts.json as {question_string: {domain, question, answer}}."""
+    with open(path) as f:
+        return json.load(f)
 
-    Keys are lowercased, stripped query strings. Values are the same
-    search_record dicts returned by search_query_records().
-    The file is written after every new entry so a crash loses at most
-    one result.
+
+_STOPWORDS = {
+    "the", "a", "an", "is", "are", "was", "were", "of", "in", "on", "at",
+    "to", "for", "with", "how", "what", "many", "much", "does", "do", "it",
+    "its", "per", "be", "have", "has", "about", "that", "this", "which",
+    "and", "or", "by", "from", "as", "if", "than", "so", "no", "not",
+}
+
+
+def _query_words(text: str) -> set[str]:
+    return {w for w in text.lower().split() if w not in _STOPWORDS and len(w) > 1}
+
+
+def lookup_fermi_facts(
+    queries: list[str],
+    facts: dict[str, dict[str, Any]],
+    min_overlap: int = 2,
+) -> list[dict[str, Any]]:
+    """Match each query against fermi_facts by keyword overlap.
+
+    Returns one search_record per query in the same format expected by
+    format_model_search_context(). Unmatched queries get status='no_match'.
     """
+    entries = list(facts.values())
+    fact_word_sets = [_query_words(e["question"]) for e in entries]
 
-    def __init__(self, path: str) -> None:
-        self._path = path
-        self._lock = asyncio.Lock()
-        self._data: dict[str, dict[str, Any]] = {}
-        self._load()
-
-    def _load(self) -> None:
-        if os.path.exists(self._path):
-            try:
-                with open(self._path) as f:
-                    self._data = json.load(f)
-                print(f"[cache] loaded {len(self._data)} entries from {self._path}")
-            except Exception as e:
-                print(f"[cache] could not load {self._path}: {e} — starting empty")
-
-    def _save(self) -> None:
-        os.makedirs(os.path.dirname(self._path), exist_ok=True)
-        tmp = self._path + ".tmp"
-        with open(tmp, "w") as f:
-            json.dump(self._data, f)
-        os.replace(tmp, self._path)
-
-    @staticmethod
-    def _key(query: str) -> str:
-        return query.strip().lower()
-
-    def get(self, query: str) -> dict[str, Any] | None:
-        return self._data.get(self._key(query))
-
-    async def set(self, query: str, record: dict[str, Any]) -> None:
-        async with self._lock:
-            self._data[self._key(query)] = record
-            self._save()
-
-    @property
-    def size(self) -> int:
-        return len(self._data)
+    records: list[dict[str, Any]] = []
+    for query in queries:
+        q_words = _query_words(query)
+        best_idx, best_overlap = -1, 0
+        for i, fw in enumerate(fact_word_sets):
+            overlap = len(q_words & fw)
+            if overlap > best_overlap:
+                best_overlap = overlap
+                best_idx = i
+        if best_idx >= 0 and best_overlap >= min_overlap:
+            entry = entries[best_idx]
+            records.append({
+                "query": query,
+                "status": "ok",
+                "error": "",
+                "results": [{"title": entry["question"], "snippet": entry.get("answer", "")}],
+                "source": "fermi_facts",
+                "matched_question": entry["question"],
+                "overlap": best_overlap,
+            })
+        else:
+            records.append({
+                "query": query,
+                "status": "no_match",
+                "error": f"no fermi fact with overlap >= {min_overlap}",
+                "results": [],
+                "source": "fermi_facts",
+            })
+    return records
 
 
 # ---------------------------------------------------------------------------
-# Copied helpers from run_verifier.py (unchanged)
+# Helpers (unchanged from run_verifier.py)
 # ---------------------------------------------------------------------------
 
 def load_rows(dataset_path: str, offset: int, limit: int | None) -> list[dict[str, Any]]:
@@ -225,16 +231,6 @@ async def call_tinker_model(*, model: str, messages: list[dict[str, str]],
     return text, renderer_name, time.time() - t0
 
 
-def search_query_records(query: str, *, max_results: int,
-                         timeout_s: float) -> dict[str, Any]:
-    try:
-        results = search_web(query, max_results=max_results, timeout_s=timeout_s)
-        return {"query": query, "status": "ok", "error": "",
-                "results": [r.to_dict() for r in results]}
-    except Exception as e:
-        return {"query": query, "status": "search_error", "error": repr(e), "results": []}
-
-
 def format_model_search_context(plan: dict[str, Any],
                                 search_records: list[dict[str, Any]]) -> str:
     lines = ["Reference facts to consider:"]
@@ -263,7 +259,7 @@ def format_model_search_context(plan: dict[str, Any],
 
 
 # ---------------------------------------------------------------------------
-# Cache-aware verifier
+# Fermi-facts-backed verifier
 # ---------------------------------------------------------------------------
 
 async def run_model_verifier(
@@ -272,9 +268,7 @@ async def run_model_verifier(
     row: dict[str, Any],
     max_tokens: int,
     max_search_queries: int,
-    search_results: int,
-    search_timeout_s: float,
-    cache: SearchCache,
+    fermi_facts: dict[str, Any],
 ) -> dict[str, Any]:
     answer_type = row.get("answer_type", "oom_exponent")
     started = time.time()
@@ -302,27 +296,11 @@ async def run_model_verifier(
         if isinstance(q, str) and q.strip()
     ][:max_search_queries]
 
-    # --- cache-aware search ---
-    search_records: list[dict[str, Any]] = []
-    cache_hits = 0
-    for query in queries:
-        cached = cache.get(query)
-        if cached is not None:
-            search_records.append(cached)
-            cache_hits += 1
-        else:
-            record = await asyncio.to_thread(
-                search_query_records, query,
-                max_results=search_results,
-                timeout_s=search_timeout_s,
-            )
-            await cache.set(query, record)
-            search_records.append(record)
-
+    # --- fermi_facts lookup (no live web calls) ---
+    search_records = lookup_fermi_facts(queries, fermi_facts)
+    matches = sum(1 for r in search_records if r.get("status") == "ok")
     if queries:
-        misses = len(queries) - cache_hits
-        print(f"  [cache] {cache_hits} hits / {misses} misses "
-              f"(total cached: {cache.size})  id={row.get('id','?')}")
+        print(f"  [fermi_facts] {matches}/{len(queries)} matched  id={row.get('id','?')}")
 
     search_context = format_model_search_context(plan, search_records)
     compute_messages = build_compute_messages(
@@ -351,7 +329,7 @@ async def run_model_verifier(
         "model": model,
         "renderer": renderer_name,
         "latency_s": round(time.time() - started, 3),
-        "cache_hits": cache_hits,
+        "fermi_facts_matches": matches,
         "search_plan": {
             "status": plan_status, "error": plan_error,
             "latency_s": round(plan_latency_s, 3),
@@ -378,17 +356,13 @@ async def verify_row(
     model_b: str | None,
     max_tokens: int,
     max_search_queries: int,
-    search_results: int,
-    search_timeout_s: float,
-    cache: SearchCache,
+    fermi_facts: dict[str, Any],
 ) -> dict[str, Any]:
     verifier_tasks = [
         run_model_verifier(
             model=model_a, row=row, max_tokens=max_tokens,
             max_search_queries=max_search_queries,
-            search_results=search_results,
-            search_timeout_s=search_timeout_s,
-            cache=cache,
+            fermi_facts=fermi_facts,
         )
     ]
     if model_b:
@@ -396,9 +370,7 @@ async def verify_row(
             run_model_verifier(
                 model=model_b, row=row, max_tokens=max_tokens,
                 max_search_queries=max_search_queries,
-                search_results=search_results,
-                search_timeout_s=search_timeout_s,
-                cache=cache,
+                fermi_facts=fermi_facts,
             )
         )
     verifications = await asyncio.gather(*verifier_tasks)
@@ -418,12 +390,12 @@ async def verify_row(
 def summarize(records: list[dict[str, Any]]) -> dict[str, Any]:
     verdict_counts: dict[str, int] = {}
     stage_status_counts: dict[str, int] = {}
-    total_cache_hits = 0
+    total_fermi_matches = 0
     for record in records:
         verdict_counts[record.get("consensus_verdict", "unknown")] = \
             verdict_counts.get(record.get("consensus_verdict", "unknown"), 0) + 1
         for v in record.get("verifications", []):
-            total_cache_hits += v.get("cache_hits", 0)
+            total_fermi_matches += v.get("fermi_facts_matches", 0)
             for stage in ("search_plan", "computation"):
                 status = v.get(stage, {}).get("status", "unknown")
                 key = f"{stage}:{status}"
@@ -432,7 +404,7 @@ def summarize(records: list[dict[str, Any]]) -> dict[str, Any]:
         "n": len(records),
         "consensus_verdict_counts": verdict_counts,
         "stage_status_counts": stage_status_counts,
-        "total_cache_hits": total_cache_hits,
+        "total_fermi_matches": total_fermi_matches,
     }
 
 
@@ -451,7 +423,8 @@ async def run(args: argparse.Namespace) -> dict[str, Any]:
     if not os.environ.get("TINKER_API_KEY"):
         raise SystemExit("TINKER_API_KEY is not set. Export it or `source .env` first.")
 
-    cache = SearchCache(args.cache_file)
+    fermi_facts = load_fermi_facts(args.fermi_facts_file)
+    print(f"[fermi_facts] loaded {len(fermi_facts)} entries from {args.fermi_facts_file}")
 
     dataset_paths = args.datasets or [args.dataset]
     limit = None if args.all else args.limit
@@ -473,9 +446,7 @@ async def run(args: argparse.Namespace) -> dict[str, Any]:
                 model_a=args.model_a, model_b=args.model_b,
                 max_tokens=args.max_tokens,
                 max_search_queries=args.max_search_queries,
-                search_results=args.search_results,
-                search_timeout_s=args.search_timeout,
-                cache=cache,
+                fermi_facts=fermi_facts,
             )
             record["dataset"] = os.path.relpath(dataset_path, PROJECT_ROOT)
             record["split"] = dataset_split_name(dataset_path)
@@ -492,8 +463,7 @@ async def run(args: argparse.Namespace) -> dict[str, Any]:
         done += 1
         if done % 10 == 0 or done == total:
             print(f"{done}/{total} split={record['split']} "
-                  f"id={record['id']} consensus={record['consensus_verdict']} "
-                  f"cache_size={cache.size}")
+                  f"id={record['id']} consensus={record['consensus_verdict']}")
 
     records.sort(key=lambda r: r["index"])
 
@@ -507,11 +477,11 @@ async def run(args: argparse.Namespace) -> dict[str, Any]:
             "model_a": args.model_a,
             "model_b": args.model_b,
             "concurrency": args.concurrency,
-            "cache_file": args.cache_file,
+            "fermi_facts_file": os.path.relpath(args.fermi_facts_file, PROJECT_ROOT),
+            "fermi_facts_count": len(fermi_facts),
             "sampling_params": {**SAMPLING_PARAMS, "max_tokens": args.max_tokens},
-            "search_provider": os.environ.get("SEARCH_PROVIDER", "duckduckgo"),
+            "search_provider": "fermi_facts",
             "max_search_queries": args.max_search_queries,
-            "search_results": args.search_results,
             "wall_time_s": round(time.time() - t0, 1),
             "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         },
@@ -524,7 +494,7 @@ async def run(args: argparse.Namespace) -> dict[str, Any]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Verify Fermi ground truths with a persistent search cache."
+        description="Verify Fermi ground truths using static fermi_facts.json for search evidence."
     )
     parser.add_argument("--dataset", default=_DEFAULT_DATASET)
     parser.add_argument("--datasets", nargs="+", default=None)
@@ -536,17 +506,15 @@ def main() -> None:
     parser.add_argument("--model-b", default=None)
     parser.add_argument("--max-tokens", type=int, default=512)
     parser.add_argument("--max-search-queries", type=int, default=5)
-    parser.add_argument("--search-results", type=int, default=5)
-    parser.add_argument("--search-timeout", type=float, default=10.0)
     parser.add_argument("--concurrency", type=int, default=8)
-    parser.add_argument("--cache-file", default=_DEFAULT_CACHE,
-                        help="Path to JSON cache file (created if absent).")
+    parser.add_argument("--fermi-facts-file", default=_DEFAULT_FERMI_FACTS,
+                        help="Path to fermi_facts.json (pre-fetched assumption answers).")
     args = parser.parse_args()
 
     payload = asyncio.run(run(args))
     summary = payload["summary"]
     print(json.dumps(summary, indent=2))
-    print(f"Cache hits: {summary['total_cache_hits']}")
+    print(f"Fermi fact matches: {summary['total_fermi_matches']}")
     print(f"Wrote {args.output}")
 
 

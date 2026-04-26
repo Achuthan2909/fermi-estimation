@@ -1,4 +1,8 @@
 anthropic>=0.40
-requests>=2.31
+huggingface-hub>=0.20.0
 matplotlib>=3.7
 numpy>=1.24
+openai>=1.0.0
+requests>=2.31
+tinker>=0.18.0
+tinker-cookbook>=0.3.0
