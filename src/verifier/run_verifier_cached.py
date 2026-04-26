@@ -455,15 +455,20 @@ async def run(args: argparse.Namespace) -> dict[str, Any]:
     records: list[dict[str, Any]] = []
     done = 0
     t0 = time.time()
+    checkpoint_path = args.output + ".partial"
     for coro in asyncio.as_completed(
         [bounded(dp, i, r) for dp, i, r in all_items]
     ):
         record = await coro
         records.append(record)
         done += 1
-        if done % 10 == 0 or done == total:
-            print(f"{done}/{total} split={record['split']} "
-                  f"id={record['id']} consensus={record['consensus_verdict']}")
+        print(f"{done}/{total} id={record['id']} consensus={record['consensus_verdict']} "
+              f"domain={record.get('domain','?')}")
+        if done % 25 == 0 or done == total:
+            sorted_so_far = sorted(records, key=lambda r: r["index"])
+            with open(checkpoint_path, "w") as f:
+                json.dump(sorted_so_far, f, indent=2)
+            print(f"  [checkpoint] saved {done} records to {checkpoint_path}")
 
     records.sort(key=lambda r: r["index"])
 
@@ -489,6 +494,8 @@ async def run(args: argparse.Namespace) -> dict[str, Any]:
         "results": records,
     }
     write_output(args.output, payload)
+    if os.path.exists(checkpoint_path):
+        os.remove(checkpoint_path)
     return payload
 
 
