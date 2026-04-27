@@ -205,9 +205,11 @@ def build_config(
         "save_every": 100,
     }
     if kl_coef > 0:
+        # KLReferenceConfig requires sampler_weights path; training init requires weights path.
+        kl_sampler_path = init_checkpoint.replace("/weights/", "/sampler_weights/")
         overrides["kl_reference_config"] = KLReferenceConfig(
             base_model=MODEL_NAME,
-            load_checkpoint_path=init_checkpoint,
+            load_checkpoint_path=kl_sampler_path,
         )
     if wandb_project:
         overrides["wandb_project"] = wandb_project
