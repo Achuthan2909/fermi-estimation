@@ -40,9 +40,11 @@ from tinker_cookbook.rl.types import (
 )
 from tinker_cookbook.rl.train import Config, KLReferenceConfig
 from tinker_cookbook.rl import train as rl_train
+from tinker_cookbook.eval.evaluators import SamplingClientEvaluator
+from tinker import SamplingParams, types as tinker_types
 
 from prompt_contract import SYSTEM_PROMPT, USER_TEMPLATE  # noqa: E402
-from reward import reward_fn  # noqa: E402
+from reward import reward_breakdown  # noqa: E402
 
 MODEL_NAME = "Qwen/Qwen3-4B-Instruct-2507"
 RENDERER_NAME = model_info.get_recommended_renderer_name(MODEL_NAME)
@@ -77,17 +79,27 @@ class FermiEnv(Env):
     async def step(self, action: Action, *, extra: ActionExtra | None = None) -> StepResult:
         message, _ = self._renderer.parse_response(action)
         text = tc_renderers.get_text_content(message)
-        reward = reward_fn(text, {"provided_ground_truth": self._gold_oom})
+        b = reward_breakdown(text, {"provided_ground_truth": self._gold_oom})
+        reward = float(b["reward"])
         return StepResult(
             reward=reward,
             episode_done=True,
             next_observation=tinker.ModelInput.empty(),
             next_stop_condition=self._renderer.get_stop_sequences(),
-            metrics={"reward": reward},
+            metrics={
+                "reward": reward,
+                "oom_score": float(b["oom_score"]),
+                "struct_score": float(b["struct_score"]),
+                "parse_ok": float(b["parse_ok"]),
+                "has_factor": float(b["has_factor"]),
+                "has_calc": float(b["has_calc"]),
+                "has_formula": float(b["has_formula"]),
+            },
             logs={
                 "question": self._question[:80],
                 "gold_oom": str(self._gold_oom),
                 "response_snippet": text[:120],
+                "status": b["status"],
             },
         )
 
@@ -164,6 +176,79 @@ class FermiRLDatasetBuilder(RLDatasetBuilder):
             rows = [json.loads(line) for line in f if line.strip()]
         dataset = FermiRLDataset(rows, self.batch_size, self.group_size, renderer, self.n_steps)
         return dataset, None
+
+
+# ── Held-out evaluator ───────────────────────────────────────────────────────
+
+
+class FermiEvaluator(SamplingClientEvaluator):
+    """Sample one rollout per held-out prompt, score with reward_breakdown,
+    and return aggregate metrics. Sequential (not batched) to keep things
+    simple — call only every N training steps."""
+
+    def __init__(
+        self,
+        prompts: list[dict],
+        renderer: Any,
+        max_tokens: int,
+        temperature: float = 0.0,
+    ) -> None:
+        self._prompts = prompts
+        self._renderer = renderer
+        self._max_tokens = max_tokens
+        self._temperature = temperature
+
+    async def __call__(self, sampling_client) -> dict[str, float]:
+        sp = SamplingParams(
+            max_tokens=self._max_tokens,
+            temperature=self._temperature,
+            top_p=1.0,
+            stop=self._renderer.get_stop_sequences(),
+        )
+        sums = {"reward": 0.0, "oom_score": 0.0, "struct_score": 0.0,
+                "parse_ok": 0.0, "has_factor": 0.0, "has_calc": 0.0,
+                "has_formula": 0.0}
+        n = 0
+        for row in self._prompts:
+            meta = row["metadata"]
+            messages = row["messages"]
+            model_input = self._renderer.build_generation_prompt(
+                [{"role": m["role"], "content": m["content"]} for m in messages]
+            )
+            r = await sampling_client.sample_async(
+                prompt=model_input, num_samples=1, sampling_params=sp
+            )
+            tokens = r.sequences[0].tokens
+            message, _ = self._renderer.parse_response(tokens)
+            text = tc_renderers.get_text_content(message)
+            b = reward_breakdown(text, {"provided_ground_truth": int(meta["ground_truth_oom"])})
+            for k in sums:
+                sums[k] += float(b[k])
+            n += 1
+        if n == 0:
+            return {}
+        return {f"eval/{k}": v / n for k, v in sums.items()} | {"eval/n": float(n)}
+
+
+@chz.chz
+class FermiEvaluatorBuilder:
+    """chz-friendly builder so the evaluator survives serialization."""
+
+    eval_file: str
+    model_name_for_tokenizer: str
+    renderer_name: str
+    max_tokens: int
+    temperature: float = 0.0
+
+    def __call__(self) -> FermiEvaluator:
+        tokenizer = get_tokenizer(self.model_name_for_tokenizer)
+        renderer = get_renderer(self.renderer_name, tokenizer)
+        with open(self.eval_file) as f:
+            prompts = [json.loads(line) for line in f if line.strip()]
+        return FermiEvaluator(
+            prompts=prompts, renderer=renderer,
+            max_tokens=self.max_tokens, temperature=self.temperature,
+        )
 
 
 # ── Config builder ────────────────────────────────────────────────────────────

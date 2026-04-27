@@ -28,26 +28,46 @@ def reward_fn(rollout_text: str, ground_truth: dict) -> float:
         rollout_text:  Raw text output from the model.
         ground_truth:  Dict with key "provided_ground_truth" (int OOM exponent).
     """
-    # Strip <think>...</think> blocks (hybrid models may emit them)
+    return reward_breakdown(rollout_text, ground_truth)["reward"]
+
+
+def reward_breakdown(rollout_text: str, ground_truth: dict) -> dict:
+    """Same scoring as ``reward_fn`` but returns components for logging.
+
+    Returns a dict with:
+      - reward       : final scalar (same as reward_fn)
+      - status       : "ok" | "parse_fail" | "schema_fail"
+      - oom_score    : in [0, 1] (or 0 on schema_fail / parse_fail)
+      - struct_score : in [0, 1] (factors+calc+formula, 1/3 each)
+      - delta        : |log10(pred) - gold_oom|  (None on parse/schema fail)
+      - parse_ok     : bool, did JSON parse?
+      - has_factor   : bool
+      - has_calc     : bool
+      - has_formula  : bool
+    """
+    fail = lambda reward, status: {  # noqa: E731
+        "reward": reward, "status": status,
+        "oom_score": 0.0, "struct_score": 0.0, "delta": None,
+        "parse_ok": status != "parse_fail",
+        "has_factor": False, "has_calc": False, "has_formula": False,
+    }
+
     text = re.sub(r"<think>.*?</think>", "", rollout_text, flags=re.DOTALL).strip()
 
-    # ── JSON parse ──────────────────────────────────────────────────────────
     try:
         parsed = json.loads(text)
     except (json.JSONDecodeError, ValueError):
-        return -1.0
+        return fail(-1.0, "parse_fail")
     if not isinstance(parsed, dict):
-        return -1.0
+        return fail(-1.0, "parse_fail")
 
-    # ── Schema check: final.oom must be an integer ──────────────────────────
     final = parsed.get("final")
     if not isinstance(final, dict) or "oom" not in final:
-        return -0.5
+        return fail(-0.5, "schema_fail")
     pred_oom = final.get("oom")
     if not isinstance(pred_oom, int):
-        return -0.5
+        return fail(-0.5, "schema_fail")
 
-    # final.value must be a real finite number (not None, not string)
     pred_value = final.get("value")
     if pred_value is not None:
         if not isinstance(pred_value, (int, float)):
@@ -57,59 +77,57 @@ def reward_fn(rollout_text: str, ground_truth: dict) -> float:
 
     gold_oom = ground_truth.get("provided_ground_truth")
     if not isinstance(gold_oom, int):
-        return -0.5
+        return fail(-0.5, "schema_fail")
 
-    # ── FP accuracy (weight 0.7) ─────────────────────────────────────────────
-    # fp_score = max(0, 1 - (1/3) * |log10(predicted / actual)|)
-    # Use final.value when available (more precise); fall back to 10^pred_oom.
-    actual = 10.0 ** gold_oom
-    predicted = float(pred_value) if pred_value is not None and pred_value > 0 else 10.0 ** pred_oom
+    # FP accuracy (log-space; safe for wild pred_oom).
     try:
-        delta = abs(math.log10(predicted / actual))
-    except (ValueError, ZeroDivisionError):
+        if isinstance(pred_value, (int, float)) and not isinstance(pred_value, bool) \
+                and math.isfinite(pred_value) and pred_value > 0:
+            log_pred = math.log10(pred_value)
+        else:
+            log_pred = float(pred_oom)
+        delta = abs(log_pred - float(gold_oom))
+    except (ValueError, TypeError):
         delta = float("inf")
-    oom_score = max(0.0, 1.0 - delta / 3.0)
+    # Sharper than validate_sft (which uses /3.0): RL needs a steeper
+    # gradient near the target so the policy actually pushes |err| down.
+    oom_score = max(0.0, 1.0 - delta / 1.5)
 
-    # ── Structural quality (weight 0.3) ─────────────────────────────────────
-    struct_score = 0.0
-
-    # 1. Has at least one non-dummy factor
+    # Structural quality.
+    has_factor = False
     factors = parsed.get("factors")
-    has_real_factor = False
     if isinstance(factors, list):
         for f in factors:
             if not isinstance(f, dict):
                 continue
-            low = f.get("low", 0)
-            high = f.get("high", 0)
-            point = f.get("point", 0)
-            # Reject if all numeric fields are 0
+            low, high, point = f.get("low", 0), f.get("high", 0), f.get("point", 0)
             if low == 0 and high == 0 and point == 0:
                 continue
-            # Reject if both name and why are empty
             name = str(f.get("name", "")).strip()
             why = str(f.get("why", "")).strip()
             if not name and not why:
                 continue
-            has_real_factor = True
+            has_factor = True
             break
-    if has_real_factor:
-        struct_score += 1 / 3
 
-    # 2. Calculation has >30 alnum chars AND at least one digit
-    #    (guards against "x" * 50 padding)
     calculation = str(parsed.get("calculation", ""))
-    alnum_count = sum(1 for c in calculation if c.isalnum())
-    has_digit = any(c.isdigit() for c in calculation)
-    if alnum_count >= 30 and has_digit:
-        struct_score += 1 / 3
+    has_calc = (sum(1 for c in calculation if c.isalnum()) >= 30
+                and any(c.isdigit() for c in calculation))
+    has_formula = bool(str(parsed.get("formula", "")).strip())
 
-    # 3. Formula field is non-empty
-    formula = str(parsed.get("formula", "")).strip()
-    if formula:
-        struct_score += 1 / 3
-
-    return 0.7 * oom_score + 0.3 * struct_score
+    struct_score = (1 / 3) * (int(has_factor) + int(has_calc) + int(has_formula))
+    reward = 0.7 * oom_score + 0.3 * struct_score
+    return {
+        "reward": reward,
+        "status": "ok",
+        "oom_score": oom_score,
+        "struct_score": struct_score,
+        "delta": delta,
+        "parse_ok": True,
+        "has_factor": has_factor,
+        "has_calc": has_calc,
+        "has_formula": has_formula,
+    }
 
 
 # ── Self-test ────────────────────────────────────────────────────────────────
@@ -157,14 +175,15 @@ if __name__ == "__main__":
         "confidence": "high",
     })
 
-    # correct: pred_value=730, gold_oom=2 → delta=|log10(730/100)|=0.863
-    #   fp_score = 1 - 0.863/3 = 0.712; struct=1.0 → reward = 0.7*0.712 + 0.3 = 0.798
-    # hack (gold=5): pred_value=730, actual=1e5 → delta=|log10(730/1e5)|=2.137
-    #   fp_score = 1 - 2.137/3 = 0.288; struct=1/3 → reward = 0.7*0.288 + 0.1 = 0.302
+    # correct: pred_value=730, gold_oom=2 → delta=0.863
+    #   fp_score = max(0, 1 - 0.863/1.5) = 0.425; struct=1.0
+    #   reward = 0.7*0.425 + 0.3 = 0.598
+    # hack (gold=5): delta=2.137, beyond /1.5 cutoff → fp_score=0
+    #   struct=1/3 → reward = 0.7*0 + 0.1 = 0.100
     results = [
-        _run("correct (gold=2)",        correct_json,  {"provided_ground_truth": 2},  (0.75, 0.85)),
+        _run("correct (gold=2)",        correct_json,  {"provided_ground_truth": 2},  (0.55, 0.65)),
         _run("malformed JSON",          "not json {{", {"provided_ground_truth": 2},  (-1.0, -1.0)),
-        _run("reward-hack (wrong OOM)", hack_json,     {"provided_ground_truth": 5},  (0.0,  0.35)),
+        _run("reward-hack (wrong OOM)", hack_json,     {"provided_ground_truth": 5},  (0.0,  0.20)),
     ]
 
     sys.exit(0 if all(results) else 1)
