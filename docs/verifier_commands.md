@@ -39,7 +39,7 @@ python src/verifier/run_verifier.py \
   --offset 0 \
   --limit 1 \
   --model-a Qwen/Qwen3-4B-Instruct-2507 \
-  --output run/verification_one.json
+  --output run/verification/verification_one.json
 ```
 
 Change `--offset` to test a different row.
@@ -53,7 +53,7 @@ python src/verifier/run_verifier.py \
   --dataset datasets/final/val.json \
   --limit 10 \
   --model-a Qwen/Qwen3-4B-Instruct-2507 \
-  --output run/verification_val_10.json
+  --output run/verification/verification_val_10.json
 ```
 
 ## Two Models
@@ -67,7 +67,7 @@ python src/verifier/run_verifier.py \
   --limit 1 \
   --model-a Qwen/Qwen3-4B-Instruct-2507 \
   --model-b Qwen/Qwen3-4B-Instruct-2507 \
-  --output run/verification_one_two_models.json
+  --output run/verification/verification_one_two_models.json
 ```
 
 Each model plans its own searches, receives its own retrieved context, and
@@ -81,7 +81,7 @@ python src/verifier/run_verifier.py \
   --dataset datasets/final/train.json \
   --all \
   --model-a Qwen/Qwen3-4B-Instruct-2507 \
-  --output run/verification_train.json
+  --output run/verification/verification_train.json
 ```
 
 ## Full Validation Split
@@ -91,7 +91,7 @@ python src/verifier/run_verifier.py \
   --dataset datasets/final/val.json \
   --all \
   --model-a Qwen/Qwen3-4B-Instruct-2507 \
-  --output run/verification_val.json
+  --output run/verification/verification_val.json
 ```
 
 ## Train And Validation Together
@@ -101,7 +101,7 @@ python src/verifier/run_verifier.py \
   --datasets datasets/final/train.json datasets/final/val.json \
   --all \
   --model-a Qwen/Qwen3-4B-Instruct-2507 \
-  --output run/verification_train_val.json
+  --output run/verification/verification_train_val.json
 ```
 
 The output records include `dataset` and `split` fields so train and validation

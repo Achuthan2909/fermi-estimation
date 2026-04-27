@@ -23,10 +23,9 @@ from typing import Any
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC_ROOT = os.path.dirname(HERE)
 PROJECT_ROOT = os.path.dirname(SRC_ROOT)
-sys.path.insert(0, HERE)
 sys.path.insert(0, SRC_ROOT)
 
-from prompt_contract import (  # noqa: E402
+from verifier.prompt_contract import (  # noqa: E402
     CONTRACT_VERSION,
     ParseError,
     build_compute_messages,
@@ -501,7 +500,7 @@ def main() -> None:
     parser.add_argument("--model-b", default=None)
     parser.add_argument("--max-tokens", type=int, default=512)
     parser.add_argument("--max-search-queries", type=int, default=5)
-    parser.add_argument("--search-results", type=int, default=5)
+    parser.add_argument("--search-results", type=int, default=2)
     parser.add_argument("--search-timeout", type=float, default=10.0)
     parser.add_argument("--concurrency", type=int, default=8,
                         help="Max rows verified in parallel (default 8).")
