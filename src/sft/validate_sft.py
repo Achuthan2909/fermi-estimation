@@ -144,16 +144,19 @@ async def _run(args: argparse.Namespace) -> None:
     score_sum = 0.0
     tol = float(args.tol_decades)
     t0 = time.time()
+    sem = asyncio.Semaphore(args.concurrency)
+    results_lock = asyncio.Lock()
 
-    try:
-        for i, row in enumerate(rows):
-            question = row.get("question")
-            if not question:
-                continue
-            unit = row.get("unit")
-            gold_oom = _gold_oom(row)
-            answer_type = row.get("answer_type", "oom_exponent")
+    async def _process_row(i: int, row: dict) -> None:
+        nonlocal n, n_parsed, n_exact, n_within_1, n_within_2, score_sum
+        question = row.get("question")
+        if not question:
+            return
+        unit = row.get("unit")
+        gold_oom = _gold_oom(row)
+        answer_type = row.get("answer_type", "oom_exponent")
 
+        async with sem:
             try:
                 text = await _sample(
                     sc, renderer, tokenizer, question, unit,
@@ -161,19 +164,39 @@ async def _run(args: argparse.Namespace) -> None:
                 )
             except Exception as e:
                 print(f"[{i:3d}] {row.get('id','?')}  SAMPLE FAIL: {e}", file=sys.stderr)
-                continue
+                return
 
-            result = score_row(
-                text,
-                answer_type=answer_type,
-                gold_oom=gold_oom,
-            )
+        result = score_row(text, answer_type=answer_type, gold_oom=gold_oom)
 
+        pred_oom = result.get("pred_oom")
+        pred_value = result.get("pred_value")
+
+        lenient = None
+        if isinstance(gold_oom, int):
+            try:
+                if isinstance(pred_value, (int, float)) and pred_value > 0 and math.isfinite(pred_value):
+                    delta = abs(math.log10(pred_value) - gold_oom)
+                elif isinstance(pred_oom, int):
+                    delta = abs(pred_oom - gold_oom)
+                else:
+                    delta = None
+                if delta is not None:
+                    lenient = max(0.0, 1.0 - delta / tol)
+            except (ValueError, TypeError):
+                lenient = None
+        if lenient is None:
+            lenient = float(result.get("score") or 0.0)
+
+        print(
+            f"[{i:3d}] {row.get('id','?'):20s}  "
+            f"gold={gold_oom!s:>4}  pred={pred_oom!s:>4}  "
+            f"score={lenient:.2f}  status={result['status']}"
+        )
+
+        async with results_lock:
             n += 1
             if result["status"] != "parse_fail":
                 n_parsed += 1
-            pred_oom = result.get("pred_oom")
-            pred_value = result.get("pred_value")
             if isinstance(pred_oom, int) and isinstance(gold_oom, int):
                 err = abs(pred_oom - gold_oom)
                 if err == 0:
@@ -182,34 +205,7 @@ async def _run(args: argparse.Namespace) -> None:
                     n_within_1 += 1
                 if err <= 2:
                     n_within_2 += 1
-
-            # Lenient continuous Fermi score:
-            #   max(0, 1 - |log10(pred) - log10(gold)| / tol)
-            # For oom_exponent rows we use pred_value vs 10**gold_oom when
-            # available; falls back to integer pred_oom / gold_oom.
-            lenient = None
-            if isinstance(gold_oom, int):
-                try:
-                    if isinstance(pred_value, (int, float)) and pred_value > 0 and math.isfinite(pred_value):
-                        delta = abs(math.log10(pred_value) - gold_oom)
-                    elif isinstance(pred_oom, int):
-                        delta = abs(pred_oom - gold_oom)
-                    else:
-                        delta = None
-                    if delta is not None:
-                        lenient = max(0.0, 1.0 - delta / tol)
-                except (ValueError, TypeError):
-                    lenient = None
-            if lenient is None:
-                lenient = float(result.get("score") or 0.0)
             score_sum += lenient
-
-            print(
-                f"[{i:3d}] {row.get('id','?'):20s}  "
-                f"gold={gold_oom!s:>4}  pred={pred_oom!s:>4}  "
-                f"score={lenient:.2f}  status={result['status']}"
-            )
-
             if out_f:
                 out_f.write(json.dumps({
                     "id": row.get("id"),
@@ -223,6 +219,9 @@ async def _run(args: argparse.Namespace) -> None:
                     "reason": result.get("reason"),
                     "response_text": text,
                 }, ensure_ascii=False) + "\n")
+
+    try:
+        await asyncio.gather(*[_process_row(i, row) for i, row in enumerate(rows)])
     finally:
         if out_f:
             out_f.close()
@@ -254,6 +253,8 @@ def main() -> None:
     ap.add_argument("--out", help="Optional JSONL path to dump per-row predictions.")
     ap.add_argument("--max-tokens", type=int, default=int(SAMPLING_PARAMS.get("max_tokens", 1024)))
     ap.add_argument("--temperature", type=float, default=float(SAMPLING_PARAMS.get("temperature", 0.0)))
+    ap.add_argument("--concurrency", type=int, default=4,
+                    help="Number of parallel inference requests (default: 4).")
     ap.add_argument("--tol-decades", type=float, default=3.0,
                     help="Tolerance for the lenient log10 score: "
                          "score = max(0, 1 - |log10(pred/gold)| / tol). "
