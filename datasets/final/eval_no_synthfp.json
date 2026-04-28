@@ -1,0 +1,3028 @@
+[
+  {
+    "question": "If the average snowfall in Houston, Texas in December was distributed evenly across Russia's surface area, how many inches of snow would there be?",
+    "fermi_answer": -5,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:2478",
+    "answer_type": "oom_exponent",
+    "file_source_url": "SOUP Invitational 22-23"
+  },
+  {
+    "question": "If you were to count from one to a quintillion, and took a second to visualize each number (audibly counting would take a lot longer), how long would it take, in years?",
+    "fermi_answer": 10,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "fermiq:og:13",
+    "answer_type": "oom_exponent",
+    "file_source_url": "og"
+  },
+  {
+    "question": "The number of years ago that Pangaea existed as a supercontinent?",
+    "fermi_answer": 8,
+    "domain": "Earth Science",
+    "source": "train_dir:filtered:fermi_problems_filtered_1.json",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "If the SO bacteria don't die, how many hours will it take for two to reproduce and make a volume equal to that of the earth?",
+    "fermi_answer": 0,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "fermiq:NC State:28",
+    "answer_type": "oom_exponent",
+    "file_source_url": "NC State"
+  },
+  {
+    "question": "How many golf balls put into the worlds oceans would it take to submerge all of the land on earth from the displaced water?",
+    "fermi_answer": 13,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "answer_raw": "32000000000000.0",
+    "answer_log10": 13.50515,
+    "id": "realFP:test:0",
+    "answer_type": "numeric",
+    "program": "PROGRAM:=Q1: What is the volume of the oceans?=Q2: What is the volume of a golf ball?=A1: 1.3e+9 km**3=A2: 4e-5 km**3=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+    "context": "CONTEXT:=F1: The volume of the oceans is 1.3e+9 km**3=F2: The volume of a golf ball is 4e-5 km**3"
+  },
+  {
+    "question": "How many chemical substances, indexed in the CAS (Chemical Abstracts Service) registry, are known? [Use SI Units / 2017 USD] [Use SI Units / 2017 USD]",
+    "fermi_answer": 8,
+    "domain": "chemistry",
+    "source": "achuthan:train",
+    "id": "scioly:1871",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Princeton Invitational 17-18"
+  },
+  {
+    "question": "What is the capacity of the University of Michigan Big House in people?",
+    "fermi_answer": 5,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:3031",
+    "answer_type": "oom_exponent",
+    "file_source_url": "University of Michigan Invitational 18-19"
+  },
+  {
+    "question": "PUSO tournament co-director Inwoo Shin is attempting to remember her password, which she knows is exactly 10 numbers long. She randomly types 10 numbers at a rate of 1 number per second and then checks if the password is correct. She repeats this until she gets the password right. What is the expected number of minutes she will take to get the password correct?",
+    "fermi_answer": 9,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:2024",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Princeton Invitational 23-24"
+  },
+  {
+    "question": "How long, in seconds, would it take for the Sun to output the amount of energy found in the question above?",
+    "fermi_answer": -10,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:2205",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Seven Lakes Invitational 17-18"
+  },
+  {
+    "question": "How many steps do I need to climb to burn off the calories in a slice of pizza?",
+    "fermi_answer": 3,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:764",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Cornell Invitational 18-19"
+  },
+  {
+    "question": "What is the age of the Earth in seconds?",
+    "fermi_answer": 17,
+    "domain": "Astronomy/Earth Science",
+    "source": "train_dir:filtered:fermi_problems_filtered_1.json",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "How many watts would a heater need to keep a local pond from freezing in winter?",
+    "fermi_answer": 6,
+    "domain": "physics",
+    "source": "achuthan:val",
+    "answer_raw": "1418502.0",
+    "answer_log10": 6.15183,
+    "id": "realFP:test:351",
+    "unit": "W",
+    "answer_type": "numeric"
+  },
+  {
+    "question": "How many atoms are in your body?",
+    "fermi_answer": 28,
+    "domain": "Biology/Chemistry",
+    "source": "train_dir:filtered:fermi_problems_filtered_1.json",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "You're over the Mariana trench in a boat with a cannonball in your hand. You drop it overboard, how long does the cannonball take to reach the bottom in seconds?",
+    "fermi_answer": 3,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "fermiq:NC State:9",
+    "answer_type": "oom_exponent",
+    "file_source_url": "NC State"
+  },
+  {
+    "question": "The effect of air pressure was demonstrated in 1654 in Magdeburg, Germany with an impressive experiment. Two hollow metal hemispheres with a flat metal rim (flange) were placed together and the air removed from the interior with a primitive vacuum pump. The external pressure of the air pushed them together. When they tried to pull the hemispheres apart using two rings welded to the hemispheres, they could not be pulled apart even by a number of people pulling together. The sphere produced by putting the two hemispheres together is about the size of a basketball. Estimate the force needed to pull them apart.",
+    "fermi_answer": 20,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "answer_raw": "1.6e+20",
+    "answer_log10": 20.20412,
+    "id": "realFP:test:3",
+    "unit": "N",
+    "answer_type": "numeric",
+    "program": "PROGRAM:=Q1: What is the ratio of the force constant to the distance between the hemispheres?=Q2: What is the product of magnitude of two balls?=Q3: What is the force constant?=Q4: What is the distance between the two hemispheres?=Q5: What is the magnitude of one charge?=Q6: What is the magnitude of another charge?=A1: 9e+9 N*m**2*C**-2=A2: 1 m**2=A3: 148479 C=A4: 148479 C=Q6 -> A4 | F4=Q5 -> A3 | F3=Q2 -> Mul (Q5, Q6)=Q4 -> A2 | F2=Q3 -> A1 | F1=Q1 -> Div (Q3, Q4)=P: Mul (Q1, Q2)",
+    "context": "CONTEXT:=F1: The force constant is 9e+9 N*m**2*C**-2=F2: The distance between hemispheres is 1m**2=F3: The magnitude of charge of the coin is 148479 C=F4: The magnitude of another charge is 148479 C"
+  },
+  {
+    "question": "One suggestion for putting satellites into orbit cheaply without using rockets is to build a tower 300 km high containing an elevator. One would put the payload in the elevator, lift it to the top, and just step out into orbit. Ignoring other problems (such as structural strain on the tower), estimate the weight of such a tower if its base were the size of Washington DC and it were made of steel. (Steel is about 5 times as dense as water, which has a density of 1 gm/cm3.)",
+    "fermi_answer": 15,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "fermiq:NC State Example:14",
+    "answer_type": "oom_exponent",
+    "file_source_url": "NC State Example"
+  },
+  {
+    "question": "Enrico Fermi, the scientist our event is named after, pioneered nuclear energy. How many grams of uranium would remain in a 1kg block of pure U-235 created when Fermi was born?",
+    "fermi_answer": 3,
+    "domain": "chemistry",
+    "source": "achuthan:train",
+    "id": "scioly:413",
+    "answer_type": "oom_exponent",
+    "file_source_url": "FermiSweat, Fermi Questions, but butter (chicken)"
+  },
+  {
+    "question": "If Earth were flat and my antenna was sufficiently high, how much power would I need to broadcast a radio station to the whole world?",
+    "fermi_answer": 18,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "answer_raw": "5.1e+18",
+    "answer_log10": 18.70757,
+    "id": "realFP:test:298",
+    "unit": "W",
+    "answer_type": "numeric",
+    "program": "PROGRAM:=Q1: What is the total surface area of Earth, had it been flat?=Q2: What is the power required to broadcast radio over a sq. km?=A1: 510e+6 km**2=A2: 1e+10 W*km**-2=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+    "context": "CONTEXT:=F1: The total surface area of Earth had it been flat is 510e+6 km**2=F2: The power required to broadcast radio over a sq. km is 1e+10 W"
+  },
+  {
+    "question": "One suggestion for putting satellites into orbit cheaply without using rockets is to build a tower 300 km high containing an elevator. One would put the payload in the elevator, lift it to the top, and just step out into orbit. Ignoring other problems (such as structural strain on the tower), estimate the weight of such a tower if its base were the size of Washington DC and it were made of steel.",
+    "fermi_answer": 15,
+    "domain": "Physics/Engineering/Materials Science",
+    "source": "train_dir:filtered:fermi_problems_filtered_5.json",
+    "answer_raw": "4.2e+14 kg",
+    "answer_log10": 14.6232,
+    "id": "realfp_train_070",
+    "relevance": "core",
+    "program": "PROGRAM:=Q1: What is the total volume of the tower?=Q2: What is the density of steel?=Q3: What is the surface area of Washington DC?=Q4: What is the height of the tower?=A1: 8e+9 kg/km**3=A2: 177 km**2=A3: 300 km=Q4 -> A3 | F3=Q3 -> A2 | F2=Q1 -> Mul (Q3, Q4)=Q2 -> A1 | F1=P: Mul (Q1, Q2)",
+    "context": "CONTEXT:=F1: The density of steel is 8e+9 kg/km**3=F2: The size of Washington DC is 177 km**2=F3: The height of the tower is 300 km",
+    "file_source_url": "https://github.com/allenai/fermi (realFP train split, science-domain filtered)"
+  },
+  {
+    "question": "A breakfast cereal, similar to Cheerios, is composed of small oat cylinders, 1 cm dia., 4 mm high with a 4 mm diameter hole bored through. Estimate the mass, g, of one cylinder.",
+    "fermi_answer": -2,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "answer_raw": "0.047",
+    "answer_log10": -1.327902,
+    "id": "realFP:test:424",
+    "unit": "g",
+    "answer_type": "numeric",
+    "program": "PROGRAM:=Q1: What is the density of the cereal ingredient?=Q2: What is the volume of the cheerio?=Q3: What is the exterior volume of the cheerio?=Q4: What is the interior volume of the cheerio?=Q5: What is the exterior diameter square?=Q6: What is the interior diameter square?=Q7: What is the height of the cheerio?=Q8: What is the relationship between the height and radius for the volume?=Q9: What is the exterior diameter?=Q10: What is the interior diameter?=Q11: What is the relation between exterior diamter and it square?=Q12: What is the relation between interior diamter and it square?=A1: 0.14g*cm**-3=A2: 1 cm=A3: 0.4 cm=A4: 0.4 cm=A5: 2=A6: 2=Q12 -> A6 | F7=Q10 -> A3 | F3=Q6 -> Pow (Q10, Q12)=Q11 -> A5 | F6=Q9 -> A2 | F2=Q5 -> Pow (Q9, Q11)=Q7 -> A4 | F4 & F5=Q4 -> Mul (Q7, Q6)=Q7 -> A4 | F4 & F5=Q3 -> Mul (Q7, Q5)=Q2 -> Sub (Q3, Q4)=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+    "context": "CONTEXT:=F1: The density of cereal ingredient is 0.14 g/cc=F2: The exterior diameter is 1 cm=F3: The interior diameter is 0.4 cm=F4: The height of the cheerio is 0.4 cm=F5: The volume of the cylinder is the product of diameter square and height.=F6: What is the relation between exterior diamter and it square is 2.=F7: What is the relation between interior diamter and it square is 2."
+  },
+  {
+    "question": "Jonas has been enslaved by giants and is to carry harvested mushrooms up Jack\u2019s Beanstalk to the Castle of the Giant King nestled up in the Cirrus clouds. Marilyn wishes to free Jonas, but the giants expect her to pay them in the amount of mushrooms Jonas would transport to them over the entirety of his life, assuming no rest. Given that Jonas can carry 589 mushrooms at a time and his climb rate is 10 m/min both directions vertically, how many mushrooms must Marilyn provide the giants to free Jonas?",
+    "fermi_answer": 7,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:3276",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Sahil Gandhi, WSO Regionals 22-23"
+  },
+  {
+    "question": "I bought a 2 terabyte hard drive. How many bytes of information can it hold?",
+    "fermi_answer": 12,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "fermiq:og:125",
+    "answer_type": "oom_exponent",
+    "file_source_url": "og"
+  },
+  {
+    "question": "How many different sets of 5 can you pick from a group of 50?",
+    "fermi_answer": 6,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "fermiq:og:5",
+    "answer_type": "oom_exponent",
+    "file_source_url": "og"
+  },
+  {
+    "question": "What is the kinetic energy stored in all the wind in the Earth\u2019s atmosphere? The specific gravity of air is 1/1000 th that of water. You should only consider the atmosphere\u2019s motion relative to the surface of the Earth, and not the overall rotation of the planet.",
+    "fermi_answer": 20,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "fermiq:Yale YPO:5",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Yale YPO"
+  },
+  {
+    "question": "If you were to level the entire Amazon rainforest (6 million mi^2) and turn all the trees into paper, how many 100-page notebooks (college-ruled, of course) could you give to each student at UChicago (only the undergrads)?",
+    "fermi_answer": 10,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:2784",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UChicago Invitational 22-23"
+  },
+  {
+    "question": "For next year's Physics Open House the Department is planning to set up a bungee jump from the top of the physics building. Assume that one end of an elastic band will be firmly attached to the top of the building and the other to the waist of a courageous participant. The participant will step off the edge of the building to be slowed and brought back up by the elastic band before hitting the ground (we hope). Estimate the spring constant of the elastic you would recommend using.",
+    "fermi_answer": 2,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "answer_raw": "100.0",
+    "answer_log10": 2.0,
+    "id": "realFP:test:524",
+    "unit": "J*m**-2",
+    "answer_type": "numeric",
+    "program": "PROGRAM:=Q1: What is the potential energy generated as a result of this action?=Q2: What is the square of the distance elongated by the spring as a result of this action?=Q3: What is the elongation caused in the string?=Q4: What is the multiplicative factor to get the square of the string?=A1: 2500 J=A2: 5 m=A3: 2=Q4 -> A3 | F3=Q3 -> A2 | F2=Q2 -> Pow (Q3, Q4)=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+    "context": "CONTEXT:=F1: The potential energy generated as part of this action is 2500 J=F2: The elongation caused in the spring is 5 metre.=F3: The multiplicative factor to get the square of the string is 2"
+  },
+  {
+    "question": "What is the area of Madagascar, in square angstroms?",
+    "fermi_answer": 32,
+    "domain": "Physics/Geometry",
+    "source": "train_dir:filtered:fermi_problems_filtered_1.json",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "The cereal is poured to fill an 8 oz. bowl. Milk is then added to completely fill the bowl. How many cc of milk were added?",
+    "fermi_answer": 2,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "answer_raw": "192.0",
+    "answer_log10": 2.283301,
+    "id": "realFP:test:123",
+    "unit": "cm**3",
+    "answer_type": "numeric",
+    "program": "PROGRAM:=Q1: What is the volume of the bowl?=Q2: What is the ideal cereal to milk ratio?=A1: 240 cm**3=A2: 0.8=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+    "context": "CONTEXT:=F1: The volume of the bowl is 240 cc=F2: The ideal cereal to milk ratio is 4:1"
+  },
+  {
+    "question": "How many pollen grains would it take to build a scale model of Mount Everest? (assume the pollen grains are packed together as tightly as possible)",
+    "fermi_answer": 20,
+    "domain": "earth_science",
+    "source": "achuthan:val",
+    "id": "scioly:3117",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UT Austin Invitational 18-19"
+  },
+  {
+    "question": "Do you ever see those funny graphs Apple presents to show how much better their devices are than their competitors? It got me thinking about Apple\u2019s new computer chips. Intel 4004 was the first ever commercially produced microprocessor. How many times more transistors are on the new Apple M2 chip, compared to the Intel 4004 chip?",
+    "fermi_answer": 7,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:709",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Columbia University Invitational 22-23"
+  },
+  {
+    "question": "Average number of seconds a Koala spends sleeping each day",
+    "fermi_answer": 5,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "fermiq:og:60",
+    "answer_type": "oom_exponent",
+    "file_source_url": "og"
+  },
+  {
+    "question": "How many different species of spiders and scorpions are there in the world?",
+    "fermi_answer": 5,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "fermiq:og:99",
+    "answer_type": "oom_exponent",
+    "file_source_url": "og"
+  },
+  {
+    "question": "What is the mass of Mars in iPhone 5s?",
+    "fermi_answer": 25,
+    "domain": "Astronomy/Physics",
+    "source": "train_dir:filtered:fermi_problems_filtered_1.json",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "What is the weight of the inner core of the earth in cars?",
+    "fermi_answer": 20,
+    "domain": "Earth Science/Physics",
+    "source": "train_dir:filtered:fermi_problems_filtered_3.json",
+    "file_source_url": "https://github.com/landy8697/open-scioly-fermi/blob/master/formatted_test_data/princeton_2024.txt"
+  },
+  {
+    "question": "How many red blood cells does the U.S. Congress have?",
+    "fermi_answer": 16,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "fermiq:NC State Example:18",
+    "answer_type": "oom_exponent",
+    "file_source_url": "NC State Example"
+  },
+  {
+    "question": "What fraction of the earth's water is equal to the water in an adult male human?",
+    "fermi_answer": -20,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "answer_raw": "2.6e-20",
+    "answer_log10": -19.585027,
+    "id": "realFP:test:182",
+    "answer_type": "numeric",
+    "program": "PROGRAM:=Q1: What is total water present in an average human?=Q2: What is the total water present on earth?=A1: 3.7e-11 km**3=A2: 1.38e+9 km**3=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+    "context": "CONTEXT:=F1: The total water present in an average human is 3.7e-11 km**3=F2: The total water present on earth is 1.38e+9 km**3"
+  },
+  {
+    "question": "How many different types of proteins are in the human body?",
+    "fermi_answer": 5,
+    "domain": "Biology",
+    "source": "train_dir:filtered:fermi_problems_filtered_1.json",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "How many square kilometers of Lake Erie are solely under the jurisdiction of the USA?",
+    "fermi_answer": 4,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "fermiq:og:144",
+    "answer_type": "oom_exponent",
+    "file_source_url": "og"
+  },
+  {
+    "question": "You drive the best car in the world-- a Toyota Prius. You decide to take a road trip from Omaha, Nebraska, to Irvine, California. How many times would you have to refill your gas tank during your road trip?",
+    "fermi_answer": 0,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:1155",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Highlands Virtual Invitational 22-23"
+  },
+  {
+    "question": "How many liters of water are there is an Olympic-sized swimming pool?",
+    "fermi_answer": 6,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "fermiq:og:80",
+    "answer_type": "oom_exponent",
+    "file_source_url": "og"
+  },
+  {
+    "question": "Speaking of the oceans, did you know that there are actually a ton of viruses just chilling on the surface of seawater? (well I guess they aren\u2019t chilling because of climate change and increasing ocean temperatures... but whatever!). How many viruses would you expect to find within a cubic meter of surface seawater?",
+    "fermi_answer": 13,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:1506",
+    "answer_type": "oom_exponent",
+    "file_source_url": "MIT Invitational 21-22"
+  },
+  {
+    "question": "How many liters of water comes out of a water fountain in a mall per day?",
+    "fermi_answer": 3,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "answer_raw": "1800.0",
+    "answer_log10": 3.255273,
+    "id": "realFP:test:2",
+    "unit": "L",
+    "answer_type": "numeric",
+    "program": "PROGRAM:=Q1: How many litres of water comes out of a water fountain in a mall per hour?=Q2: For how many hours, is the water fountain operational during the store hours.=A1: 150 L=A2: 12=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+    "context": "CONTEXT:=F1: Approximately 150 litres of water comes out of the water fountain per hour=F2: The water fountain is operational for 12 hours in a day."
+  },
+  {
+    "question": "Every minute, how many red blood cells are produced in the average human body?",
+    "fermi_answer": 4,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:3412",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #16 [2018 Harvard Q4]"
+  },
+  {
+    "question": "How many atoms are in a mole of atoms?",
+    "fermi_answer": 24,
+    "domain": "chemistry",
+    "source": "achuthan:train",
+    "id": "scioly:2624",
+    "answer_type": "oom_exponent",
+    "file_source_url": "SSSs Fermi (rafaelnadal) 17-18"
+  },
+  {
+    "question": "How many liters of water are in earth's oceans?",
+    "fermi_answer": 21,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:3708",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #76 [2018 Princeton Q A21]"
+  },
+  {
+    "question": "Eric claims that he doesn\u2019t need any meteorology to predict the weather. Darren challenges him with the following game. Darren starts by paying Eric 10^10 dollars, and Eric is to make make daily predictions about whether or not it will rain the following day. Eric is to do this for an entire year, after which Darren will calculate the difference between how many times it rained and how many times Eric said it would rain. We call this difference x, and then Eric must pay Darren x^10 dollars. If Eric plays optimally, what is the maximum amount he can guarantee that he earns (or if he loses money - what is the minimum amount he can lose) at the conclusion of the game?",
+    "fermi_answer": 10,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:2522",
+    "answer_type": "oom_exponent",
+    "file_source_url": "SOUP Invitational 23-24"
+  },
+  {
+    "question": "How many toothpicks could be made from a telephone pole?",
+    "fermi_answer": 6,
+    "domain": "other_science",
+    "source": "achuthan:val",
+    "answer_raw": "3660000.0",
+    "answer_log10": 6.563481,
+    "id": "realFP:test:505",
+    "answer_type": "numeric"
+  },
+  {
+    "question": "What percentage of airplane passengers are first-time fliers?",
+    "fermi_answer": 1,
+    "domain": "Science",
+    "source": "eval_dir:eval_benchmark",
+    "answer_raw": "15%",
+    "answer_log10": 1.1761,
+    "id": "realfp_dist_380",
+    "has_distractor": true,
+    "length_tier": "short",
+    "file_source_url": "realFP"
+  },
+  {
+    "question": "How many Mitochondrion have the same length as Wingspan of a 747?",
+    "fermi_answer": 8,
+    "domain": "Science",
+    "source": "eval_dir:eval_benchmark",
+    "answer_raw": "3.643617E+07",
+    "answer_log10": 7.5615,
+    "id": "synthfp_dist_214",
+    "has_distractor": true,
+    "length_tier": "short",
+    "file_source_url": "realFP"
+  },
+  {
+    "question": "How many Hairs can 71 of Bill Gates buy?",
+    "fermi_answer": 11,
+    "domain": "Science",
+    "source": "eval_dir:eval_benchmark",
+    "answer_raw": "1.851680E+11",
+    "answer_log10": 11.2676,
+    "id": "synthfp_dist_615",
+    "has_distractor": true,
+    "length_tier": "short",
+    "file_source_url": "realFP"
+  },
+  {
+    "question": "Assume California's area is half its value. How many Island of Ireland have the same area as California?",
+    "fermi_answer": 0,
+    "domain": "Science",
+    "source": "eval_dir:eval_benchmark",
+    "answer_raw": "2.511044E+00",
+    "answer_log10": 0.3999,
+    "id": "synthfp_dist_261",
+    "has_distractor": true,
+    "length_tier": "medium",
+    "file_source_url": "realFP"
+  },
+  {
+    "question": "Assume Biltmore Estate's area is half its value. How many Post-it&reg; Note (3M) fit on Biltmore Estate?",
+    "fermi_answer": 6,
+    "domain": "Science",
+    "source": "eval_dir:eval_benchmark",
+    "answer_raw": "1.508621E+06",
+    "answer_log10": 6.1786,
+    "id": "synthfp_dist_588",
+    "has_distractor": true,
+    "length_tier": "medium",
+    "file_source_url": "realFP"
+  },
+  {
+    "question": "How many acres of land would need to be devoted to cultivating wheat to sustain a population of one million people for a year? Assume it takes approximately 100 acres of wheat to feed a single person annually.",
+    "fermi_answer": 6,
+    "domain": "earth_science",
+    "source": "synthetic:wrong_assumption",
+    "answer_log10": 5.48,
+    "answer_raw": "3e5",
+    "synthetic_note": "Wrong assumption: 100 acres/person. Reality \u2248 0.3 acres/person (off by ~333\u00d7, ~2.5 OOM). A model following the stated assumption would answer fa\u22488 instead of fa\u22486.",
+    "wrong_assumption": "100 acres of wheat per person per year",
+    "correct_assumption": "\u2248 0.3 acres of wheat per person per year"
+  },
+  {
+    "question": "How fast is the speed of light in centimeters per hour? Assume the speed of light is approximately 3,000 km/s.",
+    "fermi_answer": 14,
+    "domain": "physics",
+    "source": "synthetic:wrong_assumption",
+    "answer_log10": 14.03,
+    "answer_raw": "1.08e14",
+    "synthetic_note": "Wrong assumption: c = 3,000 km/s. Reality c \u2248 300,000 km/s (off by 100\u00d7, 2 OOM). A model following the stated assumption would answer fa\u224812 instead of fa\u224814.",
+    "wrong_assumption": "speed of light = 3,000 km/s",
+    "correct_assumption": "speed of light \u2248 300,000 km/s (3\u00d710^8 m/s)"
+  },
+  {
+    "question": "What is the volume of the Earth in cubic meters? Assume that Earth's radius is approximately 640 km.",
+    "fermi_answer": 21,
+    "domain": "earth_science",
+    "source": "synthetic:wrong_assumption",
+    "answer_log10": 21.03,
+    "answer_raw": "1.08e21",
+    "synthetic_note": "Wrong assumption: Earth radius = 640 km. Reality \u2248 6,371 km (off by 10\u00d7; volume off by 10\u00b3 = 3 OOM). A model following the stated assumption would answer fa\u224818 instead of fa\u224821.",
+    "wrong_assumption": "Earth radius = 640 km",
+    "correct_assumption": "Earth radius \u2248 6,371 km"
+  },
+  {
+    "question": "In Joules, how much energy is released by the Sun every second?",
+    "fermi_answer": 26,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:3816",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #97 [2019 Columbia Q26]"
+  },
+  {
+    "question": "How many atoms of lead would make a ton of lead?",
+    "fermi_answer": 27,
+    "domain": "Chemistry/Physics",
+    "source": "train_dir:filtered:fermi_problems_filtered_1.json",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "How many terameters are in an angstrom?",
+    "fermi_answer": -22,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:333",
+    "answer_type": "oom_exponent",
+    "file_source_url": "BullSO Invitational 22-23"
+  },
+  {
+    "question": "What is the mass of a single proton (kg)?",
+    "fermi_answer": -27,
+    "domain": "Physics",
+    "source": "eval_dir:train",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "How many milligrams does the earth weigh?",
+    "fermi_answer": 31,
+    "domain": "Astronomy/Physics",
+    "source": "train_dir:filtered:fermi_problems_filtered_1.json",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "How many light-years is the distance from the Earth to the Sun?",
+    "fermi_answer": -5,
+    "domain": "astronomy",
+    "source": "achuthan:train",
+    "id": "fermiq:og:126",
+    "answer_type": "oom_exponent",
+    "file_source_url": "og"
+  },
+  {
+    "question": "What is the value of e^50?",
+    "fermi_answer": 21,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:3807",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #95 [2019 Northview Q6]"
+  },
+  {
+    "question": "How many individual bacteria and archaea are there on earth?",
+    "fermi_answer": 30,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:2297",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Seven Lakes Invitational 22-23"
+  },
+  {
+    "question": "Mass of the Earth in kg?",
+    "fermi_answer": 24,
+    "domain": "Earth Science/Physics",
+    "source": "eval_dir:train",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "How many oxygen atoms are in 1L of water?",
+    "fermi_answer": 25,
+    "domain": "chemistry",
+    "source": "achuthan:train",
+    "id": "scioly:1014",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Golden Gate Invitational 23-24"
+  },
+  {
+    "question": "The number of atoms in one mole.",
+    "fermi_answer": 24,
+    "domain": "Chemistry",
+    "source": "train_dir:filtered:fermi_problems_filtered_1.json",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "How many Earths would fit inside the Milky Way Galaxy?",
+    "fermi_answer": 38,
+    "domain": "astronomy",
+    "source": "achuthan:train",
+    "id": "scioly:2600",
+    "answer_type": "oom_exponent",
+    "file_source_url": "SSSs Fermi (luminosityfan) 17-18"
+  },
+  {
+    "question": "How long is an olympic swimming pool in light years?",
+    "fermi_answer": -14,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:2628",
+    "answer_type": "oom_exponent",
+    "file_source_url": "SSSs Fermi (rafaelnadal) 17-18"
+  },
+  {
+    "question": "How many atoms are in a pound of sugar?",
+    "fermi_answer": 25,
+    "domain": "chemistry",
+    "source": "achuthan:train",
+    "id": "scioly:3511",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #36 [2018 Northview Q23]"
+  },
+  {
+    "question": "How much water is there on Earth, measured in cups?",
+    "fermi_answer": 22,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:314",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Brown Invitational 22-23"
+  },
+  {
+    "question": "How many potassium atoms/ions are contained in the world\u2019s annual banana production?",
+    "fermi_answer": 33,
+    "domain": "chemistry",
+    "source": "achuthan:train",
+    "id": "scioly:3087",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UT Austin Invitational 17-18"
+  },
+  {
+    "question": "How many km in 165 nm?",
+    "fermi_answer": -10,
+    "domain": "astronomy",
+    "source": "achuthan:train",
+    "id": "scioly:553",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Centerville Invitational 17-18"
+  },
+  {
+    "question": "What is the mass of the Earth measured in kg?",
+    "fermi_answer": 25,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:3525",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #39 [2019 Cy-Falls Q1]"
+  },
+  {
+    "question": "What is the circumference of the earth in petameters?",
+    "fermi_answer": -8,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:3405",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #15 [2019 BVF Q10]"
+  },
+  {
+    "question": "What is the mass of everything in the asteroid belt in kilograms?",
+    "fermi_answer": 21,
+    "domain": "astronomy",
+    "source": "achuthan:train",
+    "id": "scioly:3079",
+    "answer_type": "oom_exponent",
+    "file_source_url": "University of Michigan Invitational 22-23"
+  },
+  {
+    "question": "What is the mass, in kgs, of the moon?",
+    "fermi_answer": 22,
+    "domain": "astronomy",
+    "source": "achuthan:train",
+    "answer_raw": "6.6799999999999996e+22",
+    "answer_log10": 22.824776,
+    "id": "realFP:test:550",
+    "unit": "kg",
+    "answer_type": "numeric",
+    "program": "PROGRAM:=Q1: What is the volume of the moon?=Q2: What is the density of the moon?=A1: 2e+10 km**3=A2: 3.34e+12 kg*km**-3=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q2, Q1)",
+    "context": "CONTEXT:=F1: The volume of the moon is 2e+10 cubic km=F2: The density of the moon is 3.34e+12 kg per km cube"
+  },
+  {
+    "question": "The mass of an E. coli cell divided by the mass of Pando, the world\u2019s largest organism.",
+    "fermi_answer": -22,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:3179",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UT Austin Invitational 23-24"
+  },
+  {
+    "question": "If a weather balloon at sea level was taken to the bottom of the Atlantic Ocean, what would its new volume be in cubic meters?",
+    "fermi_answer": -3,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:2577",
+    "answer_type": "oom_exponent",
+    "file_source_url": "SSSS Fermi (Adi1008) 17-18"
+  },
+  {
+    "question": "If the entire earth was replaced with neutron star core material, how many periods of a standard pendulum clock would be needed to record the entire Cenozoic era?",
+    "fermi_answer": 22,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:2684",
+    "answer_type": "oom_exponent",
+    "file_source_url": "SSSS Fermi (randomsci) 22-23"
+  },
+  {
+    "question": "If every insect alive at this time played \u201cFlight of the Bumblebee\u201d on a tiny tuba, how many notes could they play in a day?",
+    "fermi_answer": 25,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:2257",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Seven Lakes Invitational 18-19"
+  },
+  {
+    "question": "What is the distance from New York to Los Angeles (as the crow flies) in light years?",
+    "fermi_answer": -10,
+    "domain": "astronomy",
+    "source": "achuthan:train",
+    "id": "scioly:881",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Case Western Reserve University 23-24"
+  },
+  {
+    "question": "What is the average rate of continental drift, in meters per day, along the Mid-Atlantic Ridge?",
+    "fermi_answer": -4,
+    "domain": "Earth Science",
+    "source": "train_dir:filtered:fermi_problems_filtered_1.json",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "How long, in seconds, does it take light to travel from North to South across Kansas?",
+    "fermi_answer": -3,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:3971",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #128 [2018 Captains Exchange: Seven Lakes Q19]"
+  },
+  {
+    "question": "How many grams of trace amounts of gold are naturally found in an average human\u2019s body?",
+    "fermi_answer": -4,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:3974",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #129 [2018 U Georgia Q1]"
+  },
+  {
+    "question": "How many fish are there, on average, per meter cubed of water in the Earth's ocean?",
+    "fermi_answer": -6,
+    "domain": "chemistry",
+    "source": "achuthan:train",
+    "id": "fermiq:BirdSO:4",
+    "answer_type": "oom_exponent",
+    "file_source_url": "BirdSO"
+  },
+  {
+    "question": "How many carbon atoms are found in two 20 fl oz bottles of Coca-Cola (one for each of you!), if you somehow removed all of the sugar?",
+    "fermi_answer": 23,
+    "domain": "chemistry",
+    "source": "achuthan:train",
+    "id": "scioly:2373",
+    "answer_type": "oom_exponent",
+    "file_source_url": "SOAPS Invitational 22-23"
+  },
+  {
+    "question": "The kinetic energy, in joules, of the average hy- drogen molecule in this room.",
+    "fermi_answer": -20,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:3202",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UT Austin Invitational 23-24"
+  },
+  {
+    "question": "If you start with 500g of Pb-210, how much will be left after 1000 years of decay?",
+    "fermi_answer": -11,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:2910",
+    "answer_type": "oom_exponent",
+    "file_source_url": "University of Georgia Invitational 18-19"
+  },
+  {
+    "question": "What is the mass of an adult man divided by the mass of the Earth?",
+    "fermi_answer": -25,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:3335",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #1 [2018 Westlake Q64]"
+  },
+  {
+    "question": "How many gross of great gross of dozens of eggs are needed to make one soft-boiled egg?",
+    "fermi_answer": -7,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:2346",
+    "answer_type": "oom_exponent",
+    "file_source_url": "SOAPS Invitational 22-23"
+  },
+  {
+    "question": "If I had an atom of Uranium-235 that formed at the birth of the Universe, what\u2019s the chance it\u2019s still an atom of Uranium-235 today?",
+    "fermi_answer": -6,
+    "domain": "chemistry",
+    "source": "achuthan:train",
+    "id": "scioly:406",
+    "answer_type": "oom_exponent",
+    "file_source_url": "FermiSweat, Fermi Questions, but butter (chicken)"
+  },
+  {
+    "question": "How many molecules of ATP are used in an average human in one day?",
+    "fermi_answer": 26,
+    "domain": "Biology/Chemistry",
+    "source": "train_dir:filtered:fermi_problems_filtered_1.json",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "How long in seconds does it take for light to travel from the ceiling of this room to your eye?",
+    "fermi_answer": -8,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:778",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Cornell Invitational 18-19"
+  },
+  {
+    "question": "How many hours does it take light to travel from Orlando to Boston?",
+    "fermi_answer": -6,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:3687",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #71 [2018 Westlake Q68]"
+  },
+  {
+    "question": "What fraction of the permutations of 6 arbitrary letters consist of a valid 6-letter word in English?",
+    "fermi_answer": -4,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:403",
+    "answer_type": "oom_exponent",
+    "file_source_url": "FermiSweat, Fermi Questions, but butter (chicken)"
+  },
+  {
+    "question": "How fast would it take for a photon to travel from the pitcher\u2019s mound to home plate of a normal MLB (Major League Baseball) stadium in seconds?",
+    "fermi_answer": -5,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:2595",
+    "answer_type": "oom_exponent",
+    "file_source_url": "SSSs Fermi (luminosityfan) 17-18"
+  },
+  {
+    "question": "Estimate how many snowflakes it would take to cover the entire world (not including oceans) in 3 meters of snow. Assume no compression over time. [snowflakes]",
+    "fermi_answer": 26,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:419",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Camas Invitational 22-23"
+  },
+  {
+    "question": "If you spill a full 20 fluid oz water bottle into the ocean. What will the percent increase in water of the Ocean?",
+    "fermi_answer": -20,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:2907",
+    "answer_type": "oom_exponent",
+    "file_source_url": "University of Georgia Invitational 18-19"
+  },
+  {
+    "question": "If the known universe were placed on a microscope slide, what magnification would be necessary to see Earth?",
+    "fermi_answer": 59,
+    "domain": "astronomy",
+    "source": "achuthan:train",
+    "answer_raw": "3.1e+59",
+    "answer_log10": 59.491362,
+    "id": "realFP:test:335",
+    "answer_type": "numeric",
+    "program": "PROGRAM:=Q1: What is the volume of the universe?=Q2: What is the volume of earth?=A1: 3.5e+80 m**3=A2: 1.1e+21 m**3=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+    "context": "CONTEXT:=F1: The volume of the universe is 3.5e+80 m**3=F2: The volume of the earth is 1.1e+21 m**3"
+  },
+  {
+    "question": "Nitrogen makes up around 4% of a plant's DRY weight. If you had a greenhouse that grew 10 pounds of LIVE plants, how many nitrogen atoms would have been taken up from the soil?",
+    "fermi_answer": 24,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:2440",
+    "answer_type": "oom_exponent",
+    "file_source_url": "SOUP Invitational 22-23"
+  },
+  {
+    "question": "If I used America\u2019s gold reserves to plate the entirety of California\u2019s surface area in gold, how thick would the layer be, in meters?",
+    "fermi_answer": -11,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:2830",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UC Riverside Highlander Invitational 23-24"
+  },
+  {
+    "question": "An unfair coin lands on heads a third of the time. What is the probability to flip it 50 times and get 15 tails and 35 heads, in percent?",
+    "fermi_answer": -5,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:49",
+    "answer_type": "oom_exponent",
+    "file_source_url": "BirdSO Invitational 20-21"
+  },
+  {
+    "question": "How long would it take a Hippocampus Zosterae seahorse, the slowest fish, to swim the length of the observable universe in hours?",
+    "fermi_answer": 27,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:3273",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Sahil Gandhi, WSO Regionals 22-23"
+  },
+  {
+    "question": "How many minutes would it take a light beam to travel the length of a nanometer?",
+    "fermi_answer": -19,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:2056",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Raisbeck Aviation Invitational 17-18"
+  },
+  {
+    "question": "If the oceans were frozen into 1 inch ice cubes, how many cubes would there be?",
+    "fermi_answer": 23,
+    "domain": "Earth Science/Physics",
+    "source": "train_dir:filtered:fermi_problems_filtered_5.json",
+    "answer_raw": "8.10E+22",
+    "answer_log10": 22.9085,
+    "id": "realfp_train_019",
+    "relevance": "applied",
+    "program": "PROGRAM:=Q1: What is the volume of the ocean cover?=Q2: What is the volume of an ice cube?=A1: 8.1e+22 in**3=A2: 1 in**3=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div(Q1, Q2)",
+    "context": "CONTEXT:=F1: The volume of the water content in the oceans is 8.1e+22 cubic inch=F2: The volume of the ice cube is 1 cubic inch",
+    "file_source_url": "https://github.com/allenai/fermi (realFP train split, science-domain filtered)"
+  },
+  {
+    "question": "If I wrote a book every day on paper made from a tree currently on Earth, how many nanoseconds would it take for me to use up every tree?",
+    "fermi_answer": 28,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:405",
+    "answer_type": "oom_exponent",
+    "file_source_url": "FermiSweat, Fermi Questions, but butter (chicken)"
+  },
+  {
+    "question": "How many meters above the Earth does the International Space Station orbit?",
+    "fermi_answer": 5,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:859",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Case Western Reserve University 23-24"
+  },
+  {
+    "question": "How many gallons of gasoline are consumed in the US every day?",
+    "fermi_answer": 8,
+    "domain": "Environmental Science/Engineering",
+    "source": "eval_dir:train",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "The speed of light in m/s.",
+    "fermi_answer": 8,
+    "domain": "Physics",
+    "source": "train_dir:filtered:fermi_problems_filtered_1.json",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "How many high school students are there in the U.S.",
+    "fermi_answer": 7,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:3538",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #42 [2018 Captains Exchange: Seven Lakes Q21]"
+  },
+  {
+    "question": "How many dump trucks would it take to cart away Mount Everest?",
+    "fermi_answer": 8,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "answer_raw": "660377358.0",
+    "answer_log10": 8.819792,
+    "id": "realFP:test:403",
+    "answer_type": "numeric",
+    "program": "PROGRAM:=Q1: What is the total volume of Mount Everest?=Q2: What is the total volume of a single dump truck?=A1: 2100000000000 ft**3=A2: 3180 ft**3=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div(Q1, Q2)",
+    "context": "CONTEXT:=F1: The total volume of the Mount Everest is 2100000000000 cubic ft=F2: The average volume of a single dump truck is 3178.32 cubic ft."
+  },
+  {
+    "question": "How many meters of trails does Yosemite National Park have?",
+    "fermi_answer": 6,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:1624",
+    "answer_type": "oom_exponent",
+    "file_source_url": "MIT Invitational 23-24"
+  },
+  {
+    "question": "How many attoparsecs are in a foot?",
+    "fermi_answer": 1,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:276",
+    "answer_type": "oom_exponent",
+    "file_source_url": "BirdSO Satellite Invitational 21-22"
+  },
+  {
+    "question": "What is 1 atmospheric pressure in Pascals?",
+    "fermi_answer": 5,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:3444",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #23 [2019 Greak Oak Q20]"
+  },
+  {
+    "question": "How many grains of rice are in a 5 poundsbag?",
+    "fermi_answer": 4,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "answer_raw": "25000.0",
+    "answer_log10": 4.39794,
+    "id": "realFP:test:365",
+    "answer_type": "numeric",
+    "program": "PROGRAM:=Q1: What is the mass of the bag given?=Q2: What is the mass of the single grain of rice?=A1: 5 lb=A2: 0.0002lb=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div(Q1, Q2)",
+    "context": "CONTEXT:=F1: The mass of the bag given is 5lb=F2: The mass of the single grain of rice is 0.0002lb"
+  },
+  {
+    "question": "How many searches does Google, on average, process every second?",
+    "fermi_answer": 5,
+    "domain": "Science",
+    "source": "eval_dir:eval_benchmark",
+    "answer_raw": "10^5",
+    "answer_log10": 5.0,
+    "id": "scioly_1781",
+    "has_distractor": false,
+    "length_tier": "short",
+    "file_source_url": "science_olympiad"
+  },
+  {
+    "question": "How many pennies are needed to equal your height?",
+    "fermi_answer": 3,
+    "domain": "Science",
+    "source": "eval_dir:eval_benchmark",
+    "answer_raw": "1153",
+    "answer_log10": 3.0618,
+    "id": "realfp_test_130",
+    "has_distractor": false,
+    "length_tier": "short",
+    "file_source_url": "realFP"
+  },
+  {
+    "question": "How many quills does an average porcupine have?",
+    "fermi_answer": 4,
+    "domain": "astronomy",
+    "source": "achuthan:train",
+    "id": "scioly:551",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Centerville Invitational 17-18"
+  },
+  {
+    "question": "How many alligators live in Florida?",
+    "fermi_answer": 6,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:3951",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #124 [2019 Eastside / Haslett Q17]"
+  },
+  {
+    "question": "How many bird species have been recorded in California?",
+    "fermi_answer": 3,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:65",
+    "answer_type": "oom_exponent",
+    "file_source_url": "BirdSO In-Person Invitational 22-23"
+  },
+  {
+    "question": "What is the weight of air in your living room?",
+    "fermi_answer": 1,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "answer_raw": "60.0",
+    "answer_log10": 1.778151,
+    "id": "realFP:test:346",
+    "unit": "kg",
+    "answer_type": "numeric",
+    "program": "PROGRAM:=Q1: What is the volume of the living room?=Q2: What is the mass of air per metre cube?=A1: 49=A2: 1.225 kg=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+    "context": "CONTEXT:=F1: The volume of an average living room is 49 metre cube=F2: The mass of air per metre cube is 1.225 kg/m**3"
+  },
+  {
+    "question": "How many helium balloons do you need to lift a human being?",
+    "fermi_answer": 4,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:12",
+    "answer_type": "oom_exponent",
+    "file_source_url": "BirdSO Invitational 20-21"
+  },
+  {
+    "question": "19876th fibonacci number / 19875th fibonacci number",
+    "fermi_answer": 0,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:2674",
+    "answer_type": "oom_exponent",
+    "file_source_url": "SSSS Fermi (randomsci) 22-23"
+  },
+  {
+    "question": "How much could a human lift before the bones start to break?",
+    "fermi_answer": 7,
+    "domain": "Biology/Medicine/Physics/Materials Science",
+    "source": "train_dir:filtered:fermi_problems_filtered_5.json",
+    "answer_raw": "3752310 kg",
+    "answer_log10": 6.5743,
+    "id": "realfp_train_071",
+    "relevance": "core",
+    "program": "PROGRAM:=Q1: What is the total volume of bones in the human body?=Q2: How much weight can a cubic inch of bone hold?=A1: 435 in**3=A2: 8626 kg*in**-3=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+    "context": "CONTEXT:=F1: The total volume of bones in the human body is 435 cubic inches=F2: One cubic inch of a human's bone can hold upto 8626 kg/cubic in",
+    "file_source_url": "https://github.com/allenai/fermi (realFP train split, science-domain filtered)"
+  },
+  {
+    "question": "Deepest hole dug by humans, in km",
+    "fermi_answer": 1,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:1815",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Palo Alto Tryouts 22-23"
+  },
+  {
+    "question": "Average annual household electricity consumption, in kilowatt-hours.",
+    "fermi_answer": 4,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:3148",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UT Austin Invitational 22-23"
+  },
+  {
+    "question": "What is the average number of hairs on a human head?",
+    "fermi_answer": 5,
+    "domain": "Biology",
+    "source": "eval_dir:train",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "What is pi to the power of 7?",
+    "fermi_answer": 3,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:2053",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Raisbeck Aviation Invitational 17-18"
+  },
+  {
+    "question": "What is the radius of the moon?",
+    "fermi_answer": 6,
+    "domain": "astronomy",
+    "source": "achuthan:train",
+    "id": "scioly:1281",
+    "answer_type": "oom_exponent",
+    "file_source_url": "High Desert Satellite Invitational 22-23"
+  },
+  {
+    "question": "How many balloons would it take to fill the school hall?",
+    "fermi_answer": 4,
+    "domain": "other_science",
+    "source": "achuthan:val",
+    "answer_raw": "72000.0",
+    "answer_log10": 4.857332,
+    "id": "realFP:test:551",
+    "answer_type": "numeric"
+  },
+  {
+    "question": "Annual worldwide iron production divided by annual worldwide gold production, by mass.",
+    "fermi_answer": 6,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:3161",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UT Austin Invitational 22-23"
+  },
+  {
+    "question": "How many leagues under the sea is the center of the Earth?",
+    "fermi_answer": 3,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:2947",
+    "answer_type": "oom_exponent",
+    "file_source_url": "University of Georgia Invitational 23-24"
+  },
+  {
+    "question": "Species of roses in the United States?",
+    "fermi_answer": 2,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:1099",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Harvard Invitational 22-23"
+  },
+  {
+    "question": "What is 1/(1 + 1/(2 + 1/(3 + . . . )))?",
+    "fermi_answer": 0,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:630",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Carnegie Mellon Invitational 22-23"
+  },
+  {
+    "question": "How long is the egg incubation time of a gull, in days?",
+    "fermi_answer": 1,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:1051",
+    "answer_type": "oom_exponent",
+    "file_source_url": "GullSO Invitational 23-24"
+  },
+  {
+    "question": "Number of hours a common swift is able to fly without stopping.",
+    "fermi_answer": 4,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:3747",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #83 [2018 Virginia Tech Q9]"
+  },
+  {
+    "question": "How many oat cylinders are in a cereal box containing 425 g?",
+    "fermi_answer": 3,
+    "domain": "chemistry",
+    "source": "achuthan:val",
+    "answer_raw": "9042.0",
+    "answer_log10": 3.956265,
+    "id": "realFP:test:41",
+    "answer_type": "numeric"
+  },
+  {
+    "question": "How much energy does it take to produce a flat-screen TV?",
+    "fermi_answer": 2,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "answer_raw": "250.0",
+    "answer_log10": 2.39794,
+    "id": "realFP:test:229",
+    "unit": "J",
+    "answer_type": "numeric",
+    "program": "PROGRAM:=Q1: What is the average cost of the entire raw materials required to build a flat screen TV in terms of energy?=Q2: What is the average production cost of a flat screen TV in terms of energy?=A1: 100 J=A2: 150 J=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Add (Q1, Q2)",
+    "context": "CONTEXT:=F1: The average cost of procuring raw materials in terms of energy is 100 J.=F2: The average production cost of building a flat screen TV in terms of energy is 150 J"
+  },
+  {
+    "question": "How many suns can fit in our solar system?",
+    "fermi_answer": 7,
+    "domain": "astronomy",
+    "source": "achuthan:train",
+    "id": "scioly:906",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Duke Invitational 22-23"
+  },
+  {
+    "question": "What is the pH of rain?",
+    "fermi_answer": 1,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:2994",
+    "answer_type": "oom_exponent",
+    "file_source_url": "University of Michigan Invitational 17-18"
+  },
+  {
+    "question": "How many seeds does a dandelion have?",
+    "fermi_answer": 3,
+    "domain": "biology",
+    "source": "achuthan:val",
+    "answer_raw": "1500.0",
+    "answer_log10": 3.176091,
+    "id": "realFP:test:243",
+    "answer_type": "numeric"
+  },
+  {
+    "question": "How fast can brain neurons carry a signal?",
+    "fermi_answer": 2,
+    "domain": "Biology/Medicine/Physics",
+    "source": "train_dir:filtered:fermi_problems_filtered_5.json",
+    "answer_raw": "66.6 m*s**-1",
+    "answer_log10": 1.8235,
+    "id": "realfp_train_134",
+    "relevance": "core",
+    "program": "PROGRAM:=Q1: What is the average length of a neuron in the human body?=Q2: What is the reaction time of the brain for any stimuli?=A1: 10 m=A2: 0.15 s=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+    "context": "CONTEXT:=F1: The average distance of a neuron is 1 metre=F2: The reaction time by the brain on an average is 0.15 sec",
+    "file_source_url": "https://github.com/allenai/fermi (realFP train split, science-domain filtered)"
+  },
+  {
+    "question": "How many different amino acids are?",
+    "fermi_answer": 1,
+    "domain": "Biology/Chemistry",
+    "source": "train_dir:filtered:fermi_problems_filtered_1.json",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "The diameter of a quantum dot that emits blue light, in nanometers.",
+    "fermi_answer": 0,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:3213",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UT Austin Invitational 23-24"
+  },
+  {
+    "question": "What is the size of CMU\u2019s campus (in square meters)?",
+    "fermi_answer": 6,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:652",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Carnegie Mellon Invitational 22-23"
+  },
+  {
+    "question": "The force needed to rupture a watermelon in compression, in Newtons.",
+    "fermi_answer": 2,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:3169",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UT Austin Invitational 22-23"
+  },
+  {
+    "question": "What mass of graphene would it take to cover USC in grams?",
+    "fermi_answer": 3,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:151",
+    "answer_type": "oom_exponent",
+    "file_source_url": "BirdSO In-Person Invitational 23-24"
+  },
+  {
+    "question": "How many individual life forms are there on Earth?",
+    "fermi_answer": 7,
+    "domain": "Biology/Environmental Science/Earth Science",
+    "source": "train_dir:filtered:fermi_problems_filtered_5.json",
+    "answer_raw": "8694000",
+    "answer_log10": 6.9392,
+    "id": "realfp_train_020",
+    "relevance": "core",
+    "program": "PROGRAM:=Q1: How many different biological classes are living forms classified into?=Q2: How many life forms do we have per biological class?=A1: 7=A2: 1242000=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+    "context": "CONTEXT:=F1: Living organisms are classified into 7 different biological classes.=F2: There are approximately 1242000 different life forms in each biological class.",
+    "file_source_url": "https://github.com/allenai/fermi (realFP train split, science-domain filtered)"
+  },
+  {
+    "question": "What is the volume, cc, of blood in a healthy new-born baby?",
+    "fermi_answer": 2,
+    "domain": "Medicine/Biology",
+    "source": "train_dir:filtered:fermi_problems_filtered_5.json",
+    "answer_raw": "75.45 cm**3",
+    "answer_log10": 1.8777,
+    "id": "realfp_train_022",
+    "relevance": "applied",
+    "program": "PROGRAM:=Q1: What is the mass of blood in a new born baby?=Q2: What is the density of blood in a new born baby?=A1: 75 g=A2: 0.994 g*cm**-3=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+    "context": "CONTEXT:=F1: The mass of blood in a new born baby is 75 grams=F2: The density of blood is 0.994 gram per cc",
+    "file_source_url": "https://github.com/allenai/fermi (realFP train split, science-domain filtered)"
+  },
+  {
+    "question": "How many atoms are in a single grain of sand?",
+    "fermi_answer": 19,
+    "domain": "Chemistry/Earth Science",
+    "source": "eval_dir:train",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "How many beats will your heart make in a lifetime?",
+    "fermi_answer": 9,
+    "domain": "Biology/Medicine",
+    "source": "train_dir:filtered:fermi_problems_filtered_5.json",
+    "answer_raw": "3027456000",
+    "answer_log10": 9.4811,
+    "id": "realfp_train_099",
+    "relevance": "tangential",
+    "program": "PROGRAM:=Q1: What is the average life expectancy?=Q2: How many times does our heart beat in a year?=Q3: How many times does our heart beat in a day?=Q4: How many hours are there in a day?=Q5: How many times does our heart beat in an hour?=Q6: How many minutes are there in an hour?=Q7: How many times does our heart beat in a minute?=Q8: How many days are there in a year?=A1: 72=A2: 365=A3: 24=A4: 60=A5: 80=Q7 -> A5 | F5=Q6 -> A4 | F4=Q5 -> Mul (Q6, Q7)=Q4 -> A3 | F3=Q3 -> Mul (Q4, Q5)=Q8 -> A2 | F2=Q2 -> Mul (Q8, Q3)=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+    "context": "CONTEXT:=F1: The average life expectancy is 72 years=F2: There are 365 days in a year.=F3: There are 24 hours in a day.=F4: There are 60 minutes in an hour.=F5: A normal heart beats 80 times a minute.",
+    "file_source_url": "https://github.com/allenai/fermi (realFP train split, science-domain filtered)"
+  },
+  {
+    "question": "How many red blood cells are in one human body?",
+    "fermi_answer": 13,
+    "domain": "Biology",
+    "source": "train_dir:filtered:fermi_problems_filtered_1.json",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "How many miles does light travel in one year (light year)?",
+    "fermi_answer": 12,
+    "domain": "Astronomy/Physics",
+    "source": "eval_dir:train",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "What is the annual cost of MIT\u2019s research expenditures, in dollars?",
+    "fermi_answer": 9,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:1627",
+    "answer_type": "oom_exponent",
+    "file_source_url": "MIT Invitational 23-24"
+  },
+  {
+    "question": "How many mL of water are in the Great Lakes?",
+    "fermi_answer": 19,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:1245",
+    "answer_type": "oom_exponent",
+    "file_source_url": "High Desert Mini Invitational 23-24"
+  },
+  {
+    "question": "How many neurons does your brain have?",
+    "fermi_answer": 10,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:822",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Cornell Invitational 22-23"
+  },
+  {
+    "question": "How many red blood cells are in the human body?",
+    "fermi_answer": 9,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:2777",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UChicago Invitational 22-23"
+  },
+  {
+    "question": "How many pennies would it take to cover the state of Pennsylvania?",
+    "fermi_answer": 13,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:2435",
+    "answer_type": "oom_exponent",
+    "file_source_url": "SOUP Invitational 22-23"
+  },
+  {
+    "question": "How many times has the Earth orbited the Sun since its birth?",
+    "fermi_answer": 9,
+    "domain": "astronomy",
+    "source": "achuthan:train",
+    "id": "scioly:3988",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #132 [2018 Princeton Q A19]"
+  },
+  {
+    "question": "How many times does a hummingbird flap its wings in its lifetime?",
+    "fermi_answer": 10,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:125",
+    "answer_type": "oom_exponent",
+    "file_source_url": "BirdSO In-Person Invitational 23-24"
+  },
+  {
+    "question": "How many platelets are in each liter of human blood?",
+    "fermi_answer": 11,
+    "domain": "Biology",
+    "source": "train_dir:filtered:fermi_problems_filtered_1.json",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "What is the mass of the Great Pyramid of Giza in kilograms?",
+    "fermi_answer": 10,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:3731",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #80 [2019 Fairfax Q1]"
+  },
+  {
+    "question": "What is the mass of the moon in tons?",
+    "fermi_answer": 20,
+    "domain": "astronomy",
+    "source": "achuthan:eval",
+    "id": "scioly:183",
+    "answer_type": "oom_exponent",
+    "file_source_url": "BirdSO Mini Invitational 21-22"
+  },
+  {
+    "question": "How many modern transistors are needed to line Earth\u2019s circumference?",
+    "fermi_answer": 16,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:2789",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UChicago Invitational 23-24"
+  },
+  {
+    "question": "How many cells compose the human body?",
+    "fermi_answer": 14,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:1223",
+    "answer_type": "oom_exponent",
+    "file_source_url": "High Desert Mini Invitational 22-23"
+  },
+  {
+    "question": "How many astronomical units away is Andromeda galaxy?",
+    "fermi_answer": 11,
+    "domain": "astronomy",
+    "source": "achuthan:train",
+    "id": "scioly:90",
+    "answer_type": "oom_exponent",
+    "file_source_url": "BirdSO In-Person Invitational 22-23"
+  },
+  {
+    "question": "How many times will the average person\u2019s heart beat in his/her life?",
+    "fermi_answer": 9,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:3614",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #57 [2018 F-M Q14]"
+  },
+  {
+    "question": "What is 123456789 x 987654321?",
+    "fermi_answer": 17,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:2847",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UC Riverside Highlander Invitational 23-24"
+  },
+  {
+    "question": "What is 12345 \u00d7 67890?",
+    "fermi_answer": 9,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:2537",
+    "answer_type": "oom_exponent",
+    "file_source_url": "SSSS Fermi (Adi1008) 17-18"
+  },
+  {
+    "question": "What is the average diameter of a human hair in millimeters?",
+    "fermi_answer": -1,
+    "domain": "Biology/Physics",
+    "source": "train_dir:filtered:fermi_problems_filtered_1.json",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "How many ants would fit in to The Shard?",
+    "fermi_answer": 16,
+    "domain": "Biology/Engineering",
+    "source": "train_dir:filtered:fermi_problems_filtered_5.json",
+    "answer_raw": "9.70E+15",
+    "answer_log10": 15.9868,
+    "id": "realfp_train_012",
+    "relevance": "tangential",
+    "program": "PROGRAM:=Q1: What is the total volume of The Shard?=Q2: What is the total volume of an ant?=Q3: What is the surface area of The Shard?=Q4: What is the height of The Shard?=A1: 1e-8 m**3=A2: 398490 m**2=A3: 244m=Q4 -> A3 | F3=Q3 -> A2 | F2=Q1 -> Mul (Q3, Q4)=Q2 -> A1 | F1=P: Div (Q1, Q2)",
+    "context": "CONTEXT:=F1: The volume of an ant is 1e-8 metre cube=F2: The surface area of The Shard is 398490 sq. metre=F3: The height of a Shard is 244 metres",
+    "file_source_url": "https://github.com/allenai/fermi (realFP train split, science-domain filtered)"
+  },
+  {
+    "question": "What is the volume (cubic meters) of the earth's oceans?",
+    "fermi_answer": 18,
+    "domain": "earth_science",
+    "source": "achuthan:eval",
+    "answer_raw": "1.4e+18",
+    "answer_log10": 18.146128,
+    "id": "realFP:test:18",
+    "unit": "m**3",
+    "answer_type": "numeric"
+  },
+  {
+    "question": "Mass of Sagittarius A* (lunar masses)",
+    "fermi_answer": 14,
+    "domain": "astronomy",
+    "source": "achuthan:train",
+    "id": "scioly:2662",
+    "answer_type": "oom_exponent",
+    "file_source_url": "SSSS Fermi (randomsci) 22-23"
+  },
+  {
+    "question": "Total energy released by a 1-megaton nuclear weapon in Joules?",
+    "fermi_answer": 15,
+    "domain": "Physics",
+    "source": "eval_dir:train",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "How many milliseconds are in a year?",
+    "fermi_answer": 10,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:1715",
+    "answer_type": "oom_exponent",
+    "file_source_url": "North Pocono Invitational 22-23"
+  },
+  {
+    "question": "How old are you if you are a million seconds old?",
+    "fermi_answer": -2,
+    "domain": "mathematics",
+    "source": "achuthan:eval",
+    "answer_raw": "0.031",
+    "answer_log10": -1.508638,
+    "id": "realFP:test:232",
+    "unit": "years",
+    "answer_type": "numeric"
+  },
+  {
+    "question": "How many bolts of lightning strike Earth\u2019s surface each year?",
+    "fermi_answer": 9,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:331",
+    "answer_type": "oom_exponent",
+    "file_source_url": "BullSO Invitational 22-23"
+  },
+  {
+    "question": "What is the half-life of Uranium-238 in years?",
+    "fermi_answer": 9,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:3342",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #2 [2019 U Georgia Q10]"
+  },
+  {
+    "question": "What is the circumference of the Earth in centimeters?",
+    "fermi_answer": 9,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:2741",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UChicago Invitational 22-23"
+  },
+  {
+    "question": "How many ways are there to arrange the letters in JORDANSCIENCEOLYMPIAD?",
+    "fermi_answer": 17,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:1380",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Jordan Invitational 23-24"
+  },
+  {
+    "question": "What is the sum of all of the odd numbers between 1 and 1,000,000?",
+    "fermi_answer": 11,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:570",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Centerville Invitational 17-18"
+  },
+  {
+    "question": "How many seconds will it take to fully and quickly write out the number of 1 google if you were not allowed to use scientific notation?",
+    "fermi_answer": 1,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "fermiq:og:62",
+    "answer_type": "oom_exponent",
+    "file_source_url": "og"
+  },
+  {
+    "question": "How many gallons of saliva does the average person produce in a lifetime?",
+    "fermi_answer": 4,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:1402",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Mira Loma Invitational 17-18"
+  },
+  {
+    "question": "How many snowflakes will fall on Princeton\u2019s campus in the hypothetical snowstorm (as described in the story text) [#]?",
+    "fermi_answer": 15,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:1918",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Princeton Invitational 18-19"
+  },
+  {
+    "question": "Blueberries do not grow on trees; rather, they grow on bushes. However, Peru still does have a whole lot of trees. How many hectares within Peru are forested?",
+    "fermi_answer": 8,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:3279",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Sahil Gandhi, WSO Regionals 22-23"
+  },
+  {
+    "question": "If the Sun were to collapse into a neutron star, how far is the Earth from the Sun assuming no other changes except reduction in size?",
+    "fermi_answer": 8,
+    "domain": "Astronomy/Physics",
+    "source": "train_dir:filtered:fermi_problems_filtered_5.json",
+    "answer_raw": "1516e+5 km",
+    "answer_log10": 8.1807,
+    "id": "realfp_train_178",
+    "relevance": "tangential",
+    "program": "PROGRAM:=Q1: What would the approximate reduction in radius of the sun be when it turns into a neutron star?=Q2: What is the distance from earth to sun?=A1: 6e+5 km=A2: 1510e+5 km=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Add (Q1, Q2)",
+    "context": "CONTEXT:=F1: The approximate reduction in radius of the sun is 600000 km=F2: The distance from earth to sun is 151e+6 km",
+    "file_source_url": "https://github.com/allenai/fermi (realFP train split, science-domain filtered)"
+  },
+  {
+    "question": "Onto quarantine activities! My friend Kristina really likes to read: how many books have been bought since the start of the pandemic in 2020?",
+    "fermi_answer": 8,
+    "domain": "Science",
+    "source": "eval_dir:eval_benchmark",
+    "answer_raw": "10^8",
+    "answer_log10": 8.0,
+    "id": "scioly_1508",
+    "has_distractor": false,
+    "length_tier": "medium",
+    "file_source_url": "science_olympiad"
+  },
+  {
+    "question": "How large (area) is Legend of Zelda: Breath of the Wild\u2019s map? [Use SI Units / 2017 USD]",
+    "fermi_answer": 8,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:1863",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Princeton Invitational 17-18"
+  },
+  {
+    "question": "How much dissolved oxygen, in nanograms, is present in enough tap water to cover Manhattan 1 meter deep?",
+    "fermi_answer": 17,
+    "domain": "chemistry",
+    "source": "achuthan:train",
+    "id": "scioly:2932",
+    "answer_type": "oom_exponent",
+    "file_source_url": "University of Georgia Invitational 23-24"
+  },
+  {
+    "question": "How much CO2 do we save in winter on heating when the earth gets 2C warmer?",
+    "fermi_answer": 9,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "answer_raw": "2000000000.0",
+    "answer_log10": 9.30103,
+    "id": "realFP:test:14",
+    "unit": "kg",
+    "answer_type": "numeric",
+    "program": "PROGRAM:=Q1: What is the heat generated when the earth gets warmer by 2 degree C=Q2: How much heat is generated by a single kg of CO2?=A1: 10e+10 J=A2: 50 J*kg**-1=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+    "context": "CONTEXT:=F1: Approximately 10e+10 J of heat is produced when earth raises its temperature by 2 degrees C. [estimate]=F2: Around 50 J of heat is produced on heating 1 kg of CO2. [estimate]"
+  },
+  {
+    "question": "The James Webb Space Telescope orbits the sun at LaGrange point 2, how long (in seconds) does it take a radio signal to reach Earth from the JWST?",
+    "fermi_answer": 1,
+    "domain": "astronomy",
+    "source": "achuthan:train",
+    "id": "scioly:860",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Case Western Reserve University 23-24"
+  },
+  {
+    "question": "What is the greatest number of baseballs you could fit on a Football field without stacking?",
+    "fermi_answer": 4,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:2923",
+    "answer_type": "oom_exponent",
+    "file_source_url": "University of Georgia Invitational 18-19"
+  },
+  {
+    "question": "How many tower cranes are currently in active use for construction projects around the world today?",
+    "fermi_answer": 5,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:3768",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #88 [2019 Harvard Q4]"
+  },
+  {
+    "question": "If the surface of the Earth were covered in a mol of moles, how deep would the pile of moles be in meters?",
+    "fermi_answer": 5,
+    "domain": "chemistry",
+    "source": "achuthan:train",
+    "id": "scioly:3936",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #121 [2018 Virginia Tech Q15]"
+  },
+  {
+    "question": "What is the weight in grams of the water in an Olympic sized swimming pool?",
+    "fermi_answer": 9,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:3333",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #1 [2018 Carmel Tryouts Q14]"
+  },
+  {
+    "question": "How many rotations would the wheels on a school bus complete on a road trip from Maine to California?",
+    "fermi_answer": 6,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:1615",
+    "answer_type": "oom_exponent",
+    "file_source_url": "MIT Invitational 23-24"
+  },
+  {
+    "question": "You\u2019re doing great so far on this exam! What a star! Assuming that humans are perfect blackbodies, what is our peak wavelength of emission in nanometers?",
+    "fermi_answer": 4,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:1533",
+    "answer_type": "oom_exponent",
+    "file_source_url": "MIT Invitational 21-22"
+  },
+  {
+    "question": "How long, in days, would it take a SR-71 Blackbird (traveling at constant top speed) to travel from Earth to the center of the Milky Way?",
+    "fermi_answer": 12,
+    "domain": "astronomy",
+    "source": "achuthan:train",
+    "id": "scioly:3114",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UT Austin Invitational 18-19"
+  },
+  {
+    "question": "The number of servings of instant ramen that can be made with water collected by plowing snow on 1 acre of land after the snowiest Chicago day in February",
+    "fermi_answer": 5,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:942",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Golden Gate Invitational 22-23"
+  },
+  {
+    "question": "How many children are needed to have a mass the same as an elephant?",
+    "fermi_answer": 2,
+    "domain": "biology",
+    "source": "achuthan:val",
+    "answer_raw": "168.0",
+    "answer_log10": 2.225309,
+    "id": "realFP:test:396",
+    "answer_type": "numeric"
+  },
+  {
+    "question": "How many work days does 1 worker need to single-handedly rebuild the Empire State Building?",
+    "fermi_answer": 6,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:984",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Golden Gate Invitational 22-23"
+  },
+  {
+    "question": "If a gold nucleus was expanded to a diameter of 1 m, how far away, m, is the electron cloud?",
+    "fermi_answer": 4,
+    "domain": "Physics/Chemistry",
+    "source": "train_dir:filtered:fermi_problems_filtered_5.json",
+    "answer_raw": "3571 m",
+    "answer_log10": 3.5528,
+    "id": "realfp_train_171",
+    "relevance": "core",
+    "program": "PROGRAM:=Q1: How far is the electron cloud in a normal nucleus?=Q2: What is the ratio of diameter of the expanded gold nucleus to the normal gold nucleus?=Q3: What is the diameter of the expanded gold nucleus?=Q4: What is the diameter of a normal gold nucleus?=A1: 0.5e-10 m=A2: 1 m=A3: 1.4e-14 m=Q4 -> A3 | F3=Q3 -> A2 | F2=Q2 -> Div (Q3, Q4)=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+    "context": "CONTEXT:=F1: The distance between electron cloud and nucleus is 0.52e-10 m=F2: The diameter of expanded gold nucleus is 1 m=F3: The diameter of normal gold nucleus is 1.4e-14 m",
+    "file_source_url": "https://github.com/allenai/fermi (realFP train split, science-domain filtered)"
+  },
+  {
+    "question": "How many standard 2x4 lego blocks would it take in order to create a stack from Washington DC to Juneau AK?",
+    "fermi_answer": 9,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:2039",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Raisbeck Aviation Invitational 17-18"
+  },
+  {
+    "question": "How much gravitational potential energy is stored in the water of a typical rainstorm? [J]",
+    "fermi_answer": 15,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:446",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Camas Invitational 22-23"
+  },
+  {
+    "question": "What is the total length in cm (placed end to end) of all of the blood vessels in the human body?",
+    "fermi_answer": 10,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:550",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Centerville Invitational 17-18"
+  },
+  {
+    "question": "How many dried prunes long (measured on their long axis) is a stretched out small intestine?",
+    "fermi_answer": 3,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:2802",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UChicago Invitational 23-24"
+  },
+  {
+    "question": "If everyone in the world stood as close to each other as possible, how many square meters of ground would we cover? (hint: the world population just hit 8 billion as of November 2022!)",
+    "fermi_answer": 9,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:2787",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UChicago Invitational 22-23"
+  },
+  {
+    "question": "If you were to convert the energy in bananas to fuel, how many bananas would it take to fuel a car to drive from New York City to Los Angeles?",
+    "fermi_answer": 4,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:790",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Cornell Invitational 18-19"
+  },
+  {
+    "question": "Shaquille O\u2019Neal is a powerful dude. How many rims did he damage during his career in the NBA?",
+    "fermi_answer": 1,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:2779",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UChicago Invitational 22-23"
+  },
+  {
+    "question": "What is the largest number that can be represented using a 64-bit signed integer?",
+    "fermi_answer": 19,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:2125",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Rickards SO Invitational 22-23"
+  },
+  {
+    "question": "If you stack adult humans on top of one of another, how many will it take to reach the moon?",
+    "fermi_answer": 8,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:2912",
+    "answer_type": "oom_exponent",
+    "file_source_url": "University of Georgia Invitational 18-19"
+  },
+  {
+    "question": "How many seconds would it take for your heart to pump a volume of blood equivalent to that of an olympic sized pool?",
+    "fermi_answer": 7,
+    "domain": "Biology/Physics",
+    "source": "train_dir:filtered:fermi_problems_filtered_3.json",
+    "file_source_url": "https://github.com/landy8697/open-scioly-fermi/blob/master/formatted_test_data/princeton_2024.txt"
+  },
+  {
+    "question": "If you earned a penny for every 10 steps you walk, how much money will you earn by the time you are 40 years old?",
+    "fermi_answer": 6,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:2909",
+    "answer_type": "oom_exponent",
+    "file_source_url": "University of Georgia Invitational 18-19"
+  },
+  {
+    "question": "For example, 13 is happy, because 1^2 + 3^2 = 10, and 1^2 + 0^2 = Assume base",
+    "fermi_answer": 5,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:1086",
+    "answer_type": "oom_exponent",
+    "file_source_url": "GullSO Invitational 23-24"
+  },
+  {
+    "question": "Time for some chemistry!Ammonia is a great fertilizer.What is the square of the standard molar enthalpy of the formation of ammonia, in kJ^2?",
+    "fermi_answer": 3,
+    "domain": "chemistry",
+    "source": "achuthan:train",
+    "id": "scioly:1375",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Jordan Invitational 23-24"
+  },
+  {
+    "question": "How many Interstate highway dashed lines would it take to connect K2 to Mauna Kea?",
+    "fermi_answer": 6,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:2939",
+    "answer_type": "oom_exponent",
+    "file_source_url": "University of Georgia Invitational 23-24"
+  },
+  {
+    "question": "How many miles does a person walk in an average lifetime (assuming 10,000 steps per day)?",
+    "fermi_answer": 5,
+    "domain": "Biology/Mathematics",
+    "source": "eval_dir:val",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "What is the perimeter of Manhattan, in terms of the wavelength of red light?",
+    "fermi_answer": 11,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:3005",
+    "answer_type": "oom_exponent",
+    "file_source_url": "University of Michigan Invitational 17-18"
+  },
+  {
+    "question": "How many Olympic swimming pools could be filled with all the water that rains on Earth over the course of a year?",
+    "fermi_answer": 11,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:606",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Carnegie Mellon Invitational 22-23"
+  },
+  {
+    "question": "Using a standard 52-card deck, how many combinations of a 5-card hand can be drawn?",
+    "fermi_answer": 6,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:1773",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Ohio State Invitational 22-23"
+  },
+  {
+    "question": "How many nanograms of ATP will be produced if a cubic smoot of butter chicken was metabolized perfectly?",
+    "fermi_answer": 17,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:409",
+    "answer_type": "oom_exponent",
+    "file_source_url": "FermiSweat, Fermi Questions, but butter (chicken)"
+  },
+  {
+    "question": "If I were to take an English penny, melt it down, then somehow stretch it out into a perfect hollow sphere 1 atom thick, how large would this sphere be?",
+    "fermi_answer": 8,
+    "domain": "Physics/Materials Science/Chemistry",
+    "source": "train_dir:filtered:fermi_problems_filtered_5.json",
+    "answer_raw": "2.3e+8 in**2",
+    "answer_log10": 8.3617,
+    "id": "realfp_train_000",
+    "relevance": "core",
+    "program": "PROGRAM:=Q1: What is the volume of a single penny?=Q2: What is the thickness of the penny which is in the form of a hollow sphere now?=A1: 0.93 in**3=A2: 3.9e-9 in=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+    "context": "CONTEXT:=F1: The volume of the penny is 0.93 in**3=F2: The thickness of the penny is 3.9e-9 in",
+    "file_source_url": "https://github.com/allenai/fermi (realFP train split, science-domain filtered)"
+  },
+  {
+    "question": "How hot does the superhero, the human torch, have to be to evaporate bullets in flight?",
+    "fermi_answer": 3,
+    "domain": "physics",
+    "source": "achuthan:val",
+    "answer_raw": "1600.0",
+    "answer_log10": 3.20412,
+    "id": "realFP:test:364",
+    "unit": "degree C",
+    "answer_type": "numeric"
+  },
+  {
+    "question": "How many Olympic-sized swimming pools would you have to dig out of the ground in order to have a pile of dirt weighing the same as an adult blue whale?",
+    "fermi_answer": -2,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:196",
+    "answer_type": "oom_exponent",
+    "file_source_url": "BirdSO Mini Invitational 21-22"
+  },
+  {
+    "question": "What is the total length of all hairs shed by a cat in a month in cm?",
+    "fermi_answer": 6,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "fermiq:NC State Example:13",
+    "answer_type": "oom_exponent",
+    "file_source_url": "NC State Example"
+  },
+  {
+    "question": "If you counted all of the stars in the Milky Way at a rate of one star per second, how many years would it take you to finish?",
+    "fermi_answer": 3,
+    "domain": "astronomy",
+    "source": "achuthan:train",
+    "id": "scioly:566",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Centerville Invitational 17-18"
+  },
+  {
+    "question": "How big would a tower have to be in order for everyone in North America to be able to see it?",
+    "fermi_answer": 0,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "answer_raw": "2.97",
+    "answer_log10": 0.472756,
+    "id": "realFP:test:535",
+    "unit": "km",
+    "answer_type": "numeric",
+    "program": "PROGRAM:=Q1: What is the surface area of North America?=Q2: What is the relation between surface area of a circle and its radius?=Q3: What is the value of surface area of North America divided by pi?=Q4: What is the relation between the value of surface area of North America divided by pi and the height of the tower?=A1: 27.71 km**2=A2: 3.14=A3: 1/2=Q2 -> A2 | F2=Q1 -> A1 | F1=Q3 -> Div (Q1, Q2)=Q4 -> A3 | F3=P: Pow (Q3, Q4)",
+    "context": "CONTEXT:=F1: The surface area of North America is 27.71 km**2=F2: The relation between surface area and the radius of the circle is the square root of the area divided by pi and assuming that the entire North America is a circle and the minimum length of an object erected vertically that is visible to everyone is the radius of the circle.=F3: The relation between the value of surface area of North America divided by pi and the height of the tower is its square root"
+  },
+  {
+    "question": "If it rained at the rate of a 1/4 inch per hour, how many days would it take to fill a 6 lane swimming pool?",
+    "fermi_answer": 2,
+    "domain": "Earth Science/Environmental Science",
+    "source": "train_dir:filtered:fermi_problems_filtered_5.json",
+    "answer_raw": "98.5 days",
+    "answer_log10": 1.9934,
+    "id": "realfp_train_045",
+    "relevance": "tangential",
+    "program": "PROGRAM:=Q1: What is the volume of water accumulated if it is raining \u00bc inch an hour for a day?=Q2: What is the volume of a 6 lane swimming pool?=A1: 6700 gal*day**-1=A2: 660000 gal=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q2, Q1)",
+    "context": "CONTEXT:=F1: The volume of water accumulated if it is raining \u00bc inch an hour for a day is 6700 gal*day**-1=F2: The volume of 6 lane swimming pool is 660000 gal",
+    "file_source_url": "https://github.com/allenai/fermi (realFP train split, science-domain filtered)"
+  },
+  {
+    "question": "What proportion of Ziploc's annual profit is provided by the illegal drug trade?",
+    "fermi_answer": -1,
+    "domain": "Other Science",
+    "source": "train_dir:filtered:fermi_problems_filtered_5.json",
+    "answer_raw": "0.3",
+    "answer_log10": -0.5229,
+    "id": "realfp_train_167",
+    "relevance": "tangential",
+    "program": "PROGRAM:=Q1: How many ziplocks are used for illegal drug trade on an average?=Q2: What is the average number of ziplocks sold in a year?=A1: 30e+9=A2: 100e+9=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+    "context": "CONTEXT:=F1: Roughly, 30e+9 ziplocks are used for illegal drug trade.=F2: On an average 100e+9 ziplocks are sold every year.",
+    "file_source_url": "https://github.com/allenai/fermi (realFP train split, science-domain filtered)"
+  },
+  {
+    "question": "How many golf balls could be in a single layer in the country of Croatia?",
+    "fermi_answer": 13,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:677",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Columbia Invitational 17-18"
+  },
+  {
+    "question": "What is the vertical elevation change (up and down) on the route, according to Google Maps [m]?",
+    "fermi_answer": 5,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:1909",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Princeton Invitational 18-19"
+  },
+  {
+    "question": "Determine the height of the Great Pyramid of Giza divided by the thickness of a cell membrane.",
+    "fermi_answer": 10,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:3904",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #115 [2019 Northview Q8]"
+  },
+  {
+    "question": "If the oceans dried up, estimate the thickness (cm) of the resulting layer of salt uniformly covering the earth.",
+    "fermi_answer": 7,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "answer_raw": "66097892.0",
+    "answer_log10": 7.820188,
+    "id": "realFP:test:68",
+    "unit": "cm",
+    "answer_type": "numeric",
+    "program": "PROGRAM:=Q1: What is the total volume of salt present on earth when oceans dry up?=Q2: What is the surface area of the ocean cover of earth?=Q3: What percent of the ocean's volume consists of salt?=Q4: What is the total volume of the oceans?=Q5: How many cm is one mile?=Q6: What is the thickness of salt covering the earth in miles?=A1: 1.4e+8 miles**2=A2: 0.23=A3: 2.5e+11 miles**3=A4: 160934 cm/mile=Q4 -> A3 | F3=Q3 -> A2 | F2=Q1 -> Mul (Q3, Q4)=Q2 -> A1 | F1=Q6 -> Div (Q1, Q2)=Q5 -> A4 | F4=P: Mul (Q5, Q6)",
+    "context": "CONTEXT:=F1: The surface area of the ocean cover on Earth is 1.39e+8 miles**2=F2: The percentage of salt in oceans is 23%.=F3: The volume of oceans is 2.5e+11 miles**3=F4: 1 mile is 160934 cm"
+  },
+  {
+    "question": "How many cells die naturally (apoptosis) in your body during the time that it takes you to solve the average Fermi problem?",
+    "fermi_answer": 6,
+    "domain": "Biology",
+    "source": "train_dir:filtered:fermi_problems_filtered_1.json",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "How many times would you have to empty a 20oz water bottle to fill up an empty Lake Michigan?",
+    "fermi_answer": 16,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:2760",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UChicago Invitational 22-23"
+  },
+  {
+    "question": "If I search \u201cforeign\u201d in PubMed, a medical journal database, how many results show up?",
+    "fermi_answer": 5,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:3065",
+    "answer_type": "oom_exponent",
+    "file_source_url": "University of Michigan Invitational 22-23"
+  },
+  {
+    "question": "What amount of cellphones put side-to-side would span across the inside of the Sun?",
+    "fermi_answer": 11,
+    "domain": "astronomy",
+    "source": "achuthan:train",
+    "id": "scioly:2601",
+    "answer_type": "oom_exponent",
+    "file_source_url": "SSSs Fermi (luminosityfan) 17-18"
+  },
+  {
+    "question": "How many earths are needed to have the equivalent weight of one Sun?",
+    "fermi_answer": 5,
+    "domain": "Astronomy",
+    "source": "train_dir:filtered:fermi_problems_filtered_1.json",
+    "file_source_url": "https://github.com/EricAndrechek/FermiQuestions/blob/main/question-bank.json"
+  },
+  {
+    "question": "How many rolls of toilet paper would fit inside Buckingham Palace assuming Buckingham Palace were a box and the toilet paper left no gaps between rolls (the tube hole still exists)?",
+    "fermi_answer": 8,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:3062",
+    "answer_type": "oom_exponent",
+    "file_source_url": "University of Michigan Invitational 22-23"
+  },
+  {
+    "question": "If a gallon of paint is used to coat 400 ft2 of walls, how thick, cm, is the paint film?",
+    "fermi_answer": -2,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "answer_raw": "0.01",
+    "answer_log10": -2.0,
+    "id": "realFP:val:2",
+    "unit": "cm",
+    "answer_type": "numeric",
+    "program": "PROGRAM:=Q1: What is the total volume of paint available to be painted on the wall?=Q2: What is the surface area of the wall?=Q3: How many cm is 1 feet?=Q4: What is the thickness of paint in feet?=A1: 0.13 ft**3=A2: 400 ft**2=A3: 30 cm*ft**-1=Q2 -> A2 | F2=Q1 -> A1 | F1=Q4 -> Div (Q1, Q2)=Q3 -> A3 | F3=P: Mul(Q3, Q4)",
+    "context": "CONTEXT:=F1: The total volume of paint available to be painted on the wall is 0.13 cubic feet=F2: The total surface area of the wall is 400 sq. ft=F3: One foot is equal to 30 cm"
+  },
+  {
+    "question": "How many possible five-card hands can you deal with a standard 52-card deck?",
+    "fermi_answer": 8,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:2987",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UMass Amherst Invitational 22-23"
+  },
+  {
+    "question": "Estimate the number of Calories consumed at winter holiday parties in the United States.",
+    "fermi_answer": 9,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:447",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Camas Invitational 22-23"
+  },
+  {
+    "question": "How many meal worms would you need to stack on top of each other to reach the moon?",
+    "fermi_answer": 10,
+    "domain": "astronomy",
+    "source": "achuthan:train",
+    "id": "scioly:3408",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #16 [2019 Troy Q35]"
+  },
+  {
+    "question": "How fast in miles per hour would you need to be moving so that a red light you are approaching appears green?",
+    "fermi_answer": 8,
+    "domain": "physics",
+    "source": "achuthan:val",
+    "id": "scioly:675",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Columbia Invitational 17-18"
+  },
+  {
+    "question": "We\u2019d like to get to know you better. What is the combined age of you and your partner in Minecraft days (day here is defined as a day cycle, meaning a full day and night)?",
+    "fermi_answer": 6,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:3265",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Sahil Gandhi, WSO Regionals 22-23"
+  },
+  {
+    "question": "Moving 200 feet per minute, how long would it take to get from Earth to Mars?",
+    "fermi_answer": 8,
+    "domain": "physics",
+    "source": "achuthan:eval",
+    "answer_raw": "900000000.0",
+    "answer_log10": 8.954243,
+    "id": "realFP:test:256",
+    "unit": "min",
+    "answer_type": "numeric"
+  },
+  {
+    "question": "How many known species of plants are found in the Amazonian Rain Forest?",
+    "fermi_answer": 7,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:3959",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #126 [2018 Mesa-Wilson Q10]"
+  },
+  {
+    "question": "In Joules, how much energy would it take ChatGPT to provide an answer to this question?",
+    "fermi_answer": 4,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:150",
+    "answer_type": "oom_exponent",
+    "file_source_url": "BirdSO In-Person Invitational 23-24"
+  },
+  {
+    "question": "An atomic clock is driven by so many radiation cycles of cesium-133 per second. How many radiation cycles would occur in one year?",
+    "fermi_answer": 17,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:575",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Centerville Invitational 17-18"
+  },
+  {
+    "question": "How many pennies are needed to equal the height of the tallest building in the world?",
+    "fermi_answer": 6,
+    "domain": "Other Science",
+    "source": "train_dir:filtered:fermi_problems_filtered_5.json",
+    "answer_raw": "552000",
+    "answer_log10": 5.7419,
+    "id": "realfp_train_041",
+    "relevance": "tangential",
+    "program": "PROGRAM:=Q1: What is the height of the tallest building in the world?=Q2: What is the thickness of a penny?=A1: 828 m=A2: 0.0015 m=Q2 -> A2|F2=Q1 -> A1|F1=P: Div(Q1, Q2)",
+    "context": "CONTEXT:=F1: The height to be matched is 828 meters=F2: The thickness of a penny is 0.0015 metes",
+    "file_source_url": "https://github.com/allenai/fermi (realFP train split, science-domain filtered)"
+  },
+  {
+    "question": "Suppose you played the lowest string on a tuned violin for 10 minutes straight. How many times would that string have vibrated back and forth?",
+    "fermi_answer": 5,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:2448",
+    "answer_type": "oom_exponent",
+    "file_source_url": "SOUP Invitational 22-23"
+  },
+  {
+    "question": "How many days would it take a sound wave to travel the same distance at sea level on Earth?",
+    "fermi_answer": 0,
+    "domain": "Physics/Earth Science",
+    "source": "train_dir:filtered:fermi_problems_filtered_5.json",
+    "answer_raw": "1.4 days",
+    "answer_log10": 0.1461,
+    "id": "realfp_train_111",
+    "relevance": "applied",
+    "program": "PROGRAM:=Q1: What is the circumference of earth?=Q2: What is the speed of sound at sea level in km/day?=A1: 40075 km=A2: 29393 km*day**-1=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q1, Q2)",
+    "context": "CONTEXT:=F1: The circumference of earth is 40075 km=F2: The speed of sound at sea level is 29393 km per day",
+    "file_source_url": "https://github.com/allenai/fermi (realFP train split, science-domain filtered)"
+  },
+  {
+    "question": "For a freshly mowed lawn, estimate the mass, g, of the grass above ground.",
+    "fermi_answer": 0,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "answer_raw": "6.0",
+    "answer_log10": 0.778151,
+    "id": "realFP:test:174",
+    "unit": "kg",
+    "answer_type": "numeric",
+    "program": "PROGRAM:=Q1: What is the total number of blades of grass on a freshly mowed lawn?=Q2: What is the average mass of a single blade of grass?=Q3: What is the average size of a lawn?=Q4: How many blades of grass are there on a single ft**2 of a lawn?=A1: 1e-5 kg=A2: 200 ft**2=A3: 3000 ft**-2=Q4 -> A3 | F3=Q3 -> A2 | F2=Q1 -> Mul (Q3, Q4)=Q2 -> A1 | F1=P: Mul (Q1, Q2)",
+    "context": "CONTEXT:=F1: The weight of a blade of grass is 1e-5 kg=F2: The average size of a freshly mowed lawn is 200 ft**2=F3: There are 3000 blades of grass in a single ft**2 of a lawn."
+  },
+  {
+    "question": "Whenever I go to my Spanish class, I go up 72 stairs. How many times would I have to go up these stairs in order to climb the equivalent of Mount Everest?",
+    "fermi_answer": 4,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:1180",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Highlands Virtual Invitational 23-24"
+  },
+  {
+    "question": "If every water molecule in every human was replaced by deuterium water, how much heavier would the entire human population be in metric tons?",
+    "fermi_answer": 7,
+    "domain": "chemistry",
+    "source": "achuthan:train",
+    "id": "scioly:2319",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Seven Lakes Invitational 22-23"
+  },
+  {
+    "question": "How many satellites are currently orbiting the Earth for every moon of Uranus?",
+    "fermi_answer": 3,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:214",
+    "answer_type": "oom_exponent",
+    "file_source_url": "BirdSO Mini Invitational 21-22"
+  },
+  {
+    "question": "How long does it take for blood to coagulate in a reptile carcass?",
+    "fermi_answer": 1,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "answer_raw": "60.0",
+    "answer_log10": 1.778151,
+    "id": "realFP:test:503",
+    "unit": "s",
+    "answer_type": "numeric",
+    "program": "PROGRAM:=Q1: What is the time taken for blood coagulation in humans?=Q2: What is the ratio of blood coagulation in reptiles to that in humans?=A1: 30 s=A2: 2=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul(Q1, Q2)",
+    "context": "CONTEXT:=F1: The time taken for blood to coagulate in humans is 30 seconds.=F2: The ratio of time taken for blood to coagulate in reptiles when compared to humans is 2"
+  },
+  {
+    "question": "How many snowflakes would it take to completely blanket the entirety of Yale\u2019s central campus with a cubic foot of snow?",
+    "fermi_answer": 15,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:3627",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #59 [2019 Mason Q7]"
+  },
+  {
+    "question": "How many times did the wheel of the bus turn on the class excursion?",
+    "fermi_answer": 6,
+    "domain": "Physics/Engineering",
+    "source": "train_dir:filtered:fermi_problems_filtered_5.json",
+    "answer_raw": "360000",
+    "answer_log10": 5.5563,
+    "id": "realfp_train_095",
+    "relevance": "tangential",
+    "program": "PROGRAM:=Q1: What is the average RPM of a bus journey?=Q2: What is the duration of the bus journey?=A1: 3000=A2: 120=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+    "context": "CONTEXT:=F1: The average RPM of the wheels of the bus at 40 kmph is 3000=F2: The total duration of the journey is 120 minutes.",
+    "file_source_url": "https://github.com/allenai/fermi (realFP train split, science-domain filtered)"
+  },
+  {
+    "question": "How many Joules of solar energy reach the grass on the surface of Wrigley Field in July during a Chicago Cubs baseball game?",
+    "fermi_answer": 11,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:3987",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #131 [2019 Grovetown Q2]"
+  },
+  {
+    "question": "How many units (500 cc) of blood are donated each day in the United States?",
+    "fermi_answer": 5,
+    "domain": "Medicine/Biology",
+    "source": "train_dir:filtered:fermi_problems_filtered_5.json",
+    "answer_raw": "40700",
+    "answer_log10": 4.6096,
+    "id": "realfp_train_075",
+    "relevance": "tangential",
+    "program": "PROGRAM:=Q1: How much blood is donated in the US each day?=Q2: How many cc of blood is equal to one unit?=A1: 500 cm**3=A2: 20346588 cm**3=Q2 -> A1 | F1=Q1 -> A2 | F2=P: Div (Q1, Q2)",
+    "context": "CONTEXT:=F1: 500 cc of blood is equal to one unit=F2: Around 20346588 cc of blood is donated each day in the US",
+    "file_source_url": "https://github.com/allenai/fermi (realFP train split, science-domain filtered)"
+  },
+  {
+    "question": "During the course of a calendar year, how far, km, through space has the moon traveled?",
+    "fermi_answer": 8,
+    "domain": "astronomy",
+    "source": "achuthan:val",
+    "answer_raw": "881478285.0",
+    "answer_log10": 8.945212,
+    "id": "realFP:test:304",
+    "unit": "km",
+    "answer_type": "numeric"
+  },
+  {
+    "question": "How many times does the minute hand and hour hand of a clock completely align over the course of a petasecond?",
+    "fermi_answer": 11,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:2415",
+    "answer_type": "oom_exponent",
+    "file_source_url": "SOAPS Invitational 23-24"
+  },
+  {
+    "question": "How many red blood cells were shed by the soldiers killed in the Civil War?",
+    "fermi_answer": 19,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:412",
+    "answer_type": "oom_exponent",
+    "file_source_url": "FermiSweat, Fermi Questions, but butter (chicken)"
+  },
+  {
+    "question": "How far could you theoretically travel back in time before you could no longer find a genetically compatible human to breed with because of differences caused by evolution?",
+    "fermi_answer": 3,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "answer_raw": "8000.0",
+    "answer_log10": 3.90309,
+    "id": "realFP:test:249",
+    "answer_type": "numeric",
+    "program": "PROGRAM:=Q1: What is the current year?=Q2: In which year does the last genetically compatible human w.r.t the current generation resides in?=A1: 2021=A2: -5979=Q2 -> A2 | F2=Q1 -> A1 | F2=P: Sub (Q1, Q2)",
+    "context": "CONTEXT:=F1: The current year is 2021.=F2: The last genetically computable human goes all the way back to the one's life during Harappa and MohenjodarO, the first human civilisation [assumption] which was 6000 BC"
+  },
+  {
+    "question": "Connect 4 has also been solved\u2013 how many possible positions are there for this game?",
+    "fermi_answer": 12,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:3263",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UT Austin Regionals 22-23"
+  },
+  {
+    "question": "If Lake Superior were filled with Mountain Dew as opposed to water, how many Calories would be in the lake?",
+    "fermi_answer": 18,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:3896",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #113 [2018 Kenston Q18]"
+  },
+  {
+    "question": "How long does it take for a human body to burn at the stake?",
+    "fermi_answer": 1,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "answer_raw": "15.0",
+    "answer_log10": 1.176091,
+    "id": "realFP:val:117",
+    "unit": "min",
+    "answer_type": "numeric",
+    "program": "PROGRAM:=Q1: How long does it take for the burns to peel off the skin?=Q2: How deep is the heart and lungs of our body compared to the skin?=A1: 1 min=A2: 15=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+    "context": "CONTEXT:=F1: It takes around 1 minute for the heat to peel off the skin.=F2: The lungs and heart are 15 times deeper when compared to the skin."
+  },
+  {
+    "question": "If female gnats maximize their reproductive prospects, and all existing insects were gnats, how many gnats could the female gnats in the world produce in one lifespan?",
+    "fermi_answer": 20,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:3640",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #62 [2019 Syosset Q10]"
+  },
+  {
+    "question": "If all the trash produced in the US in one year is put in a landfill, what percentage of the US would it occupy?",
+    "fermi_answer": 1,
+    "domain": "Environmental Science/Engineering",
+    "source": "train_dir:filtered:fermi_problems_filtered_5.json",
+    "answer_raw": "9.18",
+    "answer_log10": 0.9628,
+    "id": "realfp_train_029",
+    "relevance": "applied",
+    "program": "PROGRAM:=Q1: What is the area occupied by the total garbage?=Q2: What is the total surface area of the US?=Q3: How much trash is produced in the US every year?=Q4: What is the surface area occupied by a kg of trash?=Q5: What is the fraction of the area of the landfill to the total surface area of the US?=Q6: What is the multiplicating factor to convert fraction to percent?=A1: 9.8e+6 km**2=A2: 3.6e+11 kg=A3: 2.5e-6 km**2/kg=A4: 100=Q4 -> A3 | F3=Q3 -> A2 | F2=Q1 -> Mul (Q3, Q4)=Q2 -> A1 | F1=Q5 -> Div (Q1, Q2)=Q6 -> A4 | F4=P: Mul (Q5, Q6)",
+    "context": "CONTEXT:=F1: The total surface area of the US is 9.8e+6 km**2=F2: An average of 3.6e+11 kgs of trash is produced in the US annually.=F3: 2.5e-6 km**2 areas are occupied by a kg of trash can.=F4: The multiplicating factor to convert fraction to hundred is 100.",
+    "file_source_url": "https://github.com/allenai/fermi (realFP train split, science-domain filtered)"
+  },
+  {
+    "question": "How many joules would you need to launch a one kilogram salamander into low Earth orbit?",
+    "fermi_answer": 7,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:585",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Clements Invitational 17-18"
+  },
+  {
+    "question": "How many squares of toilet paper are in a 100-car train of box cars, each full of rolls of toilet paper?",
+    "fermi_answer": 9,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:3924",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #119 [2019 BVF Q21]"
+  },
+  {
+    "question": "How many pounds of food are eaten by one human in one lifetime?",
+    "fermi_answer": 5,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "fermiq:og:45",
+    "answer_type": "oom_exponent",
+    "file_source_url": "og"
+  },
+  {
+    "question": "The volume of air, in cubic meters, in all the bags of Lay\u2019s sold in 2023, assuming they\u2019re all family-sized.",
+    "fermi_answer": 7,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:3194",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UT Austin Invitational 23-24"
+  },
+  {
+    "question": "How many drops of water are needed to fill a swimming pool (20 x 12 x 2 meters)?",
+    "fermi_answer": 8,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:573",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Centerville Invitational 17-18"
+  },
+  {
+    "question": "What is the number of calories of heat required to raise the average temperature of Lake Michigan 1 degree Celsius?",
+    "fermi_answer": 18,
+    "domain": "Thermodynamics/Earth Science",
+    "source": "train_dir:filtered:fermi_problems_filtered_2.json",
+    "file_source_url": "https://github.com/landy8697/open-scioly-fermi/blob/master/formatted_test_data/northview_2024.txt"
+  },
+  {
+    "question": "How many times bigger is the largest country in the world by surface area compared to the 100th largest country in the world?",
+    "fermi_answer": 2,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:88",
+    "answer_type": "oom_exponent",
+    "file_source_url": "BirdSO In-Person Invitational 22-23"
+  },
+  {
+    "question": "How many average human small intestines laid end to end would wrap around the Earth at the Equator? Do not try this at home.",
+    "fermi_answer": 7,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:2619",
+    "answer_type": "oom_exponent",
+    "file_source_url": "SSSs Fermi (rafaelnadal) 17-18"
+  },
+  {
+    "question": "How many ways are there to arrange 8 queens on a standard 8 \u00d7 8 chessboard?",
+    "fermi_answer": 9,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:2202",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Seven Lakes Invitational 17-18"
+  },
+  {
+    "question": "What is the length of an average red ant, as a multiple of the thickness of a cell membrane?",
+    "fermi_answer": 6,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:3539",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #42 [2019 Princeton Q1]"
+  },
+  {
+    "question": "How many days would it take one person to shed enough skin cells (stacked on top of each other) to reach the height of the tallest building in the world?",
+    "fermi_answer": 0,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:583",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Clements Invitational 17-18"
+  },
+  {
+    "question": "The duration of all lightning strikes in the U.S. on any given day  in picoseconds",
+    "fermi_answer": 5,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:3413",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #17 [2018 U Florida Regionals Q45]"
+  },
+  {
+    "question": "How long would it take a wolverine to run around the circumference of the Earth in seconds?",
+    "fermi_answer": 6,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:3044",
+    "answer_type": "oom_exponent",
+    "file_source_url": "University of Michigan Invitational 18-19"
+  },
+  {
+    "question": "How many teaspoons of concrete are needed to fill the volume of the Hoover Dam?",
+    "fermi_answer": 12,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:3456",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #25 [2019 U Georgia Q18]"
+  },
+  {
+    "question": "How much CO2 does a coal-powered power generation plant release into the atmosphere per year?",
+    "fermi_answer": 10,
+    "domain": "Energy/Environmental Science/Chemistry/Engineering",
+    "source": "train_dir:filtered:fermi_problems_filtered_5.json",
+    "answer_raw": "9.8e+9 tons",
+    "answer_log10": 9.9912,
+    "id": "realfp_train_173",
+    "relevance": "applied",
+    "program": "PROGRAM:=Q1: How much CO2 does a coal-powered plant release every day?=Q2: How many days are there in a year?=A1: 27e+6 tons=A2: 365=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Mul (Q1, Q2)",
+    "context": "CONTEXT:=F1: A single power plant releases 27e+6 tons of CO2 every day.=F2: There are 365 days in a year.",
+    "file_source_url": "https://github.com/allenai/fermi (realFP train split, science-domain filtered)"
+  },
+  {
+    "question": "In a typical cup of brewed tea with no milk, sugar and with leaves strained or tea bag taken out what would be the ratio of the volume of water to tea (excluding plant matter?)",
+    "fermi_answer": 1,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "answer_raw": "27.5",
+    "answer_log10": 1.439333,
+    "id": "realFP:val:38",
+    "answer_type": "numeric",
+    "program": "PROGRAM:=Q1: What is the mass of the tea powder in a glass of 200g?=Q2: What is the mass of water in a glass of 200g?=A1: 7 g=A2: 193 g=Q2 -> A2 | F2=Q1 -> A1 | F1=P: Div (Q2, Q1)",
+    "context": "CONTEXT:=F1: The mass of the tea powder in a glass of 200g is 7g.=F2: The mass of water in a glass of 200g is 193g."
+  },
+  {
+    "question": "What was the power in watts needed to run New York\u2019s train system in 2021?",
+    "fermi_answer": 11,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:529",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Carolina Invitational 22-23"
+  },
+  {
+    "question": "What is the collective base horsepower of every Chevrolet Silverado (the most stolen vehicle in the United States) stolen in 2022?",
+    "fermi_answer": 7,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:2841",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UC Riverside Highlander Invitational 23-24"
+  },
+  {
+    "question": "What is the recommended number of chest compressions divided by the time it takes a snail to go a mile?",
+    "fermi_answer": 4,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:3690",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #72 [2019 Carmel Q35]"
+  },
+  {
+    "question": "Sometimes gamers are also lifters. There is this archaic powerlifting exercise called a backlift. What is the world record for the backlift, in stones?",
+    "fermi_answer": 2,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:3253",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UT Austin Regionals 22-23"
+  },
+  {
+    "question": "In the board game Risk, each of the six players receive armies that consist of infantry, cavalry, and artillery. Suppose each of them were their full size equivalent. If all infantry (from all six armies) were running, all cavalry were galloping, and all artillery fired a cannonball, what is the total kinetic energy, in eV?",
+    "fermi_answer": 26,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:233",
+    "answer_type": "oom_exponent",
+    "file_source_url": "BirdSO Mini Invitational 21-22"
+  },
+  {
+    "question": "In 1983, more than 300 years after the first serious measurement attempt the Seventeenth General Congress on Weights and Measure defined the meter as as the distance light travels through a vacuum during a time interval of how many seconds?",
+    "fermi_answer": -9,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "fermiq:og:137",
+    "answer_type": "oom_exponent",
+    "file_source_url": "og"
+  },
+  {
+    "question": "Spider silk is remarkably strong \u2013 however, we haven\u2019t quite figured out how to create web fluid, so no swinging around like Spiderman yet. How many times greater is the tensile strength of spider silk compared to that of steel?",
+    "fermi_answer": 0,
+    "domain": "Physics/Materials Science",
+    "source": "train_dir:filtered:fermi_problems_filtered_4.json",
+    "file_source_url": "https://github.com/landy8697/open-scioly-fermi/blob/master/formatted_test_data/columbia_2024.txt"
+  },
+  {
+    "question": "How much banana is too much banana? Bananas contain significantly high potassium concentrations. Potassium is an essential element for life as we know it. Among other things, it facilitates the normal transmission of signals through the nervous system. But, in nature, about 012% of potassium is the radioactive isotope potassium- Thus, the potassium-40 (K-40) in a single banana exposes a person to about 100 nSv (also known as a banana equivalent dose or BED). A lethal dose of radiation for 50% of people in 30 days (LD50/30) is about 5,000 mSv. Estimate the volume of bananas required to provide a lethal exposure to K- [classrooms]",
+    "fermi_answer": 0,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:458",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Camas Invitational 22-23"
+  },
+  {
+    "question": "Consider all the water molecules from the previous question. If they were all placed side by side, what percentage of the distance from New York City to Chicago would that cover? [Previous question: How many water molecules are in a single drop of pure water?]",
+    "fermi_answer": 7,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:3584",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #51 [2019 Staten Island Q16]"
+  },
+  {
+    "question": "Andru and Rae decide to leave and go make a new life for themselves. They decide on going to Paris, France. How far in gigameters would they need to travel from NYC to reach their final destination?",
+    "fermi_answer": -2,
+    "domain": "astronomy",
+    "source": "achuthan:train",
+    "id": "scioly:1564",
+    "answer_type": "oom_exponent",
+    "file_source_url": "MIT Invitational 22-23"
+  },
+  {
+    "question": "Seeing as China isn\u2019t really under any more threat of invasion by ruthless Hun hordes, I suppose it\u2019s fine to \u201crepurpose\u201d the Great Wall of China. If I tore it down, how many Lighthouses of Alexandria\u2019s could I build with the rubble?",
+    "fermi_answer": 5,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:2852",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UC Riverside Highlander Invitational 23-24"
+  },
+  {
+    "question": "Consider the combustion of butane (2C4H10 + 13O2 \u2192 8CO2 + 10H2), which has an enthalpy of combustion of -2877.5 kJ/mol. How much energy, in Joules, would be released by reacting an Avogadro\u2019s number of moles of butane with unlimited oxygen?",
+    "fermi_answer": 30,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:3388",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #12 [2018 Fairfax Q7b]"
+  },
+  {
+    "question": "I love sparkling water, more than most beverages. However, whenever I buy a pack, I am often faced with the dilemma that I am buying a can that is partially air. How many balloons can I fill with the gas from a lifetime's worth of sparkling water if I drink 1 a day?",
+    "fermi_answer": 3,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:1154",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Highlands Virtual Invitational 22-23"
+  },
+  {
+    "question": "Suppose you wanted to send a radio message to the nearest exoplanet 4 light-years away. You have a great transmitter and power source large enough to provide electricity to Portland, OR. Estimate the intensity of the signal when it reaches the far-away planet. [dB]",
+    "fermi_answer": -1,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:444",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Camas Invitational 22-23"
+  },
+  {
+    "question": "We take for granted that when we charge up our batteries, they don\u2019t get heavier... or do they? Assuming that an iPhone 14 has a 3000 mAh battery that is rated at 7 volts, how many more kilograms does an iPhone 14 weigh when fully charged, compared to when its battery is completely empty, all else equal? Assume for sim- plicity that all electrons in the battery have zero kinetic motion, regardless of the battery being charged or not.",
+    "fermi_answer": -13,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:727",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Columbia University Invitational 22-23"
+  },
+  {
+    "question": "Of the quantity found in the question above, n% is used to convert protons and electrons to neutrons. What is n? (Question above: How much energy, in Joules, is released in a typical type II supernova from gravitational potential energy?)",
+    "fermi_answer": 1,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:3852",
+    "answer_type": "oom_exponent",
+    "file_source_url": "RobertYL, daily fermi questions day #104 [2019 WWPS Q29]"
+  },
+  {
+    "question": "Because you are a competitor of culture, you only compete in Inquiry & Nature of Science events. Let X be the set of letters contained in the combined names of all 2018 Inquiry & Nature of Science events. How many English words only contain letters in X?",
+    "fermi_answer": 5,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:1464",
+    "answer_type": "oom_exponent",
+    "file_source_url": "MIT Invitational 18-19"
+  },
+  {
+    "question": "How many Svedbergs would it take you to memorize the definition of every word in the full Webster\u2019s Third New International dictionary, assuming that you\u2019re super dumb and took an average of a fortnight to memorize each word?",
+    "fermi_answer": 25,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:3109",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UT Austin Invitational 17-18"
+  },
+  {
+    "question": "The 2022 FIFA World Cup is coming! The tournament will take place in Qatar during November and December, because of the excessive heat during the summer. What was the highest recorded temperature in Qatar ever in degrees Rankine?",
+    "fermi_answer": 3,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:2100",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Rickards SO Invitational 22-23"
+  },
+  {
+    "question": "If all the energy produced by the world\u2019s wind turbines in the year 2022 was stored on a standard 10 microFarad capacitor, what would the voltage (in Volts) be between the two ends of the capacitor?",
+    "fermi_answer": 12,
+    "domain": "Physics/Engineering",
+    "source": "train_dir:filtered:fermi_problems_filtered_3.json",
+    "file_source_url": "https://github.com/landy8697/open-scioly-fermi/blob/master/formatted_test_data/princeton_2024.txt"
+  },
+  {
+    "question": "In September 2022, two Russian gas pipes under the Baltic Sea began to leak methane. Conservative estimates suggest that methane was leaking at a rate of 500 metric tons per hour. Assume this rate is constant. How many cows would it take to \u201cleak\u201d methane at the same rate on average (via farting).",
+    "fermi_answer": 7,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:1134",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Highlands Virtual Invitational 22-23"
+  },
+  {
+    "question": "Part of First Lady Michelle Obama's Let's Move! Initiative, the 2010 Healthy, Hunger-Free Kids Act, required school meal providers to limit calories and reduce saturated fat, trans fat and sodium. Consider a man who has 20 kg of body fat when he goes on a hunger strike. Determine how long he can survive on his body fat alone in decades.",
+    "fermi_answer": -2,
+    "domain": "biology",
+    "source": "achuthan:train",
+    "id": "scioly:1136",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Highlands Virtual Invitational 22-23"
+  },
+  {
+    "question": "How many times faster would someone need to travel to go around the Milky Way galaxy in 80 days if it takes them 80 days to go around the world (on the Earth's equator)? (Ignore any effects of special relativity.)",
+    "fermi_answer": 14,
+    "domain": "astronomy",
+    "source": "achuthan:train",
+    "id": "scioly:2335",
+    "answer_type": "oom_exponent",
+    "file_source_url": "SOAPS Invitational 22-23"
+  },
+  {
+    "question": "In thermodynamics, Boltzmann\u2013Planck equation describes the relationship between entropy and the total number of microstates in the macrostate of an ideal gas. It is given as the equation: S = KB ln(W) where KB is the Boltzmann constant. (Boltzmann\u2019s constant is also equivalent to the ideal gas constant / Avogadro\u2019s constant) Let n = number of molecules present and e = total energy, where the energy of a molecule is at least In a system where n = 2 and e = 4, W is found to be Similarly, in a system where n = 4 and e = 8, W is found to be Find the entropy of a system in J/K where n = 1024 and e = 2 \u00d7 1024",
+    "fermi_answer": 1,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:224",
+    "answer_type": "oom_exponent",
+    "file_source_url": "BirdSO Mini Invitational 21-22"
+  },
+  {
+    "question": "You\u2019re upset because you and your school didn\u2019t place as well as you expected and you start to bawl. Every day, you cry as many times as the average adult male cries in a month. Every time you cry, you drink a liter of Diet Coke. In the time span of a month, how many grams of caffeine would you have consumed from this Diet Coke?",
+    "fermi_answer": 1,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "scioly:1475",
+    "answer_type": "oom_exponent",
+    "file_source_url": "MIT Invitational 18-19"
+  },
+  {
+    "question": "If I somehow magically converted the engines of a T-72 Soviet Main Battle Tank to run on chocolate milk (harnessing 100% of the calories within the heavenly liquid), then how far could it go on a full tank, in kilometers?",
+    "fermi_answer": 1,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:2823",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UC Riverside Highlander Invitational 23-24"
+  },
+  {
+    "question": "Why do ice cubes always come as. . . cubes? Why aren\u2019t there ice spheres? or ice cylinders? If you froze all the freshwater (include all sources, not just surface lakes, ponds, etc.) on Earth into an ice cube, what would the side length of the cube be",
+    "fermi_answer": 5,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:706",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Columbia University Invitational 22-23"
+  },
+  {
+    "question": "\u201cYou know I love a London boy. I enjoy walking SoHo, drinking in the afternoon (yeah)\u201d Despite the long distance, luckily Swift is an international pop star. Let\u2019s say she solely took round trips to visit her theoretical English bae, from JFK Intl. Airport in New York City, USA to London-Heathrow Airport in London, England, funding them solely with the royalties she was paid by Spotify in All air travel was done in her private jet, a Dassault Falcon Once she runs out of money, she stops. How many round trips could she take?",
+    "fermi_answer": 3,
+    "domain": "earth_science",
+    "source": "achuthan:train",
+    "id": "scioly:2835",
+    "answer_type": "oom_exponent",
+    "file_source_url": "UC Riverside Highlander Invitational 23-24"
+  },
+  {
+    "question": "(Tiebreaker) You\u2019ve moved on to the final round with a chance to win a million dollars. How- ever, if you get it wrong, you will lose all of your earnings up to now... what will you do? Compute 49^2^10^\u22122 .",
+    "fermi_answer": 2,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:1529",
+    "answer_type": "oom_exponent",
+    "file_source_url": "MIT Invitational 21-22"
+  },
+  {
+    "question": "Rae wants to gain access to your bank, but she forgot to ask which Commercial bank system that you utilize. If you utilize a FDIC-insured commercial bank and she hacks into a random FDIC-insured commercial bank, what is the probability that she hits a bank that includes your account?",
+    "fermi_answer": -4,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:1552",
+    "answer_type": "oom_exponent",
+    "file_source_url": "MIT Invitational 22-23"
+  },
+  {
+    "question": "Muons have a half life of 56 x 10-6 seconds. I stand at rest and observe a million muon particles travel from one end of a 104 meter tunnel to another end, at velocity v = 8c, where c is the speed of light. How many muons reach the end?",
+    "fermi_answer": 1,
+    "domain": "physics",
+    "source": "achuthan:train",
+    "id": "scioly:3326",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Yale Invitational 17-18"
+  },
+  {
+    "question": "Suppose I start writing down an infinite sequence of numbers, where each number is sampled uniformly between the integers from 0 to 9 (inclusive). How many numbers would I need to sample before the expected number of times I see 00000000000 as a substring exceeds 5?",
+    "fermi_answer": 11,
+    "domain": "mathematics",
+    "source": "achuthan:train",
+    "id": "scioly:168",
+    "answer_type": "oom_exponent",
+    "file_source_url": "BirdSO In-Person Invitational 23-24"
+  },
+  {
+    "question": "If every citizen that was naturalized in the United States in 2022 fully neutralized 3 L of 12 M NaOH with 1 M HCl, what is the minimum number of gallon waste containers they would need to clean up the experiment?",
+    "fermi_answer": 8,
+    "domain": "chemistry",
+    "source": "achuthan:train",
+    "id": "scioly:146",
+    "answer_type": "oom_exponent",
+    "file_source_url": "BirdSO In-Person Invitational 23-24"
+  },
+  {
+    "question": "Archimedes of Syracuse was a philosopher, inventor, and scientist who lived and died in Sicily more than 2,000 years ago. Assuming that the earth\u2019s atmosphere has been thoroughly mixed since then, how many molecules from his final breath are in your lungs right now?",
+    "fermi_answer": 1,
+    "domain": "other_science",
+    "source": "achuthan:train",
+    "id": "fermiq:Yale YPO:2",
+    "answer_type": "oom_exponent",
+    "file_source_url": "Yale YPO"
+  }
+]
