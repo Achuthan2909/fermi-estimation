@@ -19,6 +19,9 @@ Base Model (Qwen3-4B-Instruct-2507)
 
 ## SFT vs RL v2 — Val Set Performance
 
+**Dataset:** `datasets/final/val.json` (1693 rows, never used in SFT or RL training)  
+**Scored via:** `src/sft/validate_sft.py`
+
 | Metric | SFT | RL v2 | Δ |
 |--------|----:|------:|--:|
 | N scored | 1581 | 1568 | — |
@@ -104,17 +107,25 @@ Schema fail → reward = −0.5
 
 ## Achuthan's Eval — SynthFP-Free Held-Out Set
 
-Evaluated on `datasets/final/eval_no_synthfp.json` (320 rows — 180 synthetically-generated questions removed from the original 500-row eval set). Uses the same fp_score metric but run through `src/sampling/evaluate_sampling.py`.
+**Dataset:** `datasets/final/eval_no_synthfp.json`
+- 320 rows — 180 synthetically-generated (synthFP) questions removed from the original 500-row eval set
+- This is a **held-out eval set** (never seen during SFT or RL training)
+- Scored via `src/sampling/evaluate_sampling.py` with `--fp-score` flag (fp_score, k=3 decades tolerance)
 
-| Metric | Baseline (no fine-tuning) | Finetuned (RL checkpoint) | Δ |
-|--------|-------------------------:|-------------------------:|--:|
+**Baseline** = base Qwen3-4B-Instruct-2507 with no fine-tuning  
+**Finetuned** = RL v2 checkpoint (`tinker://441b50de-24c8-582e-bc7d-f1ca9a775a78:train:0/sampler_weights/final`)
+
+| Metric | Baseline | Finetuned | Δ |
+|--------|--------:|----------:|--:|
 | N | 320 | 320 | — |
 | Mean score | 0.516 | **0.574** | **+0.058** |
-| Exact OOM accuracy | 31.8% | **38.8%** | **+7.0%** |
-| Parse OK | 95.3% (305/320) | 99.4% (318/320) | **+4.1%** |
-| Parse fail | 15 | 2 | −13 |
+| Exact OOM | 32.5% (104) | **39.4% (126)** | **+6.9%** |
+| Within 1 decade | 55.9% | **63.8%** | **+7.9%** |
+| Within 2 decades | 68.8% | **74.4%** | **+5.6%** |
+| Parse OK | 95.3% (305/320) | **99.4% (318/320)** | **+4.1%** |
+| Score = 0 | 25.0% (80) | 22.5% (72) | −2.5% |
 
-**Key finding:** On the synthFP-free eval set, the finetuned model shows a stronger improvement (+0.058 mean score, +7% exact OOM) than on the full val set (+0.008). This suggests the synthetic questions in the original dataset may have been inflating the baseline score — the model likely memorised patterns from synthFP questions during pretraining, masking how much the fine-tuning actually helped on real Fermi questions.
+**Key finding:** On the synthFP-free eval set, the finetuned model shows a much stronger improvement (+0.058 mean score, +6.9% exact OOM, +7.9% within-1-decade) compared to the full val set comparison (+0.008 mean score). This suggests synthetic questions in the original dataset inflate the baseline — the base model likely memorised synthFP patterns during pretraining, masking how much fine-tuning actually helped on real Fermi questions. The synthFP-free eval gives a cleaner and more honest picture of fine-tuning gains.
 
 ---
 
