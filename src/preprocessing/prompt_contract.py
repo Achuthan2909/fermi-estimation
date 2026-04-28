@@ -16,6 +16,9 @@ SYSTEM_PROMPT = (
     "number of factors, bound each factor with low/high/point estimates from "
     "first principles (no lookups, no search), combine them with an explicit "
     "formula, and return a single numeric answer in the requested unit.\n\n"
+    "After computing your calculation, if the resulting value has |oom| > 9, "
+    "verify your estimate using a second independent approach before writing "
+    "the final block.\n\n"
     "Respond with ONE JSON object. No prose before or after. No code fences."
 )
 

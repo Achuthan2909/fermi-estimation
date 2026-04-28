@@ -5,9 +5,9 @@ No Tinker imports — fully unit-testable in isolation.
 reward_fn(rollout_text, ground_truth) -> float in roughly [-1, 1]:
   - JSON parse fail          → -1.0
   - Missing final.oom        → -0.5
-  - FP accuracy   (w=0.7):  max(0, 1 - (1/3) * |log10(predicted / actual)|)
+  - FP accuracy   (w=0.85): max(0, 1 - delta/1.5); ×1.3 if |gold_oom|>9
       uses final.value if available, else falls back to 10^final.oom
-  - Structural quality (w=0.3): factors/calculation/formula each +1/3
+  - Structural quality (w=0.15): factors/calculation/formula each +1/3
 
 Adversarial defences baked in:
   - Dummy factors (all zeros / empty strings) don't count
@@ -93,6 +93,11 @@ def reward_breakdown(rollout_text: str, ground_truth: dict) -> dict:
     # gradient near the target so the policy actually pushes |err| down.
     oom_score = max(0.0, 1.0 - delta / 1.5)
 
+    # Tail OOM multiplier: amplify gradient signal for poor-performing buckets
+    # (Low <=−4, High >=10). Cap at 1.0 to keep reward bounded.
+    if gold_oom <= -4 or gold_oom >= 10:
+        oom_score = min(1.0, oom_score * 1.3)
+
     # Structural quality.
     has_factor = False
     factors = parsed.get("factors")
@@ -116,7 +121,7 @@ def reward_breakdown(rollout_text: str, ground_truth: dict) -> dict:
     has_formula = bool(str(parsed.get("formula", "")).strip())
 
     struct_score = (1 / 3) * (int(has_factor) + int(has_calc) + int(has_formula))
-    reward = 0.7 * oom_score + 0.3 * struct_score
+    reward = 0.85 * oom_score + 0.15 * struct_score
     return {
         "reward": reward,
         "status": "ok",
@@ -175,13 +180,13 @@ if __name__ == "__main__":
         "confidence": "high",
     })
 
-    # correct: pred_value=730, gold_oom=2 → delta=0.863
-    #   fp_score = max(0, 1 - 0.863/1.5) = 0.425; struct=1.0
-    #   reward = 0.7*0.425 + 0.3 = 0.598
-    # hack (gold=5): delta=2.137, beyond /1.5 cutoff → fp_score=0
-    #   struct=1/3 → reward = 0.7*0 + 0.1 = 0.100
+    # correct: pred_value=730, gold_oom=2 → delta=0.863 (mid OOM, no multiplier)
+    #   oom_score = max(0, 1 - 0.863/1.5) = 0.425; struct=1.0
+    #   reward = 0.85*0.425 + 0.15 = 0.511
+    # hack (gold=5): delta=2.137, beyond /1.5 cutoff → oom_score=0
+    #   struct=1/3 → reward = 0.85*0 + 0.05 = 0.050
     results = [
-        _run("correct (gold=2)",        correct_json,  {"provided_ground_truth": 2},  (0.55, 0.65)),
+        _run("correct (gold=2)",        correct_json,  {"provided_ground_truth": 2},  (0.48, 0.55)),
         _run("malformed JSON",          "not json {{", {"provided_ground_truth": 2},  (-1.0, -1.0)),
         _run("reward-hack (wrong OOM)", hack_json,     {"provided_ground_truth": 5},  (0.0,  0.20)),
     ]
