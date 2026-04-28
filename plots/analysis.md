@@ -102,6 +102,22 @@ Schema fail → reward = −0.5
 
 ---
 
+## Achuthan's Eval — SynthFP-Free Held-Out Set
+
+Evaluated on `datasets/final/eval_no_synthfp.json` (320 rows — 180 synthetically-generated questions removed from the original 500-row eval set). Uses the same fp_score metric but run through `src/sampling/evaluate_sampling.py`.
+
+| Metric | Baseline (no fine-tuning) | Finetuned (RL checkpoint) | Δ |
+|--------|-------------------------:|-------------------------:|--:|
+| N | 320 | 320 | — |
+| Mean score | 0.516 | **0.574** | **+0.058** |
+| Exact OOM accuracy | 31.8% | **38.8%** | **+7.0%** |
+| Parse OK | 95.3% (305/320) | 99.4% (318/320) | **+4.1%** |
+| Parse fail | 15 | 2 | −13 |
+
+**Key finding:** On the synthFP-free eval set, the finetuned model shows a stronger improvement (+0.058 mean score, +7% exact OOM) than on the full val set (+0.008). This suggests the synthetic questions in the original dataset may have been inflating the baseline score — the model likely memorised patterns from synthFP questions during pretraining, masking how much the fine-tuning actually helped on real Fermi questions.
+
+---
+
 ## Possible Future Plots
 
 1. **SFT training loss curve** — requires wandb CSV export from sft_filtered_v1_v2 run
