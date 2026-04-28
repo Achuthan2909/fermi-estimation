@@ -88,7 +88,20 @@ def score_numeric(pred_value: Any, gold_value: Any) -> tuple[float, str]:
     return max(0.0, 1.0 - delta), f"log10_error={delta:.3f}"
 
 
-def score_record(record: dict[str, Any]) -> dict[str, Any]:
+def score_fp(pred_value: Any, actual_value: Any) -> tuple[float, str]:
+    """fp_score = max(0, 1 - (1/3) * |log10(pred / actual)|)."""
+    try:
+        pred = abs(float(pred_value))
+        actual = abs(float(actual_value))
+    except (TypeError, ValueError):
+        return 0.0, "fp_parse_fail"
+    if pred == 0 or actual == 0 or not math.isfinite(pred) or not math.isfinite(actual):
+        return 0.0, "fp_nonfinite_or_zero"
+    delta = abs(math.log10(pred) - math.log10(actual))
+    return max(0.0, 1.0 - delta / 3.0), f"fp_log10_error={delta:.3f}"
+
+
+def score_record(record: dict[str, Any], use_fp: bool = False) -> dict[str, Any]:
     """Score one saved sampling record against its ground truth."""
     if record.get("sample_status") != "ok":
         return {
@@ -120,7 +133,14 @@ def score_record(record: dict[str, Any]) -> dict[str, Any]:
         pred_oom = infer_oom(pred_value)
 
     answer_type = record.get("answer_type") or "oom_exponent"
-    if answer_type == "numeric" and record.get("gold_numeric") is not None:
+    if use_fp:
+        if record.get("gold_numeric") is not None:
+            actual = record["gold_numeric"]
+        else:
+            gold_oom = normalize_oom(record.get("ground_truth_answer"))
+            actual = (10 ** gold_oom) if gold_oom is not None else None
+        score, reason = score_fp(pred_value, actual)
+    elif answer_type == "numeric" and record.get("gold_numeric") is not None:
         score, reason = score_numeric(pred_value, record["gold_numeric"])
     else:
         gold_oom = normalize_oom(record.get("ground_truth_answer"))
@@ -192,6 +212,8 @@ async def sample_rows(
     concurrency: int,
     max_tokens: int,
     offset: int,
+    use_fp: bool = False,
+    model_path: str | None = None,
 ) -> tuple[list[dict[str, Any]], str]:
     if not os.environ.get("TINKER_API_KEY"):
         raise SystemExit("TINKER_API_KEY is not set. Export it or `source .env` first.")
@@ -205,7 +227,10 @@ async def sample_rows(
     renderer_name = model_info.get_recommended_renderer_name(model)
     tokenizer = get_tokenizer(model)
     renderer = get_renderer(renderer_name, tokenizer)
-    sc = svc.create_sampling_client(base_model=model)
+    if model_path:
+        sc = svc.create_sampling_client(base_model=model, model_path=model_path)
+    else:
+        sc = svc.create_sampling_client(base_model=model)
     stop_tokens = renderer.get_stop_sequences()
     sampling_params = SamplingParams(
         max_tokens=max_tokens,
@@ -239,7 +264,7 @@ async def sample_rows(
     results: list[dict[str, Any]] = []
     for done, coro in enumerate(asyncio.as_completed(tasks), start=1):
         result = await coro
-        result.update(score_record(result))
+        result.update(score_record(result, use_fp=use_fp))
         results.append(result)
         print(
             f"{done}/{len(rows)} id={result['id']} "
@@ -256,19 +281,19 @@ def write_output(path: str, payload: dict[str, Any]) -> None:
         f.write("\n")
 
 
-def evaluate_existing(path: str) -> dict[str, Any]:
+def evaluate_existing(path: str, use_fp: bool = False) -> dict[str, Any]:
     with open(path) as f:
         payload = json.load(f)
     results = payload.get("results", [])
     for result in results:
-        result.update(score_record(result))
+        result.update(score_record(result, use_fp=use_fp))
     payload["summary"] = summarize(results)
     return payload
 
 
 async def run(args: argparse.Namespace) -> dict[str, Any]:
     if args.evaluate_only:
-        payload = evaluate_existing(args.output)
+        payload = evaluate_existing(args.output, use_fp=args.fp_score)
         write_output(args.output, payload)
         return payload
 
@@ -280,6 +305,8 @@ async def run(args: argparse.Namespace) -> dict[str, Any]:
         concurrency=args.concurrency,
         max_tokens=args.max_tokens,
         offset=args.offset,
+        use_fp=args.fp_score,
+        model_path=args.model_path,
     )
     sampling_params_for_run = dict(SAMPLING_PARAMS)
     sampling_params_for_run["max_tokens"] = args.max_tokens
@@ -306,7 +333,10 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Generate and evaluate sampling outputs.")
     parser.add_argument("--dataset", default=_DEFAULT_DATASET)
     parser.add_argument("--output", default=_DEFAULT_OUTPUT)
-    parser.add_argument("--model", default=_DEFAULT_MODEL)
+    parser.add_argument("--model", default=_DEFAULT_MODEL,
+                        help="Base model name (org/model) for tokenizer/renderer.")
+    parser.add_argument("--model-path", default=None,
+                        help="Optional checkpoint path (e.g. tinker://...) for fine-tuned weights.")
     parser.add_argument("--offset", type=int, default=0)
     parser.add_argument("--limit", type=int, default=10)
     parser.add_argument("--concurrency", type=int, default=4)
@@ -315,6 +345,11 @@ def main() -> None:
         type=int,
         default=int(SAMPLING_PARAMS["max_tokens"]),
         help="Generation token cap for this run.",
+    )
+    parser.add_argument(
+        "--fp-score",
+        action="store_true",
+        help="Score with fp_score = max(0, 1 - (1/3)*|log10(pred/actual)|).",
     )
     parser.add_argument(
         "--evaluate-only",
