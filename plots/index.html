@@ -267,6 +267,10 @@ where **δ = |log₁₀(pred) − gold OOM|**
 ]
 ]
 
+---
+
+# Prompt Contract — Example
+
 .center.w-100.shadow[![System and User prompt](prompt_example.png)]
 
 ---
@@ -279,38 +283,20 @@ class: center, middle, section-slide
 
 # Pipeline Overview
 
-<div class="mermaid">
-flowchart LR
-    A["📦 Raw Dataset\n5K Qs\nfix ground truths"] --> B["📋 Fact File\nClaude + search\n~500 facts"]
-    B --> C["🔍 Verification\nQwen3-30B\nchecks answers"]
-    C --> D["🧠 Reasoning Traces\nQwen3-30B\ngenerates JSON"]
-    D --> E["📝 SFT Dataset\nverified traces"]
-    E --> F["⚙️ SFT\nQwen3-4B LoRA\nrank 32"]
-    F --> G["🚀 GRPO\nRL v2 · 250 steps\ngroup_size=4"]
-    G --> H["✅ Final Model"]
-
-    style A fill:#0f1f35,stroke:#3b82f6,color:#93c5fd
-    style B fill:#1a0a2e,stroke:#8b5cf6,color:#c4b5fd
-    style C fill:#2d0a1e,stroke:#ec4899,color:#f9a8d4
-    style D fill:#2d1a00,stroke:#f59e0b,color:#fde68a
-    style E fill:#052e16,stroke:#10b981,color:#6ee7b7
-    style F fill:#2d0a0a,stroke:#ef4444,color:#fca5a5
-    style G fill:#0a1f2d,stroke:#06b6d4,color:#67e8f9
-    style H fill:#1e0a3c,stroke:#a855f7,color:#e9d5ff
-</div>
+.center.w-100.shadow[![Pipeline overview](pipeline_overview.png)]
 
 .cols[
 .col-half[
-**Key design choices**
-- Ground truths corrected before any training
-- Fact file prevents hallucination in verification
-- Same model for verification + trace generation — consistent format
+- **Goal:** improve Fermi-style estimation by fixing labels, grounding with facts, then fine-tuning
+- **Data cleanup:** found and corrected incorrect ground truths in the final dataset before training
+- **Grounding:** built a static fact file (≈500 questions) using Claude + web search for reliable reference
+- **Verification + traces:** Qwen3-30B Instruct (1) verified answers against the fact file and (2) generated reasoning traces
 ]
 .col-half[
-**Model**
-- Fine-tuned: **Qwen3-4B-Instruct-2507** via LoRA (rank 32)
-- Data generation: Qwen3-30B-A3B (not fine-tuned)
-- Training platform: Tinker
+- **SFT dataset:** converted verified reasoning traces into supervised training examples
+- **SFT stage:** fine-tuned Qwen3-4B to imitate structured reasoning and final answers
+- **GRPO stage:** applied GRPO (RL) to optimise outputs toward higher-quality answers beyond imitation
+- **Why this works:** combines better labels + grounded evidence + imitation learning + reinforcement learning
 ]
 ]
 
@@ -393,14 +379,6 @@ Model performs best on everyday-scale questions (OOM −3 to 9). Performance deg
 
 ---
 
-# Error Rate by OOM
-
-.center.w-90.shadow[![Error rate SFT vs RL](error_rate_sft_vs_rl.png)]
-
-RL v2 reduces error rate in the everyday range. Minimal improvement at extreme OOMs — **zero-gradient problem**: all 4 GRPO rollouts score 0 → no learning signal.
-
----
-
 class: center, middle, section-slide
 
 # Conclusions
@@ -435,7 +413,7 @@ class: center, middle, section-slide
 .highlight-green[
 **SynthFP removal**
 - Revealed true gains hidden by memorised synthetic questions
-- Clean eval showed +0.058 vs. masked +0.008
+- Clean eval showed +0.058 mean score improvement
 ]
 ]
 ]
@@ -450,13 +428,11 @@ class: center, middle, section-slide
 **What didn't work**
 - Tail OOM accuracy remains poor — high zero-score rate at extreme OOMs (≤−10, ≥20)
 - Confidence is uncalibrated — equally wrong at high/medium confidence
-- RL v3: tail OOM oversampling without larger group size caused reward collapse
 ]
 ]
 .col-half[
 .highlight-purple[
 **Future directions**
-- Increase GRPO `group_size` to 8 to fix zero-gradient problem on tail OOMs
 - Curate a larger, higher-quality dataset with better coverage of extreme OOM questions and verified ground truths
 - SFT pass specifically on tail OOM questions
 - Confidence calibration penalty in reward
@@ -479,22 +455,7 @@ class: center, middle, title-slide
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
     <script>
-      mermaid.initialize({
-        startOnLoad: false,
-        theme: 'dark',
-        themeVariables: {
-          background: '#0f172a',
-          primaryColor: '#1e3a5f',
-          primaryTextColor: '#e2e8f0',
-          lineColor: '#475569',
-          edgeLabelBackground: '#0f172a',
-          fontSize: '14px'
-        },
-        flowchart: { curve: 'linear', padding: 12 }
-      });
-
       var slideshow = remark.create({
         ratio: '16:9',
         highlightStyle: 'github',
@@ -589,12 +550,6 @@ class: center, middle, title-slide
         setupCanvas();
       })();
 
-      // Render Mermaid diagrams whenever a slide becomes visible
-      slideshow.on('showSlide', function() {
-        mermaid.run({ querySelector: '.mermaid' });
-      });
-      // Also run on initial load
-      setTimeout(function() { mermaid.run({ querySelector: '.mermaid' }); }, 300);
-    </script>
+</script>
   </body>
 </html>
