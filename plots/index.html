@@ -146,6 +146,25 @@
         z-index: 10000; display: none;
       }
       #drawing-indicator.visible { display: block; }
+
+      /* Parsed JSON reasoning traces (qualitative slide) */
+      .trace-json {
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 8px;
+        line-height: 1.35;
+        text-align: left;
+        background: #0f172a;
+        border: 1px solid #334155;
+        border-radius: 8px;
+        padding: 0.65em 0.85em;
+        margin: 0.35em 0 0 0;
+        overflow: auto;
+        max-height: 380px;
+        white-space: pre-wrap;
+        word-break: break-word;
+        color: #cbd5e1;
+      }
+      .trace-label { font-size: 0.82em; margin-bottom: 0.25em; }
     </style>
   </head>
   <body>
@@ -376,6 +395,110 @@ Eval on the **SynthFP-free set** (320 questions, never seen in training). SynthF
 .center.w-100.shadow[![SFT vs RL by OOM bucket](sft_vs_rl_by_oom_bucket.png)]
 
 Model performs best on everyday-scale questions (OOM −3 to 9). Performance degrades sharply at extremes — **Very High OOM (≥20) has a 48.5% zero-score rate**.
+
+---
+
+# Qualitative Example — parsed reasoning traces
+
+.small[
+SynthFP-free eval (`eval_no_synthfp`, index **107**, id `107`). Gold OOM **8** — **population × per‑capita gasoline/day** Fermi. Verbatim parsed JSON from eval logs; baseline wrong OOM; RL exact.
+]
+
+.highlight[
+**Question:** How many gallons of gasoline are consumed in the US every day?
+]
+
+.cols[
+.col-half[
+<div class="trace-label"><span class="red">Baseline (no FT)</span> · predicted OOM <strong>11</strong> · FP <strong>≈0.001</strong> · <code>fp_log10_error=2.996</code></div>
+
+<pre class="trace-json">{
+  &quot;question&quot;: &quot;How many gallons of gasoline are consumed in the US every day?&quot;,
+  &quot;assumptions&quot;: [
+    {
+      &quot;name&quot;: &quot;daily_gasoline_consumption_per_capita&quot;,
+      &quot;value&quot;: 300,
+      &quot;unit&quot;: &quot;gallons&quot;,
+      &quot;low&quot;: 200,
+      &quot;high&quot;: 400,
+      &quot;reasoning&quot;: &quot;Average daily gasoline use per person in the US is estimated to be around 300 gallons, based on transportation usage (cars, light trucks, etc.). This includes both personal vehicles and light-duty vehicles, with typical fuel efficiency and driving patterns. Values between 200 and 400 gallons are plausible depending on region and vehicle type.&quot;
+    },
+    {
+      &quot;name&quot;: &quot;US_population&quot;,
+      &quot;value&quot;: 330000000,
+      &quot;unit&quot;: &quot;people&quot;,
+      &quot;low&quot;: 300000000,
+      &quot;high&quot;: 360000000,
+      &quot;reasoning&quot;: &quot;The U.S. population is approximately 330 million. This is a well-established demographic figure, with a reasonable range based on recent census data and annual growth trends.&quot;
+    }
+  ],
+  &quot;calculation&quot;: &quot;330000000 * 300 = 99000000000&quot;,
+  &quot;final_answer&quot;: {
+    &quot;value&quot;: 99000000000,
+    &quot;unit&quot;: &quot;gallons&quot;,
+    &quot;oom&quot;: 11
+  }
+}</pre>
+]
+.col-half[
+<div class="trace-label"><span class="green">RL fine-tuned</span> · predicted OOM <strong>8</strong> · FP <strong>≈0.77</strong> · <code>fp_log10_error=0.695</code></div>
+
+<pre class="trace-json">{
+  &quot;question&quot;: &quot;How many gallons of gasoline are consumed in the US every day?&quot;,
+  &quot;assumptions&quot;: [
+    {
+      &quot;name&quot;: &quot;total population of the United States&quot;,
+      &quot;value&quot;: 330000000,
+      &quot;unit&quot;: &quot;people&quot;,
+      &quot;low&quot;: 165000000.0,
+      &quot;high&quot;: 660000000,
+      &quot;reasoning&quot;: &quot;The U.S. population is approximately 330 million, which is a commonly cited figure in recent demographic data&quot;
+    },
+    {
+      &quot;name&quot;: &quot;average daily gasoline consumption per person in the US&quot;,
+      &quot;value&quot;: 1.5,
+      &quot;unit&quot;: &quot;gallons per person per day&quot;,
+      &quot;low&quot;: 0.75,
+      &quot;high&quot;: 3.0,
+      &quot;reasoning&quot;: &quot;The average American drives about 12,000 miles per year, and with an average fuel efficiency of 25 mpg, that's roughly 480 gallons per year. Dividing by 365 days gives about 1.32 gallons per day, which rounds to 1.5 for a conservative estimate including non-road uses and variations&quot;
+    }
+  ],
+  &quot;calculation&quot;: &quot;330000000 people * 1.5 gallons/person/day = 495000000 gallons/day&quot;,
+  &quot;final_answer&quot;: {
+    &quot;value&quot;: 495000000,
+    &quot;unit&quot;: &quot;gallons&quot;,
+    &quot;oom&quot;: 8
+  }
+}</pre>
+]
+]
+
+---
+
+# Qualitative Example — what changed · verification
+
+.cols[
+.col-half[
+.highlight-red[
+**Baseline failure mode**
+
+- **Bad anchor:** Labels **300 gallons** as **daily** per capita — confuses something closer to **annual** usage with **per day**, blowing total consumption to ~10¹¹ gal/day → **`oom: 11`** vs gold **8**.
+- **Calculation:** Still runs **population × rate**, but the rate slot is wrong by orders of magnitude (sanity failure typical of unchecked Fermi factors).
+]
+]
+.col-half[
+.highlight-green[
+**Why the RL trace scores higher**
+
+- **Derived rate:** Builds ~**1.5 gal/person/day** from miles/year ÷ mpg ÷ days — plausible magnitude — then **330M × 1.5 → ~5×10⁸ gal/day → `oom: 8`** matching gold.
+- **Measured gap:** **`fp_log10_error` 2.996 → 0.695** — exact **OOM** hit plus far higher FP score on the same structured schema.
+]
+]
+]
+
+.small[
+**Verification:** Nation-wide totals depend on fleet mix and freight; neither trace is “official.” RL wins here because **per‑capita gasoline/day is on the right decade**, so population multiplication lands near gold — baseline’s factor **300 gal/day** is physically absurd before arithmetic starts.
+]
 
 ---
 
