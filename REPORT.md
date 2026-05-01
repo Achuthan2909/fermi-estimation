@@ -158,7 +158,7 @@ Three RL runs were conducted:
 
 RL v2: we noticed that the model was underperfoming and had a high failure rate with tail OOM questions
 
-[INSERT PLOT HERE]
+![Error Rate by OOM — SFT vs RL v2](plots/error_rate_sft_vs_rl.png)
 
 RL v3 crashed: tried oversampling tail OOM questions (50% vs natural 40%), howevere the run crashed due to internet connection issues.
 
@@ -214,7 +214,6 @@ The model performs best on everyday-scale questions (OOM −3 to 9), which make 
 
 We noticed that RL v2 was underperforming and had a high failure rate on tail OOM questions. The grey histogram below shows why: the training set is heavily concentrated in the everyday OOM range (−3 to 9), leaving extreme OOMs severely underrepresented. Both SFT and RL v2 show near-identical error rates at the tails, confirming that RL did not help there.
 
-![Error Rate by OOM — SFT vs RL v2](plots/error_rate_sft_vs_rl.png)
 
 The performance cliff at extreme OOMs is caused by the **zero-gradient problem in GRPO**: when all rollouts in a batch score 0 (as commonly happens on Very High OOM questions), there is no learning signal and the policy does not improve.
 
