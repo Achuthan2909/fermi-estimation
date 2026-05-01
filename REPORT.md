@@ -212,6 +212,10 @@ The model performs best on everyday-scale questions (OOM −3 to 9), which make 
 | Low (−9 to −4) | 0.449 | Degraded |
 | Very Low (≤−10) | 0.470 | Limited data |
 
+We noticed that RL v2 was underperforming and had a high failure rate on tail OOM questions. The grey histogram below shows why: the training set is heavily concentrated in the everyday OOM range (−3 to 9), leaving extreme OOMs severely underrepresented. Both SFT and RL v2 show near-identical error rates at the tails, confirming that RL did not help there.
+
+![Error Rate by OOM — SFT vs RL v2](plots/error_rate_sft_vs_rl.png)
+
 The performance cliff at extreme OOMs is caused by the **zero-gradient problem in GRPO**: when all rollouts in a batch score 0 (as commonly happens on Very High OOM questions), there is no learning signal and the policy does not improve.
 
 ### Failure Modes and Regressions
