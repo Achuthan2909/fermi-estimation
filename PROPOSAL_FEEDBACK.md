@@ -1,5 +1,0 @@
-- Wondering about the training data vs eval split -- as written, the various data sources and filtering/training plans are describes, but it's not entirely clear what goes into training and what is held out for use as the eval. Ideally, the eval should first be codified before any training (~100 problems perhaps), and the training plans come in later. Suggestion would be to codify the eval and be clear about train/eval split.
-- Curious how many problems in practice survive the science-domain filtering (this seems like a good idea!). Just need to make sure it's enough for training. 
-	- An ablation of whether the filtering helps would be great -- is concentration on science problems actually helpful vs not filtering?
-- I'm not super familiar with the TELeR taxonomy -- unsure how standard this is, or how helpful. I would consider simply being clear about the prompting strategies in training/eval and understanding to what extent prompting provides an uplift on the evals.
-- For showing frontier failures Claude-generated problems are fine; for the evals, make sure they are not purely Claude-generated!

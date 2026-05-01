@@ -147,6 +147,33 @@
       }
       #drawing-indicator.visible { display: block; }
 
+      /* Fullscreen control */
+      #fullscreen-toggle {
+        position: fixed;
+        bottom: 14px;
+        right: 14px;
+        z-index: 10002;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 8px 14px;
+        border-radius: 8px;
+        border: 1px solid #334155;
+        background: rgba(15, 23, 42, 0.94);
+        color: #e2e8f0;
+        cursor: pointer;
+        backdrop-filter: blur(8px);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+      }
+      #fullscreen-toggle:hover {
+        background: #1e293b;
+        border-color: #475569;
+      }
+      #fullscreen-toggle.is-fullscreen {
+        background: #1e3a5f;
+        border-color: #60a5fa;
+      }
+
       /* Parsed JSON reasoning traces (qualitative slide) */
       .trace-json {
         font-family: 'IBM Plex Mono', monospace;
@@ -170,6 +197,9 @@
   <body>
     <canvas id="annotation-canvas"></canvas>
     <div id="drawing-indicator">Drawing mode (d to exit, x to clear)</div>
+    <button type="button" id="fullscreen-toggle" title="Fullscreen (keyboard F)" aria-label="Toggle fullscreen">
+      Fullscreen (F)
+    </button>
     <textarea id="source">
 
 class: middle, title-slide
@@ -326,6 +356,22 @@ class: center, middle, section-slide
 .center.w-90.shadow[![SFT loss + val score overlay](sft_loss_val_overlay.png)]
 
 Training loss decreases steadily. Val score rises from **0.594 → 0.617 → 0.691** across checkpoints — confirming generalisation, not memorisation.
+
+---
+
+# W&B — KL(policy ‖ base)
+
+<div class="center w-90 shadow"><object type="image/svg+xml" data="wb_kl_policy_base.svg" style="width:100%;height:520px"></object></div>
+
+KL stays bounded across training — policy drifts from the SFT base in a controlled way, no collapse.
+
+---
+
+# W&B — Reward across all runs
+
+<div class="center w-90 shadow"><object type="image/svg+xml" data="wb_reward_all_runs.svg" style="width:100%;height:520px"></object></div>
+
+Reward trajectories for RL v1 / v2 / v3 overlaid. v2 (stricter δ/1.5, w=0.85/0.15) reaches the highest validated final score.
 
 ---
 
@@ -671,6 +717,36 @@ class: center, middle, title-slide
 
         currentSlideIdx = slideshow.getCurrentSlideIndex();
         setupCanvas();
+      })();
+
+      // Browser fullscreen for presenting (Esc exits)
+      (function () {
+        var btn = document.getElementById('fullscreen-toggle');
+        if (!btn) return;
+        function toggleFs() {
+          var el = document.documentElement;
+          if (!document.fullscreenElement) {
+            var req = el.requestFullscreen || el.webkitRequestFullscreen;
+            if (req) req.call(el).catch(function () {});
+          } else {
+            var exit = document.exitFullscreen || document.webkitExitFullscreen;
+            if (exit) exit.call(document);
+          }
+        }
+        btn.addEventListener('click', toggleFs);
+        document.addEventListener('fullscreenchange', function () {
+          var on = !!document.fullscreenElement;
+          btn.textContent = on ? 'Exit fullscreen (Esc)' : 'Fullscreen (F)';
+          btn.classList.toggle('is-fullscreen', on);
+          btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key !== 'f' && e.key !== 'F') return;
+          var el = e.target;
+          if (el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable)) return;
+          e.preventDefault();
+          toggleFs();
+        });
       })();
 
 </script>
