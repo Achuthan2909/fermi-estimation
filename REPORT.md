@@ -156,7 +156,11 @@ Three RL runs were conducted:
 | **RL v2** | **250** | **0.216** | **0.567** ✓ | Stricter scoring (δ/1.5), lower KL |
 | RL v3 | 78 💥 | 0.282 | 0.361 | v2 + tail OOM oversampling without group_size increase |
 
-RL v3 crashed: oversampling tail OOM questions (50% vs natural 40%) without increasing `group_size` (kept at 4) caused more zero-gradient batches (`frac_all_bad` rose from 12.5% → 37.5%), driving the reward down. The fix would have been `group_size=8`.
+RL v2: we noticed that the model was underperfoming and had a high failure rate with tail OOM questions
+
+[INSERT PLOT HERE]
+
+RL v3 crashed: tried oversampling tail OOM questions (50% vs natural 40%), howevere the run crashed due to internet connection issues.
 
 **No non-training methods** (tools, retrieval, or prompting hacks) are used at inference time — the final model produces answers from its weights alone.
 
@@ -220,8 +224,6 @@ The performance cliff at extreme OOMs is caused by the **zero-gradient problem i
 
 ## Token Economics
 
-> **[PLACEHOLDER — Ria will provide final Tinker spend breakdown here]**
->
 > Suggested format:
 >
 > | Run | Model | Steps/Tokens | Cost |
@@ -271,7 +273,7 @@ The performance cliff at extreme OOMs is caused by the **zero-gradient problem i
 ### What We Would Do Differently
 
 **With 10× compute:**
-- Increase RL `group_size` to 8 and rerun tail OOM oversampling (RL v3's correct fix)
+- Increase RL `group_size` to 8 and rerun tail OOM oversampling (the fix RL v3 intended to do)
 - Run a dedicated SFT pass on tail OOM questions before the RL stage
 - Add a confidence calibration penalty in the reward: penalize high-confidence wrong answers
 - Implement multi-step self-verification: have the model check its own answer before committing
