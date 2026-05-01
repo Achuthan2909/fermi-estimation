@@ -20,3 +20,10 @@ secrets.*
 # Claude Code local settings
 .claude/
 
+# Source data clones (fetch externally, not tracked here)
+datasets/raw/
+
+# Wandb local cache (run state replicated to wandb.ai)
+run/**/wandb/
+# Tee'd stdout from training runs (duplicates run/*/logs.log)
+run/*.log

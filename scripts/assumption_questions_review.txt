@@ -1,0 +1,514 @@
+=== PHYSICS_ENGINEERING (107) ===
+    1. What is the speed of light in meters per second?
+    2. What is the mass of a proton in kilograms?
+    3. What is the mass of an electron in kilograms?
+    4. What is the mass of a neutron in kilograms?
+    5. What is the gravitational constant G in SI units?
+    6. What is the Planck constant in joule-seconds?
+    7. What is the Boltzmann constant in joules per kelvin?
+    8. What is the elementary charge in coulombs?
+    9. What is the permittivity of free space in SI units?
+   10. What is the permeability of free space in SI units?
+   11. What is the Stefan-Boltzmann constant in SI units?
+   12. What is the Avogadro constant?
+   13. What is the universal gas constant in joules per mol per kelvin?
+   14. What is the acceleration due to gravity on Earth's surface in m/s²?
+   15. What is the speed of sound in air at 20°C in m/s?
+   16. What is the speed of sound in water in m/s?
+   17. What is the speed of sound in steel in m/s?
+   18. What is the density of air at sea level in kg/m³?
+   19. What is the density of water at 4°C in kg/m³?
+   20. What is the density of steel in kg/m³?
+   21. What is the density of aluminum in kg/m³?
+   22. What is the density of gold in kg/m³?
+   23. What is the density of iron in kg/m³?
+   24. What is the density of copper in kg/m³?
+   25. What is the density of lead in kg/m³?
+   26. What is the density of glass in kg/m³?
+   27. What is the density of concrete in kg/m³?
+   28. What is the density of bone in kg/m³?
+   29. What is the density of human fat tissue in kg/m³?
+   30. What is the density of nitrogen gas at STP in kg/m³?
+   31. What is the density of carbon dioxide gas at STP in kg/m³?
+   32. What is the specific heat capacity of water in J/kg/K?
+   33. What is the specific heat capacity of air in J/kg/K?
+   34. What is the latent heat of vaporization of water in J/kg?
+   35. What is the latent heat of fusion of water in J/kg?
+   36. What is the Young's modulus of steel in pascals?
+   37. What is the refractive index of glass?
+   38. What is the refractive index of water?
+   39. What is the electrical resistivity of copper in ohm-meters?
+   40. What is the thermal conductivity of steel in W/m/K?
+   41. What is the energy of one photon of visible light (550 nm) in joules?
+   42. What is the kinetic energy of a car (1500 kg) at highway speed (100 km/h) in joules?
+   43. What is the power output of a typical hair dryer in watts?
+   44. What is the power output of a typical incandescent light bulb in watts?
+   45. What is the power output of a nuclear power plant in watts?
+   46. What is the energy in one kilowatt-hour in joules?
+   47. What is the energy released by one ton of TNT in joules?
+   48. What is the energy content of one liter of gasoline in joules?
+   49. What is the voltage of a standard AA battery in volts?
+   50. How many watts does an average household in the US consume?
+   51. What is the mass of a loaded semi-truck in kilograms?
+   52. What is the mass of a Boeing 747 aircraft fully loaded in kilograms?
+   53. What is the mass of a typical car in kilograms?
+   54. What is the length of a Boeing 747 in meters?
+   55. What is the wingspan of a Boeing 747 in meters?
+   56. What is the length of a standard shipping container in meters?
+   57. What is the height of a standard shipping container in meters?
+   58. What is the diameter of a human hair in meters?
+   59. What is the diameter of a red blood cell in meters?
+   60. What is the diameter of a typical bacterium in meters?
+   61. What is the diameter of a typical virus in meters?
+   62. What is the diameter of a DNA double helix in nanometers?
+   63. What is the length of a furlong in meters?
+   64. How many feet are in one furlong?
+   65. What is the length of one nautical mile in meters?
+   66. How many inches are in one foot?
+   67. How many feet are in one mile?
+   68. How many meters are in one mile?
+   69. How many liters are in one cubic meter?
+   70. How many milliliters are in one liter?
+   71. How many cubic centimeters are in one liter?
+   72. How many gallons are in one cubic meter?
+   73. How many pounds are in one kilogram?
+   74. How many ounces are in one pound?
+   75. What is the pressure at the bottom of the Mariana Trench in pascals?
+   76. What is atmospheric pressure at sea level in pascals?
+   77. What is the volume of an Olympic swimming pool in cubic meters?
+   78. What is the volume of a standard basketball in liters?
+   79. What is the diameter of a standard basketball in meters?
+   80. What is the diameter of a baseball in meters?
+   81. What is the mass of a baseball in grams?
+   82. What is the diameter of a golf ball in meters?
+   83. What is the mass of a golf ball in grams?
+   84. What is the diameter of a tennis ball in meters?
+   85. What is the length of a standard football field in meters?
+   86. What is the data storage capacity of a standard DVD in gigabytes?
+   87. What is the data storage capacity of a Blu-ray disc in gigabytes?
+   88. What is the data storage capacity of a standard CD in megabytes?
+   89. What is the data storage capacity of a floppy disk in kilobytes?
+   90. What is the clock speed of a modern CPU in GHz?
+   91. How many transistors are in a modern CPU?
+   92. What is the peak performance of the fastest supercomputer in floating point operations per second?
+   93. What is the size of one bit in terms of physical storage on a hard drive?
+   94. What is the mass of a standard brick in kilograms?
+   95. What is the thickness of a standard sheet of paper in millimeters?
+   96. What is the mass of a sheet of A4 paper in grams?
+   97. What is the length of a standard toothpick in meters?
+   98. What is the diameter of a grain of sand in millimeters?
+   99. What is the diameter of a human egg cell in meters?
+  100. What is the length of a football field including end zones in meters?
+  101. What is the volume of a Mason jar in liters?
+  102. What is the horsepower of a typical passenger car engine?
+  103. What is the thrust of a Boeing 747 engine in newtons?
+  104. What is the energy needed to lift 1 kg by 1 meter on Earth in joules?
+  105. What is the wavelength of visible light (green) in nanometers?
+  106. What is the frequency of middle C on a piano in hertz?
+  107. What is the half-life of a muon in microseconds?
+
+=== BIOLOGY_MEDICINE (125) ===
+    1. What is the average mass of an adult human in kilograms?
+    2. What is the average height of an adult human in meters?
+    3. How many cells are in the human body?
+    4. How many hairs does the average human have on their head?
+    5. What is the diameter of a human hair in micrometers?
+    6. What is the length of the human genome in base pairs?
+    7. What is the length of DNA in a single human cell in meters?
+    8. How many neurons are in the human brain?
+    9. What is the volume of the human brain in liters?
+   10. What is the average heart rate of a resting adult in beats per minute?
+   11. How many times does the human heart beat in a year?
+   12. What is the volume of blood in the human body in liters?
+   13. What is the diameter of a red blood cell in micrometers?
+   14. How many red blood cells are in one milliliter of blood?
+   15. What is the mass of a red blood cell in kilograms?
+   16. What is the average lifespan of a red blood cell in days?
+   17. What is the average lung capacity of an adult in liters?
+   18. How many breaths does a human take per minute at rest?
+   19. What is the volume of air inhaled per breath in liters?
+   20. What is the length of the human small intestine in meters?
+   21. What is the length of the human large intestine in meters?
+   22. How many bones are in the adult human body?
+   23. What is the mass of the human skeleton in kilograms?
+   24. What is the average number of calories burned per day by an adult human?
+   25. How many calories are in one gram of fat?
+   26. How many calories are in one gram of carbohydrate?
+   27. How many calories are in one gram of protein?
+   28. How many calories are in one gram of sugar?
+   29. How many calories are in a Mars Bar?
+   30. How long does it take the human digestive system to digest a meal in hours?
+   31. How many liters of water does a human drink per day on average?
+   32. What is the speed of a nerve impulse in the human body in m/s?
+   33. How many synapses are in the human brain?
+   34. What is the diameter of a typical human cell in micrometers?
+   35. What is the volume of a typical human cell in cubic meters?
+   36. What is the mass of a typical human cell in kilograms?
+   37. How many mitochondria are in a typical human cell?
+   38. What is the diameter of a mitochondrion in micrometers?
+   39. What is the diameter of the nucleus of a human cell in micrometers?
+   40. How many base pairs are in one gene on average?
+   41. How many genes are in the human genome?
+   42. What is the average number of words in the Harry Potter book series?
+   43. What is the number of characters in the human genome if written as text?
+   44. What is the average mass of a blue whale in kilograms?
+   45. What is the length of a blue whale in meters?
+   46. What is the mass of an African elephant in kilograms?
+   47. What is the mass of a domestic cat in kilograms?
+   48. What is the mass of a honeybee in grams?
+   49. What is the mass of an ant in milligrams?
+   50. How many ants are in an average ant colony?
+   51. What is the length of a typical ant in millimeters?
+   52. How many hairs are on a black bear?
+   53. What is the length of a typical bacterium in micrometers?
+   54. What is the mass of a typical bacterium in kilograms?
+   55. How many bacteria are in the human gut?
+   56. What is the size of a typical virus in nanometers?
+   57. What is the diameter of an E. coli bacterium in micrometers?
+   58. What is the length of a human chromosome in meters?
+   59. How many chromosomes does a human cell have?
+   60. What is the size of a buckminsterfullerene molecule (C60) in nanometers?
+   61. What is the mass of a single E. coli cell in kilograms?
+   62. What is the average lifespan of a human in years?
+   63. What is the average number of steps a human takes per day?
+   64. What is the diameter of a human egg cell in micrometers?
+   65. What is the length of a human sperm cell in micrometers?
+   66. How many sperm cells are in a typical ejaculation?
+   67. What is the mass of the human liver in kilograms?
+   68. What is the mass of the human heart in grams?
+   69. What is the mass of the human brain in kilograms?
+   70. What is the surface area of the human lung alveoli in square meters?
+   71. What is the total length of capillaries in the human body in kilometers?
+   72. What is the diameter of a human capillary in micrometers?
+   73. How many people in the US have sickle cell anemia?
+   74. What is the number of people diagnosed with cancer in the US per year?
+   75. What is the average speed of a running human in m/s?
+   76. What is the maximum recorded speed of a human sprinter in m/s?
+   77. What is the swimming speed of a blue whale in m/s?
+   78. What is the flight speed of a common bird (pigeon) in m/s?
+   79. What is the average number of hairs on a human eyebrow?
+   80. What is the average duration of a human blink in milliseconds?
+   81. What is the thickness of human skin in millimeters?
+   82. What is the total surface area of human skin in square meters?
+   83. What is the mass of a chicken egg in grams?
+   84. What is the mass of an ostrich egg in kilograms?
+   85. What is the mass of a grain of rice in milligrams?
+   86. How many grapes does it take to make one kilogram of raisins?
+   87. What is the mass of a standard Hershey Bar in grams?
+   88. What is the number of hotdogs consumed in the US per year?
+   89. How many pounds of added sugar does the average American consume per year?
+   90. How many liters of blood does the human heart pump per minute?
+   91. What is the thickness of a human fingernail in millimeters?
+   92. How fast do human fingernails grow in mm per month?
+   93. What is the number of taste buds on the human tongue?
+   94. What is the force of a human bite in newtons?
+   95. What is the average body temperature of a human in Celsius?
+   96. How many ATP molecules does a human cell produce per day?
+   97. What is the speed of a nerve impulse in a myelinated neuron in m/s?
+   98. How many olfactory receptors does a human have?
+   99. What is the length of an average human nerve cell in meters?
+  100. How many photoreceptor cells are in the human eye?
+  101. What is the number of blood donations made per year in the US?
+  102. How many liters of urine does a human produce per day?
+  103. What is the volume of a human stomach in liters?
+  104. What is the circumference of the Earth at the equator in meters?
+  105. How many blue whales placed side by side equal the circumference of Earth?
+  106. What is the mass of a proton relative to an electron?
+  107. How many base pairs fit in one millimeter of DNA?
+  108. What is the mass of the human body's total DNA in grams?
+  109. What is the average mass of a human baby at birth in kilograms?
+  110. What is the size of a SO (Thiomargarita) bacterium in micrometers?
+  111. How many neurons does the human spinal cord contain?
+  112. What is the diameter of the human aorta in centimeters?
+  113. What is the average speed of peristalsis in the human digestive tract in cm/s?
+  114. What is the surface area of the human small intestine in square meters?
+  115. What is the mass of a human kidney in grams?
+  116. How long does it take for food to travel through the human digestive system in hours?
+  117. What is the total number of red blood cells produced per day in the human body?
+  118. What is the diameter of a human platelet in micrometers?
+  119. How many white blood cells are in one milliliter of human blood?
+  120. What is the average length of a human life in seconds?
+  121. What is the mass of a human thumb in grams?
+  122. What fraction of the human body is water by mass?
+  123. How many cells does the human body replace per day?
+  124. What is the average number of eyelashes on a human eye?
+  125. What is the average number of hairs on a human forearm?
+
+=== EARTH_SCIENCE (64) ===
+    1. What is the radius of the Earth in meters?
+    2. What is the mass of the Earth in kilograms?
+    3. What is the circumference of the Earth at the equator in kilometers?
+    4. What is the surface area of the Earth in square meters?
+    5. What is the total volume of the Earth's oceans in cubic meters?
+    6. What is the total mass of the Earth's oceans in kilograms?
+    7. What is the average depth of the ocean in meters?
+    8. What is the depth of the Mariana Trench in meters?
+    9. What is the total land area of Earth in square kilometers?
+   10. What is the area of the United States in square kilometers?
+   11. What is the area of the continent of Africa in square kilometers?
+   12. What is the height of Mount Everest in meters?
+   13. What is the height of Mount Aconcagua in meters?
+   14. What is the length of the Amazon River in kilometers?
+   15. What is the length of the Nile River in kilometers?
+   16. What is the volume of the Amazon River discharge per second in cubic meters?
+   17. What is the average depth of the Mariana Trench in meters?
+   18. What is the total mass of the atmosphere of Earth in kilograms?
+   19. What is the height of the troposphere in kilometers?
+   20. What is the concentration of CO2 in the atmosphere in parts per million?
+   21. What is the total number of grains of sand on Earth?
+   22. What is the diameter of a grain of coarse sand in millimeters?
+   23. What is the diameter of a grain of fine sand in millimeters?
+   24. What is the total volume of glaciers and ice caps on Earth in cubic meters?
+   25. What is the mass of the Greenland ice sheet in kilograms?
+   26. What is the average temperature of the Earth's surface in Celsius?
+   27. What is the temperature at the center of the Earth in Celsius?
+   28. What is the pressure at the center of the Earth in pascals?
+   29. What is the density at the center of the Earth in kg/m³?
+   30. What is the age of the Earth in years?
+   31. What is the total amount of freshwater on Earth as a fraction of all water?
+   32. What is the volume of Lake Superior in cubic kilometers?
+   33. What is the length of the longest waterfall (Angel Falls) in meters?
+   34. What is the length of the Olo'upena Falls in meters?
+   35. What is the area of the Sahara Desert in square kilometers?
+   36. What is the speed of Earth's rotation at the equator in m/s?
+   37. What is the speed of Earth's orbit around the Sun in km/s?
+   38. What is the total annual rainfall on Earth in cubic meters per year?
+   39. What is the area of the Amazon rainforest in square kilometers?
+   40. What is the total number of trees on Earth?
+   41. What is the thickness of Earth's crust in kilometers?
+   42. What is the total energy released by all earthquakes per year in joules?
+   43. What is the energy released by the largest recorded earthquake in joules?
+   44. What is the area of Disney World in square kilometers?
+   45. What is the area of London Heathrow Airport in square kilometers?
+   46. What is the area of Hilton Head Island in square kilometers?
+   47. What is the total annual freshwater consumption by humans in cubic meters?
+   48. What is the salinity of seawater in grams per kilogram?
+   49. What is the speed of the Gulf Stream current in m/s?
+   50. What is the energy released by a typical hurricane per day in joules?
+   51. What is the total mass of all living organisms on Earth in kilograms?
+   52. What is the area of a typical swimming pool in square meters?
+   53. What is the volume of the Great Pyramid of Giza in cubic meters?
+   54. What is the height of the Eiffel Tower in meters?
+   55. What is the length of the Great Wall of China in kilometers?
+   56. What is the depth of the deepest mine in meters?
+   57. What is the area of the Pacific Ocean in square kilometers?
+   58. What is the total mass of plastic waste produced globally per year in kilograms?
+   59. What is the rate of sea level rise per year in millimeters?
+   60. What is the volume of water evaporated from oceans per year in cubic meters?
+   61. What is the radius of the Earth's inner core in kilometers?
+   62. What is the mass of the Himalayas mountain range in kilograms?
+   63. What is the total length of all rivers on Earth in kilometers?
+   64. What is the total length of coastline of the United States in kilometers?
+
+=== ASTRONOMY (39) ===
+    1. What is the mass of the Sun in kilograms?
+    2. What is the radius of the Sun in meters?
+    3. What is the luminosity of the Sun in watts?
+    4. What is the surface temperature of the Sun in Kelvin?
+    5. What is the temperature at the core of the Sun in Kelvin?
+    6. What is the distance from Earth to the Sun in meters?
+    7. What is the distance from Earth to the Moon in meters?
+    8. What is the mass of the Moon in kilograms?
+    9. What is the radius of the Moon in meters?
+   10. What is the orbital period of the Moon around Earth in days?
+   11. What is the diameter of the observable universe in meters?
+   12. What is the age of the universe in years?
+   13. What is the distance to the nearest star (Proxima Centauri) in light-years?
+   14. What is the diameter of the Milky Way galaxy in light-years?
+   15. How many stars are in the Milky Way galaxy?
+   16. What is the distance from Earth to the center of the Milky Way in light-years?
+   17. What is the orbital period of Earth around the Sun in days?
+   18. What is the orbital speed of Earth around the Sun in km/s?
+   19. What is the mass of Jupiter in kilograms?
+   20. What is the radius of Jupiter in meters?
+   21. What is the mass of Mars in kilograms?
+   22. What is the surface gravity on Mars in m/s²?
+   23. What is the distance from the Sun to Neptune in meters?
+   24. What is the escape velocity from Earth in m/s?
+   25. What is the escape velocity from the Sun in m/s?
+   26. What is the orbital period of Halley's Comet in years?
+   27. What is the diameter of Halley's Comet nucleus in kilometers?
+   28. What is the number of galaxies in the observable universe?
+   29. What is the Hubble constant in km/s/Mpc?
+   30. What is the critical density of the universe in kg/m³?
+   31. What is the distance one light-year equals in meters?
+   32. What is the distance one parsec equals in light-years?
+   33. What is the angular diameter of the Sun as seen from Earth in degrees?
+   34. What is the probability of a total solar eclipse at any given location per year?
+   35. What is the diameter of the Sun relative to Earth?
+   36. What is the volume of the Sun in cubic meters?
+   37. What is the density of the Sun in kg/m³?
+   38. How many Earth masses is Jupiter?
+   39. What is the diameter of Pluto in kilometers?
+
+=== CHEMISTRY (37) ===
+    1. What is the molar mass of water (H2O) in grams per mol?
+    2. What is the molar mass of carbon dioxide (CO2) in grams per mol?
+    3. What is the molar mass of oxygen (O2) in grams per mol?
+    4. What is the molar mass of nitrogen (N2) in grams per mol?
+    5. What is the molar mass of iron in grams per mol?
+    6. What is the molar mass of gold in grams per mol?
+    7. What is the molar mass of carbon in grams per mol?
+    8. What is the molar mass of sodium chloride (NaCl) in grams per mol?
+    9. What is the molar mass of glucose (C6H12O6) in grams per mol?
+   10. What is the molar mass of ethanol in grams per mol?
+   11. What is the density of ethanol in kg/m³?
+   12. What is the density of oxygen gas at STP in kg/m³?
+   13. What is the density of hydrogen gas at STP in kg/m³?
+   14. What is the volume of one mole of ideal gas at STP in liters?
+   15. How many molecules of water are in 18 mL of water?
+   16. What is the diameter of a water molecule in nanometers?
+   17. What is the diameter of a carbon atom in nanometers?
+   18. What is the atomic mass of carbon-12 in kg?
+   19. What is the atomic radius of a hydrogen atom in nanometers?
+   20. What is the bond length of a C-C bond in nanometers?
+   21. What is the enthalpy of combustion of methane in kJ/mol?
+   22. What is the enthalpy of combustion of glucose in kJ/mol?
+   23. What is the pH of pure water at 25°C?
+   24. What is the boiling point of water at 1 atm in Celsius?
+   25. What is the melting point of iron in Celsius?
+   26. What is the melting point of gold in Celsius?
+   27. What is the fraction by volume of oxygen in Earth's atmosphere?
+   28. What is the fraction by volume of nitrogen in Earth's atmosphere?
+   29. How many electrons are in a garbage can full of air?
+   30. What is the volume fraction of TiO2 in a gallon of paint?
+   31. What is the molar volume of an ideal gas at room temperature (25°C) in liters?
+   32. What is the binding energy of a hydrogen atom in electron volts?
+   33. What is the half-life of carbon-14 in years?
+   34. What is the half-life of uranium-235 in years?
+   35. What is the energy released by fission of one uranium-235 nucleus in joules?
+   36. What is the molar mass of titanium dioxide (TiO2) in grams per mol?
+   37. What is the boiling point of nitrogen in Celsius?
+
+=== MATHEMATICS (31) ===
+    1. What is the value of pi to 10 decimal places?
+    2. What is the value of e (Euler's number) to 10 decimal places?
+    3. What is the value of the golden ratio phi?
+    4. What is log10(2)?
+    5. What is log10(3)?
+    6. What is ln(2)?
+    7. What is pi squared?
+    8. What is the value of pi to the power of pi?
+    9. What is 10^10^10?
+   10. What is 7 to the power of 43?
+   11. How many seconds are in one year?
+   12. How many seconds are in one day?
+   13. How many days are in one year?
+   14. How many hours are in one year?
+   15. What is the factorial of 20?
+   16. What is the number of ways to shuffle a standard deck of 52 cards?
+   17. What is the sum of the prime factors of 12043242?
+   18. What is the square root of 2?
+   19. What is the cube root of 1000000?
+   20. What is 2 to the power of 100?
+   21. What is 10 to the power of 100 (googol)?
+   22. What is the value of 1 radian in degrees?
+   23. What is the surface area formula for a sphere of radius r?
+   24. What is the volume formula for a sphere of radius r?
+   25. What is the probability of getting heads 10 times in a row with a fair coin?
+   26. What is the number of prime numbers less than 1000?
+   27. What is the value of sqrt(100 + sqrt(100 + sqrt(100)^(-7))^(-8))^(-9)?
+   28. What is 1 divided by pi squared?
+   29. What is the value of (1/(pi^pi))^2?
+   30. What is Euler's identity (e^(i*pi) + 1)?
+   31. What is the value of the Euler-Mascheroni constant gamma?
+
+=== OTHER (97) ===
+    1. What is the population of the United States?
+    2. What is the population of the world?
+    3. What is the population of New York City?
+    4. What is the population of Boston, Massachusetts?
+    5. What is the population of Singapore?
+    6. What is the population of the United Kingdom?
+    7. What is the population of China?
+    8. What is the population of India?
+    9. How many cars are registered in the United States?
+   10. How many smartphones are in use globally?
+   11. How many cell phone calls were made in the US in 2003?
+   12. How many people in the US use cell phones?
+   13. How many basketballs are sold in the US each year?
+   14. How many piano tuners are in Chicago?
+   15. How many gas stations are in the United States?
+   16. How many people visit Disney World per year?
+   17. What is the capacity of a standard school bus in passengers?
+   18. What is the capacity of a standard elevator in kilograms?
+   19. What is the average annual income of a person in the US in dollars?
+   20. What is the GDP of the United States in dollars?
+   21. What is Bill Gates' net worth in US dollars?
+   22. How many words are in the English language?
+   23. How many words does the average person speak per day?
+   24. How many books are published in the US per year?
+   25. What is the number of pages in a typical novel?
+   26. How many copies of Harry Potter and the Sorcerer's Stone have been sold worldwide?
+   27. How many words are in the Harry Potter book series?
+   28. What is the number of characters in one page of a book?
+   29. How many songs has Taylor Swift released?
+   30. How many ex-lovers does Taylor Swift reference in Blank Space?
+   31. How long is a typical Super Mario Bros speedrun in seconds?
+   32. What is the frame rate of the original Super Mario Bros game in fps?
+   33. What is the length of Toy Story 4 movie in minutes?
+   34. How many computers did Pixar use to render Toy Story 4?
+   35. What is the number of floating point operations in one frame of Toy Story 4?
+   36. What is the render time per frame for a Pixar movie in CPU hours?
+   37. How much does a Sonic Chili Cheese Coney hot dog weigh in grams?
+   38. How many calories are in a Sonic Chili Cheese Coney?
+   39. What is the mass of a King Size Hershey Bar in grams?
+   40. What is the volume of a standard garbage can in liters?
+   41. What is the mass of a standard garbage can full of air in kilograms?
+   42. What is the volume of a standard school room in cubic meters?
+   43. What is the length of a standard school room in meters?
+   44. What is the capacity of an Olympic swimming pool in liters?
+   45. How many people donate blood in the US per year?
+   46. What is the volume of blood donated per donation in liters?
+   47. How many swimming pools can be filled with US annual blood donations?
+   48. What is the nuclear material needed to power 10 US homes in kilograms?
+   49. How much nuclear waste does a typical reactor produce per year in kilograms?
+   50. How many hours of video are uploaded to YouTube per minute?
+   51. What is the total data stored on the internet in exabytes?
+   52. How many emails are sent per day worldwide?
+   53. What is the number of active websites on the internet?
+   54. What is the length of the MIT infinite corridor in meters?
+   55. What is the height of the Golden 1 Center stadium in Sacramento in meters?
+   56. What is the capacity of the Golden 1 Center stadium in Sacramento?
+   57. What is the length of an aircraft carrier (USS Nimitz) in meters?
+   58. What is the mass of an aircraft carrier (USS Nimitz) in kilograms?
+   59. What is the mass of HMS Queen Elizabeth aircraft carrier in kilograms?
+   60. What is the capacity of an average aircraft carrier in number of aircraft?
+   61. How many cars can fit in a standard parking garage?
+   62. What is the height of a standard floor in a building in meters?
+   63. What is the length of a standard car in meters?
+   64. What is the height of a standard car in meters?
+   65. What is the average fuel economy of a US car in miles per gallon?
+   66. How many gallons of gasoline are consumed per day in the US?
+   67. What is the number of commercial flights per day worldwide?
+   68. What is the mass of a cubic meter of seawater in kilograms?
+   69. What is the thickness of a credit card in millimeters?
+   70. What is the size of a standard car sunshield in square meters?
+   71. How many car sunshields laid flat would cover Earth's atmosphere at 100 km altitude?
+   72. How many standard sunshields fit side by side around Earth's circumference at 100 km?
+   73. What is the total number of books ever written?
+   74. What is the storage size of one page of text in bytes?
+   75. What is the storage size of one book in megabytes?
+   76. What is the storage capacity of an iPod classic in gigabytes?
+   77. What is the data storage ratio between a Blu-ray and a CD?
+   78. What is the number of Mozy cloud storage units in one iPod?
+   79. What is the mass of a standard Person (average human) in kg?
+   80. How many average humans make up 503 kg?
+   81. What is the area of Delhi, India in square kilometers?
+   82. What is the number of Squid Game players in season 1?
+   83. What is the probability of winning the Squid Game glass bridge with 16 players?
+   84. How many seconds does the average person spend on their phone per day?
+   85. How many ping pong balls fit in a Boeing 747?
+   86. What is the diameter of a ping pong ball in meters?
+   87. What is the interior volume of a Boeing 747 in cubic meters?
+   88. How many piano tuners does New York City need?
+   89. How many golf balls fit in a school bus?
+   90. What is the mass of the internet in kilograms?
+   91. How many people in the US have internet access?
+   92. What is the number of Google searches per day worldwide?
+   93. What is the annual revenue of Google in US dollars?
+   94. How many words per minute does an average person type?
+   95. How long would it take to type out the human genome at 60 words per minute?
+   96. What is the average price of a gallon of milk in the US in dollars?
+   97. How many public schools are there in the United States?
+

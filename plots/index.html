@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fermi Estimation Fine-Tuning — DS595</title>
+    <meta charset="utf-8">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono&display=swap');
+
+      body { font-family: 'IBM Plex Sans', sans-serif; }
+      h1, h2, h3 { font-weight: 600; }
+      .remark-code, .remark-inline-code { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
+
+      .remark-slide-content {
+        font-size: 22px;
+        padding: 1em 2em;
+      }
+      .remark-slide-content h1 { font-size: 1.6em; margin-bottom: 0.4em; }
+      .remark-slide-content h2 { font-size: 1.25em; margin-bottom: 0.3em; }
+      .remark-slide-content h3 { font-size: 1.05em; margin-bottom: 0.2em; }
+
+      /* Title slide */
+      .title-slide {
+        background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 60%, #0f172a 100%);
+        color: white;
+      }
+      .title-slide h1 { color: white; font-size: 2.4em; margin-bottom: 0.2em; line-height: 1.2; }
+      .title-slide h2 { color: rgba(255,255,255,0.75); font-weight: 400; font-size: 1.2em; }
+      .title-slide h3 { color: rgba(255,255,255,0.55); font-weight: 400; font-size: 0.95em; margin-top: 2.5em; }
+
+      /* Section slide */
+      .section-slide {
+        background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+        color: white;
+      }
+      .section-slide h1 { color: white; font-size: 2.2em; }
+      .section-slide h2 { color: rgba(147,197,253,0.9); font-weight: 400; font-size: 1.2em; }
+
+      /* Layout helpers */
+      .center  { text-align: center; }
+      .middle  { vertical-align: middle; }
+      .right   { text-align: right; }
+      .cols    { display: flex; gap: 1.8em; align-items: flex-start; }
+      .cols-c  { display: flex; gap: 1.8em; align-items: center; }
+      .col-half   { flex: 1; }
+      .col-third  { flex: 1; }
+      .col-two-thirds { flex: 2; }
+      .col-40  { flex: 0 0 40%; }
+      .col-60  { flex: 0 0 58%; }
+
+      /* Text sizing */
+      .huge  { font-size: 2.2em; }
+      .big   { font-size: 1.35em; }
+      .small { font-size: 0.82em; }
+      .tiny  { font-size: 0.72em; }
+      .muted { color: #64748b; }
+      .green { color: #22c55e; font-weight: 600; }
+      .red   { color: #ef4444; font-weight: 600; }
+      .blue  { color: #60a5fa; }
+      .gold  { color: #fbbf24; font-weight: 600; }
+
+      /* Links */
+      a { color: #60a5fa; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      /* Images */
+      img { max-width: 100%; height: auto; }
+      .w-100 img { width: 100%; }
+      .w-90  img { width: 90%; }
+      .w-80  img { width: 80%; }
+      .w-70  img { width: 70%; }
+      .w-60  img { width: 60%; }
+      .w-50  img { width: 50%; }
+      .shadow img { box-shadow: 0 4px 16px rgba(0,0,0,0.35); border-radius: 6px; }
+
+      /* Highlight boxes */
+      .highlight {
+        background: #1e3a5f;
+        border-left: 4px solid #3b82f6;
+        border-radius: 0 8px 8px 0;
+        padding: 0.7em 1.1em;
+        margin: 0.6em 0;
+        color: #bfdbfe;
+      }
+      .highlight-green {
+        background: #052e16;
+        border-left: 4px solid #22c55e;
+        border-radius: 0 8px 8px 0;
+        padding: 0.7em 1.1em;
+        margin: 0.6em 0;
+        color: #bbf7d0;
+      }
+      .highlight-red {
+        background: #2d0a0a;
+        border-left: 4px solid #ef4444;
+        border-radius: 0 8px 8px 0;
+        padding: 0.7em 1.1em;
+        margin: 0.6em 0;
+        color: #fecaca;
+      }
+      .highlight-purple {
+        background: #1e0a3c;
+        border-left: 4px solid #a855f7;
+        border-radius: 0 8px 8px 0;
+        padding: 0.7em 1.1em;
+        margin: 0.6em 0;
+        color: #e9d5ff;
+      }
+      .eq-box {
+        background: #1e293b;
+        color: #e2e8f0;
+        border-radius: 8px;
+        padding: 0.7em 1.2em;
+        display: inline-block;
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 0.88em;
+      }
+
+      /* Mermaid diagram theming */
+      .mermaid { font-size: 0.8em; }
+
+      /* Table */
+      table { border-collapse: collapse; width: 100%; margin: 0.8em 0; font-size: 0.85em; }
+      th { background: #1e3a5f; color: #93c5fd; padding: 8px 14px; text-align: left; }
+      td { padding: 7px 14px; border-bottom: 1px solid #1e293b; color: #cbd5e1; }
+      tr:nth-child(even) td { background: #0f1f35; }
+      .pos { color: #4ade80 !important; font-weight: 700; }
+      .neg { color: #f87171 !important; font-weight: 700; }
+
+      /* Footnote */
+      .footnote { position: absolute; bottom: 0.9em; font-size: 0.68em; color: #475569; }
+
+      /* Dark slide body */
+      .remark-slide-content { background: #0f172a; color: #e2e8f0; }
+      .remark-slide-content li { margin: 0.25em 0; }
+
+      /* Annotation canvas */
+      #annotation-canvas {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        pointer-events: none; z-index: 9999;
+      }
+      #annotation-canvas.drawing { pointer-events: auto; cursor: crosshair; }
+      #drawing-indicator {
+        position: fixed; top: 10px; right: 10px;
+        background: rgba(200,50,50,0.9); color: white;
+        padding: 5px 12px; border-radius: 4px; font-size: 14px;
+        z-index: 10000; display: none;
+      }
+      #drawing-indicator.visible { display: block; }
+
+      /* Fullscreen control */
+      #fullscreen-toggle {
+        position: fixed;
+        bottom: 14px;
+        right: 14px;
+        z-index: 10002;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 8px 14px;
+        border-radius: 8px;
+        border: 1px solid #334155;
+        background: rgba(15, 23, 42, 0.94);
+        color: #e2e8f0;
+        cursor: pointer;
+        backdrop-filter: blur(8px);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+      }
+      #fullscreen-toggle:hover {
+        background: #1e293b;
+        border-color: #475569;
+      }
+      #fullscreen-toggle.is-fullscreen {
+        background: #1e3a5f;
+        border-color: #60a5fa;
+      }
+
+      /* Parsed JSON reasoning traces (qualitative slide) */
+      .trace-json {
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 8px;
+        line-height: 1.35;
+        text-align: left;
+        background: #0f172a;
+        border: 1px solid #334155;
+        border-radius: 8px;
+        padding: 0.65em 0.85em;
+        margin: 0.35em 0 0 0;
+        overflow: auto;
+        max-height: 380px;
+        white-space: pre-wrap;
+        word-break: break-word;
+        color: #cbd5e1;
+      }
+      .trace-label { font-size: 0.82em; margin-bottom: 0.25em; }
+    </style>
+  </head>
+  <body>
+    <canvas id="annotation-canvas"></canvas>
+    <div id="drawing-indicator">Drawing mode (d to exit, x to clear)</div>
+    <button type="button" id="fullscreen-toggle" title="Fullscreen (keyboard F)" aria-label="Toggle fullscreen">
+      Fullscreen (F)
+    </button>
+    <textarea id="source">
+
+class: middle, title-slide
+
+# Fermi Estimation<br>Fine-Tuning Pipeline
+
+## DS595 — Final Project
+
+### Achuthan Rathinam · Ria Sonalker · George Jr. Escobar · Puchen Liu
+
+---
+
+# What We Targeted — and Why
+
+A **Fermi estimation** is a back-of-the-envelope calculation to estimate the *order of magnitude* of a seemingly impossible quantity.
+
+Named after Enrico Fermi — "How many piano tuners are in Chicago?"
+
+.cols[
+.col-half[
+**Why it matters**
+- Engineering feasibility checks
+- Market sizing in tech interviews
+- Scientific sanity checks
+
+**Why LLMs struggle**
+- No physical intuition — only token statistics
+- Error compounds across sub-steps
+- Trained to be "precise", not calibrated
+]
+.col-half[
+.highlight[
+**Example question:**
+
+*"How many femtojoules are in a petajoule?"*
+
+Gold OOM: **30** — but the model must *reason* there, not recall it.
+]
+
+.highlight-red[
+The model can recall facts but can't **feel** that 10³⁰ is unreasonably large.
+]
+]
+]
+
+---
+
+class: center, middle, section-slide
+
+# Evaluation Design
+
+---
+
+# Dataset
+
+.cols[
+.col-half[
+**Master dataset: 5,008 questions**
+
+Integrated from four sources:
+
+| Source | Type |
+|--------|------|
+| Science Olympiad (scioly) | Competition Qs |
+| FermiP (realFP) | Real-world Qs |
+| FermiQ (fermiq) | Physics/sci Qs |
+| Student traces | Model-generated reasoning |
+| ~~SynthFP~~ | ~~Synthetic Qs (removed)~~ |
+
+Splits: **Train / Val / Eval**
+- Train: ~2,815 questions (SFT + RL)
+- Val: 1,693 questions (monitoring only)
+- Eval: 500 questions (held out, final reporting)
+- SynthFP-free eval: **320 questions** (cleanest signal)
+]
+.col-half[
+.highlight[
+**Why SynthFP-free matters**
+
+The paper introducing the FermiQ dataset flagged synthFP questions as having **unreliable ground truths** — systematic errors in the provided OOM labels.
+
+Removing 180 synthetic questions revealed the true fine-tuning gains on clean eval: **+0.058 mean score, +6.9% exact OOM**.
+]
+
+.highlight-purple[
+**What "OOM" means:**
+
+Gold OOM = floor(log₁₀(answer))
+
+*"How many mL in a cubic meter?"* → answer = 10⁶ → gold OOM = **6**
+]
+]
+]
+
+---
+
+# Scoring & Prompt Contract
+
+.cols[
+.col-60[
+**FP Score** (lenient, eval)
+
+.eq-box[score = max(0, 1 − δ / 3.0)]
+
+**RL OOM Score** (strict, training)
+
+.eq-box[score = max(0, 1 − δ / 1.5)]
+
+where **δ = |log₁₀(pred) − gold OOM|**
+
+- 1.0 = exact match · 0.0 at ±3 decades (eval) / ±1.5 (RL)
+
+**Prompt Contract** — model must output a single JSON object with `factors`, `formula`, `calculation`, `final.oom`, `confidence`. Machine-parseable and human-auditable.
+]
+]
+
+---
+
+# Prompt Contract — Example
+
+.center.w-100.shadow[![System and User prompt](prompt_example.png)]
+
+---
+
+class: center, middle, section-slide
+
+# Training Pipeline
+
+---
+
+# Pipeline Overview
+
+.center.w-100.shadow[![Pipeline overview](pipeline_overview.png)]
+
+.cols[
+.col-half[
+- **Goal:** improve Fermi-style estimation by fixing labels, grounding with facts, then fine-tuning
+- **Data cleanup:** found and corrected incorrect ground truths in the final dataset before training
+- **Grounding:** built a static fact file (≈500 questions) using Claude + web search for reliable reference
+- **Verification + traces:** Qwen3-30B Instruct (1) verified answers against the fact file and (2) generated reasoning traces
+]
+.col-half[
+- **SFT dataset:** converted verified reasoning traces into supervised training examples
+- **SFT stage:** fine-tuned Qwen3-4B to imitate structured reasoning and final answers
+- **GRPO stage:** applied GRPO (RL) to optimise outputs toward higher-quality answers beyond imitation
+- **Why this works:** combines better labels + grounded evidence + imitation learning + reinforcement learning
+]
+]
+
+---
+
+# SFT Training Dynamics
+
+.center.w-90.shadow[![SFT loss + val score overlay](sft_loss_val_overlay.png)]
+
+Training loss decreases steadily. Val score rises from **0.594 → 0.617 → 0.691** across checkpoints — confirming generalisation, not memorisation.
+
+---
+
+# W&B — KL(policy ‖ base)
+
+<div class="center w-90 shadow"><object type="image/svg+xml" data="wb_kl_policy_base.svg" style="width:100%;height:520px"></object></div>
+
+KL stays bounded across training — policy drifts from the SFT base in a controlled way, no collapse.
+
+---
+
+# W&B — Reward across all runs
+
+<div class="center w-90 shadow"><object type="image/svg+xml" data="wb_reward_all_runs.svg" style="width:100%;height:520px"></object></div>
+
+Reward trajectories for RL v1 / v2 / v3 overlaid. v2 (stricter δ/1.5, w=0.85/0.15) reaches the highest validated final score.
+
+---
+
+# GRPO Reward Function
+
+.cols[
+.col-half[
+**Reward formula (RL v2)**
+
+.eq-box[
+reward = 0.85 × oom_score<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + 0.15 × struct_score
+]
+
+- `struct_score` = (has\_factors + has\_calc + has\_formula) / 3
+- Tail OOM multiplier: **×1.3** if gold OOM ≤ −4 or ≥ 10
+- Parse fail → **−1.0** (hard penalty)
+
+**Why 0.85/0.15?**
+
+After SFT, structural quality is near-perfect (~75% parse OK at RL start → 97% at end). Shifting weight to accuracy concentrates gradient where improvement is still possible.
+]
+.col-half[
+**RL runs**
+
+| Run | Steps | Start | Final | Reward fn |
+|-----|------:|------:|------:|-----------|
+| RL v1 | 139 | 0.462 | 0.663 | δ/3.0, w=0.70/0.30 |
+| RL v2 | 250 | 0.216 | **0.567** ✓ | δ/1.5, w=0.85/0.15 |
+| RL v3 | 78 💥 | 0.282 | 0.361 | v2 + tail oversample |
+
+.highlight[
+**Why v1 starts higher than v2:** Different reward scales — not directly comparable. v1 uses lenient scoring (δ/3.0); v2 is stricter (δ/1.5). The same model response scores lower under v2. Both start from the same SFT checkpoint.
+]
+
+]
+]
+
+---
+
+class: center, middle, section-slide
+
+# Results
+
+---
+
+# Key Results — SynthFP-Free Eval (n=320)
+
+Baseline = Qwen3-4B-Instruct-2507, no fine-tuning &nbsp;·&nbsp; Finetuned = SFT + GRPO (RL v2)
+
+| Metric | Baseline | Finetuned | Δ |
+|--------|--------:|----------:|:--|
+| Mean score | 0.516 | **0.574** | .pos[+0.058] |
+| Exact OOM accuracy | 32.5% | **39.4%** | .pos[+6.9%] |
+| Within 1 decade | 55.9% | **63.8%** | .pos[+7.9%] |
+| Within 2 decades | 68.8% | **74.4%** | .pos[+5.6%] |
+| Parse OK | 95.3% | **99.4%** | .pos[+4.1%] |
+| Score = 0 (complete fail) | 25.0% | **22.5%** | .pos[−2.5%] |
+
+.highlight[
+Eval on the **SynthFP-free set** (320 questions, never seen in training). SynthFP questions removed because the source paper flagged their ground truths as unreliable.
+]
+
+---
+
+# Performance by OOM Range
+
+.center.w-100.shadow[![SFT vs RL by OOM bucket](sft_vs_rl_by_oom_bucket.png)]
+
+Model performs best on everyday-scale questions (OOM −3 to 9). Performance degrades sharply at extremes — **Very High OOM (≥20) has a 48.5% zero-score rate**.
+
+---
+
+# Qualitative Example — parsed reasoning traces
+
+.small[
+SynthFP-free eval (`eval_no_synthfp`, index **107**, id `107`). Gold OOM **8** — **population × per‑capita gasoline/day** Fermi. Verbatim parsed JSON from eval logs; baseline wrong OOM; RL exact.
+]
+
+.highlight[
+**Question:** How many gallons of gasoline are consumed in the US every day?
+]
+
+.cols[
+.col-half[
+<div class="trace-label"><span class="red">Baseline (no FT)</span> · predicted OOM <strong>11</strong> · FP <strong>≈0.001</strong> · <code>fp_log10_error=2.996</code></div>
+
+<pre class="trace-json">{
+  &quot;question&quot;: &quot;How many gallons of gasoline are consumed in the US every day?&quot;,
+  &quot;assumptions&quot;: [
+    {
+      &quot;name&quot;: &quot;daily_gasoline_consumption_per_capita&quot;,
+      &quot;value&quot;: 300,
+      &quot;unit&quot;: &quot;gallons&quot;,
+      &quot;low&quot;: 200,
+      &quot;high&quot;: 400,
+      &quot;reasoning&quot;: &quot;Average daily gasoline use per person in the US is estimated to be around 300 gallons, based on transportation usage (cars, light trucks, etc.). This includes both personal vehicles and light-duty vehicles, with typical fuel efficiency and driving patterns. Values between 200 and 400 gallons are plausible depending on region and vehicle type.&quot;
+    },
+    {
+      &quot;name&quot;: &quot;US_population&quot;,
+      &quot;value&quot;: 330000000,
+      &quot;unit&quot;: &quot;people&quot;,
+      &quot;low&quot;: 300000000,
+      &quot;high&quot;: 360000000,
+      &quot;reasoning&quot;: &quot;The U.S. population is approximately 330 million. This is a well-established demographic figure, with a reasonable range based on recent census data and annual growth trends.&quot;
+    }
+  ],
+  &quot;calculation&quot;: &quot;330000000 * 300 = 99000000000&quot;,
+  &quot;final_answer&quot;: {
+    &quot;value&quot;: 99000000000,
+    &quot;unit&quot;: &quot;gallons&quot;,
+    &quot;oom&quot;: 11
+  }
+}</pre>
+]
+.col-half[
+<div class="trace-label"><span class="green">RL fine-tuned</span> · predicted OOM <strong>8</strong> · FP <strong>≈0.77</strong> · <code>fp_log10_error=0.695</code></div>
+
+<pre class="trace-json">{
+  &quot;question&quot;: &quot;How many gallons of gasoline are consumed in the US every day?&quot;,
+  &quot;assumptions&quot;: [
+    {
+      &quot;name&quot;: &quot;total population of the United States&quot;,
+      &quot;value&quot;: 330000000,
+      &quot;unit&quot;: &quot;people&quot;,
+      &quot;low&quot;: 165000000.0,
+      &quot;high&quot;: 660000000,
+      &quot;reasoning&quot;: &quot;The U.S. population is approximately 330 million, which is a commonly cited figure in recent demographic data&quot;
+    },
+    {
+      &quot;name&quot;: &quot;average daily gasoline consumption per person in the US&quot;,
+      &quot;value&quot;: 1.5,
+      &quot;unit&quot;: &quot;gallons per person per day&quot;,
+      &quot;low&quot;: 0.75,
+      &quot;high&quot;: 3.0,
+      &quot;reasoning&quot;: &quot;The average American drives about 12,000 miles per year, and with an average fuel efficiency of 25 mpg, that's roughly 480 gallons per year. Dividing by 365 days gives about 1.32 gallons per day, which rounds to 1.5 for a conservative estimate including non-road uses and variations&quot;
+    }
+  ],
+  &quot;calculation&quot;: &quot;330000000 people * 1.5 gallons/person/day = 495000000 gallons/day&quot;,
+  &quot;final_answer&quot;: {
+    &quot;value&quot;: 495000000,
+    &quot;unit&quot;: &quot;gallons&quot;,
+    &quot;oom&quot;: 8
+  }
+}</pre>
+]
+]
+
+---
+
+# Qualitative Example — what changed · verification
+
+.cols[
+.col-half[
+.highlight-red[
+**Baseline failure mode**
+
+- **Bad anchor:** Labels **300 gallons** as **daily** per capita — confuses something closer to **annual** usage with **per day**, blowing total consumption to ~10¹¹ gal/day → **`oom: 11`** vs gold **8**.
+- **Calculation:** Still runs **population × rate**, but the rate slot is wrong by orders of magnitude (sanity failure typical of unchecked Fermi factors).
+]
+]
+.col-half[
+.highlight-green[
+**Why the RL trace scores higher**
+
+- **Derived rate:** Builds ~**1.5 gal/person/day** from miles/year ÷ mpg ÷ days — plausible magnitude — then **330M × 1.5 → ~5×10⁸ gal/day → `oom: 8`** matching gold.
+- **Measured gap:** **`fp_log10_error` 2.996 → 0.695** — exact **OOM** hit plus far higher FP score on the same structured schema.
+]
+]
+]
+
+.small[
+**Verification:** Nation-wide totals depend on fleet mix and freight; neither trace is “official.” RL wins here because **per‑capita gasoline/day is on the right decade**, so population multiplication lands near gold — baseline’s factor **300 gal/day** is physically absurd before arithmetic starts.
+]
+
+---
+
+class: center, middle, section-slide
+
+# Conclusions
+
+---
+
+# What Worked
+
+.cols[
+.col-half[
+.highlight-green[
+**SFT**
+- +6.6% parse OK (92.2% → 98.8%)
+- Structured reasoning format learned reliably
+- Val score 0.518 → 0.691 over training
+]
+
+.highlight-green[
+**GRPO (RL v2)**
+- +7.9% within-1-decade on clean eval
+- +4.1% parse OK on top of SFT
+- Mean score 0.516 → 0.574 (baseline → finetuned)
+]
+]
+.col-half[
+.highlight-green[
+**Data pipeline**
+- Fact grounding reduced noisy ground truths
+- Verification + trace generation from Qwen3-30B produced high-quality SFT examples
+]
+
+.highlight-green[
+**SynthFP removal**
+- Revealed true gains hidden by memorised synthetic questions
+- Clean eval showed +0.058 mean score improvement
+]
+]
+]
+
+---
+
+# What Didn't & Future Directions
+
+.cols[
+.col-half[
+.highlight-red[
+**What didn't work**
+- Tail OOM accuracy remains poor — high zero-score rate at extreme OOMs (≤−10, ≥20)
+- Confidence is uncalibrated — equally wrong at high/medium confidence
+]
+]
+.col-half[
+.highlight-purple[
+**Future directions**
+- Curate a larger, higher-quality dataset with better coverage of extreme OOM questions and verified ground truths
+- SFT pass specifically on tail OOM questions
+- Confidence calibration penalty in reward
+- Multi-step self-verification: model checks own answer before committing
+]
+]
+]
+
+.footnote[DS595 Spring 2026 · Achuthan Rathinam · Ria Sonalker · George Jr. Escobar · Puchen Liu]
+
+---
+
+class: center, middle, title-slide
+
+# Questions?
+
+### Fermi Estimation Fine-Tuning Pipeline
+
+.muted[DS595 Spring 2026]
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+    <script>
+      var slideshow = remark.create({
+        ratio: '16:9',
+        highlightStyle: 'github',
+        highlightLines: true,
+        countIncrementalSlides: false,
+        navigation: { scroll: false }
+      });
+
+      // Annotation system
+      (function() {
+        const canvas = document.getElementById('annotation-canvas');
+        const ctx = canvas.getContext('2d');
+        const indicator = document.getElementById('drawing-indicator');
+        let isDrawing = false, drawingMode = false, lastX = 0, lastY = 0;
+        let currentSlideIdx = 0, canvasDirty = false;
+        const annotations = {};
+
+        function setupCanvas() {
+          const dpr = window.devicePixelRatio || 1;
+          canvas.width = window.innerWidth * dpr;
+          canvas.height = window.innerHeight * dpr;
+          canvas.style.width = window.innerWidth + 'px';
+          canvas.style.height = window.innerHeight + 'px';
+          ctx.setTransform(1,0,0,1,0,0); ctx.scale(dpr,dpr);
+          ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+          ctx.lineWidth = 3; ctx.strokeStyle = '#ef4444';
+        }
+
+        function saveAnnotations() {
+          if (canvasDirty) annotations[currentSlideIdx] = canvas.toDataURL();
+        }
+
+        function restoreAnnotations(slideIdx) {
+          const dpr = window.devicePixelRatio || 1;
+          canvas.width = window.innerWidth * dpr; canvas.height = window.innerHeight * dpr;
+          ctx.setTransform(1,0,0,1,0,0); ctx.scale(dpr,dpr);
+          ctx.lineCap='round'; ctx.lineJoin='round'; ctx.lineWidth=3; ctx.strokeStyle='#ef4444';
+          canvasDirty = false;
+          if (annotations[slideIdx]) {
+            const img = new Image(), target = slideIdx;
+            img.onload = function() {
+              if (currentSlideIdx !== target) return;
+              ctx.setTransform(1,0,0,1,0,0);
+              ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+              ctx.scale(dpr,dpr);
+            };
+            img.src = annotations[slideIdx];
+          }
+        }
+
+        canvas.addEventListener('mousedown', e => {
+          if (!drawingMode) return;
+          isDrawing = true; lastX = e.clientX; lastY = e.clientY;
+        });
+        canvas.addEventListener('mousemove', e => {
+          if (!isDrawing || !drawingMode) return;
+          ctx.beginPath(); ctx.moveTo(lastX, lastY);
+          ctx.lineTo(e.clientX, e.clientY); ctx.stroke();
+          lastX = e.clientX; lastY = e.clientY; canvasDirty = true;
+        });
+        canvas.addEventListener('mouseup', () => { if (isDrawing) { isDrawing=false; saveAnnotations(); } });
+        canvas.addEventListener('mouseout', () => { if (isDrawing) { isDrawing=false; saveAnnotations(); } });
+
+        window.addEventListener('resize', () => { saveAnnotations(); setupCanvas(); restoreAnnotations(currentSlideIdx); });
+
+        document.addEventListener('keydown', e => {
+          if (e.key==='d'||e.key==='D') {
+            drawingMode=!drawingMode;
+            canvas.classList.toggle('drawing',drawingMode);
+            indicator.classList.toggle('visible',drawingMode);
+            e.stopPropagation();
+          } else if ((e.key==='x'||e.key==='X') && drawingMode) {
+            const dpr=window.devicePixelRatio||1;
+            ctx.setTransform(1,0,0,1,0,0); ctx.clearRect(0,0,canvas.width,canvas.height); ctx.scale(dpr,dpr);
+            delete annotations[currentSlideIdx]; canvasDirty=false; e.stopPropagation();
+          }
+        });
+
+        function checkSlide() {
+          const newIdx = slideshow.getCurrentSlideIndex();
+          if (newIdx !== currentSlideIdx) {
+            saveAnnotations(); if(isDrawing) isDrawing=false;
+            currentSlideIdx = newIdx; restoreAnnotations(currentSlideIdx);
+          }
+        }
+        document.addEventListener('keyup', checkSlide);
+        document.addEventListener('click', checkSlide);
+        slideshow.on('hideSlide', saveAnnotations);
+        slideshow.on('showSlide', s => { currentSlideIdx=s.getSlideIndex(); restoreAnnotations(currentSlideIdx); });
+
+        currentSlideIdx = slideshow.getCurrentSlideIndex();
+        setupCanvas();
+      })();
+
+      // Browser fullscreen for presenting (Esc exits)
+      (function () {
+        var btn = document.getElementById('fullscreen-toggle');
+        if (!btn) return;
+        function toggleFs() {
+          var el = document.documentElement;
+          if (!document.fullscreenElement) {
+            var req = el.requestFullscreen || el.webkitRequestFullscreen;
+            if (req) req.call(el).catch(function () {});
+          } else {
+            var exit = document.exitFullscreen || document.webkitExitFullscreen;
+            if (exit) exit.call(document);
+          }
+        }
+        btn.addEventListener('click', toggleFs);
+        document.addEventListener('fullscreenchange', function () {
+          var on = !!document.fullscreenElement;
+          btn.textContent = on ? 'Exit fullscreen (Esc)' : 'Fullscreen (F)';
+          btn.classList.toggle('is-fullscreen', on);
+          btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key !== 'f' && e.key !== 'F') return;
+          var el = e.target;
+          if (el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable)) return;
+          e.preventDefault();
+          toggleFs();
+        });
+      })();
+
+</script>
+  </body>
+</html>
